@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="1.2" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd">
+ 
+ <!-- Added By NEEL for LDAP and UserProfileDetailDTO (Started)-->
+ 	 <managed-bean>
+		  <managed-bean-name>twitterController</managed-bean-name>
+		  <managed-bean-class>com.edifixio.soc.web.controllers.TwitterController</managed-bean-class>
+		  <managed-bean-scope>request</managed-bean-scope>
+	 </managed-bean>
+	 
+	 <managed-bean>
+		  <managed-bean-name>userProfileDetailDTO</managed-bean-name>
+		  <managed-bean-class>com.edifixio.soc.biz.dto.UserProfileDetailDTO</managed-bean-class>
+		  <managed-bean-scope>session</managed-bean-scope>
+	 </managed-bean>
+	 
+	 <managed-bean>
+		  <managed-bean-name>twitterAccountDTO</managed-bean-name>
+		  <managed-bean-class>com.edifixio.soc.biz.dto.TwitterAccountDTO</managed-bean-class>
+		  <managed-bean-scope>session</managed-bean-scope>
+	 </managed-bean>
+	
+	 <managed-bean>
+		  <managed-bean-name>backingBean</managed-bean-name>
+		  <managed-bean-class>com.edifixio.soc.web.controllers.BackingBean</managed-bean-class>
+		  <managed-bean-scope>request</managed-bean-scope>
+	 </managed-bean>
+	 
+	 <managed-bean>
+		  <managed-bean-name>twitterDTO</managed-bean-name>
+		  <managed-bean-class>com.edifixio.soc.web.dto.TwitterDTO</managed-bean-class>
+		  <managed-bean-scope>request</managed-bean-scope>
+	 </managed-bean>
+ <!-- Added By NEEL for LDAP (Ended)-->
+ 
+ 
+ <managed-bean>
+  <managed-bean-name>channelPerformanceController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.ChannelPerformanceController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+
+  <managed-property>  
+  <property-name>si</property-name>
+  	<value>#{param.si}</value>
+  </managed-property>
+  <managed-property>  
+  <property-name>col</property-name>
+  	<value>#{param.col}</value>
+  </managed-property>
+  
+  
+  
+ </managed-bean>
+ 
+ 
+ <managed-bean>
+  <managed-bean-name>channelController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.ChannelController</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>skinBean</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.util.SkinBean</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+  <managed-property>
+   <property-name>skin</property-name>
+   <value>classic</value>
+  </managed-property>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>fileUploadController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.FileUploadController</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ <managed-bean>
+  <managed-bean-name>inboundController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.InboundController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>outboundController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.OutboundController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>executiveSummaryController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.ExecutiveSummaryController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>overallAnalysisController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.OverallAnalysisController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+ 
+  <managed-bean>
+  <managed-bean-name>overallSIController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.OverAllSIController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>socialIntelligenceController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.SocialIntelligenceController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>overallScoreController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.OverallScoreController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>dataInputController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.DataInputController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>influenceController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.InfluenceController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope> 
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>reachController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.ReachController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>engagementController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.EngagementController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>   
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>loyaltyController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.LoyaltyController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>   
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>retentionController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.RetentionController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>   
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>demographicsController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.DemographicsController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>   
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>  
+ </managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>listItemMgr</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.ListItemController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>bizServiceFactory</property-name>
+   <value>#{bizControlDataMgr}</value>
+  </managed-property>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>dashboardController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.DashBoardController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>dashboardEditController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.DashBoardEditController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>overallROIController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.OverallROIController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>
+ </managed-bean>
+ 
+  <managed-bean>
+  <managed-bean-name>roiController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.ROIController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>channelROIController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.ChannelROIController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+  <managed-property>
+   <property-name>currentMenu</property-name>
+   <property-class>com.edifixio.soc.web.controllers.CurrentMenu</property-class>
+   <value>#{currentMenu}</value>
+  </managed-property>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>currentMenu</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.CurrentMenu</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>sentimentController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.SentimentController</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+ 
+ <managed-bean>
+  <managed-bean-name>sentimentThemeDetailController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.SentimentThemeDetailController</managed-bean-class>
+  <managed-bean-scope>session</managed-bean-scope>
+ </managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>userProfileController</managed-bean-name>
+  <managed-bean-class>com.edifixio.soc.web.controllers.UserProfileController</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+ </managed-bean>
+ 
+ 
+ <navigation-rule>
+ <!-- 
+  <navigation-case>
+   <from-outcome>main</from-outcome>
+   <to-view-id>/main.jsp</to-view-id>
+  </navigation-case>
+  -->
+   <navigation-case>
+   <from-outcome>mainScreen</from-outcome>
+   <to-view-id>/mainScreen.jsp</to-view-id>
+  </navigation-case>
+  
+  
+  
+  <navigation-case>
+   <from-outcome>outbound</from-outcome>
+   <to-view-id>/outBound.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>executiveSummary</from-outcome>
+   <to-view-id>/executiveSummary.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>overallsi</from-outcome>
+   <to-view-id>/overallSI.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>socialIntelligence</from-outcome>
+   <to-view-id>/sentiment.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>influence</from-outcome>
+   <to-view-id>/influence.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>reach</from-outcome>
+   <to-view-id>/reach.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>engagement</from-outcome>
+   <to-view-id>/engagement.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>loyalty</from-outcome>
+   <to-view-id>/loyalty.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>retention</from-outcome>
+   <to-view-id>/retention.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>demographics</from-outcome>
+   <to-view-id>/demographics.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+
+  <navigation-case>
+   <from-outcome>overallscore</from-outcome>
+   <to-view-id>/overallscore.jsp</to-view-id>
+   <redirect/>
+  </navigation-case>
+
+  <navigation-case>
+   <from-outcome>datainput</from-outcome>
+   <to-view-id>/datainput.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+  
+  <navigation-case>
+   <from-outcome>inbound</from-outcome>
+   <to-view-id>/svtHome.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+   
+   <navigation-case>
+  <from-outcome>channelroi</from-outcome>
+  <to-view-id>/channelOptimizationROI.jsp</to-view-id>
+  <redirect/>
+</navigation-case>
+
+  <navigation-case>
+   <from-outcome>dashboard</from-outcome>
+   <to-view-id>/dashBoard.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>analysis</from-outcome>
+   <to-view-id>/executiveOverallSummary.jsp</to-view-id>
+    <redirect/>
+  </navigation-case>
+  <navigation-case>
+  <from-outcome>overallRoi</from-outcome>
+  <to-view-id>/overallROI.jsp</to-view-id>
+  </navigation-case>
+ <navigation-case>
+  <from-outcome>overallRoiEdit</from-outcome>
+  <to-view-id>/overallROIEdit.jsp</to-view-id>
+  <redirect/>
+  </navigation-case>
+ 
+
+  
+   
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/svtHome.jsp</from-view-id>
+  <navigation-case>
+   <from-outcome>stay</from-outcome>
+   <to-view-id>/svtHome.jsp</to-view-id>
+    <redirect/>
+  </navigation-case> 
+ </navigation-rule>
+ 
+   <application>
+    <variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+
+    </application>
+ 
+ 
+ 
+ <!-- Will see how we can use this later!
+	<application>
+    	<variable-resolver>org.springframework.webflow.executor.jsf.DelegatingFlowVariableResolver</variable-resolver>
+	</application>
+	-->
+
+	<!--<lifecycle>  
+		<phase-listener>  com.edifixio.soc.web.filter.SessionTimeoutPhaseListener </phase-listener>  
+	</lifecycle> 
+ -->
+ <application>
+  <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+ </application>
+</faces-config>

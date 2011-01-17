@@ -1,0 +1,53 @@
+/* ######### Matt Black Strip Main Menu Bar CSS ######### */
+
+.mattblackmenu ul{
+/*margin-top: 0;
+padding-top: 0;
+*/
+font: 13px Arial,Verdana,sans-serif;
+/*list-style-type: none;
+*//*border: 1px solid gray;
+*//*background: #414141;
+*/
+/*overflow: hidden;
+*/width: 100%;
+/*font-weight:bold;*/
+}
+
+.mattblackmenu li{
+display: inline;
+margin: 0;
+margin-top:10px;
+}
+
+.mattblackmenu li a{
+/*float: left;
+*/display: block;
+/*text-decoration: none;*/
+/*margin-right:10px;
+*//*padding: 6px 0px;*/ /*padding inside each tab*/
+/*border-right: 1px solid white;*/ /*right divider between tabs*/
+color: #7B7E87;
+/*background: #414141;
+*/
+/*background-image:url(../images/drop_down.jpg);
+*//*width:184px;*/
+height:auto;
+padding-top:5px;
+padding-left:8px;
+padding-bottom:5px;
+
+}
+
+.mattblackmenu li a:visited{
+color: #7B7E87;
+font-weight:normal;
+}
+
+.mattblackmenu li a:hover{
+/*background: black;*/ /*background of tabs for hover state */
+font-weight:normal;}
+
+.mattblackmenu a.selected{
+/*background: black;*/ /*background of tab with "selected" class assigned to its LI */
+font-weight:normal;}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="User" targetNamespace="http://twt.com" xmlns:tns="http://twt.com" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <schema targetNamespace="http://twt.com" xmlns:tns="http://twt.com" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://www.w3.org/2001/XMLSchema">
+      <complexType name="create">
+        <sequence>
+          <element name="UserServiceIn_1" type="tns:UserServiceIn" nillable="true"/></sequence></complexType>
+      <complexType name="UserServiceIn">
+        <sequence>
+          <element name="dateTimeReceived" type="dateTime" nillable="true"/>
+          <element name="dateTimeSent" type="dateTime" nillable="true"/>
+          <element name="loginId" type="string" nillable="true"/>
+          <element name="user" type="tns:WSUserIn" nillable="true" minOccurs="0" maxOccurs="unbounded"/></sequence></complexType>
+      <complexType name="WSUserIn">
+        <sequence>
+          <element name="city" type="string" nillable="true"/>
+          <element name="emailAddress" type="string" nillable="true"/>
+          <element name="firstName" type="string" nillable="true"/>
+          <element name="lastName" type="string" nillable="true"/>
+          <element name="middleName" type="string" nillable="true"/>
+          <element name="password" type="string" nillable="true"/>
+          <element name="state" type="string" nillable="true"/>
+          <element name="subscriptionDateFrom" type="dateTime" nillable="true"/>
+          <element name="subscriptionDateTo" type="dateTime" nillable="true"/>
+          <element name="subscriptionDesc" type="string" nillable="true"/>
+          <element name="subscriptionName" type="string" nillable="true"/>
+          <element name="workAddressLine1" type="string" nillable="true"/>
+          <element name="workAddressLine2" type="string" nillable="true"/>
+          <element name="workAddressLine3" type="string" nillable="true"/>
+          <element name="zipCode" type="string" nillable="true"/></sequence></complexType>
+      <complexType name="createResponse">
+        <sequence>
+          <element name="result" type="tns:UserServiceOut" nillable="true"/></sequence></complexType>
+      <complexType name="UserServiceOut">
+        <sequence>
+          <element name="dateTimeCreated" type="dateTime" nillable="true"/>
+          <element name="dateTimeSent" type="dateTime" nillable="true"/>
+          <element name="mainErrorCode" type="int"/>
+          <element name="mainErrorMessage" type="string" nillable="true"/>
+          <element name="mainErrorType" type="string" nillable="true"/>
+          <element name="user" type="tns:WSUser" nillable="true" minOccurs="0" maxOccurs="unbounded"/></sequence></complexType>
+      <complexType name="WSUser">
+        <sequence>
+          <element name="city" type="string" nillable="true"/>
+          <element name="emailAddress" type="string" nillable="true"/>
+          <element name="firstName" type="string" nillable="true"/>
+          <element name="lastName" type="string" nillable="true"/>
+          <element name="middleName" type="string" nillable="true"/>
+          <element name="password" type="string" nillable="true"/>
+          <element name="state" type="string" nillable="true"/>
+          <element name="subscriptionDateFrom" type="dateTime" nillable="true"/>
+          <element name="subscriptionDateTo" type="dateTime" nillable="true"/>
+          <element name="subscriptionDesc" type="string" nillable="true"/>
+          <element name="subscriptionName" type="string" nillable="true"/>
+          <element name="success" type="string" nillable="true"/>
+          <element name="userId" type="string" nillable="true"/>
+          <element name="workAddressLine1" type="string" nillable="true"/>
+          <element name="workAddressLine2" type="string" nillable="true"/>
+          <element name="workAddressLine3" type="string" nillable="true"/>
+          <element name="zipCode" type="string" nillable="true"/></sequence></complexType>
+      <element name="create" type="tns:create"/>
+      <element name="createResponse" type="tns:createResponse"/></schema></types>
+  <message name="UserWS_create">
+    <part name="parameters" element="tns:create"/></message>
+  <message name="UserWS_createResponse">
+    <part name="result" element="tns:createResponse"/></message>
+  <portType name="UserWS">
+    <operation name="create">
+      <input message="tns:UserWS_create"/>
+      <output message="tns:UserWS_createResponse"/></operation></portType>
+  <binding name="UserWSBinding" type="tns:UserWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="create">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/></input>
+      <output>
+        <soap:body use="literal"/></output></operation></binding>
+  <service name="User">
+    <port name="UserWSPort" binding="tns:UserWSBinding">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/></port></service></definitions>

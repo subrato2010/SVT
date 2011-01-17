@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+
+		<table width="97%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-left: 25px; margin-bottom: 10px">
+		  <tr>
+		    <td align="center" valign="top">
+			    
+			    <p class="analysis_para_text"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Although overall the score is low relative to your competitors, it is evident where the competitive advantage is in forums, blogs and social media. Generally, there is more user-generated content about your competitors in the social web. Because of search engines can crawl their forums, their search authority is much higher. Tracking these conversations through social media provides great insight into the vulnerabilities of the competitive marketplace. Lack of customer sentiment about the advantages of the Netezza product line is sorely missed and could become a real competitive advantage if found by prospects and dissatisfied customers of your competitors.</p>
+				<p class="analysis_para_text"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Each outbound channel is performing low and in turn, showing similar results on an inbound basis. The focus should be on improving the outbound metric performance using open platforms that can easily be integrated so that information is cross-promoted and user-generated content flows through the channels for improved authority.</p>
+				<p class="analysis_para_text"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Facilitation through all channels is imperative and tracking user-generated conversations on a real time basis should be at the heart of your campaigns and topic generation for discussions through forums, blogs and social media.</p>
+				<p class="analysis_para_text"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Ultimately, your ability to capture and measure activity through your CRM channel, will allow you to develop more targeted and successful marketing campaigns and gathering more accurate social intelligence.</p>
+				
+			    
+		    </td>
+		  </tr>
+		</table>
+	
+
+	</f:view>
+</ui:composition>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="outbound::#outBound.jsp" NAME="output1"
+    PATH="/outBound.jsp" TARGET="rules:#outBound.jsp" TITLE="outbound" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="executiveSummary::#executiveSummary.jsp"
+    NAME="output2" PATH="/executiveSummary.jsp"
+    TARGET="rules:#executiveSummary.jsp" TITLE="executiveSummary" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="overallsi::#overallSI.jsp" NAME="output3"
+    PATH="/overallSI.jsp" TARGET="rules:#overallSI.jsp"
+    TITLE="overallsi" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="socialIntelligence::#sentiment.jsp"
+    NAME="output4" PATH="/sentiment.jsp" TARGET="rules:#sentiment.jsp"
+    TITLE="socialIntelligence" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="influence::#influence.jsp" NAME="output5"
+    PATH="/influence.jsp" TARGET="rules:#influence.jsp"
+    TITLE="influence" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="reach::#reach.jsp" NAME="output6"
+    PATH="/reach.jsp" TARGET="rules:#reach.jsp" TITLE="reach" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="engagement::#engagement.jsp" NAME="output7"
+    PATH="/engagement.jsp" TARGET="rules:#engagement.jsp"
+    TITLE="engagement" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="loyalty::#loyalty.jsp" NAME="output8"
+    PATH="/loyalty.jsp" TARGET="rules:#loyalty.jsp" TITLE="loyalty" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="retention::#retention.jsp" NAME="output9"
+    PATH="/retention.jsp" TARGET="rules:#retention.jsp"
+    TITLE="retention" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="demographics::#demographics.jsp"
+    NAME="output10" PATH="/demographics.jsp"
+    TARGET="rules:#demographics.jsp" TITLE="demographics" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="overallscore::#overallscore.jsp"
+    NAME="output11" PATH="/overallscore.jsp"
+    TARGET="rules:#overallscore.jsp" TITLE="overallscore" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="datainput::#datainput.jsp" NAME="output12"
+    PATH="/datainput.jsp" TARGET="rules:#datainput.jsp"
+    TITLE="datainput" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="inbound::#svtHome.jsp" NAME="output13"
+    PATH="/svtHome.jsp" TARGET="rules:#svtHome.jsp" TITLE="inbound" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="channelroi::#channelOptimizationROI.jsp"
+    NAME="output" PATH="/channelOptimizationROI.jsp"
+    TARGET="rules:#channelOptimizationROI.jsp" TITLE="channelroi" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="dashboard::#dashBoard.jsp" NAME="output14"
+    PATH="/dashBoard.jsp" TARGET="rules:#dashBoard.jsp"
+    TITLE="dashboard" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="analysis::#executiveOverallSummary.jsp"
+    NAME="output15" PATH="/executiveOverallSummary.jsp"
+    TARGET="rules:#executiveOverallSummary.jsp" TITLE="analysis" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="overallRoi::#overallROI.jsp" NAME="output16"
+    PATH="/overallROI.jsp" TARGET="rules:#overallROI.jsp"
+    TITLE="overallRoi" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="overallRoiEdit::#overallROIEdit.jsp"
+    NAME="output17" PATH="/overallROIEdit.jsp"
+    TARGET="rules:#overallROIEdit.jsp" TITLE="overallRoiEdit" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#outBound.jsp" PATH="/outBound.jsp"
+  SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#svtHome.jsp" PATH="/svtHome.jsp"
+  SHAPE="272,321,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#svtHome.jsp:0" NAME="item"
+   PATH="/svtHome.jsp" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="stay::#svtHome.jsp" NAME="output"
+    PATH="/svtHome.jsp" TARGET="rules:#svtHome.jsp" TITLE="stay" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#dashBoard.jsp" PATH="/dashBoard.jsp"
+  SHAPE="288,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#executiveSummary.jsp"
+  PATH="/executiveSummary.jsp" SHAPE="288,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#influence.jsp" PATH="/influence.jsp"
+  SHAPE="304,529,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#overallscore.jsp" PATH="/overallscore.jsp"
+  SHAPE="304,1217,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#retention.jsp" PATH="/retention.jsp"
+  SHAPE="304,1105,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#reach.jsp" PATH="/reach.jsp"
+  SHAPE="304,657,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#loyalty.jsp" PATH="/loyalty.jsp"
+  SHAPE="304,993,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#engagement.jsp" PATH="/engagement.jsp"
+  SHAPE="304,881,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#datainput.jsp" PATH="/datainput.jsp"
+  SHAPE="304,1089,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#overallSI.jsp" PATH="/overallSI.jsp"
+  SHAPE="304,753,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#executiveOverallSummary.jsp"
+  PATH="/executiveOverallSummary.jsp" SHAPE="304,785,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#sentiment.jsp" PATH="/sentiment.jsp"
+  SHAPE="304,785,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#demographics.jsp" PATH="/demographics.jsp"
+  SHAPE="304,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#overallROI.jsp" PATH="/overallROI.jsp"
+  SHAPE="304,881,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#overallROIEdit.jsp"
+  PATH="/overallROIEdit.jsp" SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#channelOptimizationROI.jsp"
+  PATH="/channelOptimizationROI.jsp" SHAPE="304,881,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

@@ -1,0 +1,159 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+		<a4j:repeat value="#{dashboardController.dashBoardMerticsList}" var="matrix" rowKeyVar="i" >
+		<a4j:outputPanel rendered="#{(matrix.sentimentName eq dashboardController.currentSentiment)}">
+		<div id="dash_table_#{i}" style="display:block;" > 
+		
+		<table width="80%" border="0" style="margin-top:20px; margin-left:20px" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                  <!--
+                  	<div style="float: left">
+					<a href="#" onClick="openPopup('Edit',324, 90, 777, 643, 10, false, true, false, 'dashBoardEdit.jsp?index=0')"  onmouseover="this.style.color='#6F9426'; this.style.textDecoration='underline'; this.style.fontSize='11px'; this.style.cursor='hand';" onmouseout="this.style.fontSize='11px'; this.style.color='#7AC142'; this.style.textDecoration='none';">
+             			<image src="../images/popup/pen.gif" style="width:17px; height:17px; border:0px; padding-left:3px;"/>
+            		</a>
+        		   	</div>
+        		   	-->
+                  </td>
+                  <a4j:repeat value="#{matrix.headers}" var="comp">
+                  		<td class="graph_data_hd1" align="center">#{comp.name}</td>
+                  </a4j:repeat>
+                </tr>
+                <tr>
+                  <td colspan="5"><div class="graph_border"></div></td>
+              
+                </tr>
+                <a4j:repeat value="#{matrix.rows}" var="row" rowKeyVar="r"> 
+                
+                <tr height="50px">
+                  <td class="graph_data_hd" align="left" width="220px" id="td_#{r}">
+                  		<h:form>
+                  			<h:commandLink value="" action="#{dashboardController.toActualCategory}" style="color: #6E7177"  styleClass="graph_data_hd" onmouseover="this.style.color='#63881A'; this.style.fontSize='13px'; this.style.cursor='hand';" onmouseout="this.style.fontSize='13px'; this.style.color='#6E7177';">
+                  				#{row.subCategoryName}<br/>#{row.categoryDTO.categoryName}
+                  			</h:commandLink>
+                  			<h:graphicImage value="../images/bulb.jpg" rendered="#{row.description != null}" 
+                  				onmouseover="this.src='../images/bulb_green.jpg';" onmouseout="this.src='../images/bulb.jpg';"  style="margin-left:5px">
+					        <rich:toolTip  styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block" rendered="#{row.description != null}"
+					         onshow="" onhide="" >
+					            <span>
+					            
+					            <h:outputText value="#{row.description}" />
+					           
+					            </span>
+					        </rich:toolTip>
+					   		</h:graphicImage>
+					   		<br />
+					   		
+					   		<a href="#" style="color: #B0B0B0"  class="graph_data_hd" onmouseover="this.style.color='#A2C759'; this.style.fontSize='13px'; this.style.cursor='hand';" onmouseout="this.style.fontSize='13px'; this.style.color='#B0B0B0';">
+					   			1M Average
+					   		</a>
+					   	</h:form>
+                  </td>
+                  
+                  <a4j:repeat value="#{row.sentimentList}" var="sentiment">
+                  	<td class="graph_data_number" align="center">
+                  	<label href="#" style="color: #7AC142; font-size: 24px"  class="graph_data_number" onmouseover="this.style.color='#6F9426'; this.style.fontSize='24px';" onmouseout="this.style.fontSize='24px'; this.style.color='#7AC142'; this.style.textDecoration='none';">
+                  	#{sentiment.sentimentValueString}
+                  	</label>
+                  	</td>
+                  </a4j:repeat>
+
+                </tr>
+                
+                </a4j:repeat>
+
+         <a4j:outputPanel rendered="#{matrix.lastRow != null}">
+         <tr  bgcolor="#F5FEE9" height="45px" >
+           <td class="graph_data_left1" align="left">Overall Score</td>
+           
+           <a4j:repeat value="#{matrix.lastRow.sentimentList}" var="sent" >
+           <td class="graph_data_number" align="center">#{sent.sentimentValueString}</td>
+           </a4j:repeat>
+         </tr>
+
+         </a4j:outputPanel>
+         </table>
+
+		</div>
+		</a4j:outputPanel>
+		<a4j:outputPanel rendered="#{!(matrix.sentimentName eq dashboardController.currentSentiment)}">
+		<div id="dash_table_#{i}" style="display:none;" > 
+		
+		<table width="80%" border="0" style="margin-top:20px; margin-left:20px" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                  <!-- 
+                  	<div style="float: left;">
+						<a href="#" onClick="openPopup('Edit',324, 90, 777, 643, 10, false, true, false, 'dashBoardEdit.jsp?index=#{i}')"  onmouseover="this.style.color='#6F9426'; this.style.textDecoration='underline'; this.style.fontSize='11px'; this.style.cursor='hand';" onmouseout="this.style.fontSize='11px'; this.style.color='#7AC142'; this.style.textDecoration='none';">
+			              <image src="../images/popup/pen.gif" style="width:17px; height:17px; border:0px;padding-left:3px;"/>
+			            </a>
+        			</div>
+        			-->
+                  </td>
+                  <a4j:repeat value="#{matrix.headers}" var="comp">
+                  		<td class="graph_data_hd1" align="center">#{comp.name}</td>
+                  </a4j:repeat>
+                </tr>
+                <tr>
+                  <td colspan="5"><div class="graph_border"></div></td>
+              
+                </tr>
+                <a4j:repeat value="#{matrix.rows}" var="row"> 
+                
+                <tr height="50px">
+                  <td class="graph_data_hd" align="left" width="220px">
+                  	<h:form>
+                  	<h:commandLink value="" action="#{dashboardController.toActualCategory}" style="color: #6E7177"  styleClass="graph_data_hd" onmouseover="this.style.color='#63881A'; this.style.fontSize='13px'; this.style.cursor='hand';" onmouseout="this.style.fontSize='13px'; this.style.color='#6E7177';">
+                  				#{row.subCategoryName}<br/>#{row.categoryDTO.categoryName}
+           			</h:commandLink>
+                  			
+                  	<h:graphicImage value="../images/bulb.jpg" rendered="#{row.description != null}" 
+                  				onmouseover="this.src='../images/bulb_green.jpg';" onmouseout="this.src='../images/bulb.jpg';">
+					        <rich:toolTip  styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block" rendered="#{row.description != null}"
+					         onshow="" onhide="" >
+					            <span><h:outputText value="#{row.description}" /></span>
+					        </rich:toolTip>
+					</h:graphicImage>
+                  	<br />
+                  	<a href="#" style="color: #B0B0B0"  class="graph_data_hd" onmouseover="this.style.color='#A2C759'; this.style.fontSize='13px'; this.style.cursor='hand';" onmouseout="this.style.fontSize='13px'; this.style.color='#B0B0B0';">
+					   	1M Average
+					</a>
+                  	</h:form>
+                  </td>
+                  
+                  <a4j:repeat value="#{row.sentimentList}" var="sentiment">
+                  	<td class="graph_data_number" align="center">
+	                  	<label style="color: #7AC142; font-size: 24px;"  class="graph_data_number" onmouseover="this.style.color='#6F9426'; this.style.fontSize='24px';" onmouseout="this.style.fontSize='24px'; this.style.color='#7AC142'; this.style.textDecoration='none';">
+	                  	#{sentiment.sentimentValueString}
+	                  	</label>
+                  	</td>
+                  </a4j:repeat>
+
+                </tr>
+                
+                </a4j:repeat>
+                
+                <a4j:outputPanel rendered="#{matrix.lastRow != null}">
+                <tr  bgcolor="#F5FEE9" height="45px" >
+                  <td class="graph_data_left1" align="left">Overall Score</td>
+                  
+                  <a4j:repeat value="#{matrix.lastRow.sentimentList}" var="sent">
+                  <td class="graph_data_number" align="center">#{sent.sentimentValueString}</td>
+                  </a4j:repeat>
+                </tr>
+                </a4j:outputPanel>
+     	</table>
+		</div>
+		</a4j:outputPanel>
+		</a4j:repeat>
+</f:view>
+		<!-- include popup div -->
+		<ui:include src="popup.jsf" />
+</ui:composition>

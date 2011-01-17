@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+   <bean id="baseAdaptor" abstract="true" class="com.edifixio.soc.ws.common.BaseWebServiceAdaptor">
+       <property name="bizSvcFactory"><ref bean="bizControlDataMgr"/></property>
+   </bean>
+ 
+   <bean id="userWSAdaptor" parent="baseAdaptor"
+   		class="com.edifixio.soc.ws.UserWSAdaptor">
+   </bean>
+   		
+</beans>
+

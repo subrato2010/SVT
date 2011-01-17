@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.TwitterAccount"
+        table="TwitterAccount"
+    >
+
+        <id
+            name="twitterAccountId"
+            column="twitterAccountId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-TwitterAccount.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <many-to-one
+            name="company"
+            class="com.edifixio.soc.persist.Company"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="companyId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="profilePreference"
+            class="com.edifixio.soc.persist.ProfilePreference"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="profilePreferenceId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <property
+            name="self"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="self"
+        />
+
+        <property
+            name="twitterUsername"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="twitterUsername"
+        />
+        <many-to-one
+            name="brand"
+            class="com.edifixio.soc.persist.Brand"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="brandId" 
+                not-null="true"
+            />
+        </many-to-one>
+        <many-to-one
+            name="industry"
+            class="com.edifixio.soc.persist.Industry"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="industryId" 
+                not-null="true"
+            />
+        </many-to-one>
+        <many-to-one
+            name="product"
+            class="com.edifixio.soc.persist.Product"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="productId" 
+                not-null="true"
+            />
+        </many-to-one>
+        <property
+            name="benchmarkDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="benchmarkDate"
+        />
+        <property
+            name="updatedOn"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="updatedOn"
+        />
+
+        <property
+            name="updatedBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="updatedBy"
+        />
+
+        <many-to-one
+            name="benchmark"
+            class="com.edifixio.soc.persist.Benchmark"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="true"
+        >
+            <column
+                name="benchMarkId" 
+                not-null="false"
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-TwitterAccount.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

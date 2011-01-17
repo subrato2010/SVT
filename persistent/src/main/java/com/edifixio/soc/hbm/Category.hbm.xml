@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.Category"
+        table="Category"
+    >
+
+        <id
+            name="categoryId"
+            column="categoryId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Category.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="normalizedWt"
+            type="double"
+            update="true"
+            insert="true"
+            column="normalizedWt"
+        />
+
+        <property
+            name="relativeWt"
+            type="double"
+            update="true"
+            insert="true"
+            column="relativeWt"
+        />
+
+        <many-to-one
+            name="channel"
+            class="com.edifixio.soc.persist.Channel"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="channelId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <property
+            name="activeStatus"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="activeStatus"
+        />
+
+        <property
+            name="categoryCode"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="categoryCode"
+        />
+
+        <property
+            name="categoryDesc"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="categoryDesc"
+            length="1000"
+        />
+
+        <property
+            name="categoryName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="categoryName"
+        />
+
+        <property
+            name="displayOrder"
+            type="int"
+            update="true"
+            insert="true"
+            column="displayOrder"
+        />
+
+        <property
+            name="updatedOn"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="updatedOn"
+        />
+
+        <property
+            name="updatedBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="updatedBy"
+        />
+
+        <many-to-one
+            name="benchmark"
+            class="com.edifixio.soc.persist.Benchmark"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="true"
+        >
+            <column
+                name="benchMarkId" 
+                not-null="false"
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Category.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

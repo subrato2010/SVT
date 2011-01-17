@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+	
+<table width="97%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-left: 25px; margin-bottom: 10px">
+  <tr>
+    <td valign="top">
+
+				<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Outbound</p>
+				<p class="analysis_para_text1">There are several technical adjustments and link-building techniques, that when made, can improve your site's "searchability" dramatically.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>The main domain needs to be renewed for next 5 years so that Google is assured that it will be around for a while.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>It is weakest by the number of inbound link relationships.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>There are several urls that need to be "cleaned up" (remove punctuation) to remain competitive.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>There are very few indexed pages compared to the competition due to the lack of Google's ability to crawl the community site and forum.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>The sitemap functionality needs to be XML based which will allow for search engines to crawl more efficiently.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Meta tag usage does not comply with basic standards for search engine effectiveness. Keyword density, unique title descriptions, and targeted page titles is lacking.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Overall, keyword usage for targeted keywords is relatively good compared to the competition but could be optimized further for improved search engine conversion.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Although the budget for Pay Per Click (PPC) campaigns has been competitive, there hasn't been enough competitive analysis done on placement and relevance.</p>
+				<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Inbound</p>
+				<p class="analysis_para_text1">Inbound performance could be improved by creating non-branded keyword SEO and PPC campaigns while creating unique site subdomains.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Pay Per Click (PPC) campaigns have not yielded much traffic and should be used to target special events or promotions through other channels with limited duration. The cost per click has been too high. There is also a lot of competition for the targeted keywords being used. PPC campaigns should be used in conjunction with other advertising channels such as Facebook Ads. </p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Search volume through Google is on par with competitors but the number of indexed pages is significantly lower.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Since there are no sub domains to track, there is no data to report; sub domains should be used for blogs, forums, and events.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Overall, search referral volume is highest for branded keywords including products; the real value is in non-branded search referrals which are significantly lower targeting industry related topics.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>There were no PPC campaigns run for the Enzee community.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Search referral volume for community sites is low and strictly limited to branded keyword referrals. There is a lack of activity within these community websites comparatively.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>There is no traffic from branded Adword campaigns for community due to the lack of campaigns.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>There are no sub domains for community websites.</p>
+				<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Social Intelligence</p>
+				<p class="analysis_para_text1">- Netezza ranks well within the top levels for non-branded keywords and as a result, yields a high level of authority within the search engines and with visitors who search for non-branded keywords. Its limited ability to reach beyond a core set of keywords to reach beyond, is a big weakness due to the limited ability to publish conversational and user-generated content.</p>
+
+   </td>
+  </tr>
+</table>	
+
+
+	</f:view>
+</ui:composition>

@@ -1,0 +1,4 @@
+<jboss-web>
+    <context-root>TWT</context-root>
+	<security-domain>java:/jaas/TWT</security-domain>
+</jboss-web>

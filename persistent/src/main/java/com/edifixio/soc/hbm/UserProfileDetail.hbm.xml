@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.UserProfileDetail"
+        table="UserProfileDetail"
+    >
+
+        <id
+            name="userProfileDetailId"
+            column="userProfileDetailId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-UserProfileDetail.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="activeStatus"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="activeStatus"
+        />
+		<property
+            name="firstTimeLogin"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="firstTimeLogin"
+        />
+        <many-to-one
+            name="improvementLevel"
+            class="com.edifixio.soc.persist.ImprovementLevel"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="improvementLevelId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <property
+            name="keyWordIdentBrand"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="keyWordIdentBrand"
+        />
+
+        <property
+            name="keyWordIdentIndu"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="keyWordIdentIndu"
+        />
+
+        <property
+            name="keyWordIdentProd"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="keyWordIdentProd"
+        />
+
+        <property
+            name="subscriptionDateFrom"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="subscriptionDateFrom"
+        />
+
+        <property
+            name="subscriptionDateTo"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="subscriptionDateTo"
+        />
+
+        <property
+            name="subscriptionDesc"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="subscriptionDesc"
+        />
+
+        <property
+            name="subscriptionName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="subscriptionName"
+        />
+
+        <property
+            name="vanityUrl"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="vanityUrl"
+        />
+
+        <property
+            name="reportingEmail1"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="reportingEmail1"
+        />
+
+        <property
+            name="reportingEmail2"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="reportingEmail2"
+        />
+
+        <property
+            name="reportingEmail3"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="reportingEmail3"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-UserProfileDetail.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

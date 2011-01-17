@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+   <!-- BIZ BEANS -->
+   	<bean id="twitterMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.batch.TwitterMgrImpl" parent="baseBizObject">
+				<property name="metricsMgr"><ref bean="metricsMgr"/></property>
+				<property name="profilePreferenceMgr"><ref bean="profilePreferenceMgr"/></property>
+				<property name="twitterAccountMgr"><ref bean="twitterAccountMgr"/></property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="stagingRawScoreMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.StagingRawScoreMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="twitterAccountMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.TwitterAccountMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="profilePreferenceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.ProfilePreferenceMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="metricsMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.MetricsMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="channelMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.ChannelMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="benchmarkMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.BenchmarkMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>	
+	<bean id="userProfileMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.UserProfileMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="stateProvinceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.StateProvinceMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="profileInfluenceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.ProfileInfluenceMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="profileInfluenceListMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.ProfileInfluenceListMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="profileListMasterMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.ProfileListMasterMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="improvementLevelMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.ImprovementLevelMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>	
+	<bean id="twitterCalculatorMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.TwitterCalculatorMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="rawResultMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.RawResultMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="baseBizObject" abstract="true">
+      <property name="daoProvider"><ref bean="daoProvider"/></property>
+   </bean>
+
+	<bean id="inboundDummyMgr" parent="txProxyTemplate"><property name="target">
+			<bean class="com.edifixio.soc.biz.InboundDummyMgrImpl" parent="baseBizObject"></bean></property>		
+	</bean>
+	<bean id="outboundDummyMgr" parent="txProxyTemplate"><property name="target">
+			<bean class="com.edifixio.soc.biz.OutboundDummyMgrImpl" parent="baseBizObject"></bean></property>		
+	</bean>
+		<bean id="overallDummyMgr" parent="txProxyTemplate"><property name="target">
+			<bean class="com.edifixio.soc.biz.OverallDummyMgrImpl" parent="baseBizObject"></bean></property>		
+	</bean>
+		<bean id="profileDummyMgr" parent="txProxyTemplate"><property name="target">
+			<bean class="com.edifixio.soc.biz.ProfileDummyMgrImpl" parent="baseBizObject"></bean></property>		
+	</bean>
+		<bean id="socIntellDummyMgr" parent="txProxyTemplate"><property name="target">
+			<bean class="com.edifixio.soc.biz.SocIntellDummyMgrImpl" parent="baseBizObject"></bean></property>		
+	</bean>
+
+
+	<!-- Calling this bean from web -->
+	
+   <bean id="bizControlDataMgr" parent="txProxyTemplate">
+     <property name="target">
+        <bean class="com.edifixio.soc.biz.util.BizControlDataMgrImpl" parent="baseBizObject">
+	        <property name="channelMgr"><ref bean="channelMgr"/></property>	
+	        <property name="userProfileMgr"><ref bean="userProfileMgr"/></property>
+	        <property name="benchmarkMgr"><ref bean="benchmarkMgr"/></property>	 
+	        <property name="stagingRawScoreMgr"><ref bean="stagingRawScoreMgr"/></property>  
+	        <property name="twitterAccountMgr"><ref bean="twitterAccountMgr"/></property> 
+	        <property name="twitterMgr"><ref bean="twitterMgr"/></property> 
+	        <property name="metricsMgr"><ref bean="metricsMgr"/></property>
+	        <property name="profilePreferenceMgr"><ref bean="profilePreferenceMgr"/></property>    
+	        <property name="stateProvinceMgr"><ref bean="stateProvinceMgr"/></property>
+	        <property name="profileInfluenceMgr"><ref bean="profileInfluenceMgr"/></property>
+	        <property name="profileInfluenceListMgr"><ref bean="profileInfluenceListMgr"/></property>
+	        <property name="profileListMasterMgr"><ref bean="profileListMasterMgr"/></property>
+	        <property name="improvementLevelMgr"><ref bean="improvementLevelMgr"/></property>
+	        <property name="twitterCalculatorMgr"><ref bean="twitterCalculatorMgr"/></property>
+	        <property name="rawResultMgr"><ref bean="rawResultMgr"/></property>
+	        
+	        <!-- all dummy needs to be removed after 9-Dec presentation -->
+	        <property name="inboundDummyMgr"><ref bean="inboundDummyMgr"/></property>    
+	        <property name="outboundDummyMgr"><ref bean="outboundDummyMgr"/></property>    
+	        <property name="overallDummyMgr"><ref bean="overallDummyMgr"/></property>    
+	        <property name="profileDummyMgr"><ref bean="profileDummyMgr"/></property>    
+	        <property name="socIntellDummyMgr"><ref bean="socIntellDummyMgr"/></property>      
+        </bean>
+     </property>
+   </bean>
+ 
+</beans>

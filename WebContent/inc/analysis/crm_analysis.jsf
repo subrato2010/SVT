@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+	
+	
+<table width="97%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-left: 25px; margin-bottom: 10px">
+  <tr>
+    <td valign="top">
+
+		<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Outbound</p>
+		<p class="analysis_para_text1">The lack of activity data tracking makes it difficult to accurately calculate the direct impact of advertising efforts.</p>
+		<p class="analysis_para_text2">- Activity data in CRM is not regularly tracked and should be well integrated with online and offline activities. The lack thereof, makes it impossible to know which marketing and sales activities yield the best results.</p>
+		<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Inbound</p>
+		<p class="analysis_para_text1">Lack of activity tracking makes it difficult to get an accurate understanding of the sales cycle.</p>
+		<p class="analysis_para_text2">- Basic customer segmentation and demographic data is available in the CRM system but beyond that, there is no way to track sales cycles and the ROI of any activities. </p>
+		<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Social Intelligence</p>
+		<p class="analysis_para_text2">- With very little data to track through CRM, and non-existent cross-channel data, there isn't an accurate social intelligence measurement except that as a benchmark for improvement, the data will show the most abundant and accurate data set out of all the channels. There was no sentiment or influencer activity relative to the offline channel.</p>
+
+    </td>
+  </tr>
+</table>
+
+
+	</f:view>
+</ui:composition>

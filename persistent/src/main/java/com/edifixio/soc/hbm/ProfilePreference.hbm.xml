@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.ProfilePreference"
+        table="ProfilePreference"
+    >
+
+        <id
+            name="profilePrefrenceId"
+            column="profilePrefrenceId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-ProfilePreference.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+		<property
+            name="profileUserId"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="profileUserId"
+        />
+        <many-to-one
+            name="userProfileDetail"
+            class="com.edifixio.soc.persist.UserProfileDetail"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="userProfileDetailId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <property
+            name="activeStatus"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="activeStatus"
+        />
+
+		
+        <many-to-one
+            name="brand"
+            class="com.edifixio.soc.persist.Brand"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="brandId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="company"
+            class="com.edifixio.soc.persist.Company"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="companyId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="industry"
+            class="com.edifixio.soc.persist.Industry"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="industryId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <many-to-one
+            name="product"
+            class="com.edifixio.soc.persist.Product"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="productId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-ProfilePreference.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

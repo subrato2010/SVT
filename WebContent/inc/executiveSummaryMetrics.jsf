@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+				<a4j:loadStyle src="../style/style.css" />
+				
+				<a4j:outputPanel rendered="#{controller.currentMenu.title eq 'Overall Score'}">
+					<ui:include src="analysis/overall_analysis.jsf" />
+				</a4j:outputPanel>
+				
+				<a4j:outputPanel rendered="#{controller.currentMenu.title eq 'Website'}">
+					<ui:include src="analysis/website_analysis.jsf" />
+				</a4j:outputPanel>
+				
+				<a4j:outputPanel rendered="#{controller.currentMenu.title eq 'Email'}">
+					<ui:include src="analysis/email_analysis.jsf" />
+				</a4j:outputPanel>
+				
+				<a4j:outputPanel rendered="#{controller.currentMenu.title eq 'Search'}">
+					<ui:include src="analysis/search_analysis.jsf" />
+				</a4j:outputPanel>
+				
+				<a4j:outputPanel rendered="#{controller.currentMenu.title eq 'Multimedia'}">
+					<ui:include src="analysis/multimedia_analysis.jsf" />
+				</a4j:outputPanel>
+				
+				<a4j:outputPanel rendered="#{controller.currentMenu.title eq 'Blogosphere'}">
+					<ui:include src="analysis/blogosphere_analysis.jsf" />
+				</a4j:outputPanel>
+				
+				<a4j:outputPanel rendered="#{controller.currentMenu.title eq 'Offline'}">
+					<ui:include src="analysis/offline_analysis.jsf" />
+				</a4j:outputPanel>
+				
+				<a4j:outputPanel rendered="#{controller.currentMenu.title eq 'PR &amp; News'}">
+					<ui:include src="analysis/prNews_analysis.jsf" />
+				</a4j:outputPanel>
+				
+				<a4j:outputPanel rendered="#{controller.currentMenu.title eq 'Social Networks'}">
+					<ui:include src="analysis/socialNetwork_analysis.jsf" />
+				</a4j:outputPanel>
+				
+				<a4j:outputPanel rendered="#{controller.currentMenu.title eq 'CRM'}">
+					<ui:include src="analysis/crm_analysis.jsf" />
+				</a4j:outputPanel>
+	
+	</f:view>
+</ui:composition>

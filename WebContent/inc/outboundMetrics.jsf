@@ -1,0 +1,71 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+		<a4j:repeat value="#{outboundController.outboundMetrics}" var="matrix" rowKeyVar="i" >
+		<a4j:outputPanel >
+		
+		<table width="80%" border="0" style="margin-top:20px; margin-left:20px" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td></td>
+                  <a4j:repeat value="#{matrix.metricsHeader}" var="comp">
+                  		<td class="graph_data_hd1" align="center">#{comp.name}</td>
+                  </a4j:repeat>
+                </tr>
+                <tr>
+                  <td colspan="5"><div class="graph_border"></div></td>
+              
+                </tr>
+                <a4j:repeat value="#{matrix.metricsRows}" var="row"> 
+                
+                <tr height="50px">
+                  <td class="graph_data_hd" align="left" width="300px">
+						<h:form>
+
+					         <label  href="#" style="color:#767E8B;" class="graph_data_hd" onmouseover="this.style.color='#63881A'; this.style.fontSize='13px'; this.style.cursor='hand';" onmouseout="this.style.fontSize='13px'; this.style.color='#767E8B';">
+					        	#{row.subCategoryName}
+					        </label> 
+					        <h:graphicImage value="../images/bulb.jpg" rendered="#{row.description != null}" 
+					        onmouseover="this.src='../images/bulb_green.jpg';" onmouseout="this.src='../images/bulb.jpg';">
+					        <rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block" rendered="#{row.description != null}">
+					            <span><h:outputText value="#{row.description}" /></span>
+					        </rich:toolTip>
+					   		</h:graphicImage>
+   					 	</h:form>
+						
+                  </td>
+                  
+                  <a4j:repeat value="#{row.scores}" var="iScore">
+                  	<td class="graph_data_number" align="center">
+	                  	<label style="color: #7AC142; font-size: 24px;"  class="graph_data_number" onmouseover="this.style.color='#6F9426'; this.style.fontSize='24px';" onmouseout="this.style.fontSize='24px'; this.style.color='#7AC142'; this.style.textDecoration='none';">
+	                  	#{iScore.scoreString}
+	                  	</label>
+                  	</td>
+                  </a4j:repeat>
+
+                </tr>
+                
+                </a4j:repeat>
+                
+                <a4j:outputPanel rendered="#{matrix.lastRow != null}" >
+                
+                <tr  bgcolor="#F5FEE9" height="45px">
+                  <td class="graph_data_left1" align="left">Overall Score</td>
+                  
+                  <a4j:repeat value="#{matrix.lastRow.scores}" var="iScoreLast">
+                  <td class="graph_data_number" align="center">#{iScoreLast.scoreString}</td>
+                  </a4j:repeat>
+                </tr>
+ 
+                </a4j:outputPanel>
+     	</table>
+		
+		</a4j:outputPanel>
+		</a4j:repeat>
+</f:view>
+</ui:composition>

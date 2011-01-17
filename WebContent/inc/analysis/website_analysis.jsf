@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+	
+<table width="97%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-left: 25px; margin-bottom: 10px">
+  <tr>
+    <td>
+		
+				 <p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Outbound</p>
+				 <p class="analysis_para_text1">At the moment, the website is a critical but under-utilized asset for Netezza.  Improvement should focus on consistency of user-experience and look/feel, SEO optimization, generating fresh content with increasing frequency and integrating sharing/distribution technology.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Overall content is clearly written, above the fold, but could be more concise.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Use of whitepapers is highly effective and should be more prominently used.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Site speed and usage of unique urls must be increased to leverage SEO for maximum effect.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Remove flash intro page for event website, decreases SEO effectiveness.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Look &amp; feel for branding and usability lacks consistency throughout (corporate, event, blogs, etc).</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Open source platform with blogs, forums, community is required for consistency of user experience.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Social media integration of content is required for fresher content.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Use of online feedback and surveys is needed.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>RSS feeds seem to be missing and need to be a priority for information dissemination; should include outside sources of information integrated with company by topic.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Campaigns need to be cross-promoted through other channels and tracked through Salesforce.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Goals should be set using Google analytics to track usage and campaign conversion.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Subscription for email, FaceBook, etc. should be consolidated so that users can manage their connections.</p>
+				 <p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Inbound</p>
+				 <p class="analysis_para_text1">The static nature of the majority of the website's content is the key barrier to increasing inbound performance.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Relative to the competitive set, content is largely static and consumed minimally.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Traffic ranking is low because the content is not refreshed on a regular basis; if the site were integrated with the blog, community and forums, content would be updated more regularly by users which Google considers optimal content.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Most of the traffic comes from new visitors due to the lack of fresh content.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Compared to the competitive set, most of the traffic is sourced from the US as compared to India, China, Pakistan, and the UK.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Most visitors come and go through Google in the US as compared to your competitors who source traffic from Google from India, China, UK, etc.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>There is a significant need to set up goals for traffic and conversions throughout your corporate and event websites.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Your target audience demographic is optimal compared to your competitors.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Since campaigns launched on the website are not tracked through Salesforce, there are no relative results.</p>
+				 <p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>The contact us form contains the right functionality to capture customer segmentation but could benefit from capturing social network profile data. and direct mail opt in.</p>
+				 <p class="analysis_para_text_hd">Social Intelligence</p>
+				 <p class="analysis_para_text2">- Website SI was low especially in the areas of reach, retention, engagement and influence. It has a good level of demographic representation due to the analytics tracking. There was no sentiment relative to users experience interacting with both event and corporate websites.</p>
+		
+    
+    </td>
+  </tr>
+</table>
+	
+	
+
+
+	</f:view>
+</ui:composition>

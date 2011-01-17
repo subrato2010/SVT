@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.OverallPerformanceDummy"
+        table="OverallPerformanceDummy"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-OverallPerformanceDummy.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="demographicsGrade"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="demographicsGrade"
+        />
+
+        <property
+            name="engagementGrade"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="engagementGrade"
+        />
+
+        <property
+            name="influenceGrade"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="influenceGrade"
+        />
+
+        <property
+            name="loyaltyGrade"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="loyaltyGrade"
+        />
+
+        <property
+            name="overallGrade"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="overallGrade"
+        />
+
+        <property
+            name="profileId"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="profileId"
+        />
+
+        <property
+            name="reachGrade"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="reachGrade"
+        />
+
+        <property
+            name="retentionGrade"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="retentionGrade"
+        />
+
+        <property
+            name="sentimentGrade"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="sentimentGrade"
+        />
+		<property
+            name="customer"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="customer"
+        />
+        <property
+            name="displayOrder"
+            type="int"
+            update="true"
+            insert="true"
+            column="displayOrder"
+        />
+        <property
+            name="target"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="target"
+        />
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-OverallPerformanceDummy.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

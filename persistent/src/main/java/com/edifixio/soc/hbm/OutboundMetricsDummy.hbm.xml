@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.OutboundMetricsDummy"
+        table="OutboundMetricsDummy"
+    >
+
+        <id
+            name="id"
+            column="id"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-OutboundMetricsDummy.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		<property
+            name="activeStatus"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="activeStatus"
+        />
+        <property
+            name="alertFlameCount"
+            type="int"
+            update="true"
+            insert="true"
+            column="alertFlameCount"
+        />
+		<property
+            name="alertStarCount"
+            type="int"
+            update="true"
+            insert="true"
+            column="alertStarCount"
+        />
+        <property
+            name="alertMessage"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="alertMessage"
+        />
+
+        <property
+            name="cmptVolume"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="cmptVolume"
+        />
+
+        <property
+            name="custTarget"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="custTarget"
+        />
+
+        <property
+            name="custVolume"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="custVolume"
+        />
+
+        <property
+            name="metricsDesc"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="metricsDesc"
+        />
+
+        <property
+            name="metricsName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="metricsName"
+        />
+
+        <property
+            name="percentIncrease"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="percentIncrease"
+        />
+
+        <property
+            name="profileId"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="profileId"
+        />
+        <property
+            name="targetModerate"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="targetModerate"
+        />
+        <property
+            name="targetAggressive"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="targetAggressive"
+        />
+        <property
+            name="targetVAggressive"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="targetVAggressive"
+        />
+        <property
+            name="pctModerate"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="pctModerate"
+        />
+        <property
+            name="pctAggressive"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="pctAggressive"
+        />
+        <property
+            name="pctVAggressive"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="pctVAggressive"
+        />
+        <property
+            name="pctPotnModerate"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="pctPotnModerate"
+        />
+        <property
+            name="pctPotnAggressive"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="pctPotnAggressive"
+        />
+        <property
+            name="pctPotnVAggressive"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="pctPotnVAggressive"
+        />
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-OutboundMetricsDummy.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

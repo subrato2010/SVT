@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+	
+	
+<table width="97%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-left: 25px; margin-bottom: 10px">
+  <tr>
+    <td valign="top">
+
+					<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Outbound</p>
+					<p class="analysis_para_text1">While existing content is good and has received some readership, more focused, relevant and frequent content generation coupled with common social monitoring and outreach  would strengthen this channel considerably.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>There is a good foundation to blogging but there is a need for blogging to become more unified and integrated both from a platform and interfacing perspective.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>There are enough authors but not enough regular posts targeting topics that are timely and part of active discussions in the social web (with direct links to those discussions).</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>The integration of social networking widgets to further the dissemination of content through the social web is critical. Using a socially driven commenting system like Disqus is also important to track all commenting centrally and with blogger outreach.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Likewise with Twitter, there are enough Twitter IDs but little authority among the larger community and as compared to the competition which is directly correlated with the quantity and quality of tweets and outreach. With that comes listings for profiles which is a sign of authority. All twitter profiles should have a consistent branding background, callouts and a complete profile.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Although there are the basic functions available for your communities, it lacks a single user account management feature. Clearly, the biggest factor of contributing to lack of engagement is active facilitation by a community manager. </p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>For additional tracking of embedded links in blogs and twitter, Bit.lys and hashtags should always be used. Additionally, branded and non-branded hashtags should be registered.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Unique domain names should always be used within the blogosphere.</p>
+					<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Inbound</p>
+					<p class="analysis_para_text1">The Community platform's technological constraints and a failure to effectively leverage twitter are significant barriers to inbound performance.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Content from the blogosphere isn't being posted to the social networks as well as some competitors.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Engagement and authorship from the community websites is very low and basic stats can't be tracked due to platform constraints.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Since the platform  search limits spiders from crawling, there is very little visitor activity and the sites rank very low. As a result, limited content does not encourage new membership and time spent on the site is very low.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>The tweet clouds generated from keyword activity in the blogosphere show relatively strong frequency of brand and product keywords but lacking in targeted industry keywords (which is much more important). </p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>There is "blogger talk" in Google but no activity in Technorati. </p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>There are no Bit.lys and hashtag data to report due to a lack of Bit.ly and hashtag tracking capability.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>The Twitter average, which represents a rank based on number of followers, no. of retweets and being referenced from others is significantly lower than your competitors. A major tweet outreach is required whereby content is relevant, part of a new or ongoing conversation and references others.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Due to platform constraints, there is no data available to calculate growth trending of the blogs.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Basic pageview consumption is fairly low relative to the competition. Unique pageviews are the lowest of the competitive set, too resulting in low popularity which is also evident in traffic data (low time on site, high bounce rates, and high traffic ranking). The average click through to the site is 1 page before leaving.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Visitor loyalty is also very low attracting relatively few repeat visits from the regular visitor flow.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Considered the most important metric of authority and influence, the number of site that refer to the blogosphere is low. </p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Google is sending the most referral activity but is still relatively low.</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Internet Traffic Volume is relatively low but the demographics are optimal to your targeted customer base.</p>
+					<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Social Intelligence</p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Easily Netezza's most important channel is yielding the lowest scores in loyalty, engagement, reach and authority due to lack of outreach and participating in ongoing conversations with influencers and its customers on a regular basis. </p>
+					<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Sentiment was relatively high for those conversations relating to Netezza's product, brand and industry awareness. Influence is a bit lower due to the lack of outreach. Without the ability to track analytics in the blogosphere limits the depth in retention, loyalty, engagement, reach and demographics.</p>
+
+
+    </td>
+  </tr>
+</table>
+
+
+	</f:view>
+</ui:composition>

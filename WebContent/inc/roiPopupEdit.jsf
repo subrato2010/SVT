@@ -1,0 +1,89 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+
+	<a4j:loadStyle src="../style/popup.css" />
+	<a4j:loadScript src="../js/popup.js" />
+	
+	<div id="floatingDiv" class="glass" style="display:none;">
+			<div id="innerMainDiv" class="innerMain">
+
+				<div class="header"  id="popupHeader">
+					<div class="menuItem demo active" title="containerIframe"></div>
+					<div class="title" id="title"></div>
+					<div class="close">
+						<a href="#" onClick="closePopup()">
+							<img id="popupCloseButton" src="../images/popup/close.gif" style="border:0px;"/>
+						</a>
+					</div>
+				</div>
+
+				 <div>
+
+		            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left:10px;">
+		               <tr>
+                           <td class="roi_left_text" align="right">Campagin Name</td>
+                           <td class="roi_left_text" align="left">
+                          	 <h:inputText id="cpgnName" value="#{roiController.roiCampaignDTO.campaignName}" styleClass="roi_right_text" />
+                           </td>
+		               </tr>
+		               <tr>
+		                   <td align="left" height="5" colspan="2"></td>
+		               </tr>
+		               <tr>
+                            
+                            <td align="left" colspan="2"> 
+	                           	<table  border="0" cellspacing="0" cellpadding="0" width="100%">
+	                                 <tr>
+	                                 		<td  class="roi_left_text">
+                            					Campagin Start
+                            				</td>
+	                                        <td  >
+	                                        	<rich:calendar id="cpgnStDate" value="#{roiController.roiCampaignDTO.campaignStDate}" cellWidth="10" cellHeight="12" datePattern="MM/dd/yyyy"/>
+	                                        </td>
+	                                       
+	                                        <td class="roi_left_text2" align="center" >to End</td>
+	                                        
+	                                        <td >
+	                                        	<rich:calendar id="cpgnEndDate" value="#{roiController.roiCampaignDTO.campaignEdDate}" cellWidth="10" cellHeight="12" datePattern="MM/dd/yyyy"/> 
+	                                        </td>
+	                                        
+	                                        <td width="10"></td>
+	                                 </tr>
+	                        	</table>
+                            </td>
+		                            
+		                </tr>
+		                          
+                        <tr>
+                            <td colspan="2">
+                            	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:15px">
+                                     <tr>
+                                       <td width="190" align="right">
+                                       <h:commandLink action="#{roiController.save}" >
+                                       	<img src="../images/roi/save_camp.gif" border="0" />
+                                       	</h:commandLink>
+                                       </td>
+                                       <td class="roi_left_text1" align="left" width="500" style="padding-left:10px">
+                                       or 
+                                        <h:commandLink action="#{roiController.cancel}" immediate="true" value="CANCEL" styleClass="roi_edit_cancel_text" />
+                                        </td>
+                                     </tr>
+                                </table>
+                             </td>
+                            
+                        </tr>
+		            </table>
+
+ 	</div>
+			</div>
+	</div>
+	<div class="backDrop" id="backDrop" style="display:none;"></div>
+	</f:view>
+
+</ui:composition>

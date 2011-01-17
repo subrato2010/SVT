@@ -1,0 +1,193 @@
+.glass {
+	background:transparent url(1.png) repeat scroll 0 0;
+	border:1px solid #cccccc;
+	font-family:Helvetica;
+	position:fixed;
+	left:150px;
+}
+.glass .innerMain{
+	background-color: #ffffff;
+	float:middle;
+	border:1px solid #cccccc;
+}
+.glass .innerMain .header{
+	height:44px;
+	background-color: #E7E7E7;
+	top:0;
+}
+.glass .innerMain div.close {
+	
+	border-right:medium none;
+	cursor:pointer;
+	display:inline-block;
+	height:26px;
+	position:relative;
+	float:right;
+	right:7px;
+	top:9px;
+	width:70px;
+}
+
+.profile_edithd
+{
+font-family:Arial, Helvetica, sans-serif;
+font-size:28px;
+padding-left:10px;
+color:#777D88;
+}
+/****************** New Style *****************/
+.glass .innerMain .footer{
+	height:44px;
+	background-color: #E7E7E7;
+}
+
+
+
+
+
+
+.glass1 {
+	background:transparent url(1.png) repeat scroll 0 0;
+	border:1px solid #cccccc;
+	font-family:Helvetica;
+	position:fixed;
+	left:250px;
+	top:130px;
+}
+.glass1 .innerMain1{
+	background-color: #ffffff;
+	float:middle;
+	border:1px solid #cccccc;
+}
+.glass1 .innerMain1 .header1{
+	height:44px;
+	background-color: #FFA900;
+	top:0;
+}
+.glass1 .innerMain1 div.close {
+	
+	border-right:medium none;
+	cursor:pointer;
+	display:inline-block;
+	height:26px;
+	position:relative;
+	float:right;
+	right:7px;
+	top:9px;
+	width:70px;
+}
+
+.profile_edithd1
+{
+font-family:Arial, Helvetica, sans-serif;
+font-size:28px;
+padding-left:10px;
+color:#ffffff;
+}
+/****************** New Style *****************/
+.glass1 .innerMain1 .footer1{
+	height:44px;
+	background-color: #E7E7E7;
+}
+
+
+
+
+
+
+
+
+
+.glassDM {
+	background:transparent url(1.png) repeat scroll 0 0;
+	border:1px solid #cccccc;
+	font-family:Helvetica;
+	position:fixed;
+	left:450px;
+	top:130px;
+}
+.glassDM .innerMainDM{
+	background-color: #ffffff;
+	float:middle;
+	border:1px solid #cccccc;
+}
+.glassDM .innerMainDM .header1{
+	height:44px;
+	background-color: #FFA900;
+	top:0;
+}
+.glassDM .innerMainDM div.close {
+	
+	border-right:medium none;
+	cursor:pointer;
+	display:inline-block;
+	height:26px;
+	position:relative;
+	float:right;
+	right:7px;
+	top:9px;
+	width:70px;
+}
+
+.profile_edithdDM
+{
+font-family:Arial, Helvetica, sans-serif;
+font-size:28px;
+padding-left:10px;
+color:#ffffff;
+}
+/****************** New Style *****************/
+.glassDM .innerMainDM .footer1{
+	height:44px;
+	background-color: #E7E7E7;
+}
+
+
+
+
+
+
+
+.glassRT {
+	background:transparent url(1.png) repeat scroll 0 0;
+	border:1px solid #cccccc;
+	font-family:Helvetica;
+	position:fixed;
+	left:450px;
+	top:130px;
+}
+.glassDM .innerMainRT{
+	background-color: #ffffff;
+	float:middle;
+	border:1px solid #cccccc;
+}
+.glassDM .innerMainRT .header1{
+	height:44px;
+	background-color: #FFA900;
+	top:0;
+}
+.glassDM .innerMainRT div.close {
+	
+	border-right:medium none;
+	cursor:pointer;
+	display:inline-block;
+	height:26px;
+	position:relative;
+	float:right;
+	right:7px;
+	top:9px;
+	width:70px;
+}
+
+.profile_edithdRT
+{
+font-family:Arial, Helvetica, sans-serif;
+font-size:28px;
+padding-left:10px;
+color:#ffffff;
+}
+/****************** New Style *****************/
+.glassDM .innerMainRT .footer1{
+	height:44px;
+	background-color: #E7E7E7;
+}

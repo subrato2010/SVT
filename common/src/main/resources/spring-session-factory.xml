@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <bean id="defaultDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+      <property name="driverClass"><value>com.mysql.jdbc.Driver</value></property>
+      <property name="jdbcUrl"><value>jdbc:mysql://localhost:3306/TWT</value></property>
+      <property name="user"><value>root</value></property>
+      <property name="password"><value>root</value></property>
+      <property name="minPoolSize"><value>2</value></property>
+      <property name="maxPoolSize"><value>20</value></property>
+      <property name="idleConnectionTestPeriod"><value>100</value></property>
+      <property name="acquireIncrement"><value>1</value></property>
+      <property name="maxStatements"><value>0</value></property>
+      <property name="maxIdleTime"><value>100</value></property>
+   </bean>
+   
+   <!-- Hibernate SessionFactory -->
+   <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+      <property name="dataSource"><ref bean="defaultDataSource"/></property>
+      <property name="mappingResources">
+         <list>
+             <value>com/edifixio/soc/hbm/TwitterAccount.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/StagingScore.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/StagingRawScore.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Score.hbm.xml</value>			 
+			 <value>com/edifixio/soc/hbm/ProfilePreference.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Product.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Metrics.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Industry.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Company.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Channel.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Category.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Brand.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Benchmark.hbm.xml</value>	
+			 <value>com/edifixio/soc/hbm/MetricsProcessHandler.hbm.xml</value>	
+			 <value>com/edifixio/soc/hbm/ImprovementLevel.hbm.xml</value>	
+			 <value>com/edifixio/soc/hbm/RawResult.hbm.xml</value>
+			 
+			 <value>com/edifixio/soc/hbm/InboundMetricsDummy.hbm.xml</value>		
+			 <value>com/edifixio/soc/hbm/OutboundMetricsDummy.hbm.xml</value>			
+			 <value>com/edifixio/soc/hbm/OverallPerformanceDummy.hbm.xml</value>		
+			 <value>com/edifixio/soc/hbm/ProfileDummy.hbm.xml</value>		
+			 <value>com/edifixio/soc/hbm/SocialIntelligenceMetricsDummy.hbm.xml</value>		
+			 <value>com/edifixio/soc/hbm/UserProfileDetail.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/StateProvince.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/ProfileListMaster.hbm.xml</value>		
+			 <value>com/edifixio/soc/hbm/ProfileInfluence.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/ProfileInfluenceList.hbm.xml</value>	 
+         </list>
+      </property>
+      <property name="hibernateProperties"><ref bean="defaultHibernateProperties"/></property>
+	  <property name="entityInterceptor"><ref bean="entityInterceptor"/></property>
+   </bean>
+   <!-- Hibernate Interceptor(to avoid lazy loading problem and other problems) -->
+   <bean id="entityInterceptor" class="com.edifixio.soc.persist.util.MyEntityInterceptor">
+   </bean>
+
+   <bean id="defaultHibernateProperties" class="com.edifixio.soc.persist.util.HibernateProperties">
+	  <!-- using “Dialect” we tells Hibernate that we are using ‘this specific’ database.-->
+      <property name="dialect"><value>org.hibernate.dialect.MySQLDialect</value></property>
+      <property name="showSql"><value>true</value></property>
+      <property name="cacheProviderClass"><value>org.hibernate.cache.NoCacheProvider</value></property>
+      <property name="connectionPoolIdleTestPeriod"><value>100</value></property>
+
+   </bean>
+</beans>
+
+	<!-- list of all DIALECT
+	* DB2 - org.hibernate.dialect.DB2Dialect
+	* HypersonicSQL - org.hibernate.dialect.HSQLDialect
+	* Informix - org.hibernate.dialect.InformixDialect
+	* Ingres - org.hibernate.dialect.IngresDialect
+	* Interbase - org.hibernate.dialect.InterbaseDialect
+	* Pointbase - org.hibernate.dialect.PointbaseDialect
+	* PostgreSQL - org.hibernate.dialect.PostgreSQLDialect
+	* Mckoi SQL - org.hibernate.dialect.MckoiDialect
+	* Microsoft SQL Server - org.hibernate.dialect.SQLServerDialect
+	* MySQL - org.hibernate.dialect.MySQLDialect
+	* Oracle (any version) - org.hibernate.dialect.OracleDialect
+	* Oracle 9 - org.hibernate.dialect.Oracle9Dialect
+	* Progress - org.hibernate.dialect.ProgressDialect
+	* FrontBase - org.hibernate.dialect.FrontbaseDialect
+	* SAP DB - org.hibernate.dialect.SAPDBDialect
+	* Sybase - org.hibernate.dialect.SybaseDialect
+	* Sybase Anywhere - org.hibernate.dialect.SybaseAnywhereDialect
+	-->
+
+

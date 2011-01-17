@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+	
+	
+<table width="97%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-left: 25px; margin-bottom: 10px">
+  <tr>
+    <td valign="top">
+
+			<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Outbound</p>
+			<p class="analysis_para_text1">While the press release volume has been adequate, there needs to be a more focused effort in building relevancy linkage with the conversations occurring in social and industry-related outlets.</p>
+			<p class="analysis_para_text2">- For the number of press releases published this year, there needs to be more consistency in format and including links to relevant and associated social media content (blog posts, websites, Facebook, Slideshare, Flickr, YouTube, etc.).</p>
+			<p class="analysis_para_text2">- Fortunately, the competition has not been consistent either and there is an opportunity to capitalize on the outreach capabilities that PR has when it is combined with social media.</p>
+			<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Inbound</p>
+			<p class="analysis_para_text1">Social bookmarking functionality could dramatically increase awareness efforts.</p>
+			<p class="analysis_para_text2">- Competitively, the press releases in 2010 have not yielded much in the way of engagement due to the lack of social bookmarking promotion. News is still very important but the spread of via through the social networks has yielded much more authority for its relevance and engagement.</p>
+			<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Social Intelligence</p>
+			<p class="analysis_para_text2">- With low levels of PR being generated and without the aid of social bookmarking sites and integration with social media, news has had little effect on generating awareness and influence with thought leaders. When news is generated and then spread with user generated commentary, it will take on much higher levels of authority and influence.</p>
+			<p class="analysis_para_text2">- News about the company does move through the social web and generate discussion and the sentiment is generally high. News influencers are paying attention to Netezza and spreading the word about its products and features.</p>
+    </td>
+  </tr>
+</table>
+
+
+	</f:view>
+</ui:composition>

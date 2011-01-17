@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.RawResult"
+        table="rawresult"
+    >
+
+        <id
+            name="resultSqId"
+            column="resultSqId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Channel.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+		
+		<property
+            name="actionDate"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="actionDate"
+        />
+        <many-to-one
+            name="twitterAccount"
+            class="com.edifixio.soc.persist.TwitterAccount"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="twitterAccountId" 
+                not-null="true"
+            />
+        </many-to-one>
+		<many-to-one
+            name="metric"
+            class="com.edifixio.soc.persist.Metrics"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="metricId" 
+                not-null="true"
+            />
+        </many-to-one>
+		<property
+            name="state"
+            type="int"
+            update="true"
+            insert="true"
+            column="state"
+        />
+        <property
+            name="rawScore"
+            type="double"
+            update="true"
+            insert="true"
+            column="rawScore"
+        />
+        <property
+            name="totalDataCount"
+            type="int"
+            update="true"
+            insert="true"
+            column="totalDataCount"
+        />
+        <property
+            name="validDataCount"
+            type="int"
+            update="true"
+            insert="true"
+            column="validDataCount"
+        />
+    </class>
+</hibernate-mapping>

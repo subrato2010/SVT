@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+	
+<table width="97%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-left: 25px; margin-bottom: 10px">
+  <tr>
+    <td valign="top">
+
+			<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Outbound</p>
+			<p class="analysis_para_text1">Netezza has very little multimedia, social content.  This represents a large missed opportunity to increase Netezza's footprint and build awareness.</p>
+			<p class="analysis_para_text2">- Slideshare is a great way to build product and event awareness; publishing powerpoint presentations from your partners and industry sources is one of the best ways to promote evangelism because slideshare has widgets that are used in LinkedIn, Facebook and other social networking sites. Unfortunately, with only one presentation published for Netezza, it is a missed opportunity.</p>
+			<p class="analysis_para_text2">- Flickr is another social network that can be used along with embedded keywords and description of people and events relevant to your industry which isn't being utilized.</p>
+			<p class="analysis_para_text2">- Most importantly, YouTube carries the most weight in the multimedia channel and Netezza has the smallest share of content within the competitive mix across the board. Content should be published on a regular basis from multiple sources covering all activities in the field and with customers which includes video placements which can yield the greatest engagement.</p>
+			<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Inbound</p>
+			<p class="analysis_para_text1">While the quantity of multimedia content is low, the quality and engagement is actually high.</p>
+			<p class="analysis_para_text2">- SlideShare authority is relatively high due to the high quality of the content that has been published. Netezza has the highest level of embeds, which is the most heavily weighted metric measuring authority.</p>
+			<p class="analysis_para_text2">- Flickr authority is low but so is the competitive set; Teradata is the only user of Flickr and it has relative success doing so generating lot of contacts.</p>
+			<p class="analysis_para_text2">- Again, YouTube video content, what there is of it, is well liked and viewed at high rates. Teradata and IBM are the only vendor using seeded videos and having little success yielding viral videos. </p>
+			<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Social Intelligence</p>
+			<p class="analysis_para_text2">- Although a limited quantity of material has been published, the quality is high and it is being consumed at a high rate. Due to the lack of volume of content, it is not reaching its potential of capturing new consumers.</p>
+			<p class="analysis_para_text2">- Sentiment and influence is relatively flat for the multimedia channel.</p>
+
+    </td>
+  </tr>
+</table>	
+	
+
+
+	</f:view>
+</ui:composition>

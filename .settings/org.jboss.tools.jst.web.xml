@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<file-systems VERSION="2.0.0" application-name="CRM"
+ model-entity="FileSystems" workspace-home="./WebContent/WEB-INF">
+ <file-system NAME="WEB-INF" location="%workspace.home%" model-entity="FileSystemFolder"/>
+ <file-system NAME="WEB-ROOT" info="Content-Type=Web"
+  location="%workspace.home%/.." model-entity="FileSystemFolder"/>
+ <file-system NAME="lib" location="%workspace.home%/lib" model-entity="FileSystemFolder"/>
+ <file-system NAME="classes" location="%workspace.home%/classes" model-entity="FileSystemFolder"/>
+ <file-system NAME="lib-dnsns.jar"
+  location="C:\Program Files\Java\jre1.5.0_12\lib\ext\dnsns.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-localedata.jar"
+  location="C:\Program Files\Java\jre1.5.0_12\lib\ext\localedata.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-sunjce_provider.jar"
+  location="C:\Program Files\Java\jre1.5.0_12\lib\ext\sunjce_provider.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="lib-sunpkcs11.jar"
+  location="C:\Program Files\Java\jre1.5.0_12\lib\ext\sunpkcs11.jar" model-entity="FileSystemJar"/>
+ <file-system NAME="inc" location="%workspace.home%/../inc" model-entity="FileSystemFolder"/>
+ <file-system NAME="src"
+  location="%workspace.home%/../../web/src/main/java" model-entity="FileSystemFolder"/>
+ <file-system NAME="src-2"
+  location="%workspace.home%/../../biz/src/test/java" model-entity="FileSystemFolder"/>
+ <file-system NAME="src-3"
+  location="%workspace.home%/../../dao/src/main/java" model-entity="FileSystemFolder"/>
+ <file-system NAME="src-4"
+  location="%workspace.home%/../../biz/src/main/java" model-entity="FileSystemFolder"/>
+ <file-system NAME="src-5"
+  location="%workspace.home%/../../persistent/src/main/java" model-entity="FileSystemFolder"/>
+ <file-system NAME="src-8"
+  location="%workspace.home%/../../persistent/src/test/java" model-entity="FileSystemFolder"/>
+ <file-system NAME="src-1"
+  location="%workspace.home%/../../web/src/test/java" model-entity="FileSystemFolder"/>
+ <file-system NAME="src-9"
+  location="%workspace.home%/../../dao/src/test/java" model-entity="FileSystemFolder"/>
+ <file-system NAME="src-10"
+  location="%workspace.home%/../../dao/src/test/resources" model-entity="FileSystemFolder"/>
+  <web SERVLET_VERSION="2.4" model-entity="JstWeb" model-path="/web.xml">
+  <module URI="/WEB-INF/faces-config.xml" model-entity="WebJSFModule"
+   model-path="/faces-config.xml" src="src" web-root="WEB-ROOT"/>
+ </web>
+</file-systems>

@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+
+	<a4j:loadStyle src="../style/popup.css" />
+	<a4j:loadScript src="../js/popup.js" />
+	
+	<div id="floatingDiv" class="glass" style="display:none;">
+			<div id="innerMainDiv" class="innerMain">
+
+				<div class="header"  id="popupHeader">
+					<div class="menuItem demo active" title="containerIframe"></div>
+					<div class="title" id="title" style="margin-top:7px; font-size:20px;"></div>
+					<div class="close">
+						<a href="#" onClick="closePopup()">
+							<img id="popupCloseButton" src="../images/popup/close.gif" style="border:0px;"  name="but1"   onmouseover="document.but1.src='../images/popup/close.gif'" onmouseout="document.but1.src='../images/popup/closeRollovers.gif'" />
+						</a>
+					</div>
+				</div>
+
+				<iframe id="frame" width="10%" height="10%" frameborder="0" scrolling="no"></iframe>
+			</div>
+	</div>
+	<div class="backDrop" id="backDrop" style="display:none;"></div>
+	
+	</f:view>
+</ui:composition>

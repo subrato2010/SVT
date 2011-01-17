@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+   <!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+   <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+      <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+
+	<!-- PARENT BEAN FOR ALL BIZ SERVICE BEANS -->
+   <bean id="txProxyTemplate" abstract="true" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+      <property name="transactionManager"><ref bean="transactionManager"/></property>
+      <property name="transactionAttributes">
+         <props>
+            <!-- these settings ensure begin before, commit after methods with these names are invoked,
+                 rolling back if any runtime or SVTExceptions occur -->
+            <!-- automatically generated, see above. -->
+            <prop key="readOnly*">PROPAGATION_REQUIRED, readOnly</prop>
+            <prop key="*">PROPAGATION_REQUIRED, -Exception</prop>
+         </props>
+      </property>
+   </bean>
+
+   <bean id="daoProvider" class="com.edifixio.soc.dao.util.DAOProviderImpl">
+		<property name="channelDAO"><ref bean="channelDAO"/></property>
+		<property name="categoryDAO"><ref bean="categoryDAO"/></property>				
+		
+		<property name="brandDAO"><ref bean="brandDAO"/></property>				
+		<property name="productDAO"><ref bean="productDAO"/></property>				
+		<property name="industryDAO"><ref bean="industryDAO"/></property>				
+		
+					
+		<property name="benchmarkDAO"><ref bean="benchmarkDAO"/></property>	
+		<property name="stagingScoreDAO"><ref bean="stagingScoreDAO"/></property>
+		<property name="stagingRawScoreDAO"><ref bean="stagingRawScoreDAO"/></property>
+		<property name="twitterAccountDAO"><ref bean="twitterAccountDAO"/></property>
+		<property name="metricsDAO"><ref bean="metricsDAO"/></property>
+		<property name="profilePreferenceDAO"><ref bean="profilePreferenceDAO"/></property>
+		<property name="userProfileDetailDAO"><ref bean="userProfileDetailDAO"/></property>
+		<property name="scoreDAO"><ref bean="scoreDAO"/></property>
+		<property name="companyDAO"><ref bean="companyDAO"/></property>
+		<property name="metricsProcessHandlerDAO"><ref bean="metricsProcessHandlerDAO"/></property>
+		<property name="stateProvinceDAO"><ref bean="stateProvinceDAO"/></property>		
+		<property name="profileInfluenceDAO"><ref bean="profileInfluenceDAO"/></property>
+		<property name="profileInfluenceListDAO"><ref bean="profileInfluenceListDAO"/></property>
+		<property name="profileListMasterDAO"><ref bean="profileListMasterDAO"/></property>
+		<property name="improvementLevelDAO"><ref bean="improvementLevelDAO"/></property>
+		<property name="rawResultDAO"><ref bean="rawResultDAO"/></property>
+		
+		<!--  All dummy needs to be removed after 9-Dec-2010 presentation -->
+		<property name="inboundMetricsDummyDAO"><ref bean="inboundMetricsDummyDAO"/></property>
+		<property name="outboundMetricsDummyDAO"><ref bean="outboundMetricsDummyDAO"/></property>
+		<property name="overallPerformanceDummyDAO"><ref bean="overallPerformanceDummyDAO"/></property>
+		<property name="profileDummyDAO"><ref bean="profileDummyDAO"/></property>
+		<property name="socialIntelligenceMetricsDummyDAO"><ref bean="socialIntelligenceMetricsDummyDAO"/></property>
+		
+   </bean>
+
+   <bean id="inboundMetricsDummyDAO" class="com.edifixio.soc.dao.InboundMetricsDummyHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="outboundMetricsDummyDAO" class="com.edifixio.soc.dao.OutboundMetricsDummyHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="overallPerformanceDummyDAO" class="com.edifixio.soc.dao.OverallPerformanceDummyHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="profileDummyDAO" class="com.edifixio.soc.dao.ProfileDummyHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="socialIntelligenceMetricsDummyDAO" class="com.edifixio.soc.dao.SocialIntelligenceMetricsDummyHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+
+
+
+
+   <!-- MYHOME DAO BEANS -->
+   <bean id="channelDAO" class="com.edifixio.soc.dao.ChannelHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="categoryDAO" class="com.edifixio.soc.dao.CategoryHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   
+   <bean id="benchmarkDAO" class="com.edifixio.soc.dao.BenchmarkHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="stagingScoreDAO" class="com.edifixio.soc.dao.StagingScoreHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="stagingRawScoreDAO" class="com.edifixio.soc.dao.StagingRawScoreHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>   
+   <bean id="twitterAccountDAO" class="com.edifixio.soc.dao.TwitterAccountHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean> 
+   <bean id="metricsDAO" class="com.edifixio.soc.dao.MetricsHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean> 
+   <bean id="scoreDAO" class="com.edifixio.soc.dao.ScoreHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean> 
+   <bean id="companyDAO" class="com.edifixio.soc.dao.CompanyHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="metricsProcessHandlerDAO" class="com.edifixio.soc.dao.MetricsProcessHandlerHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="profilePreferenceDAO" class="com.edifixio.soc.dao.ProfilePreferenceHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="userProfileDetailDAO" class="com.edifixio.soc.dao.UserProfileDetailHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="stateProvinceDAO" class="com.edifixio.soc.dao.StateProvinceHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   
+   <bean id="brandDAO" class="com.edifixio.soc.dao.BrandHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="productDAO" class="com.edifixio.soc.dao.ProductHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="industryDAO" class="com.edifixio.soc.dao.IndustryHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   
+   <bean id="profileInfluenceDAO" class="com.edifixio.soc.dao.ProfileInfluenceHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="profileInfluenceListDAO" class="com.edifixio.soc.dao.ProfileInfluenceListHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="profileListMasterDAO" class="com.edifixio.soc.dao.ProfileListMasterHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="improvementLevelDAO" class="com.edifixio.soc.dao.ImprovementLevelHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="rawResultDAO" class="com.edifixio.soc.dao.RawResultHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+ </beans>

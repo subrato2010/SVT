@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.Metrics"
+        table="Metrics"
+    >
+
+        <id
+            name="metricId"
+            column="metricId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Metrics.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="activeStatus"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="activeStatus"
+        />
+
+        <property
+            name="automated"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="automated"
+        />
+
+        <many-to-one
+            name="category"
+            class="com.edifixio.soc.persist.Category"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="categoryId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <property
+            name="displayOrder"
+            type="int"
+            update="true"
+            insert="true"
+            column="displayOrder"
+        />
+
+        <property
+            name="lowerBound"
+            type="int"
+            update="true"
+            insert="true"
+            column="lowerBound"
+        />
+
+        <property
+            name="metricCode"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="metricCode"
+        />
+
+        <property
+            name="metricDesc"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="metricDesc"
+            length="1000"
+        />
+
+        <property
+            name="metricName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="metricName"
+        />
+
+        <property
+            name="metricsType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="metricsType"
+        />
+
+        <property
+            name="normalizedWt"
+            type="double"
+            update="true"
+            insert="true"
+            column="normalizedWt"
+        />
+
+        <property
+            name="relativeWt"
+            type="double"
+            update="true"
+            insert="true"
+            column="relativeWt"
+        />
+
+        <property
+            name="upperBound"
+            type="int"
+            update="true"
+            insert="true"
+            column="upperBound"
+        />
+
+        <property
+            name="urlAPI1"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="urlAPI1"
+        />
+
+        <property
+            name="urlAPI2"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="urlAPI2"
+        />
+
+        <property
+            name="apiMethod"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="apiMethod"
+        />
+
+		<property
+            name="calcMethod"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="calcMethod"
+        />
+        <property
+            name="updatedOn"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="updatedOn"
+        />
+
+        <property
+            name="updatedBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="updatedBy"
+        />
+
+        <many-to-one
+            name="benchmark"
+            class="com.edifixio.soc.persist.Benchmark"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="true"
+        >
+            <column
+                name="benchMarkId" 
+                not-null="false"
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Metrics.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

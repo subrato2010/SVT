@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+	
+<table width="97%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-left: 25px; margin-bottom: 10px">
+  <tr>
+    <td valign="top">
+
+				<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Outbound</p>
+				<p class="analysis_para_text1">With little data to analyze, comparison and assessment for this channel is inconclusive.  We recommend that this channel be better integrated with other efforts and tracked more closely to leverage it for maximum impact.</p>
+				<p class="analysis_para_text2">- Without any competitor analysis for this channel, and with the limited use of the platform, there is little data to analyze.</p> 
+				<p class="analysis_para_text2">- Email is a critical component of cross channel promotion of marketing campaigns and ongoing communications. Email templates and their construction for consistency and integration with social media, have become the major evolution for the platform.  </p>
+				<p class="analysis_para_text2">- In addition, content for email should be triggered by user events and timed based on user interaction with channels. </p>
+				<p class="analysis_para_text2">- Direct mail campaigns are segmented by user activity (email signups, sales &amp; prospecting, newsletters, and event promotion). </p>
+				<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Inbound</p>
+				<p class="analysis_para_text2">- With very little usage of direct mail and the lack of usage data by type of email (due to the fact that emails are not segmented), it was difficult to calculate the results of these campaigns.</p>
+				<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Social Intelligence</p>
+				<p class="analysis_para_text2">- Without the aid of data from the platform to track and evaluate the effectiveness of email campaigns to date, levels of social intelligence are low. There was no sentiment or influencer activity relative to the offline channel.</p>
+
+    </td>
+  </tr>
+</table>
+	
+
+
+	</f:view>
+</ui:composition>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.Channel"
+        table="Channel"
+    >
+
+        <id
+            name="channelId"
+            column="channelId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+              <!--  
+                  To add non XDoclet generator parameters, create a file named 
+                  hibernate-generator-params-Channel.xml 
+                  containing the additional parameters and place it in your merge dir. 
+              --> 
+            </generator>
+        </id>
+
+        <property
+            name="normalizedWt"
+            type="double"
+            update="true"
+            insert="true"
+            column="normalizedWt"
+        />
+
+        <property
+            name="relativeWt"
+            type="double"
+            update="true"
+            insert="true"
+            column="relativeWt"
+        />
+
+        <property
+            name="activeStatus"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="activeStatus"
+        />
+
+        <property
+            name="channelCode"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="channelCode"
+        />
+
+        <property
+            name="channelDesc"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="channelDesc"
+            length="1000"
+        />
+
+        <property
+            name="channelName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="channelName"
+        />
+
+        <property
+            name="displayOrder"
+            type="int"
+            update="true"
+            insert="true"
+            column="displayOrder"
+        />
+
+        <property
+            name="channel"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="channel"
+        />
+
+        <property
+            name="updatedOn"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="updatedOn"
+        />
+
+        <property
+            name="updatedBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="updatedBy"
+        />
+
+        <many-to-one
+            name="benchmark"
+            class="com.edifixio.soc.persist.Benchmark"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="true"
+        >
+            <column
+                name="benchMarkId" 
+                not-null="false"
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Channel.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

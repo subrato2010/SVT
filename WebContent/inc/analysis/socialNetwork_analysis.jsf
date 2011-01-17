@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+	
+	
+<table width="97%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-left: 25px; margin-bottom: 10px">
+  <tr>
+    <td valign="top">
+
+				<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Outbound</p>
+				<p class="analysis_para_text1">While Netezza has profiles in many of the popular social networks, tracking and engagement is very low.  Boosting the frequency of fresh content, relevant content from current social discussion and industry thought-leaders could markedly increase engagement.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>A socially driven event platform is in use for events although the data is not tracked in CRM.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>A Wikipedia profile has been created and is regularly updated (which ranks high in the search engines) although enough cross-linking to non-branded wikis is required for increased authority.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Although there is a Facebook presence, there is not enough facilitated activity to further engage fans and attact new ones. Facebook requires full time facilitation to garner rabid fans with beneficial information for the user base, special promotions and events.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>LinkedIn presence is fair but could be better utilizing the group feature and regularly facilitating content and discussion around products (could also use specific groups by vertical).</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Job listings are being utilized which is helpful.</p>
+				<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Inbound</p>
+				<p class="analysis_para_text1">Again, lack of fresh, relevant content is causing social presences to languish.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Facebook Authority is very low due to the low number of fans or "likes' with little consistent growth. With little facilitation, there is very little in the way of commenting and</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>LinkedIn Authority Brand constitutes an owned group presence beyond the company profile page itself which is not present.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>LinkedIn Authority Product constitutes an owned group presence as it relates to your product which is not present.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>LinkedIn Authority Industry constitutes an owned group presence as it relates to industry trends and conversations, which is the most important group to own and facilitate.</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Wikipedia Authority is calculated by the number of watchers and regular pageviews which is very low; more regular updates and cross-linking strategies will likely help in this regard.</p>
+				<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Social Intelligence</p>
+				<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>With very low scores for its social media execution, this is likely the easiest channel to improve upon with the adoption of social media widgets and integration throughout each platform and active facilitation of timely and relevant content through the blogs, forums, Twitter, Facebook and other social media sites. Sentiment and influence is also relatively low with little activity.</p>
+
+    </td>
+  </tr>
+</table>
+
+
+	</f:view>
+</ui:composition>

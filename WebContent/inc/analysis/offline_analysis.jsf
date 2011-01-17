@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	<f:view>
+	<a4j:loadStyle src="../style/style.css" />
+	
+<table width="97%" border="0" cellpadding="0" cellspacing="0" style="margin-top: 20px; margin-left: 25px; margin-bottom: 10px">
+  <tr>
+    <td valign="top">
+
+<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Outbound</p>
+<p class="analysis_para_text1">One of Netezza's strongest channels, materials were found to be engaging, accessible and providing clear drive to customer action.  Creating digital equivalents online could help provide a new distribution outlet for these strong assets.</p>
+<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>General creative for material developed for offline events and activities were evaluated for its ability to attract and motivate participation. Generally, all printed materials met these industry standards. All printed materials should be converted to PDF and available for downloading online for maximum distribution.</p>
+<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Campaign event Enzee Universe data was not collected in time for measurement; generally, cross channel promotion was good but more could have been done with social media outreach to further promote it using Facebook and YouTube.</p>
+<p class="analysis_para_text2"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>A sampling of other events attended throughout the year were tracked for integration and promotion throughout the online and offline channels but data was lacking.</p>
+<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Inbound</p>
+<p class="analysis_para_text1">Creating calls-to-action that drive to unique promotional codes, splash pages, email addresses or even 1-800s could help Netezza better understand which materials are driving the most action.</p>
+<p class="analysis_para_text2">- Due to the lack of integration with CRM, most offline activities are not tracked and therefore can't be measured.</p>
+<p class="analysis_para_text_hd"><img src="../images/dot.gif" style="margin-right:4px"  border="0"/>Social Intelligence</p>
+<p class="analysis_para_text2">- Influencer Offline activities have been very strong but there is very little data available to track its true social intelligence. With more integration and outreach using social media and the transference of content from print to online, there is a tremendous opportunity to understand the true value of offline investments. There was no sentiment or influencer activity relative to the offline channel.</p>
+
+
+
+
+    </td>
+  </tr>
+</table>
+	
+
+
+	</f:view>
+</ui:composition>
