@@ -8,7 +8,6 @@ import com.edifixio.soc.persist.Benchmark;
 
 public interface BenchmarkDAO<T extends Benchmark> {
     public List<T> findall() throws SVTException;
-    public List<T> findallActive() throws SVTException;
     public T getByName(String name) throws SVTException;
     public T getById(String id) throws SVTException;
     public T getByIdOrLatest(String id) throws SVTException;

@@ -31,7 +31,7 @@ public class BenchmarkHibernateDAO<T extends Benchmark> extends
     }
 
     public List findallActive() throws SVTException {
-        List<T> t = find().where("this.activeStatus=true").listWithoutFiler();
+        List<T> t = find().where("this.activeStatus=true").list();
         return t;
     }
 
