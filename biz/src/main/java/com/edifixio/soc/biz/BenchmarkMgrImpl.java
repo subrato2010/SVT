@@ -14,7 +14,7 @@ public class BenchmarkMgrImpl extends BaseBizObject implements BenchmarkMgr{
 
 	public List<BenchmarkDTO> findAllActive() throws SVTException {
         // Using spring to get the dao mgr
-        return getBenchmarkDTOList(getDaoProvider().getBenchmarkDAO().findallActive());
+        return getBenchmarkDTOList(getDaoProvider().getBenchmarkDAO().findall());
 	}
 
     public List<BenchmarkDTO> findAll() throws SVTException {
