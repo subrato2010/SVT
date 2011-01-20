@@ -40,7 +40,29 @@
             insert="true"
             column="displayOrder"
         />
+        <property
+            name="keyWordIdentBrand"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="keyWordIdentBrand"
+        />
 
+        <property
+            name="keyWordIdentIndu"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="keyWordIdentIndu"
+        />
+
+        <property
+            name="keyWordIdentProd"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="keyWordIdentProd"
+        />
         <property
             name="companyName"
             type="java.lang.String"

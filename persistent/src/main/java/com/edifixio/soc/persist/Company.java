@@ -14,6 +14,9 @@ public class Company  extends TrackedEntity implements Serializable {
     private String companyId;
     private String companyName;
     private int displayOrder;
+    private String keyWordIdentBrand;
+    private String keyWordIdentProd;
+    private String keyWordIdentIndu;
     private boolean activeStatus;
     
     /**
@@ -46,6 +49,36 @@ public class Company  extends TrackedEntity implements Serializable {
     }
     public void setDisplayOrder(int displayOrder) {
         this.displayOrder = displayOrder;
+    }
+    /**
+     * @hibernate.property
+     */
+    public String getKeyWordIdentBrand() {
+        return keyWordIdentBrand;
+    }
+
+    public void setKeyWordIdentBrand(String keyWordIdentBrand) {
+        this.keyWordIdentBrand = keyWordIdentBrand;
+    }
+    /**
+     * @hibernate.property
+     */
+    public String getKeyWordIdentIndu() {
+        return keyWordIdentIndu;
+    }
+
+    public void setKeyWordIdentIndu(String keyWordIdentIndu) {
+        this.keyWordIdentIndu = keyWordIdentIndu;
+    }
+    /**
+     * @hibernate.property
+     */
+    public String getKeyWordIdentProd() {
+        return keyWordIdentProd;
+    }
+
+    public void setKeyWordIdentProd(String keyWordIdentProd) {
+        this.keyWordIdentProd = keyWordIdentProd;
     }
 
     /**
