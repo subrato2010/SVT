@@ -60,8 +60,11 @@
 	<a4j:outputPanel rendered="#{!userProfileController.closable}">
 	<h:form id="createProfile" enctype="multipart/form-data">
 	<t:inputHidden value="#{userProfileController.completeFlag}" />
+	<h:inputHidden value="#{backingBean.cityColor}"/>
 	<div class="createProfileTotal"	>
 	  <table width="340" border="0" cellpadding="0" cellspacing="0" align="center">
+		
+		
 		<tr>
 			<td height="10" colspan="2" align="left" valign="top">
 				<div class="createProfileTop">
@@ -73,6 +76,7 @@
 				</div>
 			</td>
 		</tr>
+		
 		
 		<tr>
 			<td class="edit_left_text" align="right" style="padding-right:5px">Name</td>
@@ -244,6 +248,8 @@
 					</div>
 				</td>
 			</tr>
+
+
 			<tr>
 				<td align="left" valign="top" colspan="2">
 				<table width="100%" cellpadding="0" cellspacing="0">
@@ -253,21 +259,23 @@
 										<font style="font-weight: normal">(Limit 5)</font>
 										</td>
 										<td align="left" valign="top">
-										<h:inputText id="twtAcc"
+										<h:inputText id="twtAcc" value="#{backingBean.twitterAccountName}"
 										class="edit_right_textAdd"  
 					style="background-image:none; border-width:2px; color:#7D848B; font-size:12px; width: 205px;
-					background-color: #{backingBean.twittAccCol}"
-					required="false" 
-					valueChangeListener="#{backingBean.validateTwitterAccount}"/>
+					background-color: #{backingBean.twittAccCol}" required="false"/>
 					<br/>
 					<font style="font-weight: normal" color="#F17A4B">
 						<h:outputText value="#{backingBean.twittAccErr}"/>
 					</font>
 						</td>
 						<td align="left" valign="top">
-						<input type="image" src="../images/addButton.gif" border="0" width="41" />
-						</td>
-					</tr>
+							<h:commandLink value="" 
+								actionListener="#{backingBean.validateTwitterAccountHandler}" 
+								style="text-decoration: none;">
+                          			<img src="../images/addButton.gif" border="0" width="41"/>
+                          	</h:commandLink>
+						</td>					
+						</tr>
 				</table>
 			  </td>
 			</tr>
@@ -292,7 +300,7 @@
 										</select>
 										<div class="fakefile1Band">
 										<input id="vkb#{i}" type="text" value="BRAND" class="vk_text"  
-											   style="background-image: none; background-color: transparent; border: 0px; margin-top: 1px; color: #7D848B;"/></div>
+											   style="background-image: none; background-color: transparent; border: 0px; margin-top: 1px; color: #7D848B; font-size: 10px;"/></div>
 										</div>
 										</td>
 									</tr>
@@ -305,64 +313,34 @@
 								</table>
 				</td>
 			</tr>
-			<tr>
-				<td align="left" valign="top" colspan="2">
-				
-				<table width="100%">
-									<tr>
-										<td valign="top" align="right" class="edit_left_textEPP">
-										<font style="color: #FF0000;">*</font>Competitor #1 TwitterAccounts<br />
-										<font style="font-weight: normal">(Limit 5)</font>
-										</td>
-										<td valign="top" align="left" style="padding-top: 5px;">
-											<h:inputText value="" id="compTwtAcc"
-										class="edit_right_textAdd"  
-										style="background-image:none; border-width:2px; color:#7D848B; width: 210px;font-size:12px;
-										background-color: #{backingBean.compTwittAccCol}"
-										/>
-										<br/>
-										<font style="font-weight: normal" color="#F17A4B">
-											<h:outputText value="#{backingBean.compTwittAccErr}"/>
-										</font>
-										</td>
-										<td valign="top" align="left">
-										<input type="image" src="../images/addButton.gif" border="0"  width="41"/>
-										</td>
-									</tr>
-				</table>
-				</td>
-			</tr>
-			<tr>
-				<td align="right" valign="top" colspan="2">
-				<table width="70%" border="0" cellspacing="0" cellpadding="0">
-								<a4j:repeat value="#{userProfileController.userProfile.compTwtAccounts}" var="editProf" rowKeyVar="i">
-									<tr>
-										<td width="18"><img src="../images/smallClose.PNG" border="0" /></td>
-										<td class="edit_left_textGreen" valign="top" align="left">
-											<font style="padding-right: 10px; color: #F17A4B">@#{editProf.twitterUsername}</font>
-										</td>
-										<td valign="top" align="left">
-										<div class="fileinputs1Band">
-										<select id="brand2#{i}"	class="band" onChange="selectedBrand('brand2#{i}', 'vkb2#{i}', this.value)">
-											<option value="Brand">BRAND</option>
-											<option value="Product">PRODUCT</option>
-											<option value="Industry">INDUSTRY</option>
+		<ui:include src="/editProfileHandler.jsp">
+				<ui:param name="competitorhandlername" value="Competitor #1"/>
+				<ui:param name="inputtext1" value="1"/>				
+				<ui:param name="inputtext1value" value="#{backingBean.twitterCmptAccountName1}"/>
+				<ui:param name="inputtext1bgcolor" value="#{backingBean.compTwittAccCol}"/>
+				<ui:param name="cmpttwitteraccerr" value="#{backingBean.compTwittAccErr}"/>
+				<ui:param name="addbuttonlistener" value="#{backingBean.validateTwitterAccountCmptHandler1}"/>
+				<ui:param name="cmptlist" value="#{userProfileController.userProfile.compTwtAccountsHandle1}"/>
+		</ui:include>
+		<ui:include src="/editProfileHandler.jsp">
+				<ui:param name="competitorhandlername" value="Competitor #2"/>
+				<ui:param name="inputtext1" value="2"/>				
+				<ui:param name="inputtext1value" value="#{backingBean.twitterCmptAccountName2}"/>
+				<ui:param name="inputtext1bgcolor" value="#{backingBean.compTwittAccCol2}"/>
+				<ui:param name="cmpttwitteraccerr" value="#{backingBean.compTwittAccErr2}"/>
+				<ui:param name="addbuttonlistener" value="#{backingBean.validateTwitterAccountCmptHandler2}"/>
+				<ui:param name="cmptlist" value="#{userProfileController.userProfile.compTwtAccountsHandle2}"/>
+		</ui:include>
+		<ui:include src="/editProfileHandler.jsp">
+				<ui:param name="competitorhandlername" value="Competitor #3"/>
+				<ui:param name="inputtext1" value="3"/>				
+				<ui:param name="inputtext1value" value="#{backingBean.twitterCmptAccountName3}"/>
+				<ui:param name="inputtext1bgcolor" value="#{backingBean.compTwittAccCol3}"/>
+				<ui:param name="cmpttwitteraccerr" value="#{backingBean.compTwittAccErr3}"/>
+				<ui:param name="addbuttonlistener" value="#{backingBean.validateTwitterAccountCmptHandler3}"/>
+				<ui:param name="cmptlist" value="#{userProfileController.userProfile.compTwtAccountsHandle3}"/>
+		</ui:include>
 
-										</select>
-										<div class="fakefile1Band"><input id="vkb2#{i}" type="text" value="BRAND"
-											class="vk_text"   style="background-image: none; background-color: transparent; border: 0px; margin-top: 1px; color: #7D848B;"/></div>
-										</div>
-										</td>
-									</tr>
-									<tr>
-										<td colspan="3" height="10">
-										<div style="border-bottom: 1px solid #DDDDDD;"></div>
-										</td>
-									</tr>
-									</a4j:repeat>
-				</table>
-				</td>
-			</tr>
 			<tr>
 				<td height="10" colspan="2" align="left" valign="top">
 					<div class="createProfileTop">
@@ -371,7 +349,7 @@
 						<div class="createProfileTop2">
 						<font class="createProfileTop2Green">STEP THREE</font>
 						<br/>
-						<font class="createProfileTop2Gary">Identify Targeted Keywords(Limit 1 product/brand)</font>
+						<font class="createProfileTop2Gary">Identify Targeted Keywords<font style="font-size: 12px;">(Limit 1 product/brand)</font></font>
 						</div>
 						<div class="createProfileTop3">
 						</div>
@@ -382,7 +360,7 @@
 				<td class="edit_left_textEPP" align="right" valign="middle">
 				<font style="color: #FF0000;">*</font>Profile
 				</td>
-				<td class="edit_left_textEPP" align="left" valign="middle">
+				<td align="left" valign="middle">
 
 				<div class="fileinputs1choose">
 				
@@ -390,19 +368,28 @@
                     				 styleClass="state11" onchange="selectedItem('profile', 'vkprofile', this.value)">
                     	<f:selectItems value="#{userProfileController.allTwitterAccounts}"/>
                  </t:selectOneMenu>
-				  <div class="forcombo" >
+				    <div class="forcombo" >
                      <input id="vkprofile" type="text" value="Competitor #1" 
-                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 5px; 
-                     		  background-image: none;color:#7D848B; font-size:10px; font-weight:bold;"/>
-   	               </div>        
+                     	class="vk_text"  style="background-color: transparent; border-width: 0px; padding-top : 3px; 
+                	           background-image: none;color:#7D848B; font-size:10px; font-weight:bold; width:230px;"/>
+   	               </div>      
                  </div>
 				</td>
 			</tr>
+			
+			<tr>
+				<td class="edit_left_textEPP" align="right" valign="middle">
+				
+				</td>
+				<td align="left" valign="middle" class="edit_left_textEPP">Separate keywords by a comma.
+				</td>
+			</tr>
+			
 			<tr>
 				<td class="edit_left_textEPP" align="right" valign="middle">
 				<font style="color: #FF0000;">*</font>Brand</td>
-				<td align="left" valign="top">
-					<table>
+				<td align="left" valign="middle">
+					<table width="100%" cellpadding="0" cellspacing="0">
 						<tr>
 							<td align="left" valign="top" class="edit_left_textEPP" >
 							<h:inputText id="brand" value="#{userProfileController.userProfile.keyWordIdentBrand}"
@@ -410,10 +397,10 @@
 									style="background-image: none; border-width: 2px; font-size: 12px; 
 									color: rgb(125, 132, 139); width: 217px;background-color: #{backingBean.color}"
 									/>
-								<br/>
-								<font style="font-weight: normal" color="#F17A4B">
+								
+								<div style="width:200px; font-weight: normal" color="#F17A4B">
 									<h:outputText value="#{backingBean.errMsg}"/>
-								</font>
+								</div>
 							</td>
 							<td align="left" valign="top">
 							<input type="image" src="../images/addButton.gif" border="0"  width="41" />
@@ -427,8 +414,8 @@
 				<td class="edit_left_textEPP" align="right" valign="middle">
 				<font style="color: #FF0000;">*</font>Product
 				</td>
-				<td class="edit_left_textEPP" align="left" valign="top">
-				<table>
+				<td align="left" valign="middle">
+				<table width="100%"  cellpadding="0" cellspacing="0" border="0">
 						<tr>
 							<td align="left" valign="top" class="edit_left_textEPP" >
 							<h:inputText id="product"
@@ -436,10 +423,10 @@
 									class="edit_right_textAddCP"  style="background-image:none; border-width:2px; 
 									color:#7D848B; font-size:12px;width: 217px;background-color: #{backingBean.color1}"
 									/>
-									<br/>
-									<font style="font-weight: normal" color="#F17A4B">
+									
+									<div style="width:200px; font-weight: normal" color="#F17A4B">
 										<h:outputText value="#{backingBean.errMsg1}"/>
-									</font>
+									</div>
 							</td>
 							<td align="left" valign="top">
 							<input type="image" src="../images/addButton.gif" border="0"  width="41"/>
@@ -452,18 +439,18 @@
 				<td class="edit_left_textEPP" align="right" valign="middle">
 				<font style="color: #FF0000;">*</font>Industry
 				</td>
-				<td class="edit_left_textEPP" align="left" valign="top">
-				<table>
+				<td align="left" valign="middle">
+				<table width="100%" cellpadding="0" cellspacing="0" border="0">
 						<tr>
 							<td align="left" valign="top" class="edit_left_textEPP" >
 							<h:inputText value="#{userProfileController.userProfile.keyWordIdentIndu}" id="industry"
 									class="edit_right_textAddCP"  style="background-image:none; border-width:2px; 
 									color:#7D848B; font-size:12px;width: 217px;background-color: #{backingBean.color2}"
 									/>
-									<br/>
-									<font style="font-weight: normal" color="#F17A4B">
+									
+									<div style="width:200px; font-weight: normal" color="#F17A4B">
 											<h:outputText value="#{backingBean.errMsg2}"/>
-									</font>
+									</div>
 							</td>
 							
 							<td align="left" valign="top">
@@ -500,7 +487,7 @@
 						<tr>
 							<td>
 							</td>
-							<td valign="top" align="center" class="edit_left_textEPP2">
+							<td valign="top" align="center">
 							<a4j:outputPanel rendered="#{((userProfileController.userProfile.improvementLevelId) eq (imprLevel.improvementLevelId))}">
 							<input type="radio" id="chkOne" name="chk" value="#{imprLevel.improvementLevelId}" 
 								   onClick="SingleSelect('chk',this);" class="styled"
@@ -515,11 +502,11 @@
 
 
 							</td>
-							<td valign="top" align="left" style="">#{imprLevel.name}<br />
+							<td valign="top" align="left">#{imprLevel.name}<br />
 							<font class="edit_left_textEPP3">(#{imprLevel.description})</font></td>
 						</tr>
 						<tr>
-							<td colspan="2" height="10"></td>
+							<td colspan="2" height="6"></td>
 						</tr>
 					</a4j:repeat>
 				</table>
@@ -542,7 +529,7 @@
 			</tr>
 			<tr>
 				<td align="right" valign="top" colspan="2">
-					<table width="100%" cellpadding="0" cellspacing="0">
+					<table width="380" cellpadding="0" cellspacing="0">
 						<tr>
 							<td class="edit_left_textEPP" align="right" valign="top">
 							<font style="color: #FF0000;">*</font>Google Analytics<br/>Account
@@ -559,12 +546,12 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="edit_left_textEPP" align="right" valign="top"></td>
+				<td class="edit_left_textEPP" align="right" valign="top" width="180"></td>
 				<td class="edit_left_textEPP" align="left" valign="top">
 
-				<table width="80%" border="0" cellspacing="0" cellpadding="0">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 2px;">
 					<tr>
-						<td valign="bottom" align="left">
+						<td valign="bottom" align="left"  style="padding-left:3px">
 						<input type="text"
 							name="name" value="Password" class="edit_right_textAddCP"
 							style="background-image:none; border-width:2px; font-size:12px; width: 167px;color: rgb(125, 132, 139);" />
@@ -580,12 +567,31 @@
 			<tr><td height="5px"></td></tr>
 			<tr height="45">
 				<td class="edit_left_textEPP" align="right" valign="top"></td>
-				<td class="edit_left_textEPP" align="left" valign="top"
+				<td valign="top" align="left" colspan="2" >
+										<div class="fileinputs1state11">
+										<t:selectOneMenu id="acc" value="abcd" 
+                                 				 styleClass="state11" onchange="selectedItem('acc', 'vkacc', this.value)">
+	                                		<f:selectItem itemValue=" " />
+    	                         		</t:selectOneMenu>
+										
+											<div class="forcombo" >
+	            	                     	<input id="vkacc" type="text" value="Choose an Account" 
+	            	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 3px; 
+                	           background-image: none;color:#7D848B; font-size:10px; font-weight:bold; width:230px;"/>
+	                	               		</div>
+                	               		</div>    
+                	               
+                	               
+				</td>
+				
+				
+				
+				<!--<td class="edit_left_textEPP" align="left" valign="top"
 					colspan="2">
 
 				<div class="fileinputs1" style="padding-right: 15px;">
                                  <t:selectOneMenu id="acc" value="abcd" 
-                                 				 styleClass="state" onchange="selectedItem('acc', 'vkacc', this.value)">
+                                 				 styleClass="state11" onchange="selectedItem('acc', 'vkacc', this.value)">
 	                                	<f:selectItem itemValue=" " />
     	                         </t:selectOneMenu>
         	                      <div class="forcombo" >
@@ -598,7 +604,7 @@
                       </script>
                                </div>
 				</td>
-		</tr>
+		--></tr>
 			
 			<tr>
 				<td colspan="2" valign="top" align="left">

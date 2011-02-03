@@ -6,7 +6,7 @@
     xmlns:rich="http://richfaces.org/rich">
      <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/popup.css" rel="stylesheet" type="text/css" />
-<table border="0" cellspacing="0" cellpadding="0" width="100%" height="100%">
+<table border="0" cellspacing="0" cellpadding="0" width="410" height="100%">
   <tr>
   	<td class="optiAlert" align="left" valign="middle" bgcolor="#D0D0D0">
   	<font style="color: #EDEDED; padding-left: 20px;">For profile</font> <font style="color: #8D8D8D;">@username</font></td>

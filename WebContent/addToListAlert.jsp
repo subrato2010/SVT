@@ -13,7 +13,7 @@
 	<script language="JavaScript" src="../js/svt.js"></script>		
     <script language="JavaScript" src="../js/popup.js"></script>
     <script language="JavaScript" src="../js/designMainScreen.js"/>
-	<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+	<table width="780" border="0" cellspacing="0" cellpadding="0" height="100%">
   <tr>
   	<td class="optiAlert" align="left" valign="middle" bgcolor="#D0D0D0"  height="30">
   	<table>
@@ -34,7 +34,7 @@
 	                         </t:selectOneMenu>
     	                      <div class="alertDropDown" >
         	                     <input id="vkprofile" type="text" value="@Customer1" 
-        	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 5px; 
+        	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 2px; 
         	                     		  background-image: none;color:#7D848B; font-size:10px; font-weight:bold;"/>
             	               </div>        
       				<script>

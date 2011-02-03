@@ -1,5 +1,6 @@
 package com.edifixio.soc.web.dto;
 
+import java.util.Date;
 import java.util.List;
 import com.edifixio.soc.biz.dto.TwitterAccountDTO;
 import com.edifixio.soc.persist.InboundMetricsDummy;
@@ -20,6 +21,9 @@ public class TwitterCalculatorChlPerfDTO {
     private List<SocialIntelligenceMetricsDummy> influenceDummy;
     private List<SocialIntelligenceMetricsDummy> sentimentDummy;
     private List<TwitterAccountDTO> twitterAccount;
+    private Date benchmarkDateFrom;
+    private Date benchmarkDateTo;
+    
     public List<SocialIntelligenceMetricsDummy> getDemographicsDummy() {
         return demographicsDummy;
     }
@@ -92,6 +96,18 @@ public class TwitterCalculatorChlPerfDTO {
     }
     public void setTwitterAccount(List<TwitterAccountDTO> twitterAccount) {
         this.twitterAccount = twitterAccount;
+    }
+    public Date getBenchmarkDateFrom() {
+        return benchmarkDateFrom;
+    }
+    public void setBenchmarkDateFrom(Date benchmarkDateFrom) {
+        this.benchmarkDateFrom = benchmarkDateFrom;
+    }
+    public Date getBenchmarkDateTo() {
+        return benchmarkDateTo;
+    }
+    public void setBenchmarkDateTo(Date benchmarkDateTo) {
+        this.benchmarkDateTo = benchmarkDateTo;
     }
 
 }

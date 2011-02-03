@@ -2,6 +2,7 @@
 package com.edifixio.soc.dao;
 
 import java.util.List;
+
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.persist.TwitterAccount;
 
@@ -15,5 +16,8 @@ public interface TwitterAccountDAO<T extends TwitterAccount> {
     public List<T> getByProfileUserIdNOTSELF(String profileUserId) throws SVTException;
     public List<T> getByProfileUserIdCompIdNOTSELF(String profileUserId, String companyId) throws SVTException;
 
+    public T getByProfilePrefIdTwitterAccName(String profilePrefId, String twitterUsername) throws SVTException;
     public T getTwitterAccountById(String id) throws SVTException; 
+    public T add(TwitterAccount twitterAccount)  throws SVTException; 
+    public T update(TwitterAccount twitterAccount) throws SVTException;
 }

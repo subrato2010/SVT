@@ -98,7 +98,19 @@
 			</bean>
 		</property>
 	</bean>
-	
+	<bean id="twitLogMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.TwitLogMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="parameterMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.ParameterMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+		
 	<bean id="baseBizObject" abstract="true">
       <property name="daoProvider"><ref bean="daoProvider"/></property>
    </bean>
@@ -140,6 +152,8 @@
 	        <property name="improvementLevelMgr"><ref bean="improvementLevelMgr"/></property>
 	        <property name="twitterCalculatorMgr"><ref bean="twitterCalculatorMgr"/></property>
 	        <property name="rawResultMgr"><ref bean="rawResultMgr"/></property>
+	        <property name="twitLogMgr"><ref bean="twitLogMgr"/></property>
+	        <property name="parameterMgr"><ref bean="parameterMgr"/></property>
 	        
 	        <!-- all dummy needs to be removed after 9-Dec presentation -->
 	        <property name="inboundDummyMgr"><ref bean="inboundDummyMgr"/></property>    

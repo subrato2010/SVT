@@ -11,6 +11,7 @@ import com.edifixio.soc.biz.InboundDummyMgr;
 import com.edifixio.soc.biz.MetricsMgr;
 import com.edifixio.soc.biz.OutboundDummyMgr;
 import com.edifixio.soc.biz.OverallDummyMgr;
+import com.edifixio.soc.biz.ParameterMgr;
 import com.edifixio.soc.biz.ProfileDummyMgr;
 import com.edifixio.soc.biz.ProfileInfluenceListMgr;
 import com.edifixio.soc.biz.ProfileInfluenceMgr;
@@ -20,6 +21,7 @@ import com.edifixio.soc.biz.RawResultMgr;
 import com.edifixio.soc.biz.SocIntellDummyMgr;
 import com.edifixio.soc.biz.StagingRawScoreMgr;
 import com.edifixio.soc.biz.StateProvinceMgr;
+import com.edifixio.soc.biz.TwitLogMgr;
 import com.edifixio.soc.biz.TwitterAccountMgr;
 import com.edifixio.soc.biz.TwitterCalculatorMgr;
 import com.edifixio.soc.biz.UserProfileMgr;
@@ -44,6 +46,8 @@ public class BizControlDataMgrImpl extends BaseBizObject implements
     public ImprovementLevelMgr improvementLevelMgr;
     public TwitterCalculatorMgr twitterCalculatorMgr;
     public RawResultMgr rawResultMgr;
+    public TwitLogMgr twitLogMgr;
+    public ParameterMgr parameterMgr;
     
     // all dummy needs to be removed after 9-Dec presentation
     
@@ -228,5 +232,21 @@ public class BizControlDataMgrImpl extends BaseBizObject implements
 
     public void setRawResultMgr(RawResultMgr rawResultMgr) {
         this.rawResultMgr = rawResultMgr;
+    }
+
+    public TwitLogMgr getTwitLogMgr() {
+        return twitLogMgr;
+    }
+
+    public void setTwitLogMgr(TwitLogMgr twitLogMgr) {
+        this.twitLogMgr = twitLogMgr;
+    }
+
+    public ParameterMgr getParameterMgr() {
+        return parameterMgr;
+    }
+
+    public void setParameterMgr(ParameterMgr parameterMgr) {
+        this.parameterMgr = parameterMgr;
     }
 }

@@ -3,6 +3,7 @@ package com.edifixio.soc.biz.dto;
 
 import com.edifixio.soc.persist.Category;
 import com.edifixio.soc.persist.Metrics;
+import com.edifixio.soc.persist.OverallCategory;
 
 
 public class MetricsDTO extends BaseDTO{
@@ -22,6 +23,7 @@ public class MetricsDTO extends BaseDTO{
     private String urlAPI2;
     private String apiName;
     private Category category;
+    private OverallCategory overallCategory;
     private Metrics metrics;
     
     public Metrics getMetrics() {
@@ -125,6 +127,12 @@ public class MetricsDTO extends BaseDTO{
     }
     public void setApiName(String apiName) {
         this.apiName = apiName;
+    }
+    public OverallCategory getOverallCategory() {
+        return overallCategory;
+    }
+    public void setOverallCategory(OverallCategory overallCategory) {
+        this.overallCategory = overallCategory;
     }
 
     

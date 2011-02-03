@@ -20,9 +20,11 @@ import com.edifixio.soc.biz.ImprovementLevelMgr;
 import com.edifixio.soc.biz.InboundDummyMgr;
 import com.edifixio.soc.biz.OutboundDummyMgr;
 import com.edifixio.soc.biz.OverallDummyMgr;
+import com.edifixio.soc.biz.ParameterMgr;
 import com.edifixio.soc.biz.ProfilePreferenceMgr;
 import com.edifixio.soc.biz.SocIntellDummyMgr;
 import com.edifixio.soc.biz.StateProvinceMgr;
+import com.edifixio.soc.biz.TwitLogMgr;
 import com.edifixio.soc.biz.TwitterAccountMgr;
 import com.edifixio.soc.biz.TwitterCalculatorMgr;
 import com.edifixio.soc.biz.UserProfileMgr;
@@ -86,14 +88,11 @@ public abstract class BaseWebObject {
     private List<TwitterAccountDTO> twitterAccount;
     private List<ImprovementLevel> targetList;
     
-    public BaseWebObject()
-    {
+    public BaseWebObject() {
        init();
     }
     
     private void init(){
-        
-        
         try {
             // Listbox population of Profile
             setTwitterAccount(getTwitterAccountMgr().getByProfileUserIdSELF(getCurrentUid()));
@@ -105,9 +104,8 @@ public abstract class BaseWebObject {
         if(getParameter(PROFILE_ID) != null){            
             setCurrentProfileId(getParameter(PROFILE_ID));
         }
-        
     }
-    protected void reInit() throws SVTException{
+    protected void reInit() throws SVTException  {
         init();
     }
     
@@ -197,6 +195,9 @@ public abstract class BaseWebObject {
 
 
         //---------------- All biz manager
+        protected ParameterMgr getParameterMgr() {
+            return getBizSvcFactory().getParameterMgr();
+        }
         protected ImprovementLevelMgr getImprovementLevelMgr() {
             return getBizSvcFactory().getImprovementLevelMgr();
         }
@@ -224,6 +225,9 @@ public abstract class BaseWebObject {
         }
         protected TwitterCalculatorMgr getTwitterCalculatorMgr() {
             return getBizSvcFactory().getTwitterCalculatorMgr();
+        }
+        protected TwitLogMgr getTwitLogMgr() {
+            return getBizSvcFactory().getTwitLogMgr();
         }
         
         public void goHome()

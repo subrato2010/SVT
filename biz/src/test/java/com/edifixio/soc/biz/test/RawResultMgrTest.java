@@ -26,8 +26,8 @@ public class RawResultMgrTest extends BizTestCase {
         log.debug("Total metrics: " + metricsDTO.size());
         for(MetricsDTO mdto: metricsDTO){
             if(mdto.getMetricCode().equals("10")){// Percentage of Completed Bio(s)
-                List<RawResult> selfDtos = getRawResultMgr().findByProfileIdMetricIdActionDateSELF("1",mdto.getMetricId(), new Date());
-                List<RawResult> cmptDtos = getRawResultMgr().findByProfileIdMetricIdActionDateNOTSELF("1",mdto.getMetricId(), new Date());
+                List<RawResult> selfDtos = null; //getRawResultMgr().findByProfileIdMetricIdActionDateSELF("1",mdto.getMetricId(), new Date());
+                List<RawResult> cmptDtos = null; //getRawResultMgr().findByProfileIdMetricIdActionDateNOTSELF("1",mdto.getMetricId(), new Date());
 
                 log.debug("Metrics Name: " + mdto.getMetricName());
                 log.debug("Total SELF Records: " + selfDtos.size());
@@ -97,8 +97,8 @@ public class RawResultMgrTest extends BizTestCase {
                 double totalDataCount=0;
                 double totalRawScore=0;
 
-                List<RawResult> selfDtos = getRawResultMgr().findByProfileIdMetricIdActionDateSELF("1",mdto.getMetricId(), new Date());
-                List<RawResult> cmptDtos = getRawResultMgr().findByProfileIdMetricIdActionDateNOTSELF("1",mdto.getMetricId(), new Date());
+                List<RawResult> selfDtos = null; //getRawResultMgr().findByProfileIdMetricIdActionDateSELF("1",mdto.getMetricId(), new Date());
+                List<RawResult> cmptDtos = null; //getRawResultMgr().findByProfileIdMetricIdActionDateNOTSELF("1",mdto.getMetricId(), new Date());
                 for(RawResult rr: selfDtos){
                     if(rr.getRawScore()>=0){
                         totalRawScore+=rr.getRawScore();
@@ -129,8 +129,8 @@ public class RawResultMgrTest extends BizTestCase {
                 double totalDataCount=0;
                 double totalRawScore=0;
 
-                List<RawResult> selfDtos = getRawResultMgr().findByProfileIdMetricIdActionDateSELF("1",mdto.getMetricId(), new Date());
-                List<RawResult> cmptDtos = getRawResultMgr().findByProfileIdMetricIdActionDateNOTSELF("1",mdto.getMetricId(), new Date());
+                List<RawResult> selfDtos = null; //getRawResultMgr().findByProfileIdMetricIdActionDateSELF("1",mdto.getMetricId(), new Date());
+                List<RawResult> cmptDtos = null; //getRawResultMgr().findByProfileIdMetricIdActionDateNOTSELF("1",mdto.getMetricId(), new Date());
                 for(RawResult rr: selfDtos){
                     if(rr.getRawScore()>=0){
                         totalRawScore+=rr.getRawScore();
@@ -157,8 +157,8 @@ public class RawResultMgrTest extends BizTestCase {
             
             //////
             if(mdto.getMetricCode().equals("10")){// Percentage of Completed Bio(s)
-                List<RawResult> selfDtos = getRawResultMgr().findByProfileIdMetricIdActionDateSELF("1",mdto.getMetricId(), new Date());
-                List<RawResult> cmptDtos = getRawResultMgr().findByProfileIdMetricIdActionDateNOTSELF("1",mdto.getMetricId(), new Date());
+                List<RawResult> selfDtos = null; //getRawResultMgr().findByProfileIdMetricIdActionDateSELF("1",mdto.getMetricId(), new Date());
+                List<RawResult> cmptDtos = null; //getRawResultMgr().findByProfileIdMetricIdActionDateNOTSELF("1",mdto.getMetricId(), new Date());
 
                 log.debug("Metrics Name: " + mdto.getMetricName());
                 log.debug("Total SELF Records: " + selfDtos.size());

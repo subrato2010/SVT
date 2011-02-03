@@ -10,7 +10,7 @@
 		<script language="JavaScript" src="../js/designMainScreen.js" />	
 		<div class="mainBodyTop">
 		<table width="415" border="0" cellspacing="0" cellpadding="0"
-			height="80" style="margin-left: 15px;">
+			style="margin-left: 15px; margin-top: 41px;">
 			<tr>
 				<td valign="bottom" align="center"><img
 					src="../images/channelPerformanceSelected.gif" border="0" /></td>

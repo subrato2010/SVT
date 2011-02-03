@@ -17,20 +17,22 @@
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
   <tr>
   	<td class="optiAlert" align="left" valign="middle" bgcolor="#D0D0D0"  height="30">
-  	<table>
+  	<table width="390" border="0" cellpadding="0" cellspacing="0">
   		<tr height="35">
-  			<td align="left" valign="middle">
+  			<td align="left" valign="middle" width="110">
   			<font style="color: #EDEDED; padding-left: 20px;">For profile</font> 
   			</td>
   			<td align="left" valign="middle">
-  			<div class="fileinputs1" style="width: 30px;">
+  			<div class="fileinputs1">
                        		<t:selectOneMenu id="inflalertlist" value="#{twitterAccountDTO.twitterUsername}"
                              	styleClass="state11" onchange="selectedItem('inflalertlist', 'vkinflalertlist', this.value)">
+                             	
+                             	
                              	<f:selectItems value="#{userProfileController.allTwitterAccounts}"/>
 	                         </t:selectOneMenu>
     	                      <div class="alertDropDown" >
         	                     <input id="vkinflalertlist" type="text" value="@Customer1" 
-        	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 5px; 
+        	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 2px; 
         	                     		  background-image: none;color:#7D848B; font-size:10px; font-weight:bold;"/>
             	               </div>        
       				<script>
@@ -38,6 +40,7 @@
                   </script>
 	 		</div>
   			</td>
+  			
   		</tr>
   	</table>
   	

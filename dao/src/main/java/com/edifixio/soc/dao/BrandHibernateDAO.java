@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.dao.util.BaseHibernateDAO;
 import com.edifixio.soc.persist.Brand;
+import com.edifixio.soc.persist.Product;
 
 
 @SuppressWarnings("unchecked")
@@ -49,6 +50,11 @@ public class BrandHibernateDAO<T extends Brand> extends
         session.save(brand);
         transaction.commit();
         log.debug("Value saved successfully");
+        return brand;
+    }
+
+    public Brand getByName(String name) throws SVTException {
+        T brand = find().where("this.brandName=?", name).get();
         return brand;
     }
 

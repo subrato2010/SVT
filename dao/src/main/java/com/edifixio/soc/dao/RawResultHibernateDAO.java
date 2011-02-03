@@ -31,12 +31,12 @@ public class RawResultHibernateDAO<T extends RawResult> extends BaseHibernateDAO
     public List findByProfileIdMetricIdActionDate(String profileId, String metricId, Date actionDate) throws SVTException {
         List<T> t = find().where("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
         and("this.metric.metricId=?", metricId).
-        andIfNotNull("this.actionDate <= ?", actionDate).list();
+        andIfNotNull("this.actionDate = ?", actionDate).list();
         return t;
     }    
     public List findByProfileIdActionDate(String profileId, Date actionDate) throws SVTException {
         List<T> t = find().where("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
-        andIfNotNull("this.actionDate <= ?", actionDate).list();
+        andIfNotNull("this.actionDate = ?", actionDate).list();
         return t;
     }
     public List findByMetricIdNOTSELF(String metricId) throws SVTException {
@@ -51,30 +51,69 @@ public class RawResultHibernateDAO<T extends RawResult> extends BaseHibernateDAO
     }
     public List findByProfileIdActionDateNOTSELF(String profileId, Date actionDate) throws SVTException {
         List<T> t = find().where("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
-        andIfNotNull("this.actionDate <= ?", actionDate).
+        andIfNotNull("this.actionDate = ?", actionDate).
         and("this.twitterAccount.self=false").list();
         return t;
     }
     public List findByProfileIdActionDateSELF(String profileId, Date actionDate) throws SVTException {
         List<T> t = find().where("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
-        andIfNotNull("this.actionDate <= ?", actionDate).
+        andIfNotNull("this.actionDate = ?", actionDate).
         and("this.twitterAccount.self=true").list();
         return t;
     }
-    public List findByProfileIdMetricIdActionDateNOTSELF(String profileId, String metricId, Date actionDate) throws SVTException {
-        List<T> t = find().where("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
-        and("this.metric.metricId=?", metricId).
-        andIfNotNull("this.actionDate <= ?", actionDate).
+    public List findByProfileIdMetricIdActionDateNOTSELF(String profileId, String twitterAccountId, String metricId, Date actionDate) throws SVTException {
+        List<T> t = find().where("this.metric.metricId=?", metricId).
+        and("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
+        //andIfNotZero("this.twitterAccount.twitterAccountId=?", twitterAccountId).
+        andIfNotNull("this.actionDate = ?", actionDate).
         and("this.twitterAccount.self=false").list();
         return t;
     }
-    public List findByProfileIdMetricIdActionDateSELF(String profileId, String metricId, Date actionDate) throws SVTException {
+    public List findByProfileIdMetricIdActionDateCALCNOTSELF(String profileId, String twitterAccountId, String metricId, Date benchmarkStDate, Date benchmarkEdDate) throws SVTException {
+        List<T> t = find().where("this.metric.metricId=?", metricId).
+        and("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
+        //andIfNotZero("this.twitterAccount.twitterAccountId=?", twitterAccountId).
+        andIfNotNull("this.actionDate >= ?", benchmarkStDate).
+        andIfNotNull("this.actionDate <= ?", benchmarkEdDate).
+        and("this.twitterAccount.self=false").list();
+        return t;
+    }
+    public List findByProfileIdActionDateCALCNOTSELF(String profileId, String twitterAccountId, Date benchmarkStDate, Date benchmarkEdDate) throws SVTException {
         List<T> t = find().where("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
+        //andIfNotZero("this.twitterAccount.twitterAccountId=?", twitterAccountId).
+        andIfNotNull("this.actionDate >= ?", benchmarkStDate).
+        andIfNotNull("this.actionDate <= ?", benchmarkEdDate).
+        and("this.twitterAccount.self=false").list();
+        return t;
+    }
+
+    public List findByProfileIdMetricIdActionDateSELF(String profileId, String twitterAccountId, String metricId, Date actionDate) throws SVTException {
+        List<T> t = find().where("this.metric.metricId=?", metricId).
+        and("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
         and("this.metric.metricId=?", metricId).
-        andIfNotNull("this.actionDate <= ?", actionDate).
+        andIfNotZero("this.twitterAccount.twitterAccountId=?", twitterAccountId).
+        andIfNotNull("this.actionDate = ?", actionDate).
         and("this.twitterAccount.self=true").list();
         return t;
     }
+    public List findByProfileIdMetricIdActionDateCALCSELF(String profileId, String twitterAccountId, String metricId, Date benchmarkStDate, Date benchmarkEdDate) throws SVTException {
+        List<T> t = find().where("this.metric.metricId=?", metricId).
+        and("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
+        andIfNotZero("this.twitterAccount.twitterAccountId=?", twitterAccountId).
+        andIfNotNull("this.actionDate >= ?", benchmarkStDate).
+        andIfNotNull("this.actionDate <= ?", benchmarkEdDate).
+        and("this.twitterAccount.self=true").list();
+        return t;
+    }
+    public List findByProfileIdActionDateCALCSELF(String profileId, String twitterAccountId, Date benchmarkStDate, Date benchmarkEdDate) throws SVTException {
+        List<T> t = find().where("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
+        andIfNotZero("this.twitterAccount.twitterAccountId=?", twitterAccountId).
+        andIfNotNull("this.actionDate >= ?", benchmarkStDate).
+        andIfNotNull("this.actionDate <= ?", benchmarkEdDate).
+        and("this.twitterAccount.self=true").list();
+        return t;
+    }
+    
     public List findByProfileIdMetricIdNOTSELF(String profileId, String metricId) throws SVTException {
         List<T> t = find().where("this.twitterAccount.profilePreference.profilePrefrenceId=?", profileId).
         and("this.metric.metricId=?", metricId).

@@ -10,6 +10,7 @@ import com.edifixio.soc.biz.InboundDummyMgr;
 import com.edifixio.soc.biz.MetricsMgr;
 import com.edifixio.soc.biz.OutboundDummyMgr;
 import com.edifixio.soc.biz.OverallDummyMgr;
+import com.edifixio.soc.biz.ParameterMgr;
 import com.edifixio.soc.biz.ProfileDummyMgr;
 import com.edifixio.soc.biz.ProfileInfluenceListMgr;
 import com.edifixio.soc.biz.ProfileInfluenceMgr;
@@ -19,6 +20,7 @@ import com.edifixio.soc.biz.RawResultMgr;
 import com.edifixio.soc.biz.SocIntellDummyMgr;
 import com.edifixio.soc.biz.StagingRawScoreMgr;
 import com.edifixio.soc.biz.StateProvinceMgr;
+import com.edifixio.soc.biz.TwitLogMgr;
 import com.edifixio.soc.biz.TwitterAccountMgr;
 import com.edifixio.soc.biz.TwitterCalculatorMgr;
 import com.edifixio.soc.biz.UserProfileMgr;
@@ -45,6 +47,8 @@ public interface BizControlDataMgr {
     public ImprovementLevelMgr getImprovementLevelMgr();
     public TwitterCalculatorMgr getTwitterCalculatorMgr();
     public RawResultMgr getRawResultMgr();
+    public TwitLogMgr getTwitLogMgr();
+    public ParameterMgr getParameterMgr();
     
     // all dummy needs to be removed after 9-Dec presentation
     

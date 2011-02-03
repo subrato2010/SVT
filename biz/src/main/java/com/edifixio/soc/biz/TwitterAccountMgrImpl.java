@@ -9,6 +9,7 @@ import com.edifixio.soc.biz.dto.TwitterAccountDTO;
 import com.edifixio.soc.biz.dto.UserProfileDetailDTO;
 import com.edifixio.soc.biz.util.BaseBizObject;
 import com.edifixio.soc.common.SVTException;
+import com.edifixio.soc.persist.Company;
 import com.edifixio.soc.persist.TwitterAccount;
 
 public class TwitterAccountMgrImpl extends BaseBizObject implements TwitterAccountMgr {
@@ -50,8 +51,42 @@ public class TwitterAccountMgrImpl extends BaseBizObject implements TwitterAccou
     }
     
     public TwitterAccountDTO add(TwitterAccountDTO dto) throws SVTException {
-        // TODO Auto-generated method stub
-        return null;
+        
+        if(dto.getTwitterUsername() != null){
+            // check if exist, then dont allow to add
+            TwitterAccount ta = getByTwitterUsername(dto.getProfilePreference().getProfilePrefrenceId(), dto.getTwitterUsername());
+            if(ta != null){
+                System.out.println("Already exist...., you can only update");
+                ta.setBrndProdInds(dto.getBrndProdInds());
+                getTwitterAccountDAO().update(ta);
+            }else{
+                // add the twitter account
+                ta = new TwitterAccount();
+                ta.setBrndProdInds(dto.getBrndProdInds());
+                ta.setTwitterUsername(dto.getTwitterUsername());
+                
+                ta.setBrand(getDaoProvider().getBrandDAO().getByName(BRAND)); // TODO: can be deprecated
+                ta.setIndustry(getDaoProvider().getIndustryDAO().getByName(INDUSTRY));// TODO: can be deprecated
+                ta.setProduct(getDaoProvider().getProductDAO().getByName(PRODUCT));// TODO: can be deprecated
+
+                ta.setCompany(getCompany(dto.getHandlerName()));
+                ta.setProfilePreference(dto.getProfilePreference());
+                ta.setSelf(dto.isSelf());
+                ta.setUpdatedOn(dto.getCreatedOn());
+                getDaoProvider().getTwitterAccountDAO().add(ta);                
+            }            
+        }
+        
+        
+        return dto;
+    }
+
+    private TwitterAccount getByTwitterUsername(String profilePrefId, String twitterUsername) throws SVTException {
+        return getTwitterAccountDAO().getByProfilePrefIdTwitterAccName(profilePrefId, twitterUsername);
+    }
+
+    private Company getCompany(String handlerName) throws SVTException {
+        return getDaoProvider().getCompanyDAO().getByName(handlerName);
     }
 
     private List<TwitterAccountDTO> getTwitterAccountDTOList(List<TwitterAccount> tadtos) {

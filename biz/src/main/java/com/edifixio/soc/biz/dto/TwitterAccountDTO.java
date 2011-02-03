@@ -14,7 +14,15 @@ public class TwitterAccountDTO extends BaseDTO{
     private boolean self;
     private String twitterUsername;
     private TwitterAccount twitterAccount;
-    
+    private String handlerName;
+    private String brndProdInds;
+
+    public String getHandlerName() {
+        return handlerName;
+    }
+    public void setHandlerName(String handlerName) {
+        this.handlerName = handlerName;
+    }
     public TwitterAccount getTwitterAccount() {
         return twitterAccount;
     }
@@ -51,5 +59,10 @@ public class TwitterAccountDTO extends BaseDTO{
     public void setTwitterUsername(String twitterUsername) {
         this.twitterUsername = twitterUsername;
     }
-    
+    public String getBrndProdInds() {
+        return brndProdInds;
+    }
+    public void setBrndProdInds(String brndProdInds) {
+        this.brndProdInds = brndProdInds;
+    }
  }

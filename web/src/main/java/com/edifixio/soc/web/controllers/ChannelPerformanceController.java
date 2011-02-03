@@ -1,14 +1,14 @@
 package com.edifixio.soc.web.controllers;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import javax.faces.context.FacesContext;
+
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
+
 import com.edifixio.soc.biz.dto.TwitterAccountDTO;
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.persist.InboundMetricsDummy;
@@ -38,6 +38,8 @@ public class ChannelPerformanceController extends BaseWebObject
    private Date performanceAsOfDate;
    private String profileId;
    private String fromProfileId;
+   private String twitterAccountId;
+   private String twitterAccountName;
    private Date benchmarkDateFrom;
    private Date benchmarkDateTo;
    private String target;
@@ -60,15 +62,18 @@ public class ChannelPerformanceController extends BaseWebObject
    
    //SG: this is tempo solution, because we dont know how to do achive this
    private String channelOptimizationOutbound;
+   private String channelPerformanceTabClick;
    
     public ChannelPerformanceController() throws SVTException
     {
         // Place it in the right place please: not the right place to keep this code
-        setPerformanceValue();
+        //setPerformanceValue();
         //setValue();
+        setDefaultParameter();
     }
 
     public void populateWithDefault(ActionEvent ae) throws SVTException{
+
         setPerformanceValue();
     }
     
@@ -78,28 +83,37 @@ public class ChannelPerformanceController extends BaseWebObject
     }
 
     private void setPerformanceValue() throws SVTException{
-        setDefaultParameter();
+
         setChannelPerformanceValue(); //will use this call, instead of setValue()
     }
     
     public void setChannelOptimizationOutbound(String channelOptimizationOutbound) {
         this.channelOptimizationOutbound = channelOptimizationOutbound;
     }
-    
+ 
+    public String getChannelPerformanceTabClick() throws SVTException{
+        setPerformanceValue();
+        return channelPerformanceTabClick;
+    }
+
+//    public void setChannelPerformanceTabClick(String channelPerformanceTabClick) throws SVTException{
+//        this.channelPerformanceTabClick = channelPerformanceTabClick;
+//    }
+
     /**
      * User clicks on ChannelPerformanceTab
      * @throws SVTException
      * @throws IOException 
      */
-    public void channelPerformanceTabClick(ActionEvent ae) throws SVTException, IOException {        
-        System.out.println("channelPerformanceTabClick().......");
-        setDefaultParameter();
-        setChannelPerformanceValue();
-        FacesContext.getCurrentInstance().getExternalContext().redirect(MAIN_SCREEN_JSP);
-    }
+//    public void channelPerformanceTabClick(ActionEvent ae) throws SVTException, IOException {        
+//        System.out.println("channelPerformanceTabClick().......");
+//        setDefaultParameter();
+//        setChannelPerformanceValue();
+//        FacesContext.getCurrentInstance().getExternalContext().redirect(MAIN_SCREEN_JSP);
+//    }
     
     /**
-     * First time, user logsin and data comes with all default values
+     * First time, user login and data comes with all default values
      * @throws SVTException
      */
     public List<OverallPerformanceDummy> getOverallPerformanceDummy() throws SVTException {        
@@ -107,13 +121,14 @@ public class ChannelPerformanceController extends BaseWebObject
     }
 
     private void setChannelPerformanceValue() throws SVTException{
-//        System.out.println("getPerformanceAsOfDate(): " + getPerformanceAsOfDate());
+//         System.out.println("Calling setChannelPerformanceValue(): " + getPerformanceAsOfDate());
 //        System.out.println("getFromProfileId(): " + getFromProfileId());
 //        System.out.println("getBenchmarkDateFrom(): " + getBenchmarkDateFrom());
 //        System.out.println("getBenchmarkDateTo(): " + getBenchmarkDateTo());
-        System.out.println("getTargetId(): " + getTargetId());
-        
-        TwitterCalculatorChlPerfDTO dto = getTwitterCalculatorMgr().getChannelPerformance(getPerformanceAsOfDate(), getFromProfileId(), getBenchmarkDateFrom(), getBenchmarkDateTo(), getTargetId());
+        //System.out.println("getTargetId(): " + getTargetId());
+
+   if(getSentimentName() == null){ //1234
+        TwitterCalculatorChlPerfDTO dto = getTwitterCalculatorMgr().getChannelPerformance(getPerformanceAsOfDate(), getCurrentUid(), getTwitterAccountId(), getBenchmarkDateFrom(), getBenchmarkDateTo(), getTargetId());
        setOverallPerformanceDummy(dto.getOverallPerformanceDummy());
        setOutboundMetricsDummy(dto.getOutboundMetricsDummy());
        setInboundMetricsDummy(dto.getInboundMetricsDummy());
@@ -126,42 +141,24 @@ public class ChannelPerformanceController extends BaseWebObject
        setSentimentDummy(dto.getSentimentDummy());
        setTwitterAccount(getTwitterAccountMgr().getByProfileUserIdSELF(getCurrentUid())); // populate profile listbox
        setTargetList(getImprovementLevelMgr().findAll()); // populate profile listbox
+       setBenchmarkDateFrom(dto.getBenchmarkDateFrom());
+       setBenchmarkDateTo(dto.getBenchmarkDateTo());
+       
+//       //Sorting logic here based on user clicks
+//       Collections.sort(dto.getOutboundMetricsDummy(), new MetricsOutboundComparator(getSortByColumn("1"), getOrd("1")));
+//       Collections.sort(dto.getInboundMetricsDummy(), new MetricsInboundComparator(getSortByColumn("2"), getOrd("2")));
+//       Collections.sort(dto.getEngagementDummy(), new MetricsSIComparator(getSortByColumn("3"), getOrd("3")));
+//       Collections.sort(dto.getReachDummy(), new MetricsSIComparator(getSortByColumn("4"), getOrd("4")));
+//       Collections.sort(dto.getLoyaltyDummy(), new MetricsSIComparator(getSortByColumn("5"), getOrd("5")));
+//       Collections.sort(dto.getDemographicsDummy(), new MetricsSIComparator(getSortByColumn("6"), getOrd("6")));
+//       Collections.sort(dto.getRetentionDummy(), new MetricsSIComparator(getSortByColumn("7"), getOrd("7")));
+//       Collections.sort(dto.getInfluenceDummy(), new MetricsSIComparator(getSortByColumn("8"), getOrd("8")));
+//       Collections.sort(dto.getSentimentDummy(), new MetricsSIComparator(getSortByColumn("9"), getOrd("9")));
+       
+   }
+
     }
 
-    /**
-     * User clicks on the submit button
-     * @param ae
-     * @throws SVTException 
-     */
-    public String submitQuery1() throws SVTException
-    {
-//        System.out.println("SortByColumn: " +  getSortByColumn("1"));
-//        System.out.println("Order: " + getOrd("1"));
-
-        TwitterCalculatorChlPerfDTO dto = getTwitterCalculatorMgr().getChannelPerformance(getPerformanceAsOfDate(), getFromProfileId(), getBenchmarkDateFrom(), getBenchmarkDateTo(), getTargetId());
-        setOutboundMetricsDummy(dto.getOutboundMetricsDummy());
-        setInboundMetricsDummy(dto.getInboundMetricsDummy());
-        setEngagementDummy(dto.getEngagementDummy());
-        setReachDummy(dto.getReachDummy());
-        setLoyaltyDummy(dto.getLoyaltyDummy());
-        setDemographicsDummy(dto.getDemographicsDummy());
-        setRetentionDummy(dto.getRetentionDummy());
-        setInfluenceDummy(dto.getInfluenceDummy());
-        setSentimentDummy(dto.getSentimentDummy());
-        
-        //Sorting logic here based on user clicks
-        Collections.sort(dto.getOutboundMetricsDummy(), new MetricsOutboundComparator(getSortByColumn("1"), getOrd("1")));
-        Collections.sort(dto.getInboundMetricsDummy(), new MetricsInboundComparator(getSortByColumn("2"), getOrd("2")));
-        Collections.sort(dto.getEngagementDummy(), new MetricsSIComparator(getSortByColumn("3"), getOrd("3")));
-        Collections.sort(dto.getReachDummy(), new MetricsSIComparator(getSortByColumn("4"), getOrd("4")));
-        Collections.sort(dto.getLoyaltyDummy(), new MetricsSIComparator(getSortByColumn("5"), getOrd("5")));
-        Collections.sort(dto.getDemographicsDummy(), new MetricsSIComparator(getSortByColumn("6"), getOrd("6")));
-        Collections.sort(dto.getRetentionDummy(), new MetricsSIComparator(getSortByColumn("7"), getOrd("7")));
-        Collections.sort(dto.getInfluenceDummy(), new MetricsSIComparator(getSortByColumn("8"), getOrd("8")));
-        Collections.sort(dto.getSentimentDummy(), new MetricsSIComparator(getSortByColumn("9"), getOrd("9")));
-        return "mainScreen";
-    }
-    
     /**
      * User clicks on the submit button
      * @param ae
@@ -171,8 +168,17 @@ public class ChannelPerformanceController extends BaseWebObject
     {
 //        System.out.println("SortByColumn: " +  getSortByColumn("1"));
 //        System.out.println("Order: " + getOrd("1"));
-
-        TwitterCalculatorChlPerfDTO dto = getTwitterCalculatorMgr().getChannelPerformance(getPerformanceAsOfDate(), getFromProfileId(), getBenchmarkDateFrom(), getBenchmarkDateTo(), getTargetId());
+//        System.out.println("**getPerformanceAsOfDate(): " + getPerformanceAsOfDate());
+//        System.out.println("currentProfile: " + getCurrentUid());
+//        System.out.println("getFromProfileId(): " + getFromProfileId());
+//        System.out.println("getBenchmarkDateFrom(): " + getBenchmarkDateFrom());
+//        System.out.println("getBenchmarkDateTo(): " + getBenchmarkDateTo());
+//        System.out.println("getTargetId(): " + getTargetId());
+//        System.out.println("Column Clicked: " + getSentimentName());
+//        System.out.println("Order by: " + getSortBy());
+        
+        TwitterCalculatorChlPerfDTO dto = getTwitterCalculatorMgr().getChannelPerformance(getPerformanceAsOfDate(), getCurrentUid(), getTwitterAccountId(), getBenchmarkDateFrom(), getBenchmarkDateTo(), getTargetId());
+        setOverallPerformanceDummy(dto.getOverallPerformanceDummy());
         setOutboundMetricsDummy(dto.getOutboundMetricsDummy());
         setInboundMetricsDummy(dto.getInboundMetricsDummy());
         setEngagementDummy(dto.getEngagementDummy());
@@ -182,7 +188,11 @@ public class ChannelPerformanceController extends BaseWebObject
         setRetentionDummy(dto.getRetentionDummy());
         setInfluenceDummy(dto.getInfluenceDummy());
         setSentimentDummy(dto.getSentimentDummy());
-        
+        setTwitterAccount(getTwitterAccountMgr().getByProfileUserIdSELF(getCurrentUid())); // populate profile listbox
+        setTargetList(getImprovementLevelMgr().findAll()); // populate profile listbox
+        setBenchmarkDateFrom(dto.getBenchmarkDateFrom());
+        setBenchmarkDateTo(dto.getBenchmarkDateTo());
+
         //Sorting logic here based on user clicks
         Collections.sort(dto.getOutboundMetricsDummy(), new MetricsOutboundComparator(getSortByColumn("1"), getOrd("1")));
         Collections.sort(dto.getInboundMetricsDummy(), new MetricsInboundComparator(getSortByColumn("2"), getOrd("2")));
@@ -203,7 +213,8 @@ public class ChannelPerformanceController extends BaseWebObject
      */
     public void changeTarget(ValueChangeEvent ae) throws SVTException
     {
-        TwitterCalculatorChlPerfDTO dto = getTwitterCalculatorMgr().getChannelPerformance(getPerformanceAsOfDate(), getFromProfileId(), getBenchmarkDateFrom(), getBenchmarkDateTo(), getTargetId());
+        System.out.println("Change target clicked.....");
+        TwitterCalculatorChlPerfDTO dto = getTwitterCalculatorMgr().getChannelPerformance(getPerformanceAsOfDate(), getCurrentUid(), getTwitterAccountId(), getBenchmarkDateFrom(), getBenchmarkDateTo(), getTargetId());
         setOutboundMetricsDummy(dto.getOutboundMetricsDummy());
         setInboundMetricsDummy(dto.getInboundMetricsDummy());
         setEngagementDummy(dto.getEngagementDummy());
@@ -282,7 +293,7 @@ public class ChannelPerformanceController extends BaseWebObject
             this.sortByColumn=(sortByColumn==null)?(""):(sortByColumn);
             this.sortOrder=(sortOrder==null)?(""):(sortOrder);
         }
-
+        
         public int compare(InboundMetricsDummy inbound1, InboundMetricsDummy inbound2) {
             if(sortByColumn.equalsIgnoreCase("yv")){
                 if(sortOrder.equalsIgnoreCase("A")){
@@ -412,7 +423,6 @@ public class ChannelPerformanceController extends BaseWebObject
         setParameterValues();
        setOverallPerformanceDummy(getOverallDummyMgr().getByProfileId(getProfileId()));
        setOutboundMetricsDummy(getOutboundDummyMgr().getByProfileId(getProfileId(), getSortByColumn("1"), getOrd("1")));       
-       
        setInboundMetricsDummy(getInboundDummyMgr().getByProfileId(getProfileId(), getSortByColumn("2"), getOrd("2")));
        setEngagementDummy(getSocIntellDummyMgr().getByProfileIdEngagement(getProfileId(), getSortByColumn("3"), getOrd("3")));
        setReachDummy(getSocIntellDummyMgr().getByProfileIdReach(getProfileId(), getSortByColumn("4"), getOrd("4")));
@@ -512,8 +522,9 @@ public class ChannelPerformanceController extends BaseWebObject
         performanceAsOfDate = getCurrentDate();
         profileId = getCurrentUid();
         fromProfileId=profileId;
-        benchmarkDateFrom=getCurrentDate();
-        benchmarkDateTo=getCurrentDate();
+        twitterAccountId="0";
+//        benchmarkDateFrom=getCurrentDate();
+//        benchmarkDateTo=getCurrentDate();
         targetName=getProfileTargetName(getCurrentUid());
         targetId=getProfileTargetId(getCurrentUid());
     }
@@ -831,5 +842,21 @@ public class ChannelPerformanceController extends BaseWebObject
 
     public void setCol(String col) {
         this.col = col;
+    }
+
+    public String getTwitterAccountId() {
+        return twitterAccountId;
+    }
+
+    public void setTwitterAccountId(String twitterAccountId) {
+        this.twitterAccountId = twitterAccountId;
+    }
+
+    public String getTwitterAccountName() {
+        return twitterAccountName;
+    }
+
+    public void setTwitterAccountName(String twitterAccountName) {
+        this.twitterAccountName = twitterAccountName;
     }
 }

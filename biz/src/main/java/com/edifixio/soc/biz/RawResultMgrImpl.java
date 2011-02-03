@@ -3,8 +3,10 @@ package com.edifixio.soc.biz;
 
 import java.util.Date;
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import com.edifixio.soc.biz.util.BaseBizObject;
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.persist.RawResult;
@@ -49,12 +51,12 @@ public class RawResultMgrImpl extends BaseBizObject implements RawResultMgr {
         return getDaoProvider().getRawResultDAO().findByProfileIdMetricIdActionDate(profileId, metricId, actionDate);
     }
 
-    public List<RawResult> findByProfileIdMetricIdActionDateNOTSELF(String profileId, String metricId, Date actionDate) throws SVTException {
-        return getDaoProvider().getRawResultDAO().findByProfileIdMetricIdActionDateNOTSELF(profileId, metricId, actionDate);
+    public List<RawResult> findByProfileIdMetricIdActionDateNOTSELF(String profileId, String twitterAccountId, String metricId, Date actionDate) throws SVTException {
+        return getDaoProvider().getRawResultDAO().findByProfileIdMetricIdActionDateNOTSELF(profileId, twitterAccountId, metricId, actionDate);
     }
 
-    public List<RawResult> findByProfileIdMetricIdActionDateSELF(String profileId, String metricId, Date actionDate) throws SVTException {
-        return getDaoProvider().getRawResultDAO().findByProfileIdMetricIdActionDateSELF(profileId, metricId, actionDate);
+    public List<RawResult> findByProfileIdMetricIdActionDateSELF(String profileId, String twitterAccountId, String metricId, Date actionDate) throws SVTException {
+        return getDaoProvider().getRawResultDAO().findByProfileIdMetricIdActionDateSELF(profileId, twitterAccountId, metricId, actionDate);
     }
 
     public List<RawResult> findByProfileIdMetricIdNOTSELF(String profileId, String metricId) throws SVTException {

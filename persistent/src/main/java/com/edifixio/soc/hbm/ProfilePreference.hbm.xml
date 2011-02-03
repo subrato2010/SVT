@@ -32,6 +32,20 @@
             insert="true"
             column="profileUserId"
         />
+        <property
+            name="googleAnalyticsUsername"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="googleAnalyticsUsername"
+        />
+        <property
+            name="googleAnalyticsAuth"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="googleAnalyticsAuth"
+        />
         <many-to-one
             name="userProfileDetail"
             class="com.edifixio.soc.persist.UserProfileDetail"
@@ -107,6 +121,19 @@
         >
             <column
                 name="productId" 
+                not-null="true"
+            />
+        </many-to-one>
+        <many-to-one
+            name="benchmark"
+            class="com.edifixio.soc.persist.Benchmark"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="benchmarkId" 
                 not-null="true"
             />
         </many-to-one>

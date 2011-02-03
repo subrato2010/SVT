@@ -33,6 +33,21 @@
 		  <managed-bean-class>com.edifixio.soc.web.dto.TwitterDTO</managed-bean-class>
 		  <managed-bean-scope>request</managed-bean-scope>
 	 </managed-bean>
+	 
+     <managed-bean>
+		  <managed-bean-name>replyTwitterDataController</managed-bean-name>
+		  <managed-bean-class>com.edifixio.soc.web.controllers.ReplyTwitterDataController</managed-bean-class>
+		  <managed-bean-scope>request</managed-bean-scope>
+	 </managed-bean>
+	
+	
+	  <managed-bean>
+		  <managed-bean-name>manageTwitterOperations</managed-bean-name>
+		  <managed-bean-class>com.edifixio.soc.web.beans.ManageTwitterOperations</managed-bean-class>
+		  <managed-bean-scope>request</managed-bean-scope>
+	 </managed-bean>
+ 	
+ 	
  <!-- Added By NEEL for LDAP (Ended)-->
  
  

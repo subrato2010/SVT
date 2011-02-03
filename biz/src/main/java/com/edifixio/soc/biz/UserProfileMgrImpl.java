@@ -5,11 +5,14 @@ import java.util.Date;
 import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import com.edifixio.soc.biz.dto.BenchmarkDTO;
 import com.edifixio.soc.biz.dto.TwitterAccountDTO;
 import com.edifixio.soc.biz.dto.UserProfileDetailDTO;
 import com.edifixio.soc.biz.util.BaseBizObject;
 import com.edifixio.soc.biz.util.UserProfileUtil;
 import com.edifixio.soc.common.SVTException;
+import com.edifixio.soc.persist.Benchmark;
 import com.edifixio.soc.persist.Brand;
 import com.edifixio.soc.persist.Company;
 import com.edifixio.soc.persist.ImprovementLevel;
@@ -78,12 +81,18 @@ public class UserProfileMgrImpl extends BaseBizObject implements UserProfileMgr 
                 log.debug("Invalid user...");
                 return null;
             }
+
             List<TwitterAccount> twaSelf = getTwitterAccountDAO().getByProfilePreferenceIdSELF(pp.getProfilePrefrenceId());
             List<TwitterAccount> twaCmpt = getTwitterAccountDAO().getByProfilePreferenceIdNOTSELF(pp.getProfilePrefrenceId());
+            
+            List<TwitterAccount> twaCmpt1 = getTwitterAccountDAO().getByProfilePreferenceIdCompIdNOTSELF(pp.getProfilePrefrenceId(), "1");
+            List<TwitterAccount> twaCmpt2 = getTwitterAccountDAO().getByProfilePreferenceIdCompIdNOTSELF(pp.getProfilePrefrenceId(), "2");
+            List<TwitterAccount> twaCmpt3 = getTwitterAccountDAO().getByProfilePreferenceIdCompIdNOTSELF(pp.getProfilePrefrenceId(), "3");
+            
              if(pp.getUserProfileDetail() != null){
                  copyPropertiesQuietly(dto, list.get(0));
                 copyPropertiesQuietly(dto, pp.getUserProfileDetail());
-               
+
                 dto.setImprovementLevel(pp.getUserProfileDetail().getImprovementLevel()); //TODO : change it to dto instead to direct use of persist in web layer
                 
                 dto.setImprovementLevelId(pp.getUserProfileDetail().getImprovementLevel().getImprovementLevelId());
@@ -91,6 +100,9 @@ public class UserProfileMgrImpl extends BaseBizObject implements UserProfileMgr 
             }
             ArrayList<TwitterAccountDTO> selfDtos = new ArrayList<TwitterAccountDTO>();
             ArrayList<TwitterAccountDTO> cmptDtos = new ArrayList<TwitterAccountDTO>();
+            ArrayList<TwitterAccountDTO> cmptDtos1 = new ArrayList<TwitterAccountDTO>();
+            ArrayList<TwitterAccountDTO> cmptDtos2 = new ArrayList<TwitterAccountDTO>();
+            ArrayList<TwitterAccountDTO> cmptDtos3 = new ArrayList<TwitterAccountDTO>();
             for(TwitterAccount ta: twaSelf){
                 TwitterAccountDTO dto1 = new TwitterAccountDTO();
                 copyPropertiesQuietly(dto1, ta);
@@ -101,8 +113,27 @@ public class UserProfileMgrImpl extends BaseBizObject implements UserProfileMgr 
                 copyPropertiesQuietly(dto1, ta);
                 cmptDtos.add(dto1);                
             }
+            for(TwitterAccount ta: twaCmpt1){
+                TwitterAccountDTO dto1 = new TwitterAccountDTO();
+                copyPropertiesQuietly(dto1, ta);
+                cmptDtos1.add(dto1);                
+            }
+            for(TwitterAccount ta: twaCmpt2){
+                TwitterAccountDTO dto1 = new TwitterAccountDTO();
+                copyPropertiesQuietly(dto1, ta);
+                cmptDtos2.add(dto1);                
+            }
+            for(TwitterAccount ta: twaCmpt3){
+                TwitterAccountDTO dto1 = new TwitterAccountDTO();
+                copyPropertiesQuietly(dto1, ta);
+                cmptDtos3.add(dto1);                
+            }
             dto.setSelfTwtAccounts(selfDtos);
             dto.setCompTwtAccounts(cmptDtos);
+            dto.setCompTwtAccountsHandle1(cmptDtos1);
+            dto.setCompTwtAccountsHandle2(cmptDtos2);
+            dto.setCompTwtAccountsHandle3(cmptDtos3);
+            dto.setProfilePreference(pp);
         }
         return dto;
     }
@@ -139,6 +170,7 @@ public class UserProfileMgrImpl extends BaseBizObject implements UserProfileMgr 
                 profilePreference.setIndustry(getIndustry(userProfileDTO.getIndustryName()));
                 profilePreference.setActiveStatus(true);
                 profilePreference.setActiveStatus(true);
+                profilePreference.setBenchmark(getBenchmark(null)); // you are creating 1st time
                 profilePreference.setUserProfileDetail(upd);
                 getProfilePreferenceDAO().add(profilePreference); // call dao to save
             }else{
@@ -168,6 +200,21 @@ public class UserProfileMgrImpl extends BaseBizObject implements UserProfileMgr 
         }
     }
 
+    private Benchmark getBenchmark(BenchmarkDTO dto){
+        Benchmark benchmark = null;
+        if(dto == null){
+            // creating first time
+           benchmark = new Benchmark();
+           benchmark.setActiveStatus(true);
+           //benchmark.setBenchmarkCode();
+           benchmark.setBenchmarkName("Name not defined");
+           benchmark.setBenchmarkStDate(new Date());
+           benchmark.setBenchmarkEdDate(new Date());
+           benchmark.setUpdatedOn(new Date());
+           return benchmark;            
+        }
+        return benchmark;
+    }
     private ImprovementLevel getImprovementLevel(String improvementLevelId) throws SVTException {
         return getDaoProvider().getImprovementLevelDAO().getById(improvementLevelId);
     }

@@ -98,6 +98,8 @@ body {margin: 0px;}
 	height:44px;
 	background-color: #FFA600;
 	top:0;
+	right:0;
+	width: auto;
 }
 
 
@@ -109,10 +111,12 @@ body {margin: 0px;}
 	height:31px;
 	position:relative;
 	float:right;
-	right:7px;
+	/*right:7px;*/
 	top:0px;
-	width:50px;
-	left:10px; 
+	width:40px;
+	left:0px; 
+	padding-top: 4px;
+	padding-bottom: 4px;
 }
 
 .glass .innerMain1 div.title1 {

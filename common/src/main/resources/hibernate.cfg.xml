@@ -41,6 +41,11 @@
 			 <mapping resource="com/edifixio/soc/hbm/MetricsProcessHandler.hbm.xml"/>
 			 <mapping resource="com/edifixio/soc/hbm/ImprovementLevel.hbm.xml"/>	
 			 <mapping resource="com/edifixio/soc/hbm/RawResult.hbm.xml"/>
+			 <mapping resource="com/edifixio/soc/hbm/GoogleAnalyticsAccount.hbm.xml"/>
+			 <mapping resource="com/edifixio/soc/hbm/TwitLog.hbm.xml"/>
+			 <mapping resource="com/edifixio/soc/hbm/GradeMaster.hbm.xml"/>
+			 <mapping resource="com/edifixio/soc/hbm/Parameter.hbm.xml"/>
+			 <mapping resource="com/edifixio/soc/hbm/OverallCategory.hbm.xml"/>
 			 
 			 <mapping resource="com/edifixio/soc/hbm/InboundMetricsDummy.hbm.xml"/>	
 			 <mapping resource="com/edifixio/soc/hbm/OutboundMetricsDummy.hbm.xml"/>	

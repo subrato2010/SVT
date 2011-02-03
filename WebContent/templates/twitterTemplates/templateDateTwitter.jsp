@@ -1,38 +1,35 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:rich="http://richfaces.org/rich"
-	xmlns:a4j="http://richfaces.org/a4j">
+	>
 
-<script language="JavaScript">
-function setProfileId(profileId,profileName){
-parent.document.getElementById('test:templateDateTwitterInclude:templateDateTwitter:dummyholder').value=profileId;
-parent.document.getElementById('captionDiv').innerHTML=profileName;
-}
-</script>
-<body>
-<f:view>
-	<h:form id="templateDateTwitter">
-	 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
-	<script language="JavaScript" src="../js/designMainScreen.js"/>	
-	<script language="JavaScript" src="../js/svt.js"/>
-	<script language="JavaScript" src="../js/popup.js" />
-	
-	   <h:inputHidden id="dummyholder" value="#{channelPerformanceController.fromProfileId}"/>
-			
+	<script language="JavaScript" src="../js/svt.js"></script>
+	<script language="JavaScript">
+	function setProfileId(profileId,profileName){
+		if(profileId == "0"){
+			profileName="All";
+		}
+		parent.document.getElementById('templatedatetwitterForm:dummyholder').value=profileId;
+		parent.document.getElementById('templatedatetwitterForm:dummyholder2').value=profileName;
+		parent.document.getElementById('captionDiv').innerHTML=profileName;
+	}
+	</script>
+
+
+
+<f:view>	
+<h:form id="templatedatetwitterForm">	
+	   <h:inputHidden id="dummyholder" value="#{channelPerformanceController.twitterAccountId}"/>
+	   <h:inputHidden id="dummyholder2" value="#{channelPerformanceController.twitterAccountName}"/>
+	   <h:inputHidden id="dummyholder1" value="#{channelPerformanceController.targetId}"/>	
 		<div class="mainBodyTop2">
-		<table width="98%" border="0" cellspacing="0" cellpadding="0"
+		<table width="640" border="0" cellspacing="0" cellpadding="0"
 			style="margin-left: 20px;">
 			<tr>
-				<!--<td class="topFirsthd" valign="middle" align="left" width="60">Show
-				:</td>
-				<td class="topChannelPerformanceDate" valign="middle" align="center"
-					width="30">Start</td>
-				<td width="160" valign="middle" align="center"><input
-					type="text" name="startdate" /></td>
-				<td class="topChannelPerformanceDate" valign="middle" align="center"
-					width="50">to End</td>-->
+
 				<td class="topChannelPerformanceDate" valign="middle" align="center" width="150">Select performance as of </td>	
 				<td valign="middle" align="center" width="90">
 					<rich:calendar id="performanceEndDate" 
@@ -40,12 +37,15 @@ parent.document.getElementById('captionDiv').innerHTML=profileName;
                         inputSize="6" cellWidth="9" cellHeight="12" datePattern="MM/dd/yyyy"/>
 				</td>
 				<td class="topChannelPerformanceDate" valign="middle" align="center"  width="70">from profile</td>
-				<td valign="middle" align="center" width="200">
-					<div class="mainDiv" id="main_x">
+				<td valign="middle" align="center" colspan="2">
+					<table width="100%" cellpadding="0" cellspacing="0" border="0">
+						<tr>
+							<td valign="middle" align="center" width="190">
+							<div class="mainDiv" id="main_x">
 						<div id="captionDiv" class="captionDiv">#{channelPerformanceController.selectedTwitterUsername}</div> 
 						<div class="textDiv" >
-							<h:inputText  type="text" class="fakeText" onblur="closeList('x');" onclick="toggleList('x')" 
-								readonly="readonly" style="cursor:auto; text-align:right; " 
+							<h:inputText  id="in1" styleClass="fakeText" onblur="closeList('x');" onclick="toggleList('x')" 
+								readonly="true" style="cursor:auto; text-align:right; " 
 								value=""/>
 						</div>
 					    
@@ -63,22 +63,33 @@ parent.document.getElementById('captionDiv').innerHTML=profileName;
 						    </div>
 						</ui:repeat>
 						<div class="listBottomDiv"></div>
-					</div>				
+					</div>			
+							</td>
+							<td valign="top" align="left" style="padding-left:4px">
+							   <h:commandLink value="" 
+									actionListener="#{channelPerformanceController.submitQuery}" 
+									style="text-decoration: none;">
+							         <img src="../images/submitButton.gif" border="0"/>
+							         		<f:param name="si" value="cc" />
+											<f:param name="col" value="cv" />
+							         
+							    </h:commandLink>
+							
+							</td>
+						</tr>
+					</table>
+						
 				</td>				
-				<td valign="middle" align="left">
-					<h:commandButton value=""	actionListener="#{channelPerformanceController.submitQuery}" 
-										style="text-decoration: none;" image="../images/submitButton.gif">
-	                </h:commandButton>
-				</td>
+				
 			</tr>
 		<tr>
 			<td class="topChannelPerformanceDate" valign="middle" align="left" style="padding-left: 7px;">
 			Change your Benchmark:
 			</td>
 			<td valign="middle" align="left" colspan="5">
-				<table border="0" cellpadding="0" cellspacing="0">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tr>
-						<td class="topChannelPerformanceDate" valign="middle" align="left" width="60" style="padding-left: 10px;">
+						<td class="topChannelPerformanceDate" valign="middle" align="left" width="60" style="padding-left: 7px;">
 							From Date:
 						</td>
 						<td valign="middle" align="center" width="90">
@@ -86,7 +97,7 @@ parent.document.getElementById('captionDiv').innerHTML=profileName;
                         value="#{channelPerformanceController.benchmarkDateFrom}" 
                         inputSize="6" cellWidth="9" cellHeight="12" datePattern="MM/dd/yyyy"/>
 						</td>
-						<td class="topChannelPerformanceDate" valign="middle" align="right" width="70">
+						<td class="topChannelPerformanceDate" valign="middle" align="left" width="45"  style="padding-left: 7px;">
 							To Date:
 						</td>	
 						<td valign="middle" align="center" width="90">
@@ -94,12 +105,18 @@ parent.document.getElementById('captionDiv').innerHTML=profileName;
 		                        value="#{channelPerformanceController.benchmarkDateTo}" 
 		                        inputSize="6" cellWidth="9" cellHeight="12" datePattern="MM/dd/yyyy"/>
 						</td>
-						<td width="70" valign="middle" align="center">
-							<h:commandButton value=""	actionListener="#{channelPerformanceController.submitQuery}" 
-												style="text-decoration: none;" image="../images/submitButton.gif">
-			                </h:commandButton>
+						<td width="50" valign="middle" align="center">
+								<h:commandLink value="" 
+									actionListener="#{channelPerformanceController.submitQuery}" 
+									style="text-decoration: none;">
+							         <img src="../images/submitButton.gif" border="0"/>
+							         							         		<f:param name="si" value="cc" />
+											<f:param name="col" value="cv" />
+							         
+							    </h:commandLink>
+
 						</td>
-						<td  valign="middle" align="center">
+						<td  valign="middle" align="left">
 						<font class="topFirsthd">or</font> <font class="topFirstTablehdCategory2" style="font-size: 12px;">RESET</font>
 						</td>
 						
@@ -111,9 +128,7 @@ parent.document.getElementById('captionDiv').innerHTML=profileName;
 			</tr>	
 		</table>
 		</div>
-	</h:form>
-
-</f:view>
-</body>
-
-</html>
+		
+</h:form>
+</f:view>		
+</ui:composition>

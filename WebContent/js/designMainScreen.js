@@ -144,6 +144,19 @@ function toggleText(divToExpand, clickedtext) {
 	}
 }
 
+function toggleTextGradeClick(divToExpand, clickedtext) {
+	var ele = document.getElementById(divToExpand);
+	var text = document.getElementById(clickedtext);
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+    		text.style.color="#8B8B8B";
+  	}
+	else {
+		ele.style.display = "block";
+		text.style.color="#2874ae";
+	}
+}
+
 function toggleMouseOver(divToExpand, clickedtext) {
 	var ele = document.getElementById(divToExpand);
 	var text = document.getElementById(clickedtext);

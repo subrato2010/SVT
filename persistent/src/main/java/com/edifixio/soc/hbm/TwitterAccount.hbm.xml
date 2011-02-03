@@ -108,6 +108,14 @@
             />
         </many-to-one>
         <property
+            name="brndProdInds"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="brndProdInds"
+        />
+        
+        <property
             name="benchmarkDate"
             type="java.util.Date"
             update="true"

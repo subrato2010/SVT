@@ -25,6 +25,7 @@ import com.edifixio.soc.biz.RawResultMgr;
 import com.edifixio.soc.biz.SocIntellDummyMgr;
 import com.edifixio.soc.biz.StagingRawScoreMgr;
 import com.edifixio.soc.biz.StateProvinceMgr;
+import com.edifixio.soc.biz.TwitLogMgr;
 import com.edifixio.soc.biz.TwitterAccountMgr;
 import com.edifixio.soc.biz.UserProfileMgr;
 
@@ -33,6 +34,9 @@ public class BizTestCase extends TestCase {
     private static Log logger = LogFactory.getLog(BizTestCase.class);
     DecimalFormat twoDForm = new DecimalFormat("#.##"); 
 
+    public TwitLogMgr getTwitLogMgr() {
+        return (TwitLogMgr) getFactoryObject("twitLogMgr");
+    }
     public RawResultMgr getRawResultMgr() {
         return (RawResultMgr) getFactoryObject("rawResultMgr");
     }

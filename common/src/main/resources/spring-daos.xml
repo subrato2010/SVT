@@ -47,6 +47,9 @@
 		<property name="profileListMasterDAO"><ref bean="profileListMasterDAO"/></property>
 		<property name="improvementLevelDAO"><ref bean="improvementLevelDAO"/></property>
 		<property name="rawResultDAO"><ref bean="rawResultDAO"/></property>
+		<property name="twitLogDAO"><ref bean="twitLogDAO"/></property>
+		<property name="gradeMasterDAO"><ref bean="gradeMasterDAO"/></property>
+		<property name="parameterDAO"><ref bean="parameterDAO"/></property>
 		
 		<!--  All dummy needs to be removed after 9-Dec-2010 presentation -->
 		<property name="inboundMetricsDummyDAO"><ref bean="inboundMetricsDummyDAO"/></property>
@@ -143,4 +146,13 @@
    <bean id="rawResultDAO" class="com.edifixio.soc.dao.RawResultHibernateDAO">
  	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
    </bean>
+   <bean id="twitLogDAO" class="com.edifixio.soc.dao.TwitLogHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="gradeMasterDAO" class="com.edifixio.soc.dao.GradeMasterHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="parameterDAO" class="com.edifixio.soc.dao.ParameterHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>   
  </beans>

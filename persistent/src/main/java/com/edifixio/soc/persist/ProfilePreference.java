@@ -13,11 +13,13 @@ public class ProfilePreference  extends TrackedEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private String profilePrefrenceId;
     private String profileUserId;
+    private String googleAnalyticsUsername;
     private Company company;
     private Brand brand;
     private Industry industry;
     private Product product;
     private boolean activeStatus;
+    private boolean googleAnalyticsAuth;
     private UserProfileDetail userProfileDetail;
     
     /**
@@ -104,5 +106,25 @@ public class ProfilePreference  extends TrackedEntity implements Serializable {
     }
     public void setProfileUserId(String profileUserId) {
         this.profileUserId = profileUserId;
+    }
+    /**
+     * @hibernate.property
+     * 
+     */
+    public String getGoogleAnalyticsUsername() {
+        return googleAnalyticsUsername;
+    }
+    public void setGoogleAnalyticsUsername(String googleAnalyticsUsername) {
+        this.googleAnalyticsUsername = googleAnalyticsUsername;
+    }
+    /**
+     * @hibernate.property
+     * 
+     */
+    public boolean isGoogleAnalyticsAuth() {
+        return googleAnalyticsAuth;
+    }
+    public void setGoogleAnalyticsAuth(boolean googleAnalyticsAuth) {
+        this.googleAnalyticsAuth = googleAnalyticsAuth;
     }
  }

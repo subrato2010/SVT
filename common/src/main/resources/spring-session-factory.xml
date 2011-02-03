@@ -38,6 +38,11 @@
 			 <value>com/edifixio/soc/hbm/MetricsProcessHandler.hbm.xml</value>	
 			 <value>com/edifixio/soc/hbm/ImprovementLevel.hbm.xml</value>	
 			 <value>com/edifixio/soc/hbm/RawResult.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/GoogleAnalyticsAccount.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/TwitLog.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/GradeMaster.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Parameter.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/OverallCategory.hbm.xml</value>
 			 
 			 <value>com/edifixio/soc/hbm/InboundMetricsDummy.hbm.xml</value>		
 			 <value>com/edifixio/soc/hbm/OutboundMetricsDummy.hbm.xml</value>			

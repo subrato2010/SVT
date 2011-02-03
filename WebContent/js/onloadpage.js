@@ -1,7 +1,8 @@
 
-	function expandcategorylist(selectedcategory, col){
-	   col = "test:" + col;
+	function expandcategorylist(selectedcategory, col1){
+	   col = "dashboardSIDataForm:" + col1;
 	   if(selectedcategory == "1"){
+		    col = "outboundMetricsForm1:" + col1;
 		    toggleTextListBox('toggleTextOM','displayTextOM');
 		    document.getElementById(col + "1").style.color="#2874ae";
 	   }else if(selectedcategory == "2"){

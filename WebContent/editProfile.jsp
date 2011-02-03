@@ -28,6 +28,7 @@
 		<div class="editPage" id="total">
 			<h:form id="editProfile" enctype="multipart/form-data">
 			<t:inputHidden value="#{userProfileController.completeFlag}"/>
+			<h:inputHidden value="#{backingBean.cityColor}"/>
 				<table width="715" height="100%" border="0" cellpadding="0" cellspacing="0">
 					<tr>
 						<td valign="top" align="center" width="320">
@@ -36,65 +37,65 @@
 						<table width="320" border="0" cellspacing="0" cellpadding="0">
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Name</td>
-								<td class="edit_left_text" align="left">
+									style="padding-right: 5px" valign="top">Name</td>
+								<td class="edit_left_text" align="left" valign="top">
 								<h:inputText id="name" value="#{userProfileController.userProfile.name}"
 									class="edit_right_text"
 									style="background-image: none; border-width: 2px; font-size: 12px;padding-left: 3px; 
 									color: rgb(125, 132, 139);background-color: #{backingBean.nameColor}" />
-									<br/>
-									<font style="font-weight: normal" color="#F17A4B">
+									
+									<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 										<h:outputText value="#{backingBean.nameErrMsg}"/>
-									</font>
+									</div>
 								</td>
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Title</td>
-								<td class="edit_left_text" align="left"><h:inputText
+									style="padding-right: 5px"  valign="top">Title</td>
+								<td class="edit_left_text" align="left" valign="top"><h:inputText
 									id="title" value="#{userProfileController.userProfile.title}"
 									class="edit_right_text"
 									style="background-image: none; border-width: 2px; font-size: 12px; 
 									color: rgb(125, 132, 139); padding-left: 3px;background-color: #{backingBean.titleColor}" />
-									<br/>
-									<font style="font-weight: normal" color="#F17A4B">
+									
+									<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 										<h:outputText value="#{backingBean.titleErrMsg}"/>
-									</font>
+									</div>
 								</td>
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Company</td>
-								<td class="edit_left_text" align="left"><h:inputText
+									style="padding-right: 5px" valign="top">Company</td>
+								<td class="edit_left_text" align="left" valign="top"><h:inputText
 									id="company"
 									value="#{userProfileController.userProfile.company}"
 									class="edit_right_text"
 									style="background-image: none; border-width: 2px; 
 									padding-left: 3px;font-size: 12px; color: rgb(125, 132, 139);background-color: #{backingBean.companyColor}"/>
-									<br/>
-									<font style="font-weight: normal" color="#F17A4B">
+									
+									<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 										<h:outputText value="#{backingBean.companyErrMsg}"/>
-									</font>
+									</div>
 								</td>
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Work Address</td>
-								<td class="edit_left_text"><h:inputText id="adOne"
+									style="padding-right: 5px" valign="top">Work Address</td>
+								<td class="edit_left_text" valign="top"><h:inputText id="adOne"
 									value="#{userProfileController.userProfile.workAddressLine1}"
 									class="edit_right_text"
 									style="background-image: none; border-width: 2px; 
 									padding-left: 3px;font-size: 12px; color: rgb(125, 132, 139);background-color: #{backingBean.workAddressColor}"/>
-									<br/>
-									<font style="font-weight: normal" color="#F17A4B">
+									
+									<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 										<h:outputText value="#{backingBean.workAddressErrMsg}"/>
-									</font>
+									</div>
 								</td>
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Address line1</td>
-								<td class="edit_left_text" align="left"><h:inputText
+									style="padding-right: 5px" valign="top">Address line1</td>
+								<td class="edit_left_text" align="left" valign="top"><h:inputText
 									id="adTwo"
 									value="#{userProfileController.userProfile.workAddressLine2}"
 									class="edit_right_text"
@@ -103,8 +104,8 @@
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Address line2</td>
-								<td class="edit_left_text" align="left"><h:inputText
+									style="padding-right: 5px" valign="top">Address line2</td>
+								<td class="edit_left_text" align="left" valign="top"><h:inputText
 									id="adThree"
 									value="#{userProfileController.userProfile.workAddressLine3}"
 									class="edit_right_text"
@@ -113,8 +114,8 @@
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">City</td>
-								<td class="edit_left_text" align="left"><h:inputText
+									style="padding-right: 5px" valign="top">City</td>
+								<td class="edit_left_text" align="left" valign="top"><h:inputText
 									id="city" value="#{userProfileController.userProfile.city}"
 									class="edit_right_text"
 									style="background-image: none; border-width: 2px; 
@@ -126,14 +127,14 @@
 								</td>
 							</tr>
 							<tr>
-								<td class="edit_left_text" align="right" valign="middle"
-									style="padding-right: 5px">State</td>
-								<td class="edit_left_text" align="left">
+								<td class="edit_left_text" align="right" 
+									style="padding-right: 5px" valign="top">State</td>
+								<td class="edit_left_text" align="left" valign="top">
 
 								<table width="200" border="0" cellspacing="0" cellpadding="0">
 									<tr>
 
-										<td>
+										<td valign="top" align="left">
 										<div class="fileinputs1">
 										<t:selectOneMenu id="state"	value="#{userProfileController.userProfile.state }"
 											styleClass="state"
@@ -142,23 +143,24 @@
 										</t:selectOneMenu>
 										<div class="fakefile1"><input id="vkstate" type="text"
 											class="vk_text"
-											style="background-color: transparent; border-width: 0px; background-image: none; color: #7D848B; font-size: 10px; font-weight: bold;" />
+											style="background-color: transparent; border-width: 0px; background-image: none; color: #7D848B; font-size: 10px; font-weight: bold; padding-bottom: 4px; padding-top: 2px;" />
 										</div>
 										<script>
 				                         selectedItem('editProfile:state', 'vkstate', '');   
 				                      </script></div>
 										</td>
 
-										<td align="right" class="edit_left_textZip" valign="middle">Zip
+										<td align="right" class="edit_left_textZip" valign="top">Zip
 										Code</td>
-										<td align="right" valign="middle"><h:inputText id="zip"
-											value="#{userProfileController.userProfile.zipCode}" size="2"
+										<td align="right" valign="top">
+										<h:inputText id="zip"
+											value="#{userProfileController.userProfile.zipCode}" 
 											style="background-image: none; border-width: 2px; font-size: 12px; color: rgb(125, 132, 139); 
 												   width: 78px;background-color: #{backingBean.zipColor}" />
-											<br/>
-											<font style="font-weight: normal" color="#F17A4B">
+										
+											<div style="font-weight: normal; color:#F17A4B;">
 												<h:outputText value="#{backingBean.zipErrMsg}"/>
-											</font>
+											</div>
 										</td>
 									</tr>
 								</table>
@@ -166,8 +168,8 @@
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Email</td>
-								<td class="edit_left_text" align="left"><h:inputText
+									style="padding-right: 5px" valign="top">Email</td>
+								<td class="edit_left_text" align="left" valign="top"><h:inputText
 									id="email" value="#{userProfileController.userProfile.email}"
 									required="true" requiredMessage="THIS IS NOT A VALID ENTRY"
 									class="edit_right_text"
@@ -176,8 +178,8 @@
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Phone</td>
-								<td class="edit_left_text" align="left"><h:inputText
+									style="padding-right: 5px" valign="top">Phone</td>
+								<td class="edit_left_text" align="left" valign="top"><h:inputText
 									id="phone" value="#{userProfileController.userProfile.phone}"
 									required="true" requiredMessage="THIS IS NOT A VALID ENTRY"
 									class="edit_right_text"
@@ -187,8 +189,8 @@
 
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Website</td>
-								<td class="edit_left_text" align="left"><h:inputText
+									style="padding-right: 5px" valign="top">Website</td>
+								<td class="edit_left_text" align="left" valign="top"><h:inputText
 									id="website"
 									value="#{userProfileController.userProfile.website}"
 									required="true" requiredMessage="THIS IS NOT A VALID ENTRY"
@@ -198,8 +200,8 @@
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Logo</td>
-								<td class="edit_left_text" align="left">
+									style="padding-right: 5px" valign="top">Logo</td>
+								<td class="edit_left_text" align="left" valign="top">
 								<div class="fileinputs"><t:inputFileUpload
 									value="#{userProfileController.logoFile}" styleClass="file"
 									storage="file"
@@ -211,7 +213,7 @@
 										<td valign="top" align="left"><input id="fk"
 											class="edit_right_file_browse" /></td>
 										<td valign="top" align="left"><img
-											src="../images/browseBurtton.gif" /></td>
+											src="../images/browseBurtton.gif" width="90" height="28"/></td>
 									</tr>
 								</table>
 								</div>
@@ -220,8 +222,8 @@
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Facebook</td>
-								<td class="edit_left_text" align="left"><t:inputText
+									style="padding-right: 5px" valign="top">Facebook</td>
+								<td class="edit_left_text" align="left" valign="top"><t:inputText
 									value="#{userProfileController.userProfile.facebook}"
 									styleClass="edit_right_text"
 									style="background-image:none;border-width:2px; font-size:14px;color:#7D848B; padding-left: 3px;"
@@ -230,8 +232,8 @@
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Twitter</td>
-								<td class="edit_left_text" align="left"><t:inputText
+									style="padding-right: 5px" valign="top">Twitter</td>
+								<td class="edit_left_text" align="left" valign="top"><t:inputText
 									value="#{userProfileController.userProfile.twitter}"
 									styleClass="edit_right_text"
 									style="background-image:none;border-width:2px; font-size:14px;color:#7D848B; padding-left: 3px;"
@@ -240,8 +242,8 @@
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Upload Photo</td>
-								<td class="edit_left_text" align="left">
+									style="padding-right: 5px" valign="top">Upload Photo</td>
+								<td class="edit_left_text" align="left" valign="top">
 								<div class="fileinputs"><t:inputFileUpload
 									value="#{userProfileController.photoFile}" styleClass="file"
 									storage="file"
@@ -253,7 +255,7 @@
 										<td valign="top" align="left"><input id="fk1"
 											class="edit_right_file_browse" /></td>
 										<td valign="top" align="left"><img
-											src="../images/browseBurtton.gif" /></td>
+											src="../images/browseBurtton.gif"  width="90" height="28"/></td>
 									</tr>
 								</table>
 								</div>
@@ -262,22 +264,22 @@
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Username</td>
-								<td class="edit_left_text" align="left"><t:inputText
+									style="padding-right: 5px" valign="top">Username</td>
+								<td class="edit_left_text" align="left" valign="top"><t:inputText
 									value="#{userProfileController.userProfile.uid}"
 									readonly="true" styleClass="edit_right_text"
 									style="background-image:none;border-width:2px; padding-left: 3px;
 									font-size:12px; color:#7D848B;background-color: #{backingBean.userNameColor}" />
-									<br/>
-									<font style="font-weight: normal" color="#F17A4B">
+									
+									<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 										<h:outputText value="#{backingBean.userNameErrMsg}"/>
-									</font>
+									</div>
 								</td>
 							</tr>
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Password</td>
-								<td class="edit_left_text" align="left"><h:inputSecret
+									style="padding-right: 5px" valign="top">Password</td>
+								<td class="edit_left_text" align="left" valign="top"><h:inputSecret
 									id="password" value="#{userProfileController.password }"
 									validator="#{userProfileController.validatePassword}"
 									styleClass="edit_right_text"
@@ -288,23 +290,25 @@
 
 							<tr>
 								<td class="edit_left_text" align="right"
-									style="padding-right: 5px">Retype Password</td>
-								<td class="edit_left_text" align="left"><h:inputSecret
+									style="padding-right: 5px" valign="top">Retype Password</td>
+								<td class="edit_left_text" align="left" valign="top"><h:inputSecret
 									id="retypePassword"
 									value="#{userProfileController.retypePassword}"
 									styleClass="edit_right_text"
 									style="background-image:none;border-width:2px; 
 									padding-left: 3px;font-size:12px;color:#7D848B;"
 									validator="#{userProfileController.validateRetypePassword}" />
-								<br />
-								<h:message for="password" styleClass="errMsg" /></td>
+									<div style="font-weight: normal; width: 200px; color:#F17A4B;">
+									<h:message for="password" styleClass="errMsg" />
+									</div>
+								</td>
 							</tr>
 						</table>
 
 						</div>
 						</td>
 						<td valign="top" align="center" width="10">
-							<div style="border-left: 1px solid #ECECEC; height: 930px; margin-left: 2px; width: 2px;"></div>
+							<div style="border-left: 1px solid #ECECEC; height: 1000px; margin-left: 2px; width: 2px;"></div>
 						</td>
 						<td valign="top" align="center" width="375">
 						<div class="editPageRight">
@@ -322,16 +326,16 @@
 												<h:inputText id="twtAcc"
 												class="edit_right_textAdd"  
 											style="background-image:none; border-width:2px; color:#7D848B; font-size:12px;
-											background-color: #{backingBean.twittAccCol}"
-											required="false" 
-											valueChangeListener="#{backingBean.validateTwitterAccount}"/>
-											<br/>
-											<font style="font-weight: normal" color="#F17A4B">
+											background-color: #{backingBean.twittAccCol}" required="false" />
+											<div style="font-weight: normal; width: 200px; color:#F17A4B; font-size: 11px;">
 												<h:outputText value="#{backingBean.twittAccErr}"/>
-											</font>
+											</div>
 												</td>
 												<td align="left" valign="top">
-												<input type="image" src="../images/addButton.gif" border="0" width="41" />
+													<h:commandLink value="" style="text-decoration: none;" 
+													actionListener="#{backingBean.validateTwitterAccountHandler}">
+						                          			<img src="../images/addButton.gif" border="0" width="41"/>
+						                          	</h:commandLink>
 												</td>
 												
 											</tr>
@@ -340,44 +344,68 @@
 								</tr>
 								<tr>
 									<td valign="top" align="left">
-										
-										<table width="100%" border="0" cellspacing="0" cellpadding="0">
-											<a4j:repeat value="#{userProfileController.userProfile.selfTwtAccounts}" var="editProf" rowKeyVar="i">
-											<tr>
-												<td width="100"></td>
-												<td width="12"><img src="../images/smallClose.PNG" border="0" /></td>
-												<td width="12"><img src="../images/selectCheck.gif" border="0" /></td>
-												<td class="edit_left_textGreen" valign="top" align="left" width="100">
-													<div class="mailAcc1">@#{editProf.twitterUsername}</div>
-												</td>
-												
-												<td valign="top" align="right" width="120">
-												<div class="fileinputs1Band">
-												<select id="brand#{i}"	class="band" onChange="selectedBrand('brand#{i}', 'vkb#{i}', this.value)">
-													<option value="Brand">BRAND</option>
-													<option value="Product">PRODUCT</option>
-													<option value="Industry">INDUSTRY</option>
-		
-												</select>
-												<div class="fakefile1Band"><input id="vkb#{i}" type="text" value="BRAND"
-													class="vk_text"   style="background-image: none; background-color: transparent; border: 0px; margin-top: 1px; color: #7D848B;"/></div>
-												</div>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="5" height="10" align="right">
-												<div style="border-bottom: 1px solid #DDDDDD; width: 270px;"></div>
-												</td>
-											</tr>
-											</a4j:repeat>
-										</table>
-												
+										<a4j:repeat value="#{userProfileController.userProfile.selfTwtAccounts}" var="editProf" rowKeyVar="i">
+											
+											<div style="width:250px; height:20px; border-bottom: 1px solid #DDDDDD; float: right; margin-top: 2px; margin-bottom: 5px;">
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
+												<tr height="20">
+													
+													<td width="12"><img src="../images/smallClose.PNG" border="0" /></td>
+													<td width="12"><img src="../images/selectCheck.gif" border="0" /></td>
+													<td class="edit_left_textGreen" valign="top" align="left" width="100">
+														<div class="mailAcc1">@#{editProf.twitterUsername}</div>
+													</td>
+													
+													<td valign="top" align="right" width="120">
+													<div class="fileinputs1Band">
+													<select id="brand#{i}"	class="band" onChange="selectedBrand('brand#{i}', 'vkb#{i}', this.value)">
+														<option value="Brand">BRAND</option>
+														<option value="Product">PRODUCT</option>
+														<option value="Industry">INDUSTRY</option>
+			
+													</select>
+													<div class="fakefile1Band"><input id="vkb#{i}" type="text" value="BRAND"
+														class="vk_text"   style="background-image: none; background-color: transparent; border: 0px; margin-top: 1px; color: #7D848B; font-size: 10px;"/></div>
+													</div>
+													</td>
+												</tr>
+											</table>
+											</div>
+											
+											
+										</a4j:repeat>		
 									</td>
 								</tr>
 								
+								<ui:include src="/editProfileHandler.jsp">
+										<ui:param name="competitorhandlername" value="Competitor #1"/>
+										<ui:param name="inputtext1" value="1"/>				
+										<ui:param name="inputtext1value" value="#{backingBean.twitterCmptAccountName1}"/>
+										<ui:param name="inputtext1bgcolor" value="#{backingBean.compTwittAccCol}"/>
+										<ui:param name="cmpttwitteraccerr" value="#{backingBean.compTwittAccErr}"/>
+										<ui:param name="addbuttonlistener" value="#{backingBean.validateTwitterAccountCmptHandler1}"/>
+										<ui:param name="cmptlist" value="#{userProfileController.userProfile.compTwtAccountsHandle1}"/>
+								</ui:include>
+								<ui:include src="/editProfileHandler.jsp">
+										<ui:param name="competitorhandlername" value="Competitor #2"/>
+										<ui:param name="inputtext1" value="2"/>				
+										<ui:param name="inputtext1value" value="#{backingBean.twitterCmptAccountName2}"/>
+										<ui:param name="inputtext1bgcolor" value="#{backingBean.compTwittAccCol2}"/>
+										<ui:param name="cmpttwitteraccerr" value="#{backingBean.compTwittAccErr2}"/>
+										<ui:param name="addbuttonlistener" value="#{backingBean.validateTwitterAccountCmptHandler2}"/>
+										<ui:param name="cmptlist" value="#{userProfileController.userProfile.compTwtAccountsHandle2}"/>
+								</ui:include>
+								<ui:include src="/editProfileHandler.jsp">
+										<ui:param name="competitorhandlername" value="Competitor #3"/>
+										<ui:param name="inputtext1" value="3"/>				
+										<ui:param name="inputtext1value" value="#{backingBean.twitterCmptAccountName3}"/>
+										<ui:param name="inputtext1bgcolor" value="#{backingBean.compTwittAccCol3}"/>
+										<ui:param name="cmpttwitteraccerr" value="#{backingBean.compTwittAccErr3}"/>
+										<ui:param name="addbuttonlistener" value="#{backingBean.validateTwitterAccountCmptHandler3}"/>
+										<ui:param name="cmptlist" value="#{userProfileController.userProfile.compTwtAccountsHandle3}"/>
+								</ui:include>
 								
-								
-								<tr>
+								<!--<tr>
 									<td valign="top" align="left">
 										<table width="100%" cellpadding="0" cellspacing="0" border="0">
 											<tr>
@@ -385,16 +413,16 @@
 												<font style="color: #FF0000;">*</font>Competitor Twitter Accounts<br />
 												<font style="font-weight: normal">(Limit 5)</font>
 												</td>
-												<td valign="top" align="left" width="190" style="padding-top:6px;">
+												<td valign="top" align="left" width="190" style="padding-top:7px">
 													<h:inputText value="" id="compTwtAcc"
 												class="edit_right_textAdd"  
-												style="background-image:none; border-width:2px; color:#7D848B; font-size:12px; 
+												style="background-image:none; border-width:2px; color:#7D848B; font-size:11px; 
 												background-color: #{backingBean.compTwittAccCol}"
 												/>
-												<br/>
-												<font style="font-weight: normal" color="#F17A4B">
+												
+												<div style="font-weight: normal; width: 200px; color:#F17A4B; font-size:11px;">
 													<h:outputText value="#{backingBean.compTwittAccErr}"/>
-												</font>
+												</div>
 												</td>
 												<td valign="top" align="left" style="padding-top:6px">
 												<input type="image" src="../images/addButton.gif" border="0"  width="41"/>
@@ -403,10 +431,13 @@
 										</table>
 									</td>
 								</tr>
+								
 								<tr>
 									<td valign="top" align="left">
+										<a4j:repeat value="#{userProfileController.userProfile.compTwtAccounts}" var="editProf" rowKeyVar="i">
+										<div style="width:250px; height:20px; border-bottom: 1px solid #DDDDDD; float: right; margin-top: 2px; margin-bottom: 2px;">
 										<table width="100%" border="0" cellspacing="0" cellpadding="0">
-											<a4j:repeat value="#{userProfileController.userProfile.compTwtAccounts}" var="editProf" rowKeyVar="i">
+											
 											<tr>
 												<td width="100"></td>
 												<td width="18"><img src="../images/smallClose.PNG" border="0" /></td>
@@ -423,19 +454,19 @@
 		
 												</select>
 												<div class="fakefile1Band"><input id="vkb2#{i}" type="text" value="BRAND"
-													class="vk_text"   style="background-image: none; background-color: transparent; border: 0px; margin-top: 1px; color: #7D848B;"/></div>
+													class="vk_text"   style="background-image: none; background-color: transparent; border: 0px; margin-top: 1px; color: #7D848B; font-size: 10px;"/></div>
 												</div>
 												</td>
 											</tr>
-											<tr>
-												<td colspan="4" height="10" valign="middle" align="right">
-												<div style="border-bottom: 1px solid #DDDDDD; width: 270px;"></div>
-												</td>
-											</tr>
-											</a4j:repeat>
+											
+											
 										</table>
+										</div>
+										
+										</a4j:repeat>
 									</td>
 								</tr>
+						-->
 								<tr>
 									<td valign="middle" align="left"  bgcolor="#F2F2F2" class="edit_left_textEPPHD">
 										Keyword
@@ -462,8 +493,8 @@
 													</t:selectOneMenu>
 				            	                      <div class="forcombo" >
 				                	                     <input id="vkprofile" type="text" value="Competitor #1" 
-				                	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 5px; 
-				                	                     		  background-image: none;color:#7D848B; font-size:10px; font-weight:bold;"/>
+				                	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 2px; 
+				                	                     		  background-image: none;color:#7D848B; font-size:10px; font-weight:bold; padding-bottom: 4px"/>
 				                    	               </div>        
 												      <script>
 								                         //sSelect();           
@@ -493,10 +524,9 @@
 												style="background-image:none; border-width:2px; color:#7D848B; font-size:12px;width: 220px;
 												background-color: #{backingBean.color}"
 												/>
-												<br/>
-												<font style="font-weight: normal" color="#F17A4B">
+												<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 													<h:outputText value="#{backingBean.errMsg}"/>
-												</font>
+												</div>
 											</td>
 											<td valign="middle" align="left" class="edit_left_textEPP">
 											<input type="image" src="../images/addButton.gif" border="0"  width="41" />
@@ -524,10 +554,9 @@
 												style="background-image:none; border-width:2px; color:#7D848B; font-size:12px;width: 220px;
 												background-color: #{backingBean.color1}"
 												/>
-												<br/>
-												<font style="font-weight: normal" color="#F17A4B">
+												<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 													<h:outputText value="#{backingBean.errMsg1}"/>
-												</font>
+												</div>
 											</td>
 											<td valign="middle" align="left" class="edit_left_textEPP">
 												<input type="image" src="../images/addButton.gif" border="0"  width="41"/>
@@ -552,10 +581,9 @@
 												style="background-image:none; border-width:2px; color:#7D848B; font-size:12px;width: 220px;
 												background-color: #{backingBean.color2}"
 												/>
-												<br/>
-												<font style="font-weight: normal" color="#F17A4B">
+												<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 													<h:outputText value="#{backingBean.errMsg2}"/>
-												</font>
+												</div>
 											</td>
 											<td valign="middle" align="left" class="edit_left_textEPP">
 												<input type="image" src="../images/addButton.gif" border="0"  width="41"/>
@@ -588,10 +616,9 @@
 												style="background-image:none; border-width:2px; font-size:12px;
 												background-color: white; width: 264px;"
 												/>
-												<br/>
-												<font style="font-weight: normal" color="#F17A4B">
+												<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 													<h:outputText value=""/>
-												</font>
+												</div>
 											</td>
 											
 										</tr>
@@ -636,8 +663,8 @@
         	                         				</t:selectOneMenu>
 				            	                      <div class="forcombo" >
 				                	                     <input id="vkacc" type="text" value="Choose an Account" 
-				                	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 5px; 
-				                	                     	       background-image: none;color:#7D848B; font-size:10px; font-weight:bold;"/>
+				                	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 2px; 
+				                	                     	       background-image: none;color:#7D848B; font-size:10px; font-weight:bold; padding-bottom: 4px;"/>
 				                    	               </div>     
 												      <script>
 								                         //sSelect();           
@@ -688,7 +715,7 @@
 															<font class="edit_left_textEPP3">(#{imprLevel.description})</font></td>
 														</tr>
 														<tr>
-															<td colspan="2" height="10"></td>
+															<td colspan="2" height="6"></td>
 														</tr>
 														</a4j:repeat>
 													</table>
@@ -722,10 +749,9 @@
 												style="background-image:none; border-width:2px; color:#7D848B; font-size:12px;width: 220px;
 												background-color: #{backingBean.mailCol}"
 												/>
-												<br/>
-												<font style="font-weight: normal" color="#F17A4B">
+												<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 													<h:outputText value="#{backingBean.mailErr}"/>
-												</font>
+												</div>
 											</td>
 											<td valign="middle" align="left" class="edit_left_textEPP">
 												<input type="image" src="../images/addButton.gif" border="0"  width="41"/>
@@ -738,8 +764,10 @@
 								</tr>
 								<tr>
 									<td valign="top" align="right">
-										<table width="50%" border="0" cellspacing="0" cellpadding="0">
+										
 											<a4j:outputPanel rendered="#{!(userProfileController.userProfile.reportingEmail1 eq '')}">
+											<div style="width:250px; height:20px; border-bottom: 1px solid #DDDDDD; float: right; margin-top: 2px; margin-bottom: 2px;">
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 											<tr>
 												
 												<td width="15" align="left" valign="top">
@@ -755,13 +783,13 @@
 												
 												</td>
 											</tr>
-											<tr>
-												<td colspan="3" height="10" valign="middle" align="right">
-												<div style="border-bottom: 1px solid #DDDDDD; width: 270px;"></div>
-												</td>
-											</tr>
+											
+											</table>
+											</div>
 											</a4j:outputPanel>
 											<a4j:outputPanel rendered="#{!(userProfileController.userProfile.reportingEmail2 eq '')}">
+											<div style="width:250px; height:20px; border-bottom: 1px solid #DDDDDD; float: right; margin-top: 2px; margin-bottom: 2px;">
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 											<tr>
 												
 												<td width="15" align="left" valign="top">
@@ -777,13 +805,13 @@
 												
 												</td>
 											</tr>
-											<tr>
-												<td colspan="3" height="10" valign="middle" align="right">
-												<div style="border-bottom: 1px solid #DDDDDD; width: 270px;"></div>
-												</td>
-											</tr>
+											
+											</table>
+											</div>
 											</a4j:outputPanel>
 											<a4j:outputPanel rendered="#{!(userProfileController.userProfile.reportingEmail3 eq '')}">
+											<div style="width:250px; height:20px; border-bottom: 1px solid #DDDDDD; float: right; margin-top: 2px; margin-bottom: 2px;">
+											<table width="100%" border="0" cellspacing="0" cellpadding="0">
 											<tr>
 												
 												<td width="15" align="left" valign="top">
@@ -799,13 +827,11 @@
 												
 												</td>
 											</tr>
-											<tr>
-												<td colspan="3" height="10" valign="middle" align="right">
-												<div style="border-bottom: 1px solid #DDDDDD; width: 270px;"></div>
-												</td>
-											</tr>
+											
+											</table>
+											</div>
 											</a4j:outputPanel>
-										</table>
+										
 									</td>
 								</tr>
 								
@@ -826,8 +852,8 @@
 			        	                         	</t:selectOneMenu>
 				            	                       <div class="forcombo">
 				                	                     <input id="vktimezone" type="text" value="Select a timezone"  
-				                	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 3px; 
-				                	                     	background-image: none;color:#7D848B; font-size:10px; font-weight:bold; width:230px;"/>
+				                	                     	class="vk_text" style="background-color: transparent; border-width: 0px; padding-top : 2px; 
+				                	                     	background-image: none;color:#7D848B; font-size:10px; font-weight:bold; width:230px; padding-bottom: 3px;"/>
 				                    	               </div>        
 												</div>
 											</td>
@@ -861,10 +887,9 @@
 												style="background-image:none; border-width:2px; color:#7D848B; font-size:12px; width: 220px;
 												background-color: #{backingBean.vanityMailCol}" 
 												/>
-												<br/>
-													<font style="font-weight: normal" color="#F17A4B">
+												<div style="font-weight: normal; width: 200px; color:#F17A4B;">
 														<h:outputText value="#{backingBean.vanityMailerr}"/>
-													</font>
+													</div>
 											</td>
 											<td valign="middle" align="left" class="edit_left_textEPP">
 												<input type="image" src="../images/addButton.gif" border="0"  width="41"/>

@@ -15,7 +15,7 @@
 				class="styled" />
 				
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -25,7 +25,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -35,7 +35,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -45,7 +45,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -55,7 +55,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -65,13 +65,13 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
 		<tr>
 			<td valign="top" align="left" colspan="2" class="closeOrangeText" height="40">
-			<div style=" width:108px; padding-left: 4px; padding-bottom: 4px; padding-right: 4px; padding-top: 4px; border: 1px solid #F2A413; margin-left: 8px;">
+			<div style=" width:120px; padding-left: 4px; padding-bottom: 4px; padding-right: 4px; padding-top: 4px; border: 1px solid #F2A413; margin-left: 8px;">
 				<a href="#" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #F2A413; text-decoration: none;"  onclick="openPopup3('Create a new list',750, 450, 450, 340, 10, false, true, false, 'CreateNewListAlert.jsp'); parent.document.getElementById('backDrop').style.display='none';">
 				ADD A NEW LIST
 				</a>
@@ -92,7 +92,7 @@
 				class="styled" />
 				
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -102,7 +102,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -112,7 +112,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -122,7 +122,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -132,7 +132,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -142,13 +142,13 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
 		<tr>
 			<td valign="top" align="left" colspan="2" class="closeOrangeText" height="40">
-			<div style=" width:108px; padding-left: 4px; padding-bottom: 4px; padding-right: 4px; padding-top: 4px; border: 1px solid #F2A413; margin-left: 8px;">
+			<div style=" width:120px; padding-left: 4px; padding-bottom: 4px; padding-right: 4px; padding-top: 4px; border: 1px solid #F2A413; margin-left: 8px;">
 				<a href="#" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #F2A413; text-decoration: none;"  onclick="openPopup3('Create a new list',750, 450, 450, 340, 10, false, true, false, 'CreateNewListAlert.jsp'); parent.document.getElementById('backDrop').style.display='none';">
 				ADD A NEW LIST
 				</a>
@@ -168,7 +168,7 @@
 				class="styled" />
 				
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -178,7 +178,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -188,7 +188,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -198,7 +198,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -208,7 +208,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -218,13 +218,13 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
 		<tr>
 			<td valign="top" align="left" colspan="2" class="closeOrangeText" height="40">
-			<div style=" width:108px; padding-left: 4px; padding-bottom: 4px; padding-right: 4px; padding-top: 4px; border: 1px solid #F2A413; margin-left: 8px;">
+			<div style=" width:120px; padding-left: 4px; padding-bottom: 4px; padding-right: 4px; padding-top: 4px; border: 1px solid #F2A413; margin-left: 8px;">
 				<a href="#" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #F2A413; text-decoration: none;"  onclick="openPopup3('Create a new list',750, 450, 450, 340, 10, false, true, false, 'CreateNewListAlert.jsp'); parent.document.getElementById('backDrop').style.display='none';">
 				ADD A NEW LIST
 				</a>
@@ -244,7 +244,7 @@
 				class="styled" />
 				
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -254,7 +254,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -264,7 +264,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -274,7 +274,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -284,7 +284,7 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
@@ -294,13 +294,13 @@
 					onClick="SingleSelect('chk',this);"
 				class="styled" />
 			</td>
-			<td valign="middle" align="left" class="alertSelect">
+			<td valign="middle" align="left" class="alertSelect" width="145">
 			List Item is here
 			</td>
 		</tr>
 		<tr>
 			<td valign="top" align="left" colspan="2" class="closeOrangeText" height="40">
-			<div style=" width:108px; padding-left: 4px; padding-bottom: 4px; padding-right: 4px; padding-top: 4px; border: 1px solid #F2A413; margin-left: 8px;">
+			<div style=" width:120px; padding-left: 4px; padding-bottom: 4px; padding-right: 4px; padding-top: 4px; border: 1px solid #F2A413; margin-left: 8px;">
 				<a href="#" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #F2A413; text-decoration: none;"  onclick="openPopup3('Create a new list',750, 450, 450, 340, 10, false, true, false, 'CreateNewListAlert.jsp'); parent.document.getElementById('backDrop').style.display='none';">
 				ADD A NEW LIST
 				</a>

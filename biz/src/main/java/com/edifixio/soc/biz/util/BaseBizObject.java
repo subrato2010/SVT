@@ -39,6 +39,10 @@ public class BaseBizObject {
     protected static final String DEMOGRAPHICS = "Demographics";
     protected static final String ENGAGEMENT = "Engagement";
     
+    protected static final String BRAND = "BRAND";
+    protected static final String PRODUCT = "PRODUCT";
+    protected static final String INDUSTRY = "INDUSTRY";
+    
     public DAOProvider getDaoProvider() {
         daoProvider.setBenchmarkId(currentBenchmarkId);
         return daoProvider;
@@ -123,4 +127,23 @@ public class BaseBizObject {
         //TODO
         return (decimalPart==0)?("" + integerPart):("" +number);
     }
+
+    public int getOnlyNumbers(String strValue) {        
+        if (strValue == null) {
+            return 0;
+        }
+
+        StringBuffer strBuff = new StringBuffer();
+        char c;        
+        for (int i = 0; i < strValue.length() ; i++) {
+            c = strValue.charAt(i);
+            
+            if (Character.isDigit(c)) {
+                strBuff.append(c);
+            }
+        }
+        return Integer.parseInt(strBuff.toString());
+    }
+    
+
 }

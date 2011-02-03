@@ -36,9 +36,9 @@ width:95px;
 {
 font-family:Arial, Helvetica, sans-serif;
 color:#7D848B;
-padding-top:5px;
+/*padding-top:5px;*/
 /*padding-left:5px;*/
-padding-bottom:5px;
+/*padding-bottom:5px;*/
 border:3px inset #DADADA;
 width:230px;
 font-size:11px;
@@ -78,10 +78,10 @@ width:50px;
 {
 font-family:Arial, Helvetica, sans-serif;
 color:#7D848B;
-padding-top:2px;
+/*padding-top:2px;*/
 padding-left:5px;
-padding-bottom:2px;
-font-size:16px;
+/*padding-bottom:2px;*/
+font-size:14px;
 font-weight:bold;
 border:3px inset #B0B0B0;
 background-color:#ffffff;
@@ -144,6 +144,11 @@ div.fileinputs1Band {
 	position: relative;
 	width: 127px;
 }
+div.fileinputs1state11 {
+	position: relative;
+	width: 264px;
+	height: 22px;
+}
 div.fileinputs1choose {
 	position: relative;
 }
@@ -166,7 +171,7 @@ div.forcombo {
 	z-index: 1;
 	background-image:url(../images/dropCombo.gif);
 	width:270px;
-	height:27px;
+	height:22px;
 	background-repeat:no-repeat;
 }
 
@@ -217,29 +222,34 @@ div.fakefile2 {
 	background-repeat:no-repeat;
 }
 .state {
-    margin-top: 2px;
-    opacity: 0;
+    /*margin-top: 2px;*/
+    -moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
     position: relative;
     text-align: left;
     width: 120px;
     z-index: 2;
 }
 .timezone {
-    margin-top: 2px;
-    opacity: 0;
+    /*margin-top: 2px;*/
+    -moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
     position: relative;
     text-align: left;
     width: 265px;
     z-index: 2;
 }
 .state11 {
-    margin-top: 2px;
-    opacity: 0;
-    position: relative;
-    text-align: left;
-    width: 260px;
-    z-index: 2;
-    color: #7D848B;
+   position: relative;
+	text-align: left;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+	width:260px;
+	height: 22px;
 }
 
 .band {
@@ -268,7 +278,7 @@ div.fakefile2 {
 	opacity: 0;
 	z-index: 2;
 	width:166px;
-	top:5px;
+	/*top:5px;*/
 }
 .vk_text
 {
@@ -302,7 +312,7 @@ padding-right:10px;
     font-weight: bold;
     padding-bottom: 5px;
     padding-right: 2px;
-    padding-top: 5px;
+    /*padding-top: 5px;*/
     width: 85px;
 }
 .edit_left_textGreen
@@ -320,7 +330,7 @@ pading-right:10px;*/
 {
 font-family:Arial, Helvetica, sans-serif;
 color:#7D848B;
-padding-top:2px;
+/*padding-top:2px;*/
 font-size:11px;
 font-weight:bold;
 /*width:125px;
@@ -355,7 +365,7 @@ color:#7D848B;
 padding-top:8px;
 padding-bottom:6px;
 font-size:11px;
-width:125px;
+/*width:125px;*/
 padding-right:5px;
 font-weight:normal;
 }
@@ -406,10 +416,11 @@ padding-left:25px;
 
 
 .checkbox, .radio {
-	width: 15px;
+	width: 19px;
 	height: 25px;
 	padding: 0 5px 0 0;
 	background-image:url(../images/checkbox.gif);
+	background-repeat:no-repeat;
 	display: block;
 	clear: left;
 	float: inherit;
@@ -523,7 +534,7 @@ line-height: 18px;
 }
 .EPGreen
 {
-width:103px;
+width:110px;
 height:15px;
 border:1px solid #7EBE4C;
 font-family:Arial, Helvetica, sans-serif;
@@ -532,7 +543,7 @@ color:#7EBE4C;
 padding-top:2px;
 padding-bottom:2px;
 /*margin-left:20px;*/
-padding-left:10px;
+text-align:center;
 margin-top:10px;
 margin-bottom:10px;
 }
@@ -572,16 +583,22 @@ width: 360px;
 height: auto;
 /*border: 1px solid #000000;*/
 }
+.createProfileTop
+{
+width: 357px;
+height: auto;
+}
+
 .createProfileTop1
 {
 width: 357px;
-height: 5px;
+height: 2px;
 border-bottom: 1px solid #F2F2F2;
 margin-bottom: 3px;
 }
 .createProfileTop2
 {
-width: 357px;
+width: 380px;
 height: auto;
 background-color: #F2F2F2;
 padding-bottom: 5px;
@@ -628,17 +645,17 @@ text-align: justify;
 .createProfileTop3
 {
 width: 357px;
-height: 5px;
-border-bottom: 1px solid #F2F2F2;
-margin-bottom: 3px;
+height: 2px;
+border-top: 1px solid #F2F2F2;
+margin-top: 3px;
 }
 .edit_right_textCreateProfile
 {
 font-family:Arial, Helvetica, sans-serif;
 color:#7D848B;
-padding-top:5px;
+/*padding-top:5px;*/
 /*padding-left:5px;*/
-padding-bottom:5px;
+/*padding-bottom:5px;*/
 border:3px inset #DADADA;
 width:250px;
 font-size:11px;

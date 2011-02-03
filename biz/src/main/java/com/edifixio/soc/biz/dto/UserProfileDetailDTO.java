@@ -5,12 +5,18 @@ import java.util.Date;
 import java.util.List;
 
 import com.edifixio.soc.persist.ImprovementLevel;
+import com.edifixio.soc.persist.ProfilePreference;
 
 public class UserProfileDetailDTO extends UserProfileDTO{
 
     private List<TwitterAccountDTO> selfTwtAccounts; ////// max 5
     private List<TwitterAccountDTO> compTwtAccounts; /////  max 5
-   
+
+    private List<TwitterAccountDTO> compTwtAccountsHandle1; /////  max 5
+    private List<TwitterAccountDTO> compTwtAccountsHandle2; /////  max 5
+    private List<TwitterAccountDTO> compTwtAccountsHandle3; /////  max 5
+    
+    
     private String keyWordIdentBrand;
     private String keyWordIdentProd;
     private String keyWordIdentIndu;
@@ -33,6 +39,7 @@ public class UserProfileDetailDTO extends UserProfileDTO{
 
     private boolean activeStatus;
     private boolean firstTimeLogin;
+    private ProfilePreference profilePreference;
     
     //Added By Neel, Started Here
     
@@ -55,6 +62,14 @@ public class UserProfileDetailDTO extends UserProfileDTO{
         }
     //Added By Neel, Ended Here
 
+        public ProfilePreference getProfilePreference() {
+            return profilePreference;
+        }
+
+        public void setProfilePreference(ProfilePreference profilePreference) {
+            this.profilePreference = profilePreference;
+        }
+       
     public boolean isActiveStatus() {
         return activeStatus;
     }
@@ -232,4 +247,31 @@ public String getKeyWordIdentBrand() {
         return generateStar;
     }
     //-------------------By Neel, Ended Here---------------------------------    
+
+    public List<TwitterAccountDTO> getCompTwtAccountsHandle1() {
+        return compTwtAccountsHandle1;
+    }
+
+    public void setCompTwtAccountsHandle1(
+            List<TwitterAccountDTO> compTwtAccountsHandle1) {
+        this.compTwtAccountsHandle1 = compTwtAccountsHandle1;
+    }
+
+    public List<TwitterAccountDTO> getCompTwtAccountsHandle2() {
+        return compTwtAccountsHandle2;
+    }
+
+    public void setCompTwtAccountsHandle2(
+            List<TwitterAccountDTO> compTwtAccountsHandle2) {
+        this.compTwtAccountsHandle2 = compTwtAccountsHandle2;
+    }
+
+    public List<TwitterAccountDTO> getCompTwtAccountsHandle3() {
+        return compTwtAccountsHandle3;
+    }
+
+    public void setCompTwtAccountsHandle3(
+            List<TwitterAccountDTO> compTwtAccountsHandle3) {
+        this.compTwtAccountsHandle3 = compTwtAccountsHandle3;
+    }
 }

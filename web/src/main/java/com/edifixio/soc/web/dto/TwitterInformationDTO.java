@@ -15,9 +15,14 @@ public class TwitterInformationDTO {
     private String twittDate;
     private String backGroundImage;
     private String profileImage;
+    private String individualMessage="Theme";
+    private String loggedInName;
+    private boolean retwittable;
     private long twitterID;
     private long twitterStatusID;
+    private long replyStatusID;
     private int cnt;
+    private boolean geoEnabled;
     
     public String getTwitterName() {
         return twitterName;
@@ -96,6 +101,36 @@ public class TwitterInformationDTO {
     }
     public void setTwitterStatusID(long twitterStatusID) {
         this.twitterStatusID = twitterStatusID;
+    }
+    public String getIndividualMessage() {
+        return individualMessage;
+    }
+    public void setIndividualMessage(String individualMessage) {
+        this.individualMessage = individualMessage;
+    }
+    public boolean isRetwittable() {
+        return retwittable;
+    }
+    public void setRetwittable(boolean retwittable) {
+        this.retwittable = retwittable;
+    }
+    public long getReplyStatusID() {
+        return replyStatusID;
+    }
+    public void setReplyStatusID(long replyStatusID) {
+        this.replyStatusID = replyStatusID;
+    }
+    public String getLoggedInName() {
+        return loggedInName;
+    }
+    public void setLoggedInName(String loggedInName) {
+        this.loggedInName = loggedInName;
+    }
+    public boolean isGeoEnabled() {
+        return geoEnabled;
+    }
+    public void setGeoEnabled(boolean geoEnabled) {
+        this.geoEnabled = geoEnabled;
     }
     
 }

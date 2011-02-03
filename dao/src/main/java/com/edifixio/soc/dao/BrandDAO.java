@@ -8,4 +8,5 @@ import com.edifixio.soc.persist.Brand;
 
 public interface BrandDAO<T extends Brand> {
     public List<T> findall() throws SVTException;
+    public T getByName(String name) throws SVTException;   
 }

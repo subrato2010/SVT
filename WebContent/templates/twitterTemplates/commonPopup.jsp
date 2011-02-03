@@ -42,15 +42,15 @@
 		<div class="menuItem demo active" title="containerIframe11"></div>
 		<table width="100%" height="100%" cellpadding="0" cellspacing="0">
 			<tr>
-				<td valign="middle" align="left">
+				<td valign="middle" align="left" width="166">
 					<div class="title11" id="title11"></div>
 				</td>
 				<td style="padding-left: 10px; padding-top: 5px;" valign="middle"
 					align="left">
-					<div class="mainDiv" id="main_xb1">
-						<div id="captionDivM0" class="captionDiv">Customer #1</div>
-						<div class="textDiv"><h:inputText type="text" 
-								class="fakeText" onblur="closeList('xb1')"
+					<div class="mainDivNew" id="main_xb1">
+						<div id="captionDivM0" class="captionDivNew">Customer #1</div>
+						<div class="textDivNew"><h:inputText type="text" 
+								class="fakeTextNew" onblur="closeList('xb1')"
 								onclick="toggleList1('xb1')" readonly="readonly"
 								style="cursor:auto; text-align:right; " value="" />
 						</div>
@@ -72,9 +72,9 @@
 				
 				</td>
 
-				<td valign="top" align="left">
+				<td valign="middle" align="left" width="40">
 				<div class="close" align="right" id="imageDiv"><a
-					style="margin-left: 395px;" href="#" onclick=" parent.location.reload(); closePopupNew1();">
+					href="#" onclick=" parent.location.reload(); closePopupNew1();">
 				<img id="popupCloseButton" src="../images/Alert/closeGaryButton.gif"
 					style="border: 0px; padding-top: 5px; margin-right: 10px;" name="but1"
 					onmouseover="document.but1.src='../images/Alert/closeGaryButton.gif'"
@@ -98,19 +98,19 @@
 		
 		
 		<div id="floatingDiv12" class="glass" style="display: none;">
-		<div id="innerMainDiv12" class="innerMain1">
+		<div id="innerMainDiv12" class="innerMain11">
 
 		<div class="header" id="popupHeader12">
 		<div class="menuItem demo active" title="containerIframe12"></div>
 		<table width="100%" height="100%" cellpadding="0" cellspacing="0">
 			<tr>
 				<td valign="middle" align="left">
-					<div class="title12" id="title12"></div>
+					<div class="title" id="title12"></div>
 				</td>
 				<td style="padding-left: 10px; padding-top: 5px;" valign="middle"
 					align="left">
 					<div class="mainDiv" id="main_xb2">
-						<div id="captionDivM0" class="captionDiv">Customer #1</div>
+						<div id="captionDivMA" class="captionDiv">Customer #1</div>
 						<div class="textDiv"><h:inputText type="text" 
 								class="fakeText" onblur="closeList('xb2')"
 								onclick="toggleList2('xb2')" readonly="readonly"
@@ -152,17 +152,15 @@
 			scrolling="auto"></iframe></div>
 		</div>
 		
-		
-		
-		
-		
-		
-		<div class="backDrop" id="backDrop" style="display:none;"></div> 
+
+
+
+	<div class="backDrop" id="backDrop" style="display:none;"></div> 
 	<div id="floatingDiv1" class="glass" style="display:none;">
 			<div id="innerMainDiv1" class="innerMain1">
 				<div class="headerNew"  id="popupHeader1">
 					<div class="menuItem demo active1" title="containerIframe1"></div>
-						<table width="100%" height="100%" cellpadding="0" cellspacing="0">
+						<table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
 							<tr>
 								<td valign="middle" align="center"  width="60">
 									<img src="../images/Alert/alertSign.gif" border="0"/>
@@ -171,7 +169,7 @@
 								<div class="title1" id="title1"></div>
 								</td>
 								
-						    	<td valign="top" align="left">
+						    	<td valign="top" align="center" width="50">
 							    	<div class="close1">
 											<a href="#" onclick="parent.location.reload(); closePopupNew(); parent.document.getElementById('ALMore').style.display='none'; parent.document.getElementById('ALMore1').style.display='none'; parent.document.getElementById('ALMore2').style.display='none'; parent.document.getElementById('ALMore3').style.display='none';">
 												<img id="popupCloseButton1" src="../images/Alert/closeButtonOrange.gif" 
@@ -209,8 +207,7 @@
 	
 	
 
-	<!--Green POPUP-->
-	
+<!--Green POPUP-->
 <div id="floatingDiv2" class="glass" style="display:none;z-index:200;">
 			<div id="innerMainDiv2" class="innerMain2">
 

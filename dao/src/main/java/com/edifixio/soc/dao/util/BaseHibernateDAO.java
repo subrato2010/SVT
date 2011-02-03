@@ -157,7 +157,15 @@ public abstract class BaseHibernateDAO <T extends TrackedEntity> extends Hiberna
            }
            return this;
         }
-        
+
+        public Find<TT> andIfNotZero(String where, Object param)
+        {
+           if (param != null && !String.valueOf(param).equalsIgnoreCase("0")) {
+              and(where, param);
+           }
+           return this;
+        }
+
         public Find<TT> or(String where)
         {
            if (where != null) {

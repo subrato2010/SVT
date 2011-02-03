@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>TWT</display-name>
-  <servlet>
-    <servlet-name>twitt</servlet-name>
-    <servlet-class>com.edifixio.soc.web.controllers.servlet.SigninServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>callback</servlet-name>
-    <servlet-class>com.edifixio.soc.web.controllers.servlet.CallbackServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>twitt</servlet-name>
-    <url-pattern>/faces/signin</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>callback</servlet-name>
-    <url-pattern>/faces/callback</url-pattern>
-  </servlet-mapping>
+
+  <!-- Added By Neel, Started Here -->
+  	<servlet>
+  		<servlet-name>twitt</servlet-name>
+  		<servlet-class>com.edifixio.soc.web.controllers.servlet.SigninServlet</servlet-class>
+  	</servlet>
+  	<servlet>
+        <servlet-name>callback</servlet-name>
+        <servlet-class>com.edifixio.soc.web.controllers.servlet.CallbackServlet</servlet-class>
+    </servlet>
+    
+    
+  	<servlet-mapping>
+  		<servlet-name>twitt</servlet-name>
+  		<url-pattern>/faces/signin</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet-mapping>
+        <servlet-name>callback</servlet-name>
+        <url-pattern>/faces/callback</url-pattern>
+    </servlet-mapping>
+  <!-- Added By Neel, Ended Here -->
+
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -26,6 +33,21 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
+  
+  <!-- Commented By Neel, Started Here -->
+  <!--
+	  <servlet>
+	    <servlet-name>IndexJSP</servlet-name>
+	    <jsp-file>/index.jsp</jsp-file>
+	  </servlet>
+	  
+	  <servlet-mapping>
+	    <servlet-name>IndexJSP</servlet-name>
+	    <url-pattern>*.jsp</url-pattern>
+	  </servlet-mapping>
+  -->
+  <!-- Commented By Neel, Ended Here -->
+  
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath*:spring-biz.xml,classpath*:spring-daos.xml,
@@ -65,6 +87,7 @@
     <url-pattern>/faces/myFacesExtensionResource/*</url-pattern>
   </filter-mapping>
   <filter>
+  
     <display-name>RichFaces Filter</display-name>
     <filter-name>richfaces</filter-name>
     <filter-class>org.ajax4jsf.Filter</filter-class>
@@ -84,6 +107,7 @@
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>INCLUDE</dispatcher>
   </filter-mapping>
+  
   <listener>
     <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
   </listener>
@@ -94,8 +118,9 @@
     <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>
   <listener>
-    <listener-class>com.edifixio.soc.web.init.BizControlDataApplContextLoader</listener-class>
+      <listener-class>com.edifixio.soc.web.init.BizControlDataApplContextLoader</listener-class>
   </listener>
+ 
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>Admin Protected Area</web-resource-name>
@@ -105,6 +130,7 @@
       <role-name>*</role-name>
     </auth-constraint>
   </security-constraint>
+  
   <login-config>
     <auth-method>FORM</auth-method>
     <realm-name>Protected Area</realm-name>
@@ -113,20 +139,25 @@
       <form-error-page>/invalidLogin.jsp</form-error-page>
     </form-login-config>
   </login-config>
+    
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+    
   <error-page>
     <exception-type>java.lang.Exception</exception-type>
     <location>/error.jsp</location>
   </error-page>
+  
   <error-page>
-    <error-code>404</error-code>
-    <location>/error.jsp</location>
+  	<error-code>404</error-code>
+  	<location>/error.jsp</location>
   </error-page>
+  
   <session-config>
-    <session-timeout>20</session-timeout>
+    <session-timeout>40</session-timeout>
   </session-config>
+
   <servlet>
     <description></description>
     <display-name>MailSenderServlet</display-name>
@@ -147,20 +178,23 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
+    
   <servlet>
-    <servlet-name>UserWS</servlet-name>
-    <servlet-class>org.jboss.webservice.server.ServiceEndpointServletJSE</servlet-class>
-    <init-param>
-      <param-name>ServiceEndpointID</param-name>
-      <param-value>TWT.war#UserWS/UserWSPort</param-value>
-    </init-param>
-    <init-param>
-      <param-name>ServiceEndpointImpl</param-name>
-      <param-value>com.edifixio.soc.ws.UserWSImpl</param-value>
-    </init-param>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserWS</servlet-name>
-    <url-pattern>/UserWS</url-pattern>
-  </servlet-mapping>
+      <servlet-name>UserWS</servlet-name>
+      <servlet-class>org.jboss.webservice.server.ServiceEndpointServletJSE</servlet-class>
+      <init-param>
+         <param-name>ServiceEndpointID</param-name>
+         <param-value>TWT.war#UserWS/UserWSPort</param-value>
+      </init-param>
+      <init-param>
+         <param-name>ServiceEndpointImpl</param-name>
+         <param-value>com.edifixio.soc.ws.UserWSImpl</param-value>
+      </init-param>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>UserWS</servlet-name>
+      <url-pattern>/UserWS</url-pattern>
+   </servlet-mapping>
+   
+
 </web-app>

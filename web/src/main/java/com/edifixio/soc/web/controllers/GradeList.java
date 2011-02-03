@@ -5,9 +5,14 @@ import com.edifixio.soc.common.SVTException;
 public class GradeList extends BaseWebObject{
     public String calculateColor(String yourGrade, String compititors)
     {
-        char gradeArr[] = yourGrade.toCharArray();
-        char compArr[] = compititors.toCharArray();
-        
+//        char gradeArr[] = yourGrade.toCharArray();
+//        char compArr[] = compititors.toCharArray();
+        if(yourGrade == null){
+            yourGrade="";
+        }
+        if(compititors == null){
+            compititors="";
+        }
         float gradeVal=0,compVal=0;
         //for yourGrade
         if(yourGrade.equals("A+"))  gradeVal = A_POSITIVE;

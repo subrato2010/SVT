@@ -10,6 +10,7 @@ function openPopup(title, left, top, width, height, border, noheader, closable, 
 	
 	d.style.display = "block";
 	d.style.left = left + "px";
+	
 	d.style.top = top+ "px";
 	d.style.width = width+ "px";
 	d.style.height = height+ "px";
@@ -21,7 +22,9 @@ function openPopup(title, left, top, width, height, border, noheader, closable, 
 	m.style.width = (width - (border*2))+ "px";
 	m.style.height = (height - (border*2)) + "px";
 	m.style.marginLeft = border + "px";
+	m.style.marginRight = border + "px";
 	m.style.marginTop = border+ "px";
+	m.style.marginBottom = border+ "px";
 	if(f!= null)
 	{
 		f.width = width - (border*2);
@@ -197,7 +200,9 @@ function openPopup1(title, left, top, width, height, border, noheader, closable,
 	m.style.width = (width - (border*2))+ "px";
 	m.style.height = (height - (border*2)) + "px";
 	m.style.marginLeft = border + "px";
+	m.style.marginRight = border + "px";
 	m.style.marginTop = border+ "px";
+	m.style.marginBottom = border+ "px";
 	if(f!= null)
 	{
 		f.width = width - (border*2);
@@ -212,6 +217,7 @@ function openPopup1(title, left, top, width, height, border, noheader, closable,
 		if(f!= null)
 		{
 			f.height = (height - (border*2) - 44)+ "px"; //header = 44px
+			
 		}
 		if(closable != true){
 			b.style.display = "none";
@@ -254,7 +260,9 @@ function openPopup3(title, left, top, width, height, border, noheader, closable,
 	m.style.width = (width - (border*2))+ "px";
 	m.style.height = (height - (border*2)) + "px";
 	m.style.marginLeft = border + "px";
+	m.style.marginRight = border + "px";
 	m.style.marginTop = border+ "px";
+	m.style.marginBottom = border+ "px";
 	if(f!= null)
 	{
 		f.width = width - (border*2);
@@ -308,7 +316,9 @@ function openPopup11(title,image, left, top, width, height, border, noheader, cl
 	m.style.width = (width - (border*2))+ "px";
 	m.style.height = (height - (border*2)) + "px";
 	m.style.marginLeft = border + "px";
+	m.style.marginRight = border + "px";
 	m.style.marginTop = border+ "px";
+	m.style.marginBottom = border+ "px";
 	if(f!= null)
 	{
 		f.width = width - (border*2);
@@ -440,7 +450,9 @@ function openPopup2(title, left, top, width, height, border, noheader, closable,
 	m.style.width = (width - (border*2))+ "px";
 	m.style.height = (height - (border*2)) + "px";
 	m.style.marginLeft = border + "px";
+	m.style.marginRight = border + "px";
 	m.style.marginTop = border+ "px";
+	m.style.marginBottom = border+ "px";
 	if(f!= null)
 	{
 		f.width = width - (border*2);
@@ -563,7 +575,9 @@ function openPopup12(title,image, left, top, width, height, border, noheader, cl
 	m.style.width = (width - (border*2))+ "px";
 	m.style.height = (height - (border*2)) + "px";
 	m.style.marginLeft = border + "px";
+	m.style.marginRight = border + "px";
 	m.style.marginTop = border+ "px";
+	m.style.marginBottom = border+ "px";
 	if(f!= null)
 	{
 		f.width = width - (border*2);
@@ -627,7 +641,9 @@ function openPopup44(title, left, top, width, height, border, noheader, closable
 	m.style.width = (width - (border*2))+ "px";
 	m.style.height = (height - (border*2)) + "px";
 	m.style.marginLeft = border + "px";
+	m.style.marginRight = border + "px";
 	m.style.marginTop = border+ "px";
+	m.style.marginBottom = border+ "px";
 	if(f!= null)
 	{
 		f.width = width - (border*2);

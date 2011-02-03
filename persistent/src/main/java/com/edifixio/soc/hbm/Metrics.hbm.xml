@@ -54,6 +54,19 @@
                 not-null="true"
             />
         </many-to-one>
+        <many-to-one
+            name="overallCategory"
+            class="com.edifixio.soc.persist.OverallCategory"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="overallCategoryId" 
+                not-null="true"
+            />
+        </many-to-one>
 
         <property
             name="displayOrder"
@@ -119,7 +132,20 @@
             insert="true"
             column="relativeWt"
         />
-
+        <property
+            name="siWt"
+            type="double"
+            update="true"
+            insert="true"
+            column="siWt"
+        />
+        <property
+            name="weight"
+            type="double"
+            update="true"
+            insert="true"
+            column="weight"
+        />
         <property
             name="upperBound"
             type="int"

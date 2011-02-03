@@ -2,10 +2,12 @@
 package com.edifixio.soc.dao;
 
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.dao.util.BaseHibernateDAO;
 import com.edifixio.soc.persist.Benchmark;
@@ -78,6 +80,19 @@ public class BenchmarkHibernateDAO<T extends Benchmark> extends
         return benchMark;
     }
 
+
+    public Benchmark update(Benchmark benchMark) throws SVTException {
+        if(benchMark == null){
+            log.debug("Null value passed to update");
+            return null;
+        }
+        Session session = getCurrentSession("subrato");
+        Transaction transaction = session.beginTransaction();
+        session.update(benchMark);
+        transaction.commit();
+        log.debug("Value saved successfully");
+        return benchMark;
+    }
 
     @Override
     protected Class getConcreteClass() {

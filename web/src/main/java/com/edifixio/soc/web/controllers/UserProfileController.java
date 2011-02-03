@@ -3,8 +3,8 @@ package com.edifixio.soc.web.controllers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -12,8 +12,10 @@ import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.validator.ValidatorException;
 import javax.naming.NamingException;
+
 import org.apache.myfaces.custom.fileupload.UploadedFile;
 import org.richfaces.datahelper.SessionDataHelper;
+
 import com.edifixio.soc.biz.dto.StateProvinceDTO;
 import com.edifixio.soc.biz.dto.TwitterAccountDTO;
 import com.edifixio.soc.biz.dto.UserProfileDetailDTO;

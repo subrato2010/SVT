@@ -230,14 +230,24 @@ width:100%;
 height:auto;
 /*border:1px solid #000000;*/
 }
-
 .mainBodyBottomUpper
 {
 width:1050px;
-height:auto;
-/*border:1px solid #D4D4D4;*/
-/*margin-top:5px;*/
+height:30px;
+/*border:1px solid #D4D4D4;
+margin-top:5px;*/
 margin-left:15px;
+margin-bottom: 5px;
+}
+.mainBodyBottomUpperGeo
+{
+width:1050px;
+height:20px;
+/*border:1px solid #D4D4D4;
+margin-top:5px;*/
+margin-left:15px;
+margin-bottom: 5px;
+
 }
 .mainBodyBottomLower
 {
@@ -268,6 +278,7 @@ color:#FFFFFF;
 overflow:hidden;
 font-weight:bold;
 padding-left:5px;
+margin-top: 5px;
 }
 .mainBodyBottomUpperLeftHappiningText
 {
@@ -281,7 +292,7 @@ padding-left:15px;
 
 .RTOBody
 {
-width:380px;
+width:370px;
 height:auto;
 overflow:hidden;
 padding-top:2px;
@@ -657,7 +668,13 @@ float:left;
 margin-top:5px; 
 background-color:#98C841;
 }
-
+.mainBodyBottomUpper11
+{
+ width: 31px;
+ height: 27px;
+ float: left;
+ 
+}
 .mainBodyBottomUpper2
 {
 width:200px; 
@@ -666,6 +683,7 @@ float:left;
 margin-top:5px; 
 background-color:#98C841;
 }
+
 .mainBodyBottomUpper3
 {
 width:228px; 
@@ -673,6 +691,56 @@ height:38px;
 float:left; 
 /*background-image:url(../images/COptiDropDowngif.gif); 
 background-repeat:no-repeat;"*/
+}
+.mainBodyBottomUpper11
+{
+ width: 31px;
+ height: 27px;
+ float: left;
+ 
+}
+.mainBodyBottomUpper22
+{
+width:200px; 
+height:27px; 
+float:left;
+background-color:#98C841;
+
+}
+.mainBodyBottomUpper33
+{
+width:228px; 
+height:27px; 
+float:left;
+}
+.mainBodyBottomUpper44
+{
+width:90px; 
+height:27px; 
+float:left; 
+background-color:#98C841;
+}
+.mainBodyBottomUpper55
+{
+width:228px; 
+height:27px; 
+float:left;
+
+}
+.mainBodyBottomUpper66
+{
+width:141px; 
+height:27px; 
+float:left;
+
+background-color:#98C841;
+}
+.mainBodyBottomUpper77
+{
+width:130px; 
+height:27px; 
+float:left;
+
 }
 .mainBodyBottomUpper4
 {
@@ -818,6 +886,16 @@ text-align:right;
 background-image:url(../images/whiteDropDown.gif);
 background-repeat:no-repeat;
 }
+.mainDivNew
+{
+background-color:#ffffff;
+width:183px;
+height:26px;
+border:0px solid red;
+text-align:right;
+background-image:url(../images/whiteDropDown.gif);
+background-repeat:no-repeat;
+}
 .captionDiv
 {
 padding-top: 6px; 
@@ -834,6 +912,23 @@ padding-top:2px;
 font-family:arial;
 text-align: left;
 }
+.captionDivNew
+{
+/*padding-top: 6px;*/ 
+font-size: 12px; 
+color: rgb(120, 126, 137);
+float: left;
+width: 145px;
+height: 18px;font-weight:bold;
+margin-left:5px;
+/*margin-top:4px;*/
+padding-bottom:2px;
+padding-left:5px;
+/*padding-top:2px;*/
+font-family:arial;
+text-align: left;
+padding-top: 4px;
+}
 .textDiv
 {
 position:relative;
@@ -842,10 +937,32 @@ width:25px;
 height:28px;
 float:right;
 }
+.textDivNew
+{
+position:relative;
+top:0px;
+width:25px;
+height:18px;
+float:right;
+}
 .fakeText
 {
 width:25px;
 height:28px;
+color:#dadada;
+cursor:none;
+opacity: 0.0;
+filter:alpha(opacity=0.0);
+-moz-opacity:0.0;
+-khtml-opacity: 0.0;
+font-size:0px;
+background-color:#000000;
+padding-top:-10px;
+}
+.fakeTextNew
+{
+width:25px;
+height:20px;
 color:#dadada;
 cursor:none;
 opacity: 0.0;
@@ -919,7 +1036,7 @@ height:27px;
 border:0px solid red;
 text-align:left;
 padding-left:6px;
-margin-top:5px;
+/*margin-top:5px;*/
 font-family:Arial, Helvetica, sans-serif; 
 background-image:url(../images/COptiDropDowngif.gif);
 background-repeat:no-repeat;
@@ -942,11 +1059,12 @@ float:left;
 font-family:arial;
 font-size:14px;
 font-weight:bold;
-height:29px;
+height:27px;
 padding-left:5px;
 text-align:left;
 width:190px;
-padding-top: 7px;
+padding-top: 5px;
+/*padding-top: 7px;*/
 }
 .captionDivTopSB 
 {
@@ -1006,7 +1124,7 @@ width:210px;
 .fakeTextTop
 {
 width:25px;
-height:38px;
+height:33px;
 color:#dadada;
 cursor:none;
 opacity: 0.0;
@@ -1023,7 +1141,7 @@ padding-top:-10px;
 {
 width:172px;
 height:36px;
-border:0px solid red;
+/*border:0px solid red;*/
 text-align:left;
 padding-left:6px;
 font-family:Arial, Helvetica, sans-serif; 
@@ -1036,7 +1154,7 @@ background-repeat:no-repeat;
 color:#636363;
 float:left;
 font-family:arial;
-font-size:14px;
+font-size:13px;
 font-weight:bold;
 height:23px;
 padding-left:5px;
@@ -1309,4 +1427,12 @@ margin-top:10px;
 .topFirstTablehdCategory a:hover
 {
 	color: #2874ae;
+}
+
+.twtsuccess
+{
+font-family:Arial, Helvetica, sans-serif;
+font-size:34px;
+color: #e2e2e2;
+font-weight: bold;
 }

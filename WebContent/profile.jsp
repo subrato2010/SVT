@@ -52,7 +52,7 @@
                                               <img src="../images/demoPerson.png" width="40" height="40"/>
                                               <br/>
                                               <font  class="topFirstTableMatterGreen">
-                                              <a href="#" onclick="openPopup('upload Image',400, 90, 500, 300, 10, false, true, false, 'uploadImage.jsp')" style="color:#77C442; text-decoration:none;">
+                                              <a href="#" onclick="openPopup('upload Image',400, 90, 500, 300, 7, false, true, false, 'uploadImage.jsp')" style="color:#77C442; text-decoration:none;">
                                               CHANGE
                                               </a>
                                               </font>
@@ -81,7 +81,8 @@
 	                                 	<a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
 	                                  		 <font style="font-size: 14px;">EDIT PROFILE</font>
 	                                   	</a>
-	                                   </div></td>
+	                                   </div>
+	                                   </td>
 	                                 </tr>
 	                                 <tr>
 	                                   <td class="profileText" align="left" valign="top">Name</td>
@@ -145,8 +146,8 @@
                             	</td>
                                                         
 <!--  ******************************************RIGHT SITE PROFILE ***************************************-->
-                                 <td valign="top" align="center">
-                                                        <table width="90%" border="0" cellpadding="0" cellspacing="0">
+                                 <td valign="top" align="center" width="660">
+                                                        <table width="600" border="0" cellpadding="0" cellspacing="0">
                                                               <tr>
                                                                 <td class="profileText" align="left" valign="top">
                                                                 Twitter Authenticated Accounts  
@@ -211,19 +212,19 @@
                                                               </tr>
                                                               <tr>
                                                               		<td valign="middle" align="left">
-                                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                                                        <table width="600" border="0" cellpadding="0" cellspacing="0">
                                                                          <tr>
-                                                                            <td class="edit_left_textEPP" align="right" valign="top">
+                                                                            <td class="edit_left_textEPP" align="right" valign="top" width="100">
                                                                             Improvement<br/> Level
                                                                             </td>
-                                                                            <td align="left" valign="top" colspan="2">
+                                                                            <td align="left" valign="top" colspan="2" width="500">
                                                                             
-                                                                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="edit_left_textEPP1" style="margin-left:10px;">
+                                                                                <table width="500" border="0" cellspacing="0" cellpadding="0" class="edit_left_textEPP1" style="margin-left:10px;">
                                                                                               <tr>
-                                                                                                <td valign="top" align="center" class="edit_left_textEPP2">
+                                                                                                <td valign="top" align="center" width="30">
                                                                                                     <input type="radio" id="chkOne" name="chk" value="aaaa" checked="checked" onClick="SingleSelect('chk',this);" class="styled" />
                                                                                                 </td>
-                                                                                                <td valign="top" align="left">Moderate
+                                                                                                <td valign="top" align="left" width="470">Moderate
                                                                                                  <a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
 		                                                                							<font style="font-weight: normal; color: rgb(126, 190, 76);">CHANGE</font></a>	
                                                                                                 	<br />

@@ -3,9 +3,10 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:a4j="http://richfaces.org/a4j">
+
 <body style="margin: 0px;">
 <f:view>
-	
+<h:form id="toptemplatetwitterForm">	
 	
 			
     <link href="../css/style.css" rel="stylesheet" type="text/css"/>
@@ -52,13 +53,13 @@
 				</td>
 				<td valign="bottom" align="right">
 				<div class="headerBottomRight">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0"
-					height="85">
-					<tr>
-						<td valign="middle" align="center"><img
-							src="../images/twitterFullLogo.gif" border="0" /></td>
-						<td valign="bottom" align="center">
-							<div class="mainDivTopAcc" id="main_xT">
+				<div style="width: 350px;">
+				<div style="width: 166px; height: 54px; float:  left; margin-top: 20px; margin-right: 10px;">
+					<img src="../images/twitterFullLogo.gif" border="0" />
+				</div>
+				
+				<div style="width: 172px; height: 36px; float: right; margin-top: 44px;">
+					<div class="mainDivTopAcc" id="main_xT">
 								<div class="textDiv">
 									<input  type="text" value="" class="fakeTextTop" onblur="closeList('xT');" 
 									onclick="toggleList('xT')" readonly="readonly" style="cursor:auto; text-align:right; "/>
@@ -73,15 +74,15 @@
 									<a href="#" class="optiontext">Manage Users</a>
 								</div>
 								<div class="itemDivTopAcc">
-									<a href="#" onclick="openPopup('Create Your Profile',400, 3, 410, 800, 10, false, true, false, 'createProfile.jsp')" 
+									<a href="#" onclick="openPopup('Create Your Profile',400, 3, 450, 800, 10, false, true, false, 'createProfile.jsp')" 
                                                                        		style="text-decoration:none;">
                                                                        		Administration</a>
 								</div>
 								<div class="listBottomDivAcc"></div>
 							</div>
-					    </td>
-					</tr>
-				</table>
+				</div>
+				</div>
+				
 				</div>
 				</td>
 			</tr>
@@ -91,7 +92,7 @@
 		</div>
 		</div>
 
-
+</h:form>
 
 </f:view>
 </body>

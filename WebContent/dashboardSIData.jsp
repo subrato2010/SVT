@@ -164,16 +164,8 @@
 							</td>
 							<td width="120" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{row.custVolumeFormatted}</td>
 							<td width="195" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{row.cmptVolumeFormatted}</td>
-							<td width="100" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">
-							<a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'M')}">#{row.targetModerateFormatted}</a4j:outputPanel>
-							<a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'A')}">#{row.targetAggressiveFormatted}</a4j:outputPanel>
-							<a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'VA')}">#{row.targetVAggressiveFormatted}</a4j:outputPanel>
-							</td>
-							<td width="80" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">
-							<a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'M')}">#{row.pctModerate}%</a4j:outputPanel>
-							<a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'A')}">#{row.pctAggressive}%</a4j:outputPanel>
-							<a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'VA')}">#{row.pctVAggressive}%</a4j:outputPanel>
-							</td>
+							<td width="100" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{row.custTargetFormatted}</td>
+                 		    <td width="80" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{row.percentIncrease}%</td>
 							<td width="150" class="topFirstTablehdCategoryDataLast" valign="middle" align="center"></td>
 							<td width="170" class="topFirstTablehdCategoryDataLast1" valign="middle" align="left"></td>
 							<td width="100" class="topFirstTablehdCategoryDataLast" valign="middle" align="center"></td>

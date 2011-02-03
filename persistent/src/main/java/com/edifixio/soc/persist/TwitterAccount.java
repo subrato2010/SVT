@@ -21,7 +21,7 @@ public class TwitterAccount  extends TrackedEntity implements Serializable {
     private Industry industry;
     private Product product;
     private Date benchmarkDate;
-    
+    private String brndProdInds;
    
     /**
      * @return Returns the Company.
@@ -86,6 +86,17 @@ public class TwitterAccount  extends TrackedEntity implements Serializable {
     public void setBenchmarkDate(Date benchmarkDate) {
         this.benchmarkDate = benchmarkDate;
     }
+    /**
+     * @hibernate.property 
+     * 
+     */
+    public String getBrndProdInds() {
+        return brndProdInds;
+    }
+    public void setBrndProdInds(String brndProdInds) {
+        this.brndProdInds = brndProdInds;
+    }
+
     /**
      * @return Returns the brand.
      * @hibernate.many-to-one cascade="none"

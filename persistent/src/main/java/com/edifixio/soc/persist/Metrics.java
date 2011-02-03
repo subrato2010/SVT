@@ -21,6 +21,8 @@ public class Metrics  extends TrackedEntity implements Serializable {
     private boolean automated;
     private double relativeWt;
     private double normalizedWt;
+    private double siWt;
+    private double weight;
     private int lowerBound;
     private int upperBound;
     private String urlAPI1;
@@ -28,6 +30,7 @@ public class Metrics  extends TrackedEntity implements Serializable {
     private String apiMethod;
     private String calcMethod;
     private Category category;
+    private OverallCategory overallCategory;
     
     /**
      * @hibernate.property
@@ -59,6 +62,17 @@ public class Metrics  extends TrackedEntity implements Serializable {
     }
     public void setCategory(Category category) {
         this.category = category;
+    }
+    /**
+     * @return Returns the category.
+     * @hibernate.many-to-one cascade="none"
+     * @hibernate.column name="overallCategoryId" not-null="true"
+     */
+    public OverallCategory getOverallCategory() {
+        return overallCategory;
+    }
+    public void setOverallCategory(OverallCategory overallCategory) {
+        this.overallCategory = overallCategory;
     }
     /**
      * @hibernate.property
@@ -199,5 +213,17 @@ public class Metrics  extends TrackedEntity implements Serializable {
     }
     public void setCalcMethod(String calcMethod) {
         this.calcMethod = calcMethod;
+    }
+    public double getSiWt() {
+        return siWt;
+    }
+    public void setSiWt(double siWt) {
+        this.siWt = siWt;
+    }
+    public double getWeight() {
+        return weight;
+    }
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 }

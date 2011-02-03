@@ -10,8 +10,13 @@
 	    <link href="../css/popup.css" rel="stylesheet" type="text/css"/>
 		<script language="JavaScript" src="../js/designMainScreen.js"></script>
 		<script language="JavaScript" src="../js/popup.js"></script>	
-		<h:form id="test">
+
+<f:view>
       <div class="page">
+
+	  <h:form id="onloadFormValue" style="margin-top: 0px;">     
+      <h:inputHidden id="tab1" value="#{channelPerformanceController.channelPerformanceTabClick}"/>
+     </h:form>
      	<table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td valign="top" align="center">
@@ -24,8 +29,8 @@
                         	  <a4j:include viewId="templates/twitterTemplates/topTemplateTwitter.jsp"/>
                                    	
 		                         <div class="mainBodyTop">
-									<table width="380" border="0" cellspacing="0" cellpadding="0"
-										height="80" style="margin-left: 15px;">
+									<table width="400" border="0" cellspacing="0" cellpadding="0"
+										style="margin-left: 15px; margin-top: 41px;">
 										<tr>
 											<td valign="bottom" align="center" width="193"><img
 												src="../images/channelPerformanceSelected.gif" border="0" /></td>
@@ -39,8 +44,8 @@
 										</tr>
 									</table>
 								</div>
-
-                             <a4j:include id="templateDateTwitterInclude" viewId="templates/twitterTemplates/templateDateTwitter.jsp"/> 
+							 <ui:include src="templates/twitterTemplates/templateDateTwitter.jsp">
+							 </ui:include>
                                   
                          <div class="border">
 						</div>
@@ -64,10 +69,12 @@
                                                             </tr>
                                                             <tr>
                                                                   <td class="topFirstTablehdCategory" valign="middle" align="center" width="100"></td>
-                                                                  <td class="topFirstTablehdCategory" valign="middle" align="center">
+                                                                  
+                                                                  <td class="topFirstTablehdCategory" valign="middle" align="center" style="padding-top: 15px;">
+                                                                       <h:form id="overallForm">
                                                                        <table width="75" border="0" cellspacing="0" cellpadding="0" class="topFirstTablehdCategory">
                                                                              <tr>
-                                                                               <td valign="middle" align="center">
+                                                                               <td valign="middle" align="center" width="55">
                                                                                <a id="displayTextOM" href="javascript:toggleText('toggleTextOM','displayTextOM');" style="text-decoration: none;"  
                                                                                onmouseover="toggleMouseOver('toggleTextOM','displayTextOM');" 
                                                                                onMouseOut="toggleMouseOver('toggleTextOM','displayTextOM');"
@@ -75,7 +82,7 @@
                                                                                OVERALL
                                                                                </a>
                                                                                </td>
-                                                                               <td valign="middle" align="left">
+                                                                               <td valign="middle" align="left" width="20">
                                                                                
 													                             <h:graphicImage value="../images/bulb.gif" 
 																		         onmouseover="this.src='../images/bulb_green.gif';" onmouseout="this.src='../images/bulb.gif';">
@@ -87,11 +94,12 @@
                                                                                </td>
                                                                              </tr>
                                                                        </table>
-       
+       																   </h:form>
                                                                    
                                                                   </td>
+        <h:form id="dashboardsiForm">                                                          
  		<ui:include src="/dashboardSI.jsp">
-				<ui:param name="tablewidth" value="75"/>
+				<ui:param name="tablewidth" value="95"/>
 				<ui:param name="siname" value="Sentiment"/>
 				<ui:param name="jvmethod" value="javascript:toggleText('toggleTextS','displayTextSentiment');"/>
 				<ui:param name="jvmethod1" value="javascript:toggleMouseOver('toggleTextS','displayTextSentiment');"/>				
@@ -99,7 +107,7 @@
 				<ui:param name="tooltip" value="Analysis of your brand, product and industry presence that measures positive, neutral and negative references in 'Twitterverse'."/>
 		</ui:include>
 		<ui:include src="/dashboardSI.jsp">
-				<ui:param name="tablewidth" value="90"/>
+				<ui:param name="tablewidth" value="110"/>
 				<ui:param name="siname" value="Engagement"/>
 				<ui:param name="jvmethod" value="javascript:toggleText('toggleTextE','displayTextEngagement');"/>
 				<ui:param name="jvmethod1" value="javascript:toggleMouseOver('toggleTextE','displayTextEngagement');"/>								
@@ -107,7 +115,7 @@
 				<ui:param name="tooltip" value="The level of engagement or dialogue that your Twitter profiles generate within the 'Twitterverse'. There are 5 levels of engagement and each calculates several metrics to score a Twitter profile on a scale of 1 (low) to 5 (high). The metrics used for measuring engagement include the following: # tweets/day, #tweets/week, # bit.ly url references/week, # hashtag references/week, # @mentions/replies/week, # retweets/week, # followers, # friends, # RT/day, # @mentions/week."/>
 		</ui:include>
         <ui:include src="/dashboardSI.jsp">
-				<ui:param name="tablewidth" value="75"/>
+				<ui:param name="tablewidth" value="90"/>
 				<ui:param name="siname" value="Retention"/>
 				<ui:param name="jvmethod" value="javascript:toggleText('toggleTextRet','displayTextRetention');"/>
 				<ui:param name="jvmethod1" value="javascript:toggleMouseOver('toggleTextRet','displayTextRetention');"/>
@@ -115,7 +123,7 @@
 				<ui:param name="tooltip" value="A measure of your ability javascript:scroll('Sentiment');to retain followers, engagement on topics relating to your industry, product and brand over time."/>
 		</ui:include>                                                          
         <ui:include src="/dashboardSI.jsp">
-				<ui:param name="tablewidth" value="75"/>
+				<ui:param name="tablewidth" value="110"/>
 				<ui:param name="siname" value="Demographics"/>
 				<ui:param name="jvmethod" value="javascript:toggleText('toggleTextD','displayTextDemographics');"/>
 				<ui:param name="jvmethod1" value="javascript:toggleMouseOver('toggleTextD','displayTextDemographics');"/>
@@ -123,7 +131,7 @@
 				<ui:param name="tooltip" value="A measure of the characteristics of your friends, followers and influencers."/>
 		</ui:include> 
 		<ui:include src="/dashboardSI.jsp">
-				<ui:param name="tablewidth" value="75"/>
+				<ui:param name="tablewidth" value="95"/>
 				<ui:param name="siname" value="Loyalty"/>
 				<ui:param name="jvmethod" value="javascript:toggleText('toggleTextL','displayTextLoyalty');"/>
 				<ui:param name="jvmethod1" value="javascript:toggleMouseOver('toggleTextL','displayTextLoyalty');"/>
@@ -131,7 +139,7 @@
 				<ui:param name="tooltip" value="A measure of your ability to consistently reach as many influencers with your message through the 'Twitterverse'."/>
 		</ui:include> 
 		<ui:include src="/dashboardSI.jsp">
-				<ui:param name="tablewidth" value="75"/>
+				<ui:param name="tablewidth" value="95"/>
 				<ui:param name="siname" value="Influence"/>
 				<ui:param name="jvmethod" value="javascript:toggleText('toggleTextIn','displayTextInfluence');"/>
 				<ui:param name="jvmethod1" value="javascript:toggleMouseOver('toggleTextIn','displayTextInfluence');"/>
@@ -145,10 +153,12 @@
 				<ui:param name="jvmethod1" value="javascript:toggleMouseOver('toggleTextR','displayTextReach');"/>
 				<ui:param name="scrollto" value="toggleTextR"/>
 				<ui:param name="tooltip" value="A measure of your ability to consistently reach as many influencers with your message through the 'Twitterverse'."/>
-		</ui:include>                                                                   
+		</ui:include>  
+		</h:form>                                                                 
         </tr>
 
 		<!--  Loop here -->
+		<h:form id="dashboardOverallDataForm">
 		<a4j:repeat value="#{channelPerformanceController.overallPerformanceDummy}" var="overall" rowKeyVar="i">
 			<tr>                                                            																
 				<a4j:outputPanel rendered="#{overall.customer}">
@@ -157,16 +167,16 @@
 				<a4j:outputPanel rendered="#{!(overall.customer)}">
 					<td class="topFirstTablehdCategory1" valign="middle" align="center" width="100" bgcolor="#FBFBFB">Competitors'</td>
 				</a4j:outputPanel>
-				<td valign="middle" align="center" bgcolor="#F2F2F1" style="border-left:1px solid #E8E8E8">
+				<td valign="middle" align="left" bgcolor="#F2F2F1" style="border-left:1px solid #E8E8E8">
 					<table width="100" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td valign="middle" align="right" class="topFirstTablehdCategory2">
-								<a id="displayTextOM" href="javascript:toggleOM();" 
+								<a id="overallGrade" href="#toggleTextOM" onclick="javascript:toggleTextGradeClick('toggleTextOM','displayTextOM');"
 									style="color:#{channelPerformanceController.overallColor}; text-decoration: none; font-size: 22px;">
 									#{overall.overallGrade}
 								</a>
 							</td>
-							<td valign="middle" align="center">									                
+							<td valign="middle" align="center" width="25">									                
 								
 								<a onclick="openPopup11('Trending of Overall',false,270, 90, 860, 450, 10, false, true, false, 'trending.jsp')" href="#">
 								
@@ -176,13 +186,15 @@
 						</tr>
 					</table>
 				</td>
+
 				<ui:include src="/dashboardOverallData.jsp">
 						<ui:param name="tablewidth" value="100"/>
 						<ui:param name="name" value="Sentiment"/>
 						<ui:param name="gradevalue" value="#{overall.sentimentGrade}"/>
 						<ui:param name="sentimentpopup" value="sentiments.jsp"/>
-						<ui:param name="sentimentpopupicon" value="Sent1.gif"/>						
-						<ui:param name="jvmethod" value="javascript:toggleText('toggleTextS','displayTextSentiment');"/>
+						<ui:param name="sentimentpopupicon" value="Sent1.gif"/>	
+						<ui:param name="scrollto" value="toggleTextS"/>					
+						<ui:param name="jvmethod" value="javascript:toggleTextGradeClick('toggleTextS','displayTextSentiment');"/>
 				</ui:include>
 				<ui:include src="/dashboardOverallData.jsp">
 						<ui:param name="tablewidth" value="100"/>
@@ -190,14 +202,17 @@
 						<ui:param name="gradevalue" value="#{overall.engagementGrade}"/>
 						<ui:param name="sentimentpopup" value=""/>
 						<ui:param name="sentimentpopupicon" value=""/>
-						<ui:param name="jvmethod" value="javascript:toggleText('toggleTextE','displayTextEngagement');"/>
+						<ui:param name="scrollto" value="toggleTextE"/>
+						<ui:param name="jvmethod" value="javascript:toggleTextGradeClick('toggleTextE','displayTextEngagement');"/>
 				</ui:include> 
 				<ui:include src="/dashboardOverallData.jsp">
 						<ui:param name="tablewidth" value="100"/>
+						<ui:param name="name" value="Retention"/>
 						<ui:param name="gradevalue" value="#{overall.retentionGrade}"/>
 						<ui:param name="sentimentpopup" value=""/>
 						<ui:param name="sentimentpopupicon" value=""/>
-						<ui:param name="jvmethod" value="javascript:toggleText('toggleTextRet','displayTextRetention');"/>
+						<ui:param name="scrollto" value="toggleTextRet"/>
+						<ui:param name="jvmethod" value="javascript:toggleTextGradeClick('toggleTextRet','displayTextRetention');"/>
 				</ui:include>
 				<ui:include src="/dashboardOverallData.jsp">
 						<ui:param name="tablewidth" value="100"/>
@@ -205,7 +220,8 @@
 						<ui:param name="gradevalue" value="#{overall.demographicsGrade}"/>
 						<ui:param name="sentimentpopup" value=""/>
 						<ui:param name="sentimentpopupicon" value=""/>
-						<ui:param name="jvmethod" value="javascript:toggleText('toggleTextD','displayTextDemographics');"/>
+						<ui:param name="scrollto" value="toggleTextD"/>
+						<ui:param name="jvmethod" value="javascript:toggleTextGradeClick('toggleTextD','displayTextDemographics');"/>
 				</ui:include>
 				<ui:include src="/dashboardOverallData.jsp">
 						<ui:param name="tablewidth" value="100"/>
@@ -213,15 +229,17 @@
 						<ui:param name="gradevalue" value="#{overall.loyaltyGrade}"/>
 						<ui:param name="sentimentpopup" value=""/>
 						<ui:param name="sentimentpopupicon" value=""/>
-						<ui:param name="jvmethod" value="javascript:toggleText('toggleTextL','displayTextLoyalty');"/>
+						<ui:param name="scrollto" value="toggleTextL"/>
+						<ui:param name="jvmethod" value="javascript:toggleTextGradeClick('toggleTextL','displayTextLoyalty');"/>
 				</ui:include>
 				<ui:include src="/dashboardOverallData.jsp">
 						<ui:param name="tablewidth" value="100"/>
 						<ui:param name="name" value="Influence"/>
 						<ui:param name="gradevalue" value="#{overall.influenceGrade}"/>
 						<ui:param name="sentimentpopup" value="influencePopup.jsp"/>
-						<ui:param name="sentimentpopupicon" value="inful1.gif"/>							
-						<ui:param name="jvmethod" value="javascript:toggleText('toggleTextIn','displayTextInfluence');"/>
+						<ui:param name="sentimentpopupicon" value="inful1.gif"/>
+						<ui:param name="scrollto" value="toggleTextIn"/>							
+						<ui:param name="jvmethod" value="javascript:toggleTextGradeClick('toggleTextIn','displayTextInfluence');"/>
 				</ui:include>
 				<ui:include src="/dashboardOverallData.jsp">
 						<ui:param name="tablewidth" value="100"/>
@@ -229,7 +247,8 @@
 						<ui:param name="gradevalue" value="#{overall.reachGrade}"/>
 						<ui:param name="sentimentpopup" value=""/>
 						<ui:param name="sentimentpopupicon" value=""/>
-						<ui:param name="jvmethod" value="javascript:toggleText('toggleTextR','displayTextReach');"/>
+						<ui:param name="scrollto" value="toggleTextR"/>
+						<ui:param name="jvmethod" value="javascript:toggleTextGradeClick('toggleTextR','displayTextReach');"/>
 				</ui:include>
 			</tr>                                     
             <tr>
@@ -237,6 +256,7 @@
                  <td colspan="8" height="4"></td>
            </tr>
 		</a4j:repeat>
+		</h:form>
 		</table>
 		</div>
 	</td>
@@ -254,20 +274,21 @@
          
          <tr>
          	<td>
+         	<h:form id="targetListForm">
          	<table width="1050" border="0" style="margin-left:20px">
 				<tr>
 				<td width="900"></td>
 				<td class="topFirstTablehdCategory" width="150" align="right">Change your Target:</td>
 				<td align="right" valign="middle">
 				<t:selectOneMenu id="changeTarget" value="#{channelPerformanceController.targetId}" immediate = "true" 
-					 valueChangeListener="#{channelPerformanceController.changeTarget}"
-					 style="width:130px; padding-left:0px; margin-left:0px; border:0px; color:#C6AD02; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size: 12px;">				
+						 onchange="document.getElementById('templatedatetwitterForm:dummyholder1').value=this.value;"
+						 style="width:130px; padding-left:0px; margin-left:0px; border:0px; color:#C6AD02; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size: 12px;">				
                          <f:selectItems value="#{channelPerformanceController.targetOptions}"/>
-                         <a4j:support event="onchange" immediate="true"></a4j:support>
                 </t:selectOneMenu>
                </td>
               </tr>
-              </table>  
+              </table> 
+              </h:form> 
          	</td>
          	
          </tr>
@@ -290,6 +311,7 @@
                                  <table width="600" border="0" cellspacing="0" cellpadding="0">
                                        <tr>
                                          <td valign="middle" align="left">
+                                         <h:form id="outboundmetricsForm" style="margin-top:5px; margin-bottom:5px">
                                          <table width="126" cellpadding="0" cellspacing="0">
                                          	<tr>
                                          		<td valign="middle" align="left" class="topFirstTablehdCategory">
@@ -306,7 +328,7 @@
                                          	</tr>
                                          
                                          </table>
-                                         
+                                         </h:form>
 
 										 </td>
                                        </tr>
@@ -316,7 +338,8 @@
                              <td align="center" valign="middle" width="170"></td>
                        </tr>
                  	</table>          
-                    <div id="toggleTextOM" style="display: none">          
+                    <div id="toggleTextOM" style="display: none">  
+                    <h:form id="outboundMetricsForm1">        
                  	<table  width="1050" border="0" cellpadding="0" cellspacing="0">
 	                 	<tr height="40">
 	                 		<td width="24" class="topFirstTablehdCategory" valign="middle" align="center"></td>
@@ -326,8 +349,8 @@
 	                 		<table width="110" cellpadding="0" cellspacing="0">
 	                 			<tr>
 	                 				<td valign="middle" align="center" class="topFirstTablehdCategory">
-		                 				<h:commandLink id="yv1" value="Your Volume" 
-											action="#{channelPerformanceController.submitQuery1}" 
+	                 					<h:commandLink id="yv1" value="Your Volume" 
+											actionListener="#{channelPerformanceController.submitQuery}" 
 											style="color:#8B8B8B; text-decoration: none; background-image:none;">
 											<f:param name="si" value="1" />
 											<f:param name="col" value="yv" />
@@ -348,7 +371,7 @@
 	                 		<table width="180" cellpadding="0" cellspacing="0">
 	                 			<tr>
 	                 				<td valign="middle" align="center" class="topFirstTablehdCategory">
-		                 				<h:commandLink id="cv1" value="Your Competitors' Volume" 
+	                 				<h:commandLink id="cv1" value="Your Competitors' Volume" 
 											actionListener="#{channelPerformanceController.submitQuery}" 
 											style="color:#8B8B8B; text-decoration: none; background-image:none;">
 											<f:param name="si" value="1" />
@@ -372,7 +395,7 @@
 	                 		<table width="100" cellpadding="0" cellspacing="0">
 	                 		<tr>
 	                 			<td valign="middle" align="center" class="topFirstTablehdCategory">
-                 					<h:commandLink id="yt1" value="Your Target" 
+	                 			<h:commandLink id="yt1" value="Your Target" 
 										actionListener="#{channelPerformanceController.submitQuery}" 
 										style="color:#8B8B8B; text-decoration: none; background-image:none;">
 										<f:param name="si" value="1" />
@@ -395,12 +418,12 @@
 	                 		<table width="100" cellpadding="0" cellspacing="0">
 	                 			<tr>
 	                 				<td valign="middle" align="center" class="topFirstTablehdCategory">
-                 					<h:commandLink id="pi1" value="% Increase" 
+	                 				<h:commandLink id="pi1" value="% Increase" 
 										actionListener="#{channelPerformanceController.submitQuery}" 
 										style="color:#8B8B8B; text-decoration: none; background-image:none;">
 										<f:param name="si" value="1" />
 										<f:param name="col" value="pi" />
-                          			</h:commandLink>	                 				
+                          			</h:commandLink>
 	                 				</td>
 	                 				<td valign="middle" align="left">
 	                 				<h:graphicImage value="../images/bulb.gif" 
@@ -476,44 +499,25 @@
 						</td>
                  		<td width="120" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{overallOutbounds.custVolumeFormatted}</td>
                  		<td width="225" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{overallOutbounds.cmptVolumeFormatted}</td>
-                 		<td width="110" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">
-                 		<a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'M')}">
-									#{overallOutbounds.targetModerate}
-								</a4j:outputPanel>
-								<a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'A')}">
-									#{overallOutbounds.targetAggressive}
-								</a4j:outputPanel><a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'VA')}">
-									#{overallOutbounds.targetVAggressive}
-						</a4j:outputPanel>
-                 		
-                 		</td>
-                 		<td width="100" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">
-						<a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'M')}">
-									#{overallOutbounds.pctModerate}
-								</a4j:outputPanel>
-								<a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'A')}">
-									#{overallOutbounds.pctAggressive}
-								</a4j:outputPanel><a4j:outputPanel rendered="#{(channelPerformanceController.target eq 'VA')}">
-									#{overallOutbounds.pctVAggressive}
-						</a4j:outputPanel>
-						</td>
+                 		<td width="110" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{overallOutbounds.custTargetFormatted}</td>
+                 		<td width="100" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{overallOutbounds.percentIncrease}%</td>
                  		<td width="150" class="topFirstTablehdCategoryDataLast" valign="middle" align="left">
 						<a4j:repeat value="#{overallOutbounds.counter}">
-									<h:graphicImage value="../images/orangeLogo.gif" 
-								      onmouseover="this.src='../images/orangeLogo.gif';" onmouseout="this.src='../images/orangeLogo.gif';">
-								     <rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
-								         <span><h:outputText value="Flames represent actual performance degradation in this metric." /></span>
-								     </rich:toolTip>
-									</h:graphicImage>
-								</a4j:repeat>
+							<h:graphicImage value="../images/orangeLogo.gif" 
+						      onmouseover="this.src='../images/orangeLogo.gif';" onmouseout="this.src='../images/orangeLogo.gif';">
+						     <rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
+						         <span><h:outputText value="Flames represent actual performance degradation in this metric." /></span>
+						     </rich:toolTip>
+							</h:graphicImage>
+						</a4j:repeat>
 								
-								<a4j:repeat value="#{overallOutbounds.starCounter}">
-											<h:graphicImage value="../images/yellowStar.gif" 
-									      		onmouseover="this.src='../images/yellowStar.gif';" onmouseout="this.src='../images/yellowStar.gif';" style=" margin-right:5px">
-									     		<rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
-									         		<span><h:outputText value="Stars represent the progress made for this metric toward reaching your target score, determined by your selected goal." /></span>
-									     		</rich:toolTip>
-											</h:graphicImage> 
+						<a4j:repeat value="#{overallOutbounds.starCounter}">
+							<h:graphicImage value="../images/yellowStar.gif" 
+					      		onmouseover="this.src='../images/yellowStar.gif';" onmouseout="this.src='../images/yellowStar.gif';" style=" margin-right:5px">
+					     		<rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
+					         		<span><h:outputText value="Stars represent the progress made for this metric toward reaching your target score, determined by your selected goal." /></span>
+					     		</rich:toolTip>
+							</h:graphicImage> 
 						</a4j:repeat>		     
 						</td>
                  		<td width="170" class="topFirstTablehdCategoryDataLast1" valign="middle" align="left">#{overallOutbounds.alertMessage}</td>
@@ -525,6 +529,7 @@
  					</tr>
  					</a4j:repeat>
                  </table>
+                 </h:form>
                <div style="border:1px solid #D4D4D4; margin-top:10px;"></div>      
             </div>         
 		</div>
@@ -532,7 +537,7 @@
      </tr>
      
 <!--********************************************* OUTBOUND METRICES SECTION END ***************************************    -->  
-
+		<h:form id="dashboardSIDataForm">
 		<ui:include src="/dashboardSIData.jsp">
 				<ui:param name="tablewidth" value="1050"/>
 				<ui:param name="siname" value="Inbound Metrics"/>
@@ -605,6 +610,7 @@
 				<ui:param name="data" value="#{channelPerformanceController.sentimentDummy}"/>
 				<ui:param name="tooltip" value="Analysis of your brand, product and industry presence that measures positive, neutral and negative references in the 'Twitterverse'."/>
 		</ui:include>
+		</h:form>
          <tr>
              <td align="left" valign="top">
                  <a4j:include viewId="templates/twitterTemplates/footer.jsp"/>
@@ -613,8 +619,9 @@
 <!--******************FOOTER END****************-->
     </table>
  </div>  
- </h:form>
+ </f:view>
  <script language="JavaScript" src="../js/onloadpage.js"></script>
-  <script>expandcategorylist("#{channelPerformanceController.si}", "#{channelPerformanceController.col}");</script>
+<script>expandcategorylist("#{channelPerformanceController.si}", "#{channelPerformanceController.col}");</script>
+<script>setProfileId("#{channelPerformanceController.twitterAccountId}", "#{channelPerformanceController.twitterAccountName}");</script>
 </ui:composition>
 

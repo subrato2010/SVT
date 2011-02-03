@@ -1,10 +1,10 @@
 package com.edifixio.soc.web.controllers;
 
+import java.util.Date;
 import java.util.List;
 
-import javax.faces.component.html.HtmlInputText;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
-
 import com.edifixio.soc.biz.dto.TwitterAccountDTO;
 import com.edifixio.soc.biz.dto.UserProfileDetailDTO;
 import com.edifixio.soc.common.SVTException;
@@ -27,6 +27,14 @@ public class BackingBean extends UserProfileController {
     private String zipColor;
     private String userNameColor;
     
+    private String twitterAccountName;
+    private String twitterCmptAccountName1;
+    private String twitterCmptAccountName2;
+    private String twitterCmptAccountName3;
+    private String compTwittAccCol2;
+    private String compTwittAccErr2;
+    private String compTwittAccCol3;
+    private String compTwittAccErr3;
     
     private String mailCol;
     private String vanityMailCol;
@@ -283,10 +291,55 @@ public class BackingBean extends UserProfileController {
             setTwittAccErr("");
         }
     }
-    
-    public void validateTwitterAccount(ValueChangeEvent changeEvent) {
-        //   Intentionally Left Blank.
+
+    private void setTwitterAccountCmptValue(TwitterAccountDTO dto, String twitterAccountCmptName) throws SVTException {
+        dto.setCreatedOn(new Date());
+        dto.setUpdatedBy(getCurrentProfileId());
+        dto.setProfilePreference(getUserProfile().getProfilePreference());
+        dto.setSelf(false);
+        dto.setTwitterUsername(twitterAccountCmptName);
+        dto.setBrndProdInds("BRAND"); //TODO : please take care of this, will be passed from screen, else default to "BRAND"
+        getTwitterAccountMgr().add(dto);
+
     }
+
+    private void setTwitterAccountValue(TwitterAccountDTO dto) throws SVTException {
+        dto.setCreatedOn(new Date());
+        dto.setUpdatedBy(getCurrentProfileId());
+        dto.setProfilePreference(getUserProfile().getProfilePreference());
+        dto.setSelf(true);
+        dto.setTwitterUsername(getTwitterAccountName());
+        dto.setBrndProdInds("BRAND"); //TODO : please take care of this, will be passed from screen, else default to "BRAND"
+        getTwitterAccountMgr().add(dto);        
+
+    }
+    
+    public void validateTwitterAccountHandler(ActionEvent actionEvent) throws SVTException {
+        System.out.println("Clicked on Add button1: " + getTwitterAccountName());
+        TwitterAccountDTO dto = new TwitterAccountDTO();
+        dto.setHandlerName("Customer");
+        setTwitterAccountValue(dto);
+    }
+    
+    public void validateTwitterAccountCmptHandler1(ActionEvent actionEvent) throws SVTException {
+        System.out.println("Clicked on Add button1: " + getTwitterAccountName());
+        TwitterAccountDTO dto = new TwitterAccountDTO();
+        dto.setHandlerName("Competitor #1");
+        setTwitterAccountCmptValue(dto, getTwitterCmptAccountName1());
+    }
+    public void validateTwitterAccountCmptHandler2(ActionEvent actionEvent) throws SVTException {
+        System.out.println("Clicked on Add button2: " + getTwitterAccountName());
+        TwitterAccountDTO dto = new TwitterAccountDTO();
+        dto.setHandlerName("Competitor #2");
+        setTwitterAccountCmptValue(dto, getTwitterCmptAccountName2());
+    }
+    public void validateTwitterAccountCmptHandler3(ActionEvent actionEvent) throws SVTException {
+        System.out.println("Clicked on Add button3: " + getTwitterAccountName());
+        TwitterAccountDTO dto = new TwitterAccountDTO();
+        dto.setHandlerName("Competitor #3");
+        setTwitterAccountCmptValue(dto, getTwitterCmptAccountName3());
+    }
+   
     
     public void validateEmail(ValueChangeEvent changeEvent) {
         //   Intentionally Left Blank.
@@ -305,5 +358,53 @@ public class BackingBean extends UserProfileController {
                     setMailCol("white");
                     setMailErr("");
             }
+    }
+    public String getTwitterAccountName() {
+        return twitterAccountName;
+    }
+    public void setTwitterAccountName(String twitterAccountName) {
+        this.twitterAccountName = twitterAccountName;
+    }
+    public String getTwitterCmptAccountName1() {
+        return twitterCmptAccountName1;
+    }
+    public void setTwitterCmptAccountName1(String twitterCmptAccountName1) {
+        this.twitterCmptAccountName1 = twitterCmptAccountName1;
+    }
+    public String getTwitterCmptAccountName2() {
+        return twitterCmptAccountName2;
+    }
+    public void setTwitterCmptAccountName2(String twitterCmptAccountName2) {
+        this.twitterCmptAccountName2 = twitterCmptAccountName2;
+    }
+    public String getTwitterCmptAccountName3() {
+        return twitterCmptAccountName3;
+    }
+    public void setTwitterCmptAccountName3(String twitterCmptAccountName3) {
+        this.twitterCmptAccountName3 = twitterCmptAccountName3;
+    }
+    public String getCompTwittAccCol2() {
+        return compTwittAccCol2;
+    }
+    public void setCompTwittAccCol2(String compTwittAccCol2) {
+        this.compTwittAccCol2 = compTwittAccCol2;
+    }
+    public String getCompTwittAccErr2() {
+        return compTwittAccErr2;
+    }
+    public void setCompTwittAccErr2(String compTwittAccErr2) {
+        this.compTwittAccErr2 = compTwittAccErr2;
+    }
+    public String getCompTwittAccCol3() {
+        return compTwittAccCol3;
+    }
+    public void setCompTwittAccCol3(String compTwittAccCol3) {
+        this.compTwittAccCol3 = compTwittAccCol3;
+    }
+    public String getCompTwittAccErr3() {
+        return compTwittAccErr3;
+    }
+    public void setCompTwittAccErr3(String compTwittAccErr3) {
+        this.compTwittAccErr3 = compTwittAccErr3;
     }
 }

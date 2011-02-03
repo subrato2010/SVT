@@ -31,12 +31,20 @@ public class OutboundMetricsDummy  extends TrackedEntity implements Serializable
     private String pctModerate;
     private String pctAggressive;
     private String pctVAggressive;   
-    private boolean channelOptActionDisplay;
+    //private boolean channelOptActionDisplay;
     private String pctPotnModerate;
     private String pctPotnAggressive;
     private String pctPotnVAggressive; 
     private String categoryId;
-
+    private String metricId;
+    private String overallCategoryId;
+    private double overallCategoryWt;    
+    private double weight;    
+    private int lowerBound;
+    private int upperBound;
+    private double custVolumeScale100;
+    private double cmptVolumeScale100;
+    
     public String getCategoryId() {
         return categoryId;
     }
@@ -355,5 +363,69 @@ public class OutboundMetricsDummy  extends TrackedEntity implements Serializable
             return (metricsName.toLowerCase().indexOf("percentage")>=0)?(targetVAggressive + "%"):(targetVAggressive);
         }
         return "";
+    }
+
+    public String getOverallCategoryId() {
+        return overallCategoryId;
+    }
+
+    public void setOverallCategoryId(String overallCategoryId) {
+        this.overallCategoryId = overallCategoryId;
+    }
+
+    public double getOverallCategoryWt() {
+        return overallCategoryWt;
+    }
+
+    public void setOverallCategoryWt(double overallCategoryWt) {
+        this.overallCategoryWt = overallCategoryWt;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public int getLowerBound() {
+        return lowerBound;
+    }
+
+    public void setLowerBound(int lowerBound) {
+        this.lowerBound = lowerBound;
+    }
+
+    public int getUpperBound() {
+        return upperBound;
+    }
+
+    public void setUpperBound(int upperBound) {
+        this.upperBound = upperBound;
+    }
+
+    public double getCustVolumeScale100() {
+        return custVolumeScale100;
+    }
+
+    public void setCustVolumeScale100(double custVolumeScale100) {
+        this.custVolumeScale100 = custVolumeScale100;
+    }
+
+    public double getCmptVolumeScale100() {
+        return cmptVolumeScale100;
+    }
+
+    public void setCmptVolumeScale100(double cmptVolumeScale100) {
+        this.cmptVolumeScale100 = cmptVolumeScale100;
+    }
+
+    public String getMetricId() {
+        return metricId;
+    }
+
+    public void setMetricId(String metricId) {
+        this.metricId = metricId;
     }
  }
