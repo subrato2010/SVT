@@ -1,40 +1,59 @@
 // $Author: subratog $
 package com.edifixio.soc.web.controllers;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.TimeZone;
+
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import com.edifixio.soc.biz.BenchmarkMgr;
 import com.edifixio.soc.biz.ChannelMgr;
+import com.edifixio.soc.biz.CompanyMgr;
 import com.edifixio.soc.biz.ImprovementLevelMgr;
 import com.edifixio.soc.biz.InboundDummyMgr;
 import com.edifixio.soc.biz.OutboundDummyMgr;
 import com.edifixio.soc.biz.OverallDummyMgr;
 import com.edifixio.soc.biz.ParameterMgr;
 import com.edifixio.soc.biz.ProfilePreferenceMgr;
+import com.edifixio.soc.biz.RTOPScheduleMgr;
 import com.edifixio.soc.biz.SocIntellDummyMgr;
 import com.edifixio.soc.biz.StateProvinceMgr;
+import com.edifixio.soc.biz.TimeZoneMgr;
+import com.edifixio.soc.biz.TrendingGradeMgr;
 import com.edifixio.soc.biz.TwitLogMgr;
 import com.edifixio.soc.biz.TwitterAccountMgr;
 import com.edifixio.soc.biz.TwitterCalculatorMgr;
 import com.edifixio.soc.biz.UserProfileMgr;
+import com.edifixio.soc.biz.dto.CachedListItemDTO;
 import com.edifixio.soc.biz.dto.ChannelDTO;
-import com.edifixio.soc.biz.dto.StateProvinceDTO;
+import com.edifixio.soc.biz.dto.TimeZoneDTO;
 import com.edifixio.soc.biz.dto.TwitterAccountDTO;
 import com.edifixio.soc.biz.util.BizControlDataMgr;
+import com.edifixio.soc.biz.util.CacheMap;
 import com.edifixio.soc.biz.util.DateUtil;
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.persist.ImprovementLevel;
+import com.edifixio.soc.web.beans.RTOPHandler;
 
 public abstract class BaseWebObject {
     private static final String BIZ_CONTROL_DATA_MGR = "bizControlDataMgr";
@@ -71,7 +90,14 @@ public abstract class BaseWebObject {
     public static final String ORDERBYCV="orderbycv";
     public static final String ORDERBYYT="orderbyyt";
     public static final String ORDERBYPI="orderbypi";
-
+    public static final String CLSPROFILPOP="closeProfilePopup";
+    
+    public static final String BITLY_USER_NAME = "bitlyUserName";              // Attribute used to hold Bitly User Name
+    public static final String BITLY_AUTH_URL = "bitlyAuthURL";                // Attribute used to hold Bitly Authorization URL
+    public static final String BITLY_ACCESSTOKEN_URL = "bitlyAccessTokenURL";  // Attribute used to hold Bitly Oauth Access URL
+    public static final String BITLY_CALLBACK_URL = "bitlyCallbackURL";        // Attribute used to hold Bitly Callback URL
+    public static final String BITLY_CLIENT_ID = "bitlyClientId";              // Attribute used to hold Bitly Client ID
+    public static final String BITLY_CLIENT_SECRET = "bitlyClientSecret";      // Attribute used to hold Bitly Client Secret
     
     public static float A_POSITIVE = 4.5f;
     public static float A = 4.0f;
@@ -88,6 +114,8 @@ public abstract class BaseWebObject {
     private List<TwitterAccountDTO> twitterAccount;
     private List<ImprovementLevel> targetList;
     
+    private static final String DATE_FORMAT_24HOURS = "yyyy-MM-dd HH:mm:ss Z";
+    
     public BaseWebObject() {
        init();
     }
@@ -96,6 +124,15 @@ public abstract class BaseWebObject {
         try {
             // Listbox population of Profile
             setTwitterAccount(getTwitterAccountMgr().getByProfileUserIdSELF(getCurrentUid()));
+            
+            // Important to NOTE: make sure to do this only 1st time
+            if(getTwitterAccount() != null 
+                    && getTwitterAccount().size() > 0 
+                    && getSessionAttribute(TwitterControllerConstants.FIRST_CUST_NAME) == null){
+                
+                // Storing the 1st item from the list as default, which will be used in the various part of the application
+                setSessionAttribute(TwitterControllerConstants.FIRST_CUST_NAME, getTwitterAccount().get(0).getTwitterUsername());
+            }
         } catch (SVTException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -135,10 +172,24 @@ public abstract class BaseWebObject {
         }
         
 
-        public SelectItem[] getTimeZoneOptions()
+        public SelectItem[] getTimeZoneOptions() throws SVTException
+        {
+            List<TimeZoneDTO> dtos = getTimeZoneMgr().findAll();
+            SelectItem[] timezones = new SelectItem[dtos.size()];
+            int i=0;
+            for(TimeZoneDTO dto: dtos){
+                timezones[i] = new SelectItem();
+                String label = "(" + dto.getTimeZoneDescr() +") " + dto.getTimeZone();
+                timezones[i].setLabel(label);
+                timezones[i].setValue(label);  
+                i++;
+            }
+            return timezones;
+        }
+
+        public SelectItem[] getTimeZoneOptionsJava()
         {
             Date today = new Date(); 
-            
             //Get all time zone ids String[] zoneIds = TimeZone.getAvailableIDs();
             String[] zoneIds = TimeZone.getAvailableIDs(); 
             if(zoneIds != null && zoneIds.length > 0){
@@ -172,6 +223,59 @@ public abstract class BaseWebObject {
                 return null;
             }
         }
+
+        public String readFromURL(String urlToHit)
+        {
+            StringBuffer sbj = new StringBuffer();
+            try
+            {           
+                URL url = new URL(urlToHit);
+                URLConnection connection = url.openConnection();
+                connection.setDoInput(true);
+                InputStream inStream = connection.getInputStream();
+                BufferedReader input =
+                new BufferedReader(new InputStreamReader(inStream));
+        
+                String line = "";
+                while ((line = input.readLine()) != null){
+                    sbj.append(line);
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.toString());
+            }
+            return sbj.toString();
+        }
+        
+        public String postToURL(String urlToHit, String jsonString)
+        {
+            StringBuffer sbj = new StringBuffer();
+            try
+            {           
+                URL url = new URL(urlToHit);
+                URLConnection connection = url.openConnection();
+                connection.setDoOutput(true); // Triggers POST.
+                //connection.setRequestProperty("Accept-Charset", charset);
+                //connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=" + charset);
+                
+                OutputStream output = connection.getOutputStream();
+                output.write(jsonString.getBytes());
+                output.close();
+                
+                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String responseString = "";
+                while ((responseString = in.readLine()) != null) {
+                    sbj.append(responseString);
+              }
+
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.toString());
+            }
+            return sbj.toString();
+        }
         
         public String getCurrentDateMMDDYYYY() {            
             Calendar cal = Calendar.getInstance();
@@ -192,7 +296,51 @@ public abstract class BaseWebObject {
             SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
             return cal.getTime();
     }
+        
+        public String getCurrentTime()
+        {
+            String scheduleTime = "";
+            Calendar currentTime = Calendar.getInstance();
+            SimpleDateFormat fmt = new SimpleDateFormat("h:00 a");
+            
+            scheduleTime = fmt.format(currentTime.getTime());
+            return scheduleTime;
+        }
 
+        public String getDateMMDDYYYY(Date date) {            
+            SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
+            return sdf.format(date);
+        }
+
+        /**
+         * 
+         * Used for 24-hour formating of Date
+         * @param date
+         * @throws ParseException
+         * 
+         * **/
+        
+        public Date getDateYYYYMMDDHHMISS(Date date) throws ParseException {            
+            SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_24HOURS);
+            return sdf.parse(sdf.format(date));
+        }
+        
+        public Date getDate(String dateString){
+            SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z"); //Wed, 4 Jul 2001 12:08:56 -0700   
+            SimpleDateFormat dateFormat1 = new SimpleDateFormat("EEE MMM d HH:mm:ss Z yyyy"); //Wed May 18 20:30:32 +0000 2011
+            Date convertedDate = null;
+            try {
+                convertedDate = dateFormat.parse(dateString);
+            } catch (ParseException e) {
+                // TODO Bad coding, please refactor this!!!
+                try{
+                    convertedDate = dateFormat1.parse(dateString);
+                }catch (ParseException e1) {
+                    e.printStackTrace();    
+                }
+            }
+            return convertedDate;
+        }
 
         //---------------- All biz manager
         protected ParameterMgr getParameterMgr() {
@@ -215,7 +363,10 @@ public abstract class BaseWebObject {
         protected UserProfileMgr getUserProfileMgr() {
             return getBizSvcFactory().getUserProfileMgr();
         }
-
+        
+        protected RTOPScheduleMgr getRTOPScheduleMgr() {
+            return getBizSvcFactory().getRtopScheduleMgr();
+        }
 
         protected BenchmarkMgr getBenchmarkMgr() {
             return getBizSvcFactory().getBenchmarkMgr();
@@ -229,7 +380,15 @@ public abstract class BaseWebObject {
         protected TwitLogMgr getTwitLogMgr() {
             return getBizSvcFactory().getTwitLogMgr();
         }
-        
+        protected CompanyMgr getCompanyMgr() {
+            return getBizSvcFactory().getCompanyMgr();
+        }
+        protected TimeZoneMgr getTimeZoneMgr() {
+            return getBizSvcFactory().getTimeZoneMgr();
+        }
+        protected TrendingGradeMgr getTrendingGradeMgr() {
+            return getBizSvcFactory().getTrendingGradeMgr();
+        }
         public void goHome()
         {
             FacesContext facesCtx = FacesContext.getCurrentInstance();
@@ -311,6 +470,10 @@ public abstract class BaseWebObject {
             return getProfilePreferenceMgr().getByProfileUserId(getCurrentUid()).getProfilePreference().getUserProfileDetail().getImprovementLevel().getImprovementLevelId();
         }
         
+        protected String getprofileId() throws SVTException {
+            return getProfilePreferenceMgr().getByProfileUserId(getCurrentUid()).getProfilePrefrenceId();
+        }
+        
         public ChannelDTO getChannelByName(String channelName) throws SVTException{
             return getBizSvcFactory().getChannelMgr().getChannelByName(channelName);
         }
@@ -342,6 +505,9 @@ public abstract class BaseWebObject {
         }
         public void setTargetType(String taregetType){
             setSessionAttribute(TARGETTYPE, taregetType);
+        }
+        protected String getProfilePopupClose(){
+            return getParameter(CLSPROFILPOP);
         }
         
 //        protected String getSentimentName(){
@@ -391,6 +557,46 @@ public abstract class BaseWebObject {
                 return null;
         }
         
+        /***
+         * 
+         * This method is used to detect the format of the String date
+         * 
+         * @param date
+         * @return format1 or format2 depending on the type of the date format
+         *  
+         ***/
+        
+        public String detectDateFormat(String date)
+        {
+            String format1 = "EEE MMM dd HH:mm:ss z yyyy";
+            String format2 = "MM/dd/yyyy";
+            
+            DateFormat fmt1 = new SimpleDateFormat(format1); 
+            DateFormat fmt2 = new SimpleDateFormat(format2); 
+            
+            try
+            {
+                fmt1.parse(date);
+                
+                return format1;
+            }
+            catch (Exception e)
+            {
+                try
+                {
+                    fmt2.parse(date);
+                    
+                    return format2;
+                } 
+                catch (Exception e2)
+                {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            
+        }
+ 
         //-------- needs to be deleted after 9-Dec
         protected OverallDummyMgr getOverallDummyMgr() {
             return getBizSvcFactory().getOverallDummyMgr();
@@ -413,5 +619,18 @@ public abstract class BaseWebObject {
         public void setTargetList(List<ImprovementLevel> targetList) {
             this.targetList = targetList;
         }
-
+        
+        public RTOPHandler getRTOPHandler() {
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            RTOPHandler rtopHandler = (RTOPHandler) facesContext.getApplication().getELResolver().getValue(facesContext.getELContext(), null, "rtopHandler");
+            return rtopHandler;
+        }
+        
+        public ChannelPerformanceController getChannelPerformanceController() {
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            ChannelPerformanceController channelPerformanceController = (ChannelPerformanceController) facesContext.getApplication().getELResolver().getValue(facesContext.getELContext(), null, "channelPerformanceController");
+            return channelPerformanceController;
+        }
+        
+        public static Map<String, CachedListItemDTO> mapListItemDTO = new CacheMap<String, CachedListItemDTO>(30); //TODO: will be refactored
 }

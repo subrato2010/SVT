@@ -3,8 +3,10 @@ package com.edifixio.soc.web.init;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import com.edifixio.soc.common.SVTException;
 
 /** loads our static, "business control data" into the server's application context */

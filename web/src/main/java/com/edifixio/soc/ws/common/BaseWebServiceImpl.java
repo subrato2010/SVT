@@ -3,21 +3,27 @@ package com.edifixio.soc.ws.common;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.remoting.jaxrpc.ServletEndpointSupport;
+
 import com.edifixio.soc.common.ThreadLocalData;
 
 public class BaseWebServiceImpl extends ServletEndpointSupport {
     private static final Log log = LogFactory.getLog(BaseWebServiceImpl.class);
     private static final String BIZ_CONTROL_DATA_MGR = "bizControlDataMgr";
-    
+
+    //
     public BaseWebServiceImpl(){
         
     }
-    protected Object getFactoryObject(String springId)
+    protected Object getFactoryObject1(String springId)
     {
        // this uses the "standard" Spring root web ApplicationContext
        return getWebApplicationContext().getBean(springId);
     }
 
+    public Object getFactoryObject(String id) {
+        return SpringWSObjectFactory.getInstance().getObject(id);
+    }
+    
     /** returns the ThreadLocal loginId we should all use */
     public String getLoginId()
     {
@@ -42,6 +48,4 @@ public class BaseWebServiceImpl extends ServletEndpointSupport {
        log.debug("BaseWebServiceImpl.setLoginId(): setting loginId to " + id);
        ThreadLocalData.setLoginId(id);
     }
-
-   
 }

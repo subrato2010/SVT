@@ -1,12 +1,13 @@
 package com.edifixio.soc.web.init;
 
 import java.util.Map;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import com.edifixio.soc.ws.common.BaseWebServiceImpl;
 
 /** base class for objects that load data into the ApplicationContext, usually at server startup */
 public class BaseApplContextLoader {

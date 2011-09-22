@@ -1,14 +1,13 @@
 package com.edifixio.soc.web.util;
 
-import java.awt.AlphaComposite;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import java.io.ByteArrayOutputStream;
 
 
 public class ImageScaler {

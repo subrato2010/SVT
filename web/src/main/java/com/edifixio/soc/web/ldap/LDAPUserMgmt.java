@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
-import javax.faces.event.ActionEvent;
 import javax.naming.Context;
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
@@ -18,14 +17,12 @@ import javax.naming.directory.SearchResult;
 import javax.naming.ldap.InitialLdapContext;
 import javax.naming.ldap.LdapContext;
 
-import com.edifixio.soc.biz.dto.UserProfileDTO;
 import com.edifixio.soc.biz.dto.UserProfileDetailDTO;
 import com.edifixio.soc.biz.util.LDAPConnector;
 import com.edifixio.soc.common.SVTException;
-import com.edifixio.soc.web.controllers.BaseWebObject;
 
 
-public class LDAPUserMgmt extends BaseWebObject {
+public class LDAPUserMgmt{
     DirContext dirCtx = null;
    static LdapContext ldapCtx = null;
     // String userid ="uid=neel,ou=people,dc=terametric,dc=com";

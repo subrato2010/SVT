@@ -1,5 +1,6 @@
 package com.edifixio.soc.web.util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Paginator {
@@ -14,8 +15,12 @@ public class Paginator {
 	 * @return
 	 */
 	public List<?> getCurrentList(){
-	    List<?> list = getCurrentPageList();
-	    list = this.pagination.decorate(list);
+	    List<?> list = new ArrayList<String>();
+	    try {
+	        list = getCurrentPageList();
+	        list = this.pagination.decorate(list);
+	    } catch (Exception e) {
+        }
 	    return list;
 	}
 	

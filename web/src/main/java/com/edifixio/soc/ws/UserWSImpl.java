@@ -1,9 +1,10 @@
 package com.edifixio.soc.ws;
 
 import java.rmi.RemoteException;
-import javax.faces.context.FacesContext;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import com.edifixio.soc.ws.common.BaseWebServiceImpl;
 
 public class UserWSImpl extends BaseWebServiceImpl implements UserWS{
@@ -14,14 +15,9 @@ public class UserWSImpl extends BaseWebServiceImpl implements UserWS{
 
     public UserServiceOut create(UserServiceIn serviceIn) throws RemoteException {
         setLoginId(serviceIn.getLoginId());
-        //changed by Neel
         try
         {
-            //return (getUserWSAdaptor().createUsers(serviceIn));
-            UserWSAdaptor aa = new UserWSAdaptor();
-            UserServiceOut out = aa.createUsers(serviceIn);
-            return out;
-            
+            return (getUserWSAdaptor().createUsers(serviceIn));            
         }
         catch(Exception e)
         {

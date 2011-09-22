@@ -1,7 +1,6 @@
 package com.edifixio.soc.web.servlets;
 
 import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,7 +19,6 @@ import org.apache.commons.logging.LogFactory;
 import com.edifixio.jboss.custom.service.mail.MailAttachmentBean;
 import com.edifixio.jboss.custom.service.mail.MailService;
 import com.edifixio.soc.biz.UserProfileMgrImpl;
-import com.edifixio.soc.biz.dto.UserProfileDTO;
 import com.edifixio.soc.biz.dto.UserProfileDetailDTO;
 import com.edifixio.soc.web.util.PropertyReader;
 

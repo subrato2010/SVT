@@ -1,8 +1,10 @@
 package com.edifixio.soc.ws;
 
 import java.util.Date;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import com.edifixio.soc.ws.common.BaseWebServiceDTO;
 
 public class WSUserIn extends BaseWebServiceDTO{
@@ -17,6 +19,8 @@ public class WSUserIn extends BaseWebServiceDTO{
     private String state;
     private String zipCode;
     private String password;
+    private String subscriptionId;
+    private String company;
     private String subscriptionName;
     private String subscriptionDesc;
     private Date subscriptionDateFrom;
@@ -114,5 +118,17 @@ public class WSUserIn extends BaseWebServiceDTO{
     }
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+    public String getSubscriptionId() {
+        return subscriptionId;
+    }
+    public void setSubscriptionId(String subscriptionId) {
+        this.subscriptionId = subscriptionId;
+    }
+    public String getCompany() {
+        return company;
+    }
+    public void setCompany(String company) {
+        this.company = company;
     }
 }

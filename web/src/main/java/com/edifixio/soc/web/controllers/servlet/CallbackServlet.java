@@ -14,42 +14,33 @@ import twitter4j.http.AccessToken;
 import twitter4j.http.RequestToken;
 
 import com.edifixio.soc.web.beans.ManageTwitterOperations;
-import com.edifixio.soc.web.controllers.ReplyTwitterDataController;
-import com.edifixio.soc.web.controllers.TwitterController;
 import com.edifixio.soc.web.servlets.BaseServletObject;
 
 
 public class CallbackServlet extends BaseServletObject {
     private static final long serialVersionUID = 1L;
     private static final Log log = LogFactory.getLog(CallbackServlet.class);
-    Twitter twitter;
-    RequestToken requestToken;
-    String verifier;
-    AccessToken accessToken;
-    TwitterController twitterController;
-    ReplyTwitterDataController replyTwitterDataController;
+    
 
-    protected void doGet(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException 
+    {
+        
+        Twitter twitter;
+        RequestToken requestToken;
+        String oauth_verifier;
+        AccessToken accessToken=null;
+
         twitter = (Twitter) request.getSession().getAttribute("twitter");
         requestToken = (RequestToken) request.getSession().getAttribute("requestToken");
-        twitterController = (TwitterController) request.getSession().getAttribute("twitterController");
-        replyTwitterDataController = (ReplyTwitterDataController) request.getSession().getAttribute("replyTwitterController");
-        verifier = request.getParameter("oauth_verifier");
+        oauth_verifier = request.getParameter("oauth_verifier");
+        
         boolean flag = false;
         try {
             ManageTwitterOperations opt = (ManageTwitterOperations)getManagedBean("manageTwitterOperations", getFacesContext(request, response));
-            opt.createInstances(twitter,
-                    requestToken, verifier, accessToken, request, response,
-                    flag, twitterController, replyTwitterDataController);
-            
+            opt.createInstances(twitter,requestToken, oauth_verifier, accessToken, request, response,
+                    flag);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-   
-    /*
-     * for (Tweet tweet : result.getTweets()) {
-     * //System.out.println(tweet.getFromUser() + ":" + tweet.getText()); }
-     */
 }
