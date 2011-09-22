@@ -3,6 +3,7 @@ package com.edifixio.soc.biz;
 
 import java.util.Date;
 import java.util.List;
+
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.persist.RawResult;
 
@@ -24,4 +25,6 @@ public interface RawResultMgr extends BaseMgr{
     public List<RawResult> findByProfileIdMetricIdActionDateNOTSELF(String profileId, String twitterAccountId,String metricId, Date actionDate) throws SVTException;
     public List<RawResult> findByProfileIdActionDateNOTSELF(String profileId, Date actionDate) throws SVTException;
 
+    public Date getMinActionDate(String profileId) throws SVTException;
+    public Date getMaxActionDate(String profileId) throws SVTException;
 }

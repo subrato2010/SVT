@@ -2,7 +2,6 @@ package com.edifixio.soc.biz.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtil {
@@ -33,15 +32,51 @@ public class DateUtil {
         dt = format.format(date);
         return dt;
     }
+
+    public static int getTimeAgoDays(Date fromDate, Date toDate){
+        long dateInMillis = fromDate.getTime();
+        long currentTimeInMillis = toDate.getTime();;
+        long diff = currentTimeInMillis - dateInMillis; 
+        int days = (int)(diff/(24.00 * 60.00 * 60.00 * 1000.00));
+        return days;
+    }
+    
+    public static int getTimeAgoDays(Date date){
+        long dateInMillis = date.getTime();
+        long currentTimeInMillis = System.currentTimeMillis();
+        long diff = currentTimeInMillis - dateInMillis; 
+        
+        
+//        if(currentTimeInMillis >= dateInMillis){
+//            diff = currentTimeInMillis - dateInMillis;    
+//        }else{
+//            diff = dateInMillis - currentTimeInMillis; 
+//        }
+        int days = (int)(diff/(24.00 * 60.00 * 60.00 * 1000.00));
+        return days;
+    }
+
+    public static int getTimeAgoHours(Date date){
+        long dateInMillis = date.getTime();
+        long currentTimeInMillis = System.currentTimeMillis();
+        long diff = currentTimeInMillis - dateInMillis; 
+        int hours = (int)(diff/(60.00 * 60.00 * 1000.00));
+        return hours;
+    }
     
     public static Ago getTimeAgo(Date date)
-    {System.out.println(date);
+    {
       Ago ago = new Ago();
      
       long dateInMillis = date.getTime();
       long currentTimeInMillis = System.currentTimeMillis();
+      long diff = 0;
+      if(currentTimeInMillis >= dateInMillis){
+          diff = currentTimeInMillis - dateInMillis;    
+      }else{
+          diff = dateInMillis - currentTimeInMillis; 
+      }
       
-      long diff = currentTimeInMillis - dateInMillis;
       //months
      
           int months = (int)(diff/(30.00 * 24.00 * 60.00 * 60.00 * 1000.00));

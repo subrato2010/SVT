@@ -22,6 +22,7 @@ public class Metrics  extends TrackedEntity implements Serializable {
     private double relativeWt;
     private double normalizedWt;
     private double siWt;
+    private double relativeSIWt;
     private double weight;
     private int lowerBound;
     private int upperBound;
@@ -31,6 +32,15 @@ public class Metrics  extends TrackedEntity implements Serializable {
     private String calcMethod;
     private Category category;
     private OverallCategory overallCategory;
+    private String jspAlertToDisplay;
+    private int jspAlertHeight;
+    private int jspAlertWidth;
+    private String jspAlertTitleBarText;
+    private int calcLogic;
+    private boolean goalPct;
+    private double goalMetricWeight;
+    private int goalPctCalcLogic;
+    private int goalPctDisplayOrder;
     
     /**
      * @hibernate.property
@@ -225,5 +235,66 @@ public class Metrics  extends TrackedEntity implements Serializable {
     }
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    public double getRelativeSIWt() {
+        return relativeSIWt;
+    }
+    public void setRelativeSIWt(double relativeSIWt) {
+        this.relativeSIWt = relativeSIWt;
+    }
+    public String getJspAlertToDisplay() {
+        return jspAlertToDisplay;
+    }
+    public void setJspAlertToDisplay(String jspAlertToDisplay) {
+        this.jspAlertToDisplay = jspAlertToDisplay;
+    }
+    public int getJspAlertHeight() {
+        return jspAlertHeight;
+    }
+    public void setJspAlertHeight(int jspAlertHeight) {
+        this.jspAlertHeight = jspAlertHeight;
+    }
+    public int getJspAlertWidth() {
+        return jspAlertWidth;
+    }
+    public void setJspAlertWidth(int jspAlertWidth) {
+        this.jspAlertWidth = jspAlertWidth;
+    }
+    public String getJspAlertTitleBarText() {
+        return jspAlertTitleBarText;
+    }
+    public void setJspAlertTitleBarText(String jspAlertTitleBarText) {
+        this.jspAlertTitleBarText = jspAlertTitleBarText;
+    }
+    public int getCalcLogic() {
+        return calcLogic;
+    }
+    public void setCalcLogic(int calcLogic) {
+        this.calcLogic = calcLogic;
+    }
+    public boolean isGoalPct() {
+        return goalPct;
+    }
+    public void setGoalPct(boolean goalPct) {
+        this.goalPct = goalPct;
+    }
+    public double getGoalMetricWeight() {
+        return goalMetricWeight;
+    }
+    public void setGoalMetricWeight(double goalMetricWeight) {
+        this.goalMetricWeight = goalMetricWeight;
+    }
+    public int getGoalPctCalcLogic() {
+        return goalPctCalcLogic;
+    }
+    public void setGoalPctCalcLogic(int goalPctCalcLogic) {
+        this.goalPctCalcLogic = goalPctCalcLogic;
+    }
+    public int getGoalPctDisplayOrder() {
+        return goalPctDisplayOrder;
+    }
+    public void setGoalPctDisplayOrder(int goalPctDisplayOrder) {
+        this.goalPctDisplayOrder = goalPctDisplayOrder;
     }
 }

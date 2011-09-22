@@ -5,7 +5,6 @@ import javax.naming.NamingException;
 import javax.naming.directory.Attributes;
 import javax.naming.ldap.LdapContext;
 
-import com.edifixio.soc.biz.dto.UserProfileDTO;
 import com.edifixio.soc.biz.dto.UserProfileDetailDTO;
 
 public class LDAPConnector {

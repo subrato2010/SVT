@@ -2,9 +2,12 @@
 package com.edifixio.soc.batch;
 
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import twitter4j.TwitterException;
+
 import com.edifixio.soc.biz.dto.MetricsDTO;
 import com.edifixio.soc.common.SVTException;
 

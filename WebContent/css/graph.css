@@ -1,0 +1,119 @@
+.TPageGrayGraph
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:20px;
+	padding-bottom:4px;
+	padding-top:5px;
+	padding-left:10px;
+	font-weight:bold;
+}
+
+.mainDivGraph
+{
+	background-color:#ffffff;
+	float:left;
+	width:183px;
+	height:25px;
+	border:0px solid red;
+	text-align:right;
+	background-image:url(../images/whiteDropDown.gif);
+	background-repeat:no-repeat;
+}
+
+.listDivGraph
+{
+	position:absolute;
+	display:none;
+	background-color:#E9E9E9;
+	height:auto;
+	width:180px;
+	z-index:1000;
+	text-align:center;
+	border-bottom: 0px solid #B5B5B5;
+}
+
+.captionDivGraph
+{
+	padding-top: 6px;
+	float:left; 
+	font-size: 12px; 
+	color: rgb(120, 126, 137);
+	float: left;
+	width: 145px;
+	height: 28px;font-weight:bold;
+	margin-left:5px;
+	margin-top:4px;
+	padding-bottom:2px;
+	padding-left:5px;
+	padding-top:2px;
+	font-family:arial;
+	text-align: left;
+}
+ #graphLoader
+ {
+ 	position:absolute; 
+ 	background: url('../images/transPBack.png') repeat; 
+ 	display: none;
+	width:850px; 
+	height:440px; 
+	margin:0 auto; 
+	z-index: 100000000;
+ }
+ .trendingTitleTotal
+ {
+ 	width: 280px; 
+ 	height: 26px; 
+ 	float: left;
+ }
+ .trendingTitleTotalLeft
+ {
+ 	width: 120px; 
+ 	float: left;
+ }
+ .trendingTitleTotalRight
+ {
+ 	width: 150px; 
+ 	float: left;
+ }
+ .trendinggraphCalenderLeft
+ {
+ 	float: left; 
+ 	margin-left: 10px; 
+ 	width: 155px;
+ }
+ .trendinggraphCalenderLeft1
+ {
+ 	color: #8B8B8B; 
+ 	float: left; 
+ 	font-family: Arial,Helvetica,sans-serif; 
+ 	font-size: 11px; 
+ 	font-weight: bold; 
+ 	margin-top: 3px; 
+ 	width: 60px;
+ }
+ .trendinggraphCalenderLeft2
+ {
+ 	float: right; 
+ 	width: 90px;
+ }
+ .trendingGraphRightClaender
+ {
+ 	float: left; 
+ 	margin-left: 5px; 
+ 	width: 120px;
+ }
+ .trendingGraphRightClaender1
+ {
+ 	color: #8B8B8B; 
+ 	float: left; 
+ 	font-family: Arial,Helvetica,sans-serif; 
+ 	font-size: 11px; 
+ 	font-weight: bold; 
+ 	margin-top: 3px; 
+ 	width: 20px;
+ }
+ .trendingGraphRightClaender2
+ {
+ 	float: left; 
+ 	width: 100px;
+ }

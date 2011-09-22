@@ -21,6 +21,7 @@ public class UserProfileDTO extends BaseDTO
     private String facebook;
     private byte[] logo;
     private byte[] photo;
+    private boolean photoSize;
     
     
     public String getUid() {
@@ -29,6 +30,7 @@ public class UserProfileDTO extends BaseDTO
     public void setUid(String uid) {
         this.uid = uid;
     }
+    
     public String getPassword() {
         return password;
     }
@@ -147,9 +149,16 @@ public class UserProfileDTO extends BaseDTO
         return photo;
     }
     public void setPhoto(byte[] photo) {
+        setPhotoSize(photo.length >0 ? true : false);
         this.photo = photo;
     }
     
+    public boolean isPhotoSize() {
+        return photoSize;
+    }
+    public void setPhotoSize(boolean photoSize) {
+        this.photoSize = photoSize;
+    }
     
     //ldap attributes-----------------------------------------------------
     public static final String preString="twt";
@@ -172,6 +181,8 @@ public class UserProfileDTO extends BaseDTO
     public static final String FACEBOOK                 =       preString+"Facebook";
     public static final String LOGO                     =       preString+"Logo";
     public static final String PHOTO                    =       preString+"Photo";
+
+
      
     
 }

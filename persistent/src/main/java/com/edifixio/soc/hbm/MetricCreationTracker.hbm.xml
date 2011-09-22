@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class
+        name="com.edifixio.soc.persist.MetricCreationTracker"
+        table="metriccreationtracker"
+    	>
+		  <id name="id" type="int" column="id">
+			<generator class="identity" />
+		 </id>
+		 <property
+            name="twitterUsername"
+            type="java.lang.String"
+            column="twitterusername"
+        /> 
+		 <property name="state" type="int">
+			<column name="state" />
+		 </property>
+		 <property name="actionDate" type="java.util.Date">
+			<column name="actiondate" />
+		 </property>
+    </class>
+</hibernate-mapping>

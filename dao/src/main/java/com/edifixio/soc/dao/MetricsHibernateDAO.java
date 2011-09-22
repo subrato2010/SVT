@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.dao.util.BaseHibernateDAO;
 import com.edifixio.soc.persist.Metrics;
@@ -73,6 +75,13 @@ public class MetricsHibernateDAO<T extends Metrics> extends
         return subCategories;
     }
 
+
+    public List findByGoalPct(String channelId) throws SVTException {
+        List<T> t = find().where("this.category.channel.channelId=?", channelId).and("this.goalPct=true").order("this.goalPctDisplayOrder").list();
+        return t;
+    }
+
+
     
     /**
      * {@inheritDoc}
@@ -126,5 +135,4 @@ public class MetricsHibernateDAO<T extends Metrics> extends
         // TODO Auto-generated method stub
         return Metrics.class;
     }
-
 }

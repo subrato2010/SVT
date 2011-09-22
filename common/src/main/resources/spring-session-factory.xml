@@ -43,6 +43,9 @@
 			 <value>com/edifixio/soc/hbm/GradeMaster.hbm.xml</value>
 			 <value>com/edifixio/soc/hbm/Parameter.hbm.xml</value>
 			 <value>com/edifixio/soc/hbm/OverallCategory.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/TimeZone.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Menu.hbm.xml</value>
+			 <value>com/edifixio/soc/hbm/Role.hbm.xml</value>
 			 
 			 <value>com/edifixio/soc/hbm/InboundMetricsDummy.hbm.xml</value>		
 			 <value>com/edifixio/soc/hbm/OutboundMetricsDummy.hbm.xml</value>			
@@ -53,7 +56,11 @@
 			 <value>com/edifixio/soc/hbm/StateProvince.hbm.xml</value>
 			 <value>com/edifixio/soc/hbm/ProfileListMaster.hbm.xml</value>		
 			 <value>com/edifixio/soc/hbm/ProfileInfluence.hbm.xml</value>
-			 <value>com/edifixio/soc/hbm/ProfileInfluenceList.hbm.xml</value>	 
+			 <value>com/edifixio/soc/hbm/ProfileInfluenceList.hbm.xml</value>	
+			 <value>com/edifixio/soc/hbm/RTOPSchedule.hbm.xml</value> 
+			  <value>com/edifixio/soc/hbm/TrendingGrade.hbm.xml</value>
+			  <value>com/edifixio/soc/hbm/MsgDataCreationLog.hbm.xml</value>	
+			  <value>com/edifixio/soc/hbm/MetricCreationTracker.hbm.xml</value>			  
          </list>
       </property>
       <property name="hibernateProperties"><ref bean="defaultHibernateProperties"/></property>

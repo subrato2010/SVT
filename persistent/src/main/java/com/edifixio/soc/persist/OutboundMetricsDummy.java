@@ -2,7 +2,11 @@
 package com.edifixio.soc.persist;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.edifixio.soc.biz.dto.AlertPopupDTO;
 
 /**
  * @hibernate.class table="OutboundMetricsDummy"
@@ -17,12 +21,16 @@ public class OutboundMetricsDummy  extends TrackedEntity implements Serializable
     private String metricsName;
     private String metricsDesc;
     private String custVolume;
+    private int custVolumeTrend; // 0=nochange, -1=down, 1=up
     private String cmptVolume;
+    private int cmptVolumeTrend; // 0=nochange, -1=down, 1=up
     private String custTarget;
     private String percentIncrease;
     private int alertFlameCount;
     private int alertStarCount;
     private String alertMessage;
+    private List<String> alertMessageHandlers;
+    private AlertPopupDTO alertMessageDTO;
     private ArrayList<String> counter;
     private ArrayList<String> starCounter;
     private String targetModerate;
@@ -44,6 +52,30 @@ public class OutboundMetricsDummy  extends TrackedEntity implements Serializable
     private int upperBound;
     private double custVolumeScale100;
     private double cmptVolumeScale100;
+    private double calculatedYourVolumeScale100; // Benchmark volume
+    private double calculatedCmptVolumeScale100; // Benchmark volume
+    private String calculatedYourVolume;
+    private double custTargetActual;
+    private String custTargetRaw;
+
+    private double baselineTargetRaw;
+    private double currentTargetRaw;
+    private double benchmarkPctofTarget;
+    private double currentPctofTarget;
+    private double calculatedYourVolumePCT;
+    private double calculatedCmptVolumePCT;
+    private double yourVolumePCT;
+    private double cmptVolumePCT;
+    private String currentTargetRawString;
+    
+    
+    
+    
+    private String percentIncreaseRaw;
+    private String percentIncreaseRawScale100;
+    private boolean containsAlertMessage;
+    private boolean dataProcessed; // flag to check if backendprocess is complete
+    private int calcLogic;
     
     public String getCategoryId() {
         return categoryId;
@@ -428,4 +460,213 @@ public class OutboundMetricsDummy  extends TrackedEntity implements Serializable
     public void setMetricId(String metricId) {
         this.metricId = metricId;
     }
+
+    public AlertPopupDTO getAlertMessageDTO() {
+        return alertMessageDTO;
+    }
+
+    public void setAlertMessageDTO(AlertPopupDTO alertMessageDTO) {
+        this.alertMessageDTO = alertMessageDTO;
+    }
+
+    public boolean isContainsAlertMessage() {       
+        return (alertMessage == null)?(false):(alertMessage.trim().length()>0);
+    }
+
+    public int getCustVolumeTrend() {
+        return custVolumeTrend;
+    }
+
+    public void setCustVolumeTrend(int custVolumeTrend) {
+        this.custVolumeTrend = custVolumeTrend;
+    }
+
+    public int getCmptVolumeTrend() {
+        return cmptVolumeTrend;
+    }
+
+    public void setCmptVolumeTrend(int cmptVolumeTrend) {
+        this.cmptVolumeTrend = cmptVolumeTrend;
+    }
+
+    public boolean isDataProcessed() {
+        return dataProcessed;
+    }
+
+    public void setDataProcessed(boolean dataProcessed) {
+        this.dataProcessed = dataProcessed;
+    }
+
+    public double getCalculatedYourVolumeScale100() {
+        return calculatedYourVolumeScale100;
+    }
+
+    public void setCalculatedYourVolumeScale100(double calculatedYourVolumeScale100) {
+        this.calculatedYourVolumeScale100 = calculatedYourVolumeScale100;
+    }
+
+    public double getCalculatedCmptVolumeScale100() {
+        return calculatedCmptVolumeScale100;
+    }
+
+    public void setCalculatedCmptVolumeScale100(double calculatedCmptVolumeScale100) {
+        this.calculatedCmptVolumeScale100 = calculatedCmptVolumeScale100;
+    }
+
+    public double getCustTargetActual() {
+        return custTargetActual;
+    }
+
+    public void setCustTargetActual(double custTargetActual) {
+        this.custTargetActual = custTargetActual;
+    }
+
+    public String getCustTargetRaw() {
+        return custTargetRaw;
+    }
+
+    public void setCustTargetRaw(String custTargetRaw) {
+        this.custTargetRaw = custTargetRaw;
+    }
+
+    public String getPercentIncreaseRaw() {
+        return percentIncreaseRaw;
+    }
+
+    public void setPercentIncreaseRaw(String percentIncreaseRaw) {
+        this.percentIncreaseRaw = percentIncreaseRaw;
+    }
+
+    public List<String> getAlertMessageHandlers() {
+        return alertMessageHandlers;
+    }
+
+    public void setAlertMessageHandlers(List<String> alertMessageHandlers) {
+        this.alertMessageHandlers = alertMessageHandlers;
+    }
+
+    public String getCustVolumeRoundUp() {        
+        if(getCustVolume() != null){
+            Double value = Double.parseDouble(getCustVolume());
+            DecimalFormat zeroDForm = new DecimalFormat("#");
+            return "" + Double.valueOf(zeroDForm.format(value)).intValue();
+        }
+        return getCustVolume();
+   }
+
+
+    public String getCmptVolumeRoundUp() {
+        if(getCmptVolume() != null){
+            Double value = Double.parseDouble(getCmptVolume());
+            DecimalFormat zeroDForm = new DecimalFormat("#");
+            return "" + Double.valueOf(zeroDForm.format(value)).intValue();
+        }
+        return getCmptVolume();
+    }
+
+    public String getCalculatedYourVolumeRoundUp() {
+        if(getCalculatedYourVolume() != null){
+            Double value = Double.parseDouble(getCalculatedYourVolume());
+            DecimalFormat zeroDForm = new DecimalFormat("#");
+            return "" + Double.valueOf(zeroDForm.format(value)).intValue();
+        }
+        return getCalculatedYourVolume();
+    }
+    
+    public String getPercentIncreaseRawScale100() {
+        return percentIncreaseRawScale100;
+    }
+
+    public void setPercentIncreaseRawScale100(String percentIncreaseRawScale100) {
+        this.percentIncreaseRawScale100 = percentIncreaseRawScale100;
+    }
+
+    public int getCalcLogic() {
+        return calcLogic;
+    }
+
+    public void setCalcLogic(int calcLogic) {
+        this.calcLogic = calcLogic;
+    }
+
+    public String getCalculatedYourVolume() {
+        return calculatedYourVolume;
+    }
+
+    public void setCalculatedYourVolume(String calculatedYourVolume) {
+        this.calculatedYourVolume = calculatedYourVolume;
+    }
+
+    public double getBaselineTargetRaw() {
+        return baselineTargetRaw;
+    }
+
+    public void setBaselineTargetRaw(double baselineTargetRaw) {
+        this.baselineTargetRaw = baselineTargetRaw;
+    }
+
+    public double getCurrentTargetRaw() {
+        return currentTargetRaw;
+    }
+
+    public void setCurrentTargetRaw(double currentTargetRaw) {
+        this.currentTargetRaw = currentTargetRaw;
+    }
+
+    public String getCurrentTargetRawString() {
+        return currentTargetRawString;
+    }
+
+    public void setCurrentTargetRawString(String currentTargetRawString) {
+        this.currentTargetRawString = currentTargetRawString;
+    }
+
+    public double getBenchmarkPctofTarget() {
+        return benchmarkPctofTarget;
+    }
+
+    public void setBenchmarkPctofTarget(double benchmarkPctofTarget) {
+        this.benchmarkPctofTarget = benchmarkPctofTarget;
+    }
+
+    public double getCurrentPctofTarget() {
+        return currentPctofTarget;
+    }
+
+    public void setCurrentPctofTarget(double currentPctofTarget) {
+        this.currentPctofTarget = currentPctofTarget;
+    }
+
+    public double getCalculatedYourVolumePCT() {
+        return calculatedYourVolumePCT;
+    }
+
+    public void setCalculatedYourVolumePCT(double calculatedYourVolumePCT) {
+        this.calculatedYourVolumePCT = calculatedYourVolumePCT;
+    }
+
+    public double getCalculatedCmptVolumePCT() {
+        return calculatedCmptVolumePCT;
+    }
+
+    public void setCalculatedCmptVolumePCT(double calculatedCmptVolumePCT) {
+        this.calculatedCmptVolumePCT = calculatedCmptVolumePCT;
+    }
+
+    public double getYourVolumePCT() {
+        return yourVolumePCT;
+    }
+
+    public void setYourVolumePCT(double yourVolumePCT) {
+        this.yourVolumePCT = yourVolumePCT;
+    }
+
+    public double getCmptVolumePCT() {
+        return cmptVolumePCT;
+    }
+
+    public void setCmptVolumePCT(double cmptVolumePCT) {
+        this.cmptVolumePCT = cmptVolumePCT;
+    }
+
  }

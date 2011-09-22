@@ -2,6 +2,7 @@
 package com.edifixio.soc.biz.dto;
 
 import java.util.Date;
+
 import com.edifixio.soc.biz.util.DTOHelper;
 
 public class BaseDTO extends DTOHelper{

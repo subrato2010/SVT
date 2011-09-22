@@ -2,10 +2,12 @@
 package com.edifixio.soc.dao;
 
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.dao.util.BaseHibernateDAO;
 import com.edifixio.soc.persist.UserProfileDetail;
@@ -25,7 +27,7 @@ public class UserProfileDetailHibernateDAO<T extends UserProfileDetail> extends 
         List<T> userProfileDetail = find().where("this.profilePreference.profilePrefrenceId=?", id).list();
         return userProfileDetail;
     }
-    
+
     public UserProfileDetail getByProfileDetailId(String id) throws SVTException {
         T userProfileDetail = find().where("this.profileDetailId=?", id).get();
         return userProfileDetail;
@@ -70,5 +72,4 @@ public class UserProfileDetailHibernateDAO<T extends UserProfileDetail> extends 
     protected Class getConcreteClass() {
         return UserProfileDetail.class;
     }
-    
 }

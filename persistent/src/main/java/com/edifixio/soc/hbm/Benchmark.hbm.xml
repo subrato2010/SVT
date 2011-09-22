@@ -89,19 +89,6 @@
             column="updatedBy"
         />
 
-        <many-to-one
-            name="benchmark"
-            class="com.edifixio.soc.persist.Benchmark"
-            cascade="none"
-            outer-join="auto"
-            update="false"
-            insert="true"
-        >
-            <column
-                name="benchMarkId" 
-                not-null="false"
-            />
-        </many-to-one>
 
         <!--
             To add non XDoclet property mappings, create a file named

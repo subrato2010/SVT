@@ -3,6 +3,7 @@
     "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
+
    <!-- BIZ BEANS -->
    	<bean id="twitterMgr" parent="txProxyTemplate">
 		<property name="target">
@@ -110,7 +111,42 @@
 			</bean>
 		</property>
 	</bean>
-		
+	<bean id="companyMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.CompanyMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>
+	<bean id="timeZoneMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.TimeZoneMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>	
+	<bean id="rtopScheduleMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.RTOPScheduleMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>	
+	<bean id="trendingGradeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.TrendingGradeMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>	
+	<bean id="msgDataCreationLogMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.MsgDataCreationLogMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>	
+	<bean id="metricCreationTrackerMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.edifixio.soc.biz.MetricCreationTrackerMgrImpl" parent="baseBizObject">
+			</bean>
+		</property>
+	</bean>	
 	<bean id="baseBizObject" abstract="true">
       <property name="daoProvider"><ref bean="daoProvider"/></property>
    </bean>
@@ -154,6 +190,12 @@
 	        <property name="rawResultMgr"><ref bean="rawResultMgr"/></property>
 	        <property name="twitLogMgr"><ref bean="twitLogMgr"/></property>
 	        <property name="parameterMgr"><ref bean="parameterMgr"/></property>
+	        <property name="companyMgr"><ref bean="companyMgr"/></property>
+	        <property name="timeZoneMgr"><ref bean="timeZoneMgr"/></property>
+	        <property name="rtopScheduleMgr"><ref bean="rtopScheduleMgr"/></property>
+	        <property name="trendingGradeMgr"><ref bean="trendingGradeMgr"/></property>
+	        <property name="msgDataCreationLogMgr"><ref bean="msgDataCreationLogMgr"/></property>
+	        <property name="metricCreationTrackerMgr"><ref bean="metricCreationTrackerMgr"/></property>
 	        
 	        <!-- all dummy needs to be removed after 9-Dec presentation -->
 	        <property name="inboundDummyMgr"><ref bean="inboundDummyMgr"/></property>    

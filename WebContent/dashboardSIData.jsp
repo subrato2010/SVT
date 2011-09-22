@@ -46,18 +46,20 @@
 							<table cellpadding="0" cellspacing="0">
 								<tr>
 									<td valign="top" align="center"  class="topFirstTablehdCategory">
-		                 				<h:commandLink id="yv#{si}" value="Your Volume" 
+		                 				<h:commandLink id="yv#{si}" value="Your Average Daily Volume (Current)" 
 											actionListener="#{channelPerformanceController.submitQuery}" 
 											style="color:#8B8B8B; text-decoration: none; background-image:none;">
 											<f:param name="si" value="#{si}" />
 											<f:param name="col" value="yv" />
+											<f:param name="minDate" value="#{channelPerformanceController.minDate}" />
+											<f:param name="maxDate" value="#{channelPerformanceController.maxDate}" />
 	                          			</h:commandLink>
 									</td>
 									<td valign="top" align="left">
 									<h:graphicImage value="../images/bulb.gif" 
 									 onmouseover="this.src='../images/bulb_green.gif';" onmouseout="this.src='../images/bulb.gif';">
 									<rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
-									<span><h:outputText value="A total count of metric activity." /></span>
+									<span><h:outputText value="We calculate the Average Daily Volume by taking an average of your volumes for the previous 14 days." /></span>
 									</rich:toolTip>
 									</h:graphicImage>
 								</td>
@@ -70,35 +72,61 @@
 							<table cellpadding="0" cellspacing="0">
 								<tr>
 									<td valign="top" align="center"  class="topFirstTablehdCategory">
-		                 				<h:commandLink id="cv#{si}" value="Your Competitors' Volume" 
+		                 				<h:commandLink id="cv#{si}" value="Competitors' Average Daily Volume (Current)" 
 											actionListener="#{channelPerformanceController.submitQuery}" 
 											style="color:#8B8B8B; text-decoration: none; background-image:none;">
 											<f:param name="si" value="#{si}" />
 											<f:param name="col" value="cv" />
+											<f:param name="minDate" value="#{channelPerformanceController.minDate}" />
+											<f:param name="maxDate" value="#{channelPerformanceController.maxDate}" />
 	                          			</h:commandLink>
 									</td>
 									<td valign="top" align="left">
 									<h:graphicImage value="../images/bulb.gif" 
 									      onmouseover="this.src='../images/bulb_green.gif';" onmouseout="this.src='../images/bulb.gif';">
 									<rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
-									         <span><h:outputText value="A total count of metric activity related to your competitors." /></span>
+									         <span><h:outputText value="We calculate the Average Daily Volume by taking an average of your competitors' volumes for the previous 14 days." /></span>
 									</rich:toolTip>
 									</h:graphicImage> 
 									</td>
 								</tr>
 							</table>
-							
-								
 							</td>
+							<td width="225" valign="middle" align="center">
+	                 		<table cellpadding="0" cellspacing="0">
+	                 			<tr>
+	                 				<td valign="top" align="center" class="topFirstTablehdCategory">
+	                 					<h:commandLink id="yb#{si}" value="Your Average Daily Volume (Benchmark)" 
+											actionListener="#{channelPerformanceController.submitQuery}" 
+											style="color:#8B8B8B; text-decoration: none; background-image:none;">
+											<f:param name="si" value="#{si}" />
+											<f:param name="col" value="yb" />
+											<f:param name="minDate" value="#{channelPerformanceController.minDate}" />
+											<f:param name="maxDate" value="#{channelPerformanceController.maxDate}" />
+	                          			</h:commandLink>
+	                 				</td>
+	                 				<td valign="top" align="left">
+	                 				<h:graphicImage value="../images/bulb.gif" 
+							      onmouseover="this.src='../images/bulb_green.gif';" onmouseout="this.src='../images/bulb.gif';">
+							     <rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
+							         <span><h:outputText value="Your baseline average daily volume or the date your campaign started." /></span>
+							     </rich:toolTip>
+							</h:graphicImage>
+	                 				</td>
+	                 			</tr>
+	                 		</table>
+	                 		</td>
 							<td width="110" valign="middle" align="center">
 								<table cellpadding="0" cellspacing="0">
 								<tr>
 									<td valign="top" align="center"  class="topFirstTablehdCategory">
-		                 				<h:commandLink id="yt#{si}" value="Your Target" 
+		                 				<h:commandLink id="yt#{si}" value="Campaign Progress" 
 											actionListener="#{channelPerformanceController.submitQuery}" 
 											style="color:#8B8B8B; text-decoration: none; background-image:none;">
 											<f:param name="si" value="#{si}" />
 											<f:param name="col" value="yt" />
+											<f:param name="minDate" value="#{channelPerformanceController.minDate}" />
+											<f:param name="maxDate" value="#{channelPerformanceController.maxDate}" />
 	                          			</h:commandLink>
 									</td>
 									<td valign="top" align="left">
@@ -115,6 +143,7 @@
 								
 								
 							</td>
+							<!--
 							<td width="95" class="topFirstTablehdCategory" valign="middle" align="center">
 								<table cellpadding="0" cellspacing="0">
 								<tr>
@@ -124,6 +153,8 @@
 											style="color:#8B8B8B; text-decoration: none; background-image:none;">
 											<f:param name="si" value="#{si}" />
 											<f:param name="col" value="pi" />
+											<f:param name="minDate" value="#{channelPerformanceController.minDate}" />
+											<f:param name="maxDate" value="#{channelPerformanceController.maxDate}" />
 	                          			</h:commandLink>
 									</td>
 									<td valign="top" align="left">
@@ -136,6 +167,7 @@
 								</tr>
 								</table>
 							</td>
+							-->
 							<td width="150" class="topFirstTablehdCategory" valign="middle" align="center"></td>
 							<td width="170" class="topFirstTablehdCategory" valign="middle" align="center"></td>
 							<td width="100" class="topFirstTablehdCategory" valign="middle" align="center"></td>
@@ -162,10 +194,81 @@
 									</tr>
 								</table>
 							</td>
-							<td width="120" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{row.custVolumeFormatted}</td>
-							<td width="195" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{row.cmptVolumeFormatted}</td>
-							<td width="100" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{row.custTargetFormatted}</td>
-                 		    <td width="80" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">#{row.percentIncrease}%</td>
+							
+							<td width="120" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">
+								<table cellspacing="0" cellpadding="0" border="0" width="120">
+									<tr>
+										<td class="topFirstTablehdCategoryDataLast" align="center" valign="middle">										
+											<a4j:outputPanel rendered="#{row.dataProcessed}">#{row.custVolumeRoundUp}</a4j:outputPanel>
+											<a4j:outputPanel rendered="#{!(row.dataProcessed)}"><img src="../images/gears.gif" border="0"/></a4j:outputPanel>
+										</td>
+										<td  align="left" valign="middle" width="30">
+											<a4j:outputPanel rendered="#{(row.custVolumeTrend == 1)}">
+												<h:graphicImage value="../images/uparrow.gif" style="border: 0">
+													<rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
+										         		<span>
+										         			<h:outputText value="Trending Up: Volume over the last 14 days has been trending up overall." />
+										         		</span>
+										     		</rich:toolTip>
+												</h:graphicImage>
+											</a4j:outputPanel>
+											<a4j:outputPanel rendered="#{(row.custVolumeTrend == -1)}">
+												<h:graphicImage value="../images/downarrow.gif" style="border: 0">
+													<rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
+										         		<span>
+										         			<h:outputText value="Trending Down: Volume over the last 14 days has been trending down overall." />
+										         		</span>
+										     		</rich:toolTip>
+												</h:graphicImage>
+											</a4j:outputPanel>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td width="195" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">
+								<table cellspacing="0" cellpadding="0" border="0" width="120">
+								<tr>
+									<td class="topFirstTablehdCategoryDataLast" align="center" valign="middle">
+									<a4j:outputPanel rendered="#{row.dataProcessedCmpt}">#{row.cmptVolumeRoundUp}</a4j:outputPanel>
+									<a4j:outputPanel rendered="#{!(row.dataProcessedCmpt)}">NA</a4j:outputPanel>									
+									</td>
+									<td  align="left" valign="middle" width="30">
+										<a4j:outputPanel rendered="#{(row.cmptVolumeTrend == 1)}">
+											<h:graphicImage value="../images/uparrow.gif" style="border: 0">
+													<rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
+										         		<span>
+										         			<h:outputText value="Trending Up: Volume over the last 14 days has been trending up overall." />
+										         		</span>
+										     		</rich:toolTip>
+												</h:graphicImage>
+										</a4j:outputPanel>
+										<a4j:outputPanel rendered="#{(row.cmptVolumeTrend == -1)}">
+											<h:graphicImage value="../images/downarrow.gif" style="border: 0">
+												<rich:toolTip styleClass="tooltip" showEvent="onmouseover" direction="bottom-right" mode="client" layout="block">
+									         		<span>
+									         			<h:outputText value="Trending Down: Volume over the last 14 days has been trending down overall." />
+									         		</span>
+									     		</rich:toolTip>
+											</h:graphicImage>
+										</a4j:outputPanel>
+									</td>
+								</tr>
+								</table>
+							</td>
+							<td width="120" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">
+							<a4j:outputPanel rendered="#{row.dataProcessed}">#{row.calculatedYourVolumeRoundUp}</a4j:outputPanel>
+							<a4j:outputPanel rendered="#{!(row.dataProcessed)}">NA</a4j:outputPanel>
+                 			</td>
+							<td width="100" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">							
+							<a4j:outputPanel rendered="#{row.dataProcessed}">#{row.currentTargetRawString}</a4j:outputPanel>
+							<a4j:outputPanel rendered="#{!(row.dataProcessed)}">NA</a4j:outputPanel>
+							</td>
+                 		    <!--
+                 		    <td width="80" class="topFirstTablehdCategoryDataLast" valign="middle" align="center">
+                 		    <a4j:outputPanel rendered="#{row.dataProcessed}">#{row.percentIncreaseRawScale100}%</a4j:outputPanel>
+							<a4j:outputPanel rendered="#{!(row.dataProcessed)}">NA</a4j:outputPanel>
+                 		    </td>
+							-->
 							<td width="150" class="topFirstTablehdCategoryDataLast" valign="middle" align="center"></td>
 							<td width="170" class="topFirstTablehdCategoryDataLast1" valign="middle" align="left"></td>
 							<td width="100" class="topFirstTablehdCategoryDataLast" valign="middle" align="center"></td>

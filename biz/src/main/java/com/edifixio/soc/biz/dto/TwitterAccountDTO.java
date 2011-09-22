@@ -1,4 +1,4 @@
-// $Author: subratog $
+// $Author: neelamadhabm $
 package com.edifixio.soc.biz.dto;
 
 import com.edifixio.soc.persist.Company;
@@ -16,6 +16,10 @@ public class TwitterAccountDTO extends BaseDTO{
     private TwitterAccount twitterAccount;
     private String handlerName;
     private String brndProdInds;
+    
+    private String accessToken;
+    private String accessTokenSecret;
+    private String profilePreferenceId; // needs to be passed from servlet manageTwitterOperatrion
 
     public String getHandlerName() {
         return handlerName;
@@ -64,5 +68,23 @@ public class TwitterAccountDTO extends BaseDTO{
     }
     public void setBrndProdInds(String brndProdInds) {
         this.brndProdInds = brndProdInds;
+    }
+    public String getAccessToken() {
+        return accessToken;
+    }
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+    public String getAccessTokenSecret() {
+        return accessTokenSecret;
+    }
+    public void setAccessTokenSecret(String accessTokenSecret) {
+        this.accessTokenSecret = accessTokenSecret;
+    }
+    public String getProfilePreferenceId() {
+        return profilePreferenceId;
+    }
+    public void setProfilePreferenceId(String profilePreferenceId) {
+        this.profilePreferenceId = profilePreferenceId;
     }
  }

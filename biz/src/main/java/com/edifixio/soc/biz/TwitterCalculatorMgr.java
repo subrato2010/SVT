@@ -12,15 +12,26 @@ import com.edifixio.soc.biz.dto.TwitterAccountDTO;
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.persist.OutboundMetricsDummy;
 import com.edifixio.soc.persist.OverallPerformanceDummy;
+import com.edifixio.soc.web.dto.TrendingGraphDTO;
+import com.edifixio.soc.web.dto.TwitterCalculatorChannelPerformanceProfileActionDTO;
 import com.edifixio.soc.web.dto.TwitterCalculatorChlPerfDTO;
+import com.edifixio.soc.web.dto.TwitterCalculatorProfileActionDTO;
 
 public interface TwitterCalculatorMgr extends BaseMgr{
 
     TwitterCalculatorChlPerfDTO getChannelPerformance(Date asOfPerformanceDate, String fromProfileUserId, String fromTwitterAccountId, Date benchmarkStDate, Date benchmarkEdDate, String targetId)  throws SVTException ;
+    TwitterCalculatorChlPerfDTO getChannelPerformanceOutbound(Date asOfPerformanceDate, String fromProfileUserId, String fromTwitterAccountId, Date benchmarkStDate, Date benchmarkEdDate, String targetId)  throws SVTException ;
+    TwitterCalculatorProfileActionDTO getProfileActionList(Date asOfPerformanceDate, String fromProfileUserId, String fromTwitterAccountId, 
+            Date benchmarkStDate, Date benchmarkEdDate, String targetId) throws SVTException;
+    
     List<OverallPerformanceDummy> getOverallPerformance(String fromProfileUserId,String fromTwitterAccountId, 
             List<OutboundMetricsDummy> outboundMetricsDummy, TwitterCalculatorChlPerfDTO chnlperfdto
             ,Map<String, OverallSentimentDTO> maposDTOs, List<String> sentiments,
             List<OverallGradeDTO> listIn, List<OverallGradeDTO> listOut) throws SVTException;
+    public List<TrendingGraphDTO> getTrendingGraph(String categoryId, String mode, Date asOfPerformanceDate, String fromProfileUserId, 
+            String fromTwitterAccountId, Date benchmarkStDate, Date benchmarkEdDate, String targetId) throws SVTException;
+    
+    
 //    List<OverallPerformanceDummy> getOverallPerformance1(Date asOfPerformanceDate, String fromProfile, Date benchmarkStDate, Date benchmarkEdDate, String target) throws SVTException;
 //    List<OutboundMetricsDummy> getOutboundMetrics(Date asOfPerformanceDate, ProfilePreference pdto, String fromTwitterAccountId, Date benchmarkStDate,Date benchmarkEdDate, ImprovementLevel target) throws SVTException ;
 //    List<InboundMetricsDummy> getInboundMetrics(Date asOfPerformanceDate, ProfilePreference pdto, String fromTwitterAccountId, Date benchmarkStDate,Date benchmarkEdDate, ImprovementLevel target) throws SVTException;
@@ -34,5 +45,7 @@ public interface TwitterCalculatorMgr extends BaseMgr{
 //    List<SocialIntelligenceMetricsDummy> getSentimentDummy(List<InboundMetricsDummy> inboundMetrics) throws SVTException;
 
     List<TwitterAccountDTO> getTwitterAccount(String asOfPerformanceDate, String fromProfile, String benchmarkStDate, String benchmarkEdDate, String target) throws SVTException;
-        
+
+    TwitterCalculatorChannelPerformanceProfileActionDTO getTwitterCalculatorChannelPerformanceProfileActionDTO(Date asOfPerformanceDate, String fromProfileUserId, String fromTwitterAccountId, Date benchmarkStDate, Date benchmarkEdDate, String targetId) throws SVTException;  
+    List<String> getMetricCalculationReport(Date asOfPerformanceDate, String fromProfileUserId, String fromTwitterAccountId, Date benchmarkStDate, Date benchmarkEdDate, String targetId, int reportId)  throws SVTException ;
 }

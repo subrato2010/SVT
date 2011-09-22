@@ -2,7 +2,9 @@
 package com.edifixio.soc.biz.util;
 
 import java.text.DecimalFormat;
+
 import junit.framework.TestCase;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Interceptor;
@@ -11,22 +13,29 @@ import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.orm.hibernate3.SessionHolder;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
+
 import com.edifixio.soc.batch.TwitterMgr;
 import com.edifixio.soc.biz.CategoryMgr;
 import com.edifixio.soc.biz.ChannelMgr;
+import com.edifixio.soc.biz.CompanyMgr;
 import com.edifixio.soc.biz.InboundDummyMgr;
+import com.edifixio.soc.biz.MetricCreationTrackerMgr;
 import com.edifixio.soc.biz.MetricsMgr;
 import com.edifixio.soc.biz.OutboundDummyMgr;
 import com.edifixio.soc.biz.OverallDummyMgr;
+import com.edifixio.soc.biz.ParameterMgr;
 import com.edifixio.soc.biz.ProfileDummyMgr;
 import com.edifixio.soc.biz.ProfileListMasterMgr;
 import com.edifixio.soc.biz.ProfilePreferenceMgr;
+import com.edifixio.soc.biz.RTOPScheduleMgr;
 import com.edifixio.soc.biz.RawResultMgr;
 import com.edifixio.soc.biz.SocIntellDummyMgr;
 import com.edifixio.soc.biz.StagingRawScoreMgr;
 import com.edifixio.soc.biz.StateProvinceMgr;
+import com.edifixio.soc.biz.TrendingGradeMgr;
 import com.edifixio.soc.biz.TwitLogMgr;
 import com.edifixio.soc.biz.TwitterAccountMgr;
+import com.edifixio.soc.biz.TwitterCalculatorMgr;
 import com.edifixio.soc.biz.UserProfileMgr;
 
 public class BizTestCase extends TestCase {
@@ -34,6 +43,12 @@ public class BizTestCase extends TestCase {
     private static Log logger = LogFactory.getLog(BizTestCase.class);
     DecimalFormat twoDForm = new DecimalFormat("#.##"); 
 
+    public TwitterCalculatorMgr getTwitterCalculatorMgr() {
+        return (TwitterCalculatorMgr) getFactoryObject("twitterCalculatorMgr");
+    }
+    public MetricCreationTrackerMgr getMetricCreationTrackerMgr() {
+        return (MetricCreationTrackerMgr) getFactoryObject("metricCreationTrackerMgr");
+    }
     public TwitLogMgr getTwitLogMgr() {
         return (TwitLogMgr) getFactoryObject("twitLogMgr");
     }
@@ -85,6 +100,18 @@ public class BizTestCase extends TestCase {
     } 
     public ProfileListMasterMgr getProfileListMasterMgr() {
         return (ProfileListMasterMgr) getFactoryObject("profileListMasterMgr");
+    }
+    public ParameterMgr getParameterMgr() {
+        return (ParameterMgr) getFactoryObject("parameterMgr");
+    }
+    public TrendingGradeMgr getTrendingGradeMgr() {
+        return (TrendingGradeMgr) getFactoryObject("trendingGradeMgr");
+    }
+    public CompanyMgr getCompanyMgr() {
+        return (CompanyMgr) getFactoryObject("companyMgr");
+    }
+    public RTOPScheduleMgr getRtopScheduleMgr() {
+        return (RTOPScheduleMgr) getFactoryObject("rtopScheduleMgr");
     }
     public Object getFactoryObject(String id) {
         return SpringObjectFactory.getInstance().getObject(id);

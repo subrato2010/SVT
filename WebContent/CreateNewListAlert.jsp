@@ -121,39 +121,28 @@
     			<td align="left" valign="middle" class="closeOrangeTextAlert">
 			    <font style="color: #737883; padding-left: 4px; font-size: 15px;">or</font>  
 			    <font style="padding-left: 4px;">
-			    <a href="#" onclick="parent.document.getElementById('floatingDiv3').style.display='none'; parent.document.getElementById('ALMore1').style.display='none'; parent.document.getElementById('ALMore2').style.display='none'; parent.document.getElementById('ALMore').style.display='none'; parent.document.getElementById('ALMore3').style.display='none';" style="color: #F2A413; text-decoration: none;">
+			    <a href="#" onclick="parent.document.getElementById('floatingDiv1').style.display='none'; parent.document.getElementById('ALMore1').style.display='none'; parent.document.getElementById('ALMore2').style.display='none'; parent.document.getElementById('ALMore').style.display='none'; parent.document.getElementById('ALMore3').style.display='none';" style="color: #F2A413; text-decoration: none;">
 			    CANCEL
 			    </a>
 			    </font>
 			    </td>
 			    <td valign="middle" align="right" class="influAlert">
-  	<a onclick="parent.document.getElementById('floatingDiv3').style.display='none'; parent.document.getElementById('ALMore1').style.display='none'; parent.document.getElementById('ALMore2').style.display='none'; parent.document.getElementById('ALMore').style.display='none'; parent.document.getElementById('ALMore3').style.display='none';" href="#" class="closeOrangeTextAlert" style="color: #F2A413; text-decoration: none;">
+  	<a onclick="parent.document.getElementById('floatingDiv1').style.display='none'; parent.document.getElementById('ALMore1').style.display='none'; parent.document.getElementById('ALMore2').style.display='none'; parent.document.getElementById('ALMore').style.display='none'; parent.document.getElementById('ALMore3').style.display='none';" href="#" class="closeOrangeTextAlert" style="color: #F2A413; text-decoration: none;">
   		CLOSE
   		</a>
 	</td>
-    		</tr>
+    </tr>
     </table>
   	
   	</td>
   	
-  	
   	</tr>
-  	
-  	
-  	
-  	
   
   </table>
   </td>
   </tr>
 
-
 </table>
-
-
-
-
-	
 	
 </ui:composition>
 

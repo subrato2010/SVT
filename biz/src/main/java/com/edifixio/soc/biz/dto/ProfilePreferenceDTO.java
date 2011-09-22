@@ -1,6 +1,7 @@
 // $Author: subratog $
 package com.edifixio.soc.biz.dto;
 
+import com.edifixio.soc.persist.Benchmark;
 import com.edifixio.soc.persist.Brand;
 import com.edifixio.soc.persist.Company;
 import com.edifixio.soc.persist.Industry;
@@ -14,6 +15,7 @@ public class ProfilePreferenceDTO extends BaseDTO{
     private Brand brand;
     private Industry industry;
     private Product product;
+    private Benchmark benchmark;
     private boolean activeStatus;
     
     private ProfilePreference profilePreference;
@@ -59,6 +61,12 @@ public class ProfilePreferenceDTO extends BaseDTO{
     }
     public void setProfilePrefrenceId(String profilePrefrenceId) {
         this.profilePrefrenceId = profilePrefrenceId;
+    }
+    public Benchmark getBenchmark() {
+        return benchmark;
+    }
+    public void setBenchmark(Benchmark benchmark) {
+        this.benchmark = benchmark;
     }
 
  }

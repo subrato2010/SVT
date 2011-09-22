@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.RTOPSchedule"
+        table="RTOPSchedule"
+    >
+
+        <id name="rtopScheduleId"
+            column="rtopScheduleId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">              
+            </generator>
+        </id>
+
+        <many-to-one
+            name="twitterAccount"
+            class="com.edifixio.soc.persist.TwitterAccount"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="twitterAccountId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+		<property
+            name="tweetMessage"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="tweetMessage"
+        />
+
+        <property
+            name="scheduleDateTime"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="scheduleDateTime"
+        />
+
+		<property
+            name="scheduleType"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="scheduleType"
+        />
+        
+        <property
+            name="status"
+            type="int"
+            update="true"
+            insert="true"
+            column="status"
+        />
+        <property
+            name="statusMessage"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="statusMessage"
+        />
+		<property
+            name="grade"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="grade"
+        />
+        <property
+            name="updatedOn"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="updatedOn"
+        />
+
+        <property
+            name="updatedBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="updatedBy"
+        />
+
+        <many-to-one
+            name="benchmark"
+            class="com.edifixio.soc.persist.Benchmark"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="true"
+        >
+            <column
+                name="benchMarkId" 
+                not-null="false"
+            />
+        </many-to-one>
+
+        <!--
+            To add non XDoclet property mappings, create a file named
+                hibernate-properties-Metrics.xml
+            containing the additional properties and place it in your merge dir.
+        -->
+
+    </class>
+
+</hibernate-mapping>

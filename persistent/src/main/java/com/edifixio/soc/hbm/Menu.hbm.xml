@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.Menu"
+        table="Menu"
+    >
+
+        <id
+            name="menuId"
+            column="menuId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+            </generator>
+        </id>
+
+        <many-to-one
+            name="role"
+            class="com.edifixio.soc.persist.Role"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="roleId" 
+                not-null="true"
+            />
+        </many-to-one>
+
+        <property
+            name="activeStatus"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="activeStatus"
+        />
+
+        <property
+            name="menuCode"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="menuCode"
+        />
+        <property
+            name="menuName"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="menuName"
+        />
+		<property
+            name="menuItem"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="menuItem"
+        />
+        <property
+            name="menuDesc"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="menuDesc"
+            length="1000"
+        />
+
+        <property
+            name="displayOrder"
+            type="int"
+            update="true"
+            insert="true"
+            column="displayOrder"
+        />
+
+        <property
+            name="updatedOn"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="updatedOn"
+        />
+
+        <property
+            name="updatedBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="updatedBy"
+        />
+
+        <many-to-one
+            name="benchmark"
+            class="com.edifixio.soc.persist.Benchmark"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="true"
+        >
+            <column
+                name="benchMarkId" 
+                not-null="false"
+            />
+        </many-to-one>
+    </class>
+
+</hibernate-mapping>

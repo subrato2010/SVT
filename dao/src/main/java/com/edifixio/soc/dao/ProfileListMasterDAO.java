@@ -2,6 +2,7 @@
 package com.edifixio.soc.dao;
 
 import java.util.List;
+
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.persist.ProfileListMaster;
 

@@ -5,14 +5,17 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.Date;
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import twitter4j.ResponseList;
 import twitter4j.Status;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.User;
+
 import com.edifixio.soc.biz.MetricsMgr;
 import com.edifixio.soc.biz.ProfilePreferenceMgr;
 import com.edifixio.soc.biz.TwitterAccountMgr;

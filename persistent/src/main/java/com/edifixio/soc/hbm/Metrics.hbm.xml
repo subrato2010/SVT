@@ -140,6 +140,13 @@
             column="siWt"
         />
         <property
+            name="relativeSIWt"
+            type="double"
+            update="true"
+            insert="true"
+            column="relativeSIWt"
+        />
+        <property
             name="weight"
             type="double"
             update="true"
@@ -184,6 +191,69 @@
             update="true"
             insert="true"
             column="calcMethod"
+        />
+        <property
+            name="jspAlertToDisplay"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="jspAlertToDisplay"
+        />
+        <property
+            name="jspAlertHeight"
+            type="int"
+            update="true"
+            insert="true"
+            column="jspAlertHeight"
+        />
+        <property
+            name="jspAlertWidth"
+            type="int"
+            update="true"
+            insert="true"
+            column="jspAlertWidth"
+        />
+        <property
+            name="jspAlertTitleBarText"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="jspAlertTitleBarText"
+        />
+        <property
+            name="calcLogic"
+            type="int"
+            update="true"
+            insert="true"
+            column="calcLogic"
+        />
+        <property
+            name="goalPct"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="goalPct"
+        />
+        <property
+            name="goalMetricWeight"
+            type="double"
+            update="true"
+            insert="true"
+            column="goalMetricWeight"
+        />        
+        <property
+            name="goalPctCalcLogic"
+            type="int"
+            update="true"
+            insert="true"
+            column="goalPctCalcLogic"
+        />
+        <property
+            name="goalPctDisplayOrder"
+            type="int"
+            update="true"
+            insert="true"
+            column="goalPctDisplayOrder"
         />
         <property
             name="updatedOn"

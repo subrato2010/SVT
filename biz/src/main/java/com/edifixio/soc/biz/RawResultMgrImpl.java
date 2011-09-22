@@ -1,6 +1,7 @@
 // $Author: subratog $
 package com.edifixio.soc.biz;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -67,4 +68,28 @@ public class RawResultMgrImpl extends BaseBizObject implements RawResultMgr {
         return getDaoProvider().getRawResultDAO().findByProfileIdMetricIdSELF(profileId, metricId);
     }
 
+    public Date getMaxActionDate(String profileId) throws SVTException {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -1);
+        // Set time fields to zero  
+        cal.set(Calendar.HOUR_OF_DAY, 0);  
+        cal.set(Calendar.MINUTE, 0);  
+        cal.set(Calendar.SECOND, 0);  
+        cal.set(Calendar.MILLISECOND, 0);
+        //SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
+        return cal.getTime();        
+        //return new Date(); getDaoProvider().getRawResultDAO().getMaxActionDate(profileId);
+    }
+
+    public Date getMinActionDate(String profileId) throws SVTException {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);  
+        cal.set(Calendar.MINUTE, 0);  
+        cal.set(Calendar.SECOND, 0);  
+        cal.set(Calendar.MILLISECOND, 0);
+
+        return cal.getTime();
+        //return getDaoProvider().getRawResultDAO().getMinActionDate(profileId);
+    }
 }

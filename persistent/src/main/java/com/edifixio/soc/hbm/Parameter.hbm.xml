@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.Parameter"
+        table="Parameter"
+    >
+
+        <id
+            name="parameterId"
+            column="parameterId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+            </generator>
+        </id>
+
+        <property
+            name="parameterCode"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="parameterCode"
+        />
+        <property
+            name="value"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="value"
+        />
+        <property
+            name="updatedOn"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="updatedOn"
+        />
+
+        <property
+            name="updatedBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="updatedBy"
+        />
+        <many-to-one
+            name="benchmark"
+            class="com.edifixio.soc.persist.Benchmark"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="true"
+        >
+            <column
+                name="benchMarkId" 
+                not-null="false"
+            />
+        </many-to-one>
+    </class>
+
+</hibernate-mapping>

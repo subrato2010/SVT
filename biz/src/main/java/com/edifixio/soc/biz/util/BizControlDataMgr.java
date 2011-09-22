@@ -5,9 +5,12 @@ import com.edifixio.soc.batch.TwitterMgr;
 import com.edifixio.soc.biz.BenchmarkMgr;
 import com.edifixio.soc.biz.CategoryMgr;
 import com.edifixio.soc.biz.ChannelMgr;
+import com.edifixio.soc.biz.CompanyMgr;
 import com.edifixio.soc.biz.ImprovementLevelMgr;
 import com.edifixio.soc.biz.InboundDummyMgr;
+import com.edifixio.soc.biz.MetricCreationTrackerMgr;
 import com.edifixio.soc.biz.MetricsMgr;
+import com.edifixio.soc.biz.MsgDataCreationLogMgr;
 import com.edifixio.soc.biz.OutboundDummyMgr;
 import com.edifixio.soc.biz.OverallDummyMgr;
 import com.edifixio.soc.biz.ParameterMgr;
@@ -16,10 +19,13 @@ import com.edifixio.soc.biz.ProfileInfluenceListMgr;
 import com.edifixio.soc.biz.ProfileInfluenceMgr;
 import com.edifixio.soc.biz.ProfileListMasterMgr;
 import com.edifixio.soc.biz.ProfilePreferenceMgr;
+import com.edifixio.soc.biz.RTOPScheduleMgr;
 import com.edifixio.soc.biz.RawResultMgr;
 import com.edifixio.soc.biz.SocIntellDummyMgr;
 import com.edifixio.soc.biz.StagingRawScoreMgr;
 import com.edifixio.soc.biz.StateProvinceMgr;
+import com.edifixio.soc.biz.TimeZoneMgr;
+import com.edifixio.soc.biz.TrendingGradeMgr;
 import com.edifixio.soc.biz.TwitLogMgr;
 import com.edifixio.soc.biz.TwitterAccountMgr;
 import com.edifixio.soc.biz.TwitterCalculatorMgr;
@@ -49,6 +55,12 @@ public interface BizControlDataMgr {
     public RawResultMgr getRawResultMgr();
     public TwitLogMgr getTwitLogMgr();
     public ParameterMgr getParameterMgr();
+    public CompanyMgr getCompanyMgr();
+    public TimeZoneMgr getTimeZoneMgr();
+    public RTOPScheduleMgr getRtopScheduleMgr();
+    public TrendingGradeMgr getTrendingGradeMgr();
+    public MsgDataCreationLogMgr getMsgDataCreationLogMgr();
+    public MetricCreationTrackerMgr getMetricCreationTrackerMgr();
     
     // all dummy needs to be removed after 9-Dec presentation
     

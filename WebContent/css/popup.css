@@ -31,8 +31,6 @@ body {margin: 0px;}
 	background-color: #E7E7E7;
 	top:0;
 }
-
-
 .glass .innerMain .headerNew{
 	height:44px;
 	background-color: #000000;
@@ -50,7 +48,6 @@ body {margin: 0px;}
 	top:0px;
 	width:70px;
 }
-
 .glass .innerMain div.title {
 	/*float:left; 
 	padding-left:25px; 
@@ -68,6 +65,13 @@ body {margin: 0px;}
     padding-top: 5px;
 	
 }
+.glass .innerMain div.imgleft {
+
+	float:left; 
+	padding-left: 10px;
+    padding-top: 5px;
+	
+}
 .glass .innerMain1 div.title11 {
 	float:left; 
 	padding-left:20px;
@@ -76,34 +80,25 @@ body {margin: 0px;}
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:16px;
 }
-
-
-	
 .glass .innerMain1 .header{
 	height:44px;
 	background-color: #E7E7E7;
 	top:0;
 }
-
-
-
 /******************* Orange Popup ***********************/
-
-.glass .innerMain1{
+.glass .innerMainLogin{
 	background-color: #ffffff;
 	float:middle;
 	border:1px solid #cccccc;
 }
-.glass .innerMain1 .headerNew{
+.glass .innerMainLogin .headerLogin{
 	height:44px;
-	background-color: #FFA600;
+	background-color: #E7E7E7;
 	top:0;
 	right:0;
 	width: auto;
 }
-
-
-.glass .innerMain1 div.close1 {
+.glass .innerMainLogin div.closeLogin {
 	
 	border-right:medium none;
 	cursor:pointer;
@@ -113,24 +108,22 @@ body {margin: 0px;}
 	float:right;
 	/*right:7px;*/
 	top:0px;
-	width:40px;
+	width:80px;
 	left:0px; 
 	padding-top: 4px;
 	padding-bottom: 4px;
 }
-
-.glass .innerMain1 div.title1 {
+.glass .innerMainLogin div.titleLogin {
 	float:left; 
 	/*padding-left:25px;*/ 
 	/*margin-top:8px;*/
-	color:#ffffff;
+	color:#787E89;
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:22px;
+	padding-left: 10px;
+    padding-top: 6px;
 	
 }
-
-
-
 /******************* Green Popup ***********************/
 .glass .innerMain2{
 	background-color: #ffffff;
@@ -142,8 +135,6 @@ body {margin: 0px;}
 	background-color: #98C841;
 	top:0;
 }
-
-
 .glass .innerMain2 div.close2 {
 	
 	border-right:medium none;
@@ -157,7 +148,6 @@ body {margin: 0px;}
 	width:50px;
 	left:10px; 
 }
-
 .glass .innerMain2 div.title2 {
 	float:left; 
 	/*padding-left:25px;*/ 
@@ -166,12 +156,7 @@ body {margin: 0px;}
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:22px;
 }
-
-
-
-
 /******************* 2nd Orange Popup ***********************/
-
 .glass .innerMain3{
 	background-color: #ffffff;
 	float:middle;
@@ -182,10 +167,7 @@ body {margin: 0px;}
 	background-color: #FFA600;
 	top:0;
 }
-
-
 .glass .innerMain3 div.close3 {
-	
 	border-right:medium none;
 	cursor:pointer;
 	display:inline-block;
@@ -197,7 +179,6 @@ body {margin: 0px;}
 	width:50px;
 	left:10px; 
 }
-
 .glass .innerMain3 div.title3 {
 	float:left; 
 	/*padding-left:25px;*/ 
@@ -205,14 +186,8 @@ body {margin: 0px;}
 	color:#ffffff;
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:22px;
-	
 }
-
-
-
-
 /******************* Orange Popup ***********************/
-
 .glass .innerMain12{
 	background-color: #ffffff;
 	float:middle;
@@ -223,8 +198,6 @@ body {margin: 0px;}
 	background-color: #FFA600;
 	top:0;
 }
-
-
 .glass .innerMain12 div.close12 {
 	
 	border-right:medium none;
@@ -238,7 +211,6 @@ body {margin: 0px;}
 	width:50px;
 	left:10px; 
 }
-
 .glass .innerMain12 div.title12 {
 	float:left; 
 	/*padding-left:25px;*/ 
@@ -246,16 +218,8 @@ body {margin: 0px;}
 	color:#ffffff;
 	font-family:Arial,Helvetica,sans-serif;
 	font-size:22px;
-	
 }
-
-
-
-
-
-
-
-..glass .innerMain4{
+.glass .innerMain4{
 	background-color: #ffffff;
 	float:middle;
 	border:1px solid #cccccc;
@@ -265,8 +229,6 @@ body {margin: 0px;}
 	background-color: #FFA600;
 	top:0;
 }
-
-
 .glass .innerMain4 div.close4 {
 	
 	border-right:medium none;
@@ -280,7 +242,6 @@ body {margin: 0px;}
 	width:50px;
 	left:10px; 
 }
-
 .glass .innerMain4 div.title4 {
 	/*float:left; 
 	padding-left:25px; 
@@ -296,5 +257,209 @@ body {margin: 0px;}
 	font-size:22px;
 	 padding-left: 10px;
     padding-top: 5px;
-	
 }
+.glass .innerMain11{
+	background-color: #ffffff;
+	float:middle;
+	border:1px solid #cccccc;
+}
+.glass .innerMain11 .header11{
+	height:44px;
+	background-color: #E7E7E7;
+	top:0;
+}
+.glass .innerMain11 div.close11 {
+	border-right:medium none;
+	cursor:pointer;
+	display:inline-block;
+	height:31px;
+	position:relative;
+	float:right;
+	right:7px;
+	top:0px;
+	width:50px;
+	left:10px; 
+}
+.glass .innerMain11 div.title11 {
+	float:left; 
+	padding-left:15px;
+	/*margin-top:8px;*/
+	color:#787E89;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:17px;
+}
+.glass .innerMainR{
+	background-color: #ffffff;
+	border:1px solid #cccccc;
+}
+.glass .innerMainR .headerR{
+	height:44px;
+	background-color: #E7E7E7;
+	top:0;
+}
+.glass .innerMainR div.closeR {
+	border-right:medium none;
+	cursor:pointer;
+	display:inline-block;
+	height:31px;
+	position:relative;
+	float:right;
+	right:7px;
+	top:0px;
+	width:50px;
+	left:10px; 
+}
+.glass .innerMainR div.titleR{
+	/*float:left; 
+	padding-left:25px; 
+	margin-top:10px;
+	color:#787E89;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:18px;*/
+	float:left; 
+	/*padding-left:25px;*/ 
+	/*margin-top:8px;*/
+	color:#787E89;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:22px;
+	 padding-left: 10px;
+    padding-top: 5px;
+}
+.glass .innerMainR div.imgleftR {
+	float:left; 
+	padding-left: 10px;
+    padding-top: 5px;
+}
+/******* Ner Influence Popup ***********/
+.glass .innerMainInfu{
+	background-color: #ffffff;
+	float:middle;
+	border:1px solid #cccccc;
+}
+.glass .innerMainInfu .headerInfu{
+	height:44px;
+	background-color: #E7E7E7;
+	top:0;
+}
+.glass .innerMainInfu div.closeInfu {
+	border-right:medium none;
+	cursor:pointer;
+	display:inline-block;
+	height:31px;
+	position:relative;
+	float:right;
+	right:7px;
+	top:0px;
+	width:50px;
+	left:10px; 
+}
+.glass .innerMainInfu div.titleInfu {
+	float:left; 
+	padding-left:15px;
+	/*margin-top:8px;*/
+	color:#787E89;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:17px;
+}
+
+#influencersLoader
+ {
+ 	position:absolute; 
+ 	background: url('../images/transPBack.png') repeat; 
+ 	display: none;
+	margin:0 auto; 
+	z-index: 100000000;
+ }
+ #favoriteLoader
+ {
+ 	position:absolute; 
+ 	background: url('../images/transPBack.png') repeat; 
+ 	display: none;	
+	margin:0 auto; 
+	z-index: 100000000;
+ }
+ #rtThanksLoader
+ {
+ 	position:absolute; 
+ 	background: url('../images/transPBack.png') repeat; 
+ 	display: none;
+	margin:0 auto; 
+	z-index: 100000000;
+ }
+ 
+ #dmToReturnLoader
+ {
+ 	position:absolute; 
+ 	background: url('../images/transPBack.png') repeat; 
+ 	display: none;
+	margin:0 auto; 
+	z-index: 100000000;
+ }
+ .rtThanksArea
+{
+	background-image: none;
+    border: 2px inset #6E7177;
+    color: #1D5B8B;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: Arial,Helvetica,sans-serif;
+    height: 55px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-left: 3px;
+    padding-top: 3px;
+    resize: none;
+    text-align: left;
+    white-space: pre-wrap;
+    width: 260px;
+    word-wrap: break-word;
+    background-color: #FFFFFF;
+}
+
+#addToListLoader
+ {
+ 	position:absolute; 
+ 	background: url('../images/transPBack.png') repeat; 
+ 	display: none;	
+	margin:0 auto; 
+	z-index: 100000000;
+ }
+ 
+ #customerListNamesLoader
+ {
+ 	position:absolute; 
+ 	background: url('../images/transPBack.png') repeat; 
+ 	display: none;
+	width:220px; 
+	height:235px; 
+	margin:0 auto; 
+	z-index: 100000000;
+ }
+ 
+ #moreList
+ {
+ 	position:absolute; 
+ 	background-image: url('../images/Alert/createNewListBack.gif');
+ 	background-repeat: no-repeat; 
+ 	display: none;
+	width:220px; 
+	height:235px;
+	top: 80px; 
+	right: 0%;
+	left: 545px;
+ }
+ 
+ #bioText
+ {
+ 	width: 300px;
+ 	height: 70px; 
+ 	background-image: none; 
+ 	border: 2px inset rgb(110, 113, 119); 
+ 	color: #999999; 
+ 	font-size: 12px;
+ 	resize: none;
+ 	padding-left: 3px;
+ 	padding-right: 3px;
+ 	padding-top: 3px;
+ 	padding-bottom: 3px;
+ }

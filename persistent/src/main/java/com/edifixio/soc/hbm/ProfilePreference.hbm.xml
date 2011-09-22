@@ -33,6 +33,27 @@
             column="profileUserId"
         />
         <property
+            name="bitlyUsername"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="bitlyUsername"
+        />
+        <property
+            name="bitlyAccessToken"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="bitlyAccessToken"
+        />
+        <property
+            name="bitlyAPIKey"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="bitlyAPIKey"
+        />
+        <property
             name="googleAnalyticsUsername"
             type="java.lang.String"
             update="true"
@@ -40,11 +61,25 @@
             column="googleAnalyticsUsername"
         />
         <property
+            name="googleAnalyticsPassword"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="googleAnalyticsPassword"
+        />
+        <property
             name="googleAnalyticsAuth"
             type="boolean"
             update="true"
             insert="true"
             column="googleAnalyticsAuth"
+        />
+        <property
+            name="warningAlert"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="warningAlert"
         />
         <many-to-one
             name="userProfileDetail"
@@ -59,7 +94,19 @@
                 not-null="true"
             />
         </many-to-one>
-
+		<many-to-one
+            name="role"
+            class="com.edifixio.soc.persist.Role"
+            cascade="none"
+            outer-join="auto"
+            update="true"
+            insert="true"
+        >
+            <column
+                name="roleId" 
+                not-null="true"
+            />
+        </many-to-one>
         <property
             name="activeStatus"
             type="boolean"
@@ -137,7 +184,21 @@
                 not-null="true"
             />
         </many-to-one>
+        <property
+            name="updatedOn"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="updatedOn"
+        />
 
+        <property
+            name="updatedBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="updatedBy"
+        />
         <!--
             To add non XDoclet property mappings, create a file named
                 hibernate-properties-ProfilePreference.xml

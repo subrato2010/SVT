@@ -2,10 +2,12 @@
 package com.edifixio.soc.dao;
 
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.dao.util.BaseHibernateDAO;
 import com.edifixio.soc.persist.ProfilePreference;
@@ -46,6 +48,7 @@ public class ProfilePreferenceHibernateDAO<T extends ProfilePreference> extends 
         }
         Session session = getCurrentSession("subrato");
         Transaction transaction = session.beginTransaction();
+        session.update(profilePreference.getUserProfileDetail());
         session.update(profilePreference);
         transaction.commit();
         log.debug("Value saved successfully");

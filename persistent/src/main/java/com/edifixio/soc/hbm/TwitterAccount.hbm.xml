@@ -114,7 +114,20 @@
             insert="true"
             column="brndProdInds"
         />
-        
+        <property
+            name="accessToken"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="accessToken"
+        />
+        <property
+            name="accessTokenSecret"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="accessTokenSecret"
+        />
         <property
             name="benchmarkDate"
             type="java.util.Date"

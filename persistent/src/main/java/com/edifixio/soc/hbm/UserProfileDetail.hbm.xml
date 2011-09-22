@@ -100,7 +100,20 @@
             insert="true"
             column="subscriptionDesc"
         />
-
+        <property
+            name="subscriptionCompany"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="subscriptionCompany"
+        />
+		<property
+            name="subscriptionId"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="subscriptionId"
+        />
         <property
             name="subscriptionName"
             type="java.lang.String"
@@ -140,7 +153,13 @@
             insert="true"
             column="reportingEmail3"
         />
-
+ 		<property
+            name="timeZone"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="timeZone"
+        />
         <!--
             To add non XDoclet property mappings, create a file named
                 hibernate-properties-UserProfileDetail.xml

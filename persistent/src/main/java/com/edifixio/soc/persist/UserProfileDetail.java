@@ -20,6 +20,8 @@ public class UserProfileDetail  extends TrackedEntity implements Serializable {
     private String reportingEmail2;
     private String reportingEmail3;
     private String vanityUrl;
+    private String subscriptionCompany; // jackson need this info
+    private String subscriptionId;
     private String subscriptionName;
     private String subscriptionDesc;
     private Date subscriptionDateFrom;
@@ -27,6 +29,7 @@ public class UserProfileDetail  extends TrackedEntity implements Serializable {
     private boolean firstTimeLogin;
     private boolean activeStatus;
     private ImprovementLevel improvementLevel;
+    private String timeZone;
     
     /**
      * @hibernate.property
@@ -183,4 +186,29 @@ public class UserProfileDetail  extends TrackedEntity implements Serializable {
     public void setReportingEmail3(String reportingEmail3) {
         this.reportingEmail3 = reportingEmail3;
     }
+
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
+    public String getSubscriptionId() {
+        return subscriptionId;
+    }
+
+    public void setSubscriptionId(String subscriptionId) {
+        this.subscriptionId = subscriptionId;
+    }
+
+    public String getSubscriptionCompany() {
+        return subscriptionCompany;
+    }
+
+    public void setSubscriptionCompany(String subscriptionCompany) {
+        this.subscriptionCompany = subscriptionCompany;
+    }
+
  }

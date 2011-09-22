@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+ "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>Access Tag</short-name>
+	<uri>http://richfaces.org/session-data-helper</uri>
+	<description>Cache Markup</description>	
+	
+	<tag>
+		<name>jsfCache</name>
+		<tag-class>com.edifixio.jsf.tag.CacheTag</tag-class>	
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>cacheId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>	
+		<attribute>
+			<name>scope</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>refreshInterval</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>enable</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>		
+						
+	</tag>
+	
+	<tag>
+		<name>menu</name>
+		<tag-class>com.edifixio.jsf.tag.MenuTag</tag-class>	
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>options</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.Object</type>			
+		</attribute>
+		<attribute>
+			<name>strOptions</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>paramName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>listStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>listStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>optionStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>optionStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>lastOptionStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>onclick</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		<attribute>
+			<name>onchange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>java.lang.String</type>			
+		</attribute>
+		 <attribute>
+            <description>
+                <![CDATA[MethodExpression representing a value change listener method that will be
+                notified when a new value has been set for this component.  The
+                expression must evaluate to a public method that takes a
+                ValueChangeEvent parameter, with a return type of void.]]>
+            </description>
+            <name>
+                valueChangeListener
+            </name>
+            <required>
+                false
+            </required>
+            <deferred-method>
+                <method-signature>
+                    void valueChange(javax.faces.event.ValueChangeEvent)
+                </method-signature>
+            </deferred-method>
+        </attribute>
+	</tag>	
+	
+</taglib>	

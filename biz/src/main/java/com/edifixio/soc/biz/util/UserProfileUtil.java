@@ -2,6 +2,7 @@ package com.edifixio.soc.biz.util;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
 import javax.naming.directory.Attribute;
@@ -11,6 +12,7 @@ import javax.naming.directory.BasicAttributes;
 import javax.naming.directory.SearchControls;
 import javax.naming.directory.SearchResult;
 import javax.naming.ldap.LdapContext;
+
 import com.edifixio.soc.biz.dto.UserProfileDetailDTO;
 import com.edifixio.soc.common.SVTException;
 
@@ -166,7 +168,6 @@ public class UserProfileUtil {
                      
                      userProfile.setPhoto(photo);
                  }
-                 
                  list.add(userProfile);
              }
          }
@@ -203,7 +204,7 @@ public class UserProfileUtil {
  * @throws SVTException 
  */
  public void createLDAPProfile(UserProfileDetailDTO userProfile) throws SVTException
- {
+ {     
      LdapContext ldapCtx = LDAPConnector.getLDAPContext();
      String userDN = LDAPConnector.getUserDN();
      String uid = userProfile.getUid();
@@ -221,78 +222,80 @@ public class UserProfileUtil {
          attrs.put(attr);
       //Name Entry
          if(userProfile.getName() == null || userProfile.getName().trim().equals(""))
-            userProfile.setName("...");
+            userProfile.setName("");
             objBAP.put(UserProfileDetailDTO.NAME, userProfile.getName());
         
          
       //Password Entry
          if(userProfile.getPassword() == null || userProfile.getPassword().trim().equals(""))
-            userProfile.setPassword("...");
+            userProfile.setPassword("");
             objBAP.put(UserProfileDetailDTO.PASSWORD, userProfile.getPassword());
          
       // Title Entry
         if(userProfile.getTitle() == null || userProfile.getTitle().trim().equals(""))
-            userProfile.setTitle("...");
+        {
+            userProfile.setTitle("");
             objBAP.put(UserProfileDetailDTO.TITLE, userProfile.getTitle());
+        }
 
       // COMPANY 
         if(userProfile.getCompany() == null || userProfile.getCompany().trim().equals(""))
-            userProfile.setCompany("...");
+            userProfile.setCompany("");
             objBAP.put(UserProfileDetailDTO.COMPANY, userProfile.getCompany());
          
       // WORK_ADDRESS_LINE1  
         if(userProfile.getWorkAddressLine1() == null || userProfile.getWorkAddressLine1().trim().equals(""))
-            userProfile.setWorkAddressLine1("...");
+            userProfile.setWorkAddressLine1("");
             objBAP.put(UserProfileDetailDTO.WORK_ADDRESS_LINE1, userProfile.getWorkAddressLine1());
          
       // WORK_ADDRESS_LINE2  
             if(userProfile.getWorkAddressLine2() == null || userProfile.getWorkAddressLine2().trim().equals(""))
-                userProfile.setWorkAddressLine2("...");
+                userProfile.setWorkAddressLine2("");
                 objBAP.put(UserProfileDetailDTO.WORK_ADDRESS_LINE2, userProfile.getWorkAddressLine2());
          
       // WORK_ADDRESS_LINE3  
             if(userProfile.getWorkAddressLine3() == null || userProfile.getWorkAddressLine3().trim().equals(""))
-                userProfile.setWorkAddressLine3("...");
+                userProfile.setWorkAddressLine3("");
                 objBAP.put(UserProfileDetailDTO.WORK_ADDRESS_LINE3, userProfile.getWorkAddressLine3());
          
        //CITY
             if(userProfile.getCity() == null || userProfile.getCity().trim().equals(""))
-                userProfile.setCity("...");
+                userProfile.setCity("");
                 objBAP.put(UserProfileDetailDTO.CITY, userProfile.getCity());
 
        //STATE
             if(userProfile.getState() == null || userProfile.getState().trim().equals(""))
-                userProfile.setState("...");
+                userProfile.setState("");
                 objBAP.put(UserProfileDetailDTO.STATE, userProfile.getState());
 
        //ZIP
             if(userProfile.getZipCode() == null || userProfile.getZipCode().trim().equals(""))
-                userProfile.setZipCode("...");
+                userProfile.setZipCode("");
                 objBAP.put(UserProfileDetailDTO.ZIP_CODE, userProfile.getZipCode());
 
        //PHONE
             if(userProfile.getPhone() == null || userProfile.getPhone().trim().equals(""))
-                userProfile.setPhone("...");
+                userProfile.setPhone("");
                 objBAP.put(UserProfileDetailDTO.PHONE, userProfile.getPhone());
 
        //EMAIL
             if(userProfile.getEmail() == null || userProfile.getEmail().trim().equals(""))
-                userProfile.setEmail("...");
+                userProfile.setEmail("");
                 objBAP.put(UserProfileDetailDTO.EMAIL, userProfile.getEmail());
 
        //WEBSITE
             if(userProfile.getWebsite() == null || userProfile.getWebsite().trim().equals(""))
-                userProfile.setWebsite("...");
+                userProfile.setWebsite("");
                 objBAP.put(UserProfileDetailDTO.WEBSITE, userProfile.getWebsite());
 
        //TWITTER
             if(userProfile.getTwitter() == null || userProfile.getTwitter().trim().equals(""))
-                userProfile.setTwitter("...");
+                userProfile.setTwitter("");
                 objBAP.put(UserProfileDetailDTO.TWITTER, userProfile.getTwitter());
 
        //FACEBOOK
             if(userProfile.getFacebook() == null || userProfile.getFacebook().trim().equals(""))
-                userProfile.setFacebook("...");
+                userProfile.setFacebook("");
                 objBAP.put(UserProfileDetailDTO.FACEBOOK, userProfile.getFacebook());
 
        //LOGO

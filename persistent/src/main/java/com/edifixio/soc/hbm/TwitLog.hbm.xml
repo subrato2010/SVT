@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+>
+    <class
+        name="com.edifixio.soc.persist.TwitLog"
+        table="TwitLog"
+    >
+
+        <id
+            name="twitLogId"
+            column="twitLogId"
+            type="java.lang.String"
+        >
+            <generator class="uuid.hex">
+            </generator>
+        </id>
+        
+        <property
+            name="toWhom"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="toWhom"
+        />
+       
+        <property
+            name="retweet"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="retweet"
+        />
+        <property
+            name="reply"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="reply"
+        />
+        <property
+            name="sendTweet"
+            type="boolean"
+            update="true"
+            insert="true"
+            column="sendTweet"
+        />
+        <property
+            name="actionTakenOn"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="actionTakenOn"
+        />
+		<property
+            name="twittStatusId"
+            type="long"
+            update="true"
+            insert="true"
+            column="twittStatusId"
+        />
+        <property
+            name="updatedOn"
+            type="java.util.Date"
+            update="true"
+            insert="true"
+            column="updatedOn"
+        />
+
+        <property
+            name="updatedBy"
+            type="java.lang.String"
+            update="true"
+            insert="true"
+            column="updatedBy"
+        />
+
+        <many-to-one
+            name="benchmark"
+            class="com.edifixio.soc.persist.Benchmark"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="true"
+        >
+            <column
+                name="benchMarkId" 
+                not-null="false"
+            />
+        </many-to-one>
+        <many-to-one
+            name="twitterAccount"
+            class="com.edifixio.soc.persist.TwitterAccount"
+            cascade="none"
+            outer-join="auto"
+            update="false"
+            insert="true"
+        >
+            <column
+                name="twitterAccountId" 
+                not-null="false"
+            />
+        </many-to-one>
+    </class>
+
+</hibernate-mapping>

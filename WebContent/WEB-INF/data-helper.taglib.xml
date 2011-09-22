@@ -4,6 +4,23 @@
     "http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
 <facelet-taglib>
     <namespace>http://richfaces.org/session-data-helper</namespace>
+    
+    <tag>
+		<tag-name>jsfCache</tag-name>
+		
+		<component>
+			<component-type>CacheComponent</component-type>
+			<renderer-type>CacheRenderer</renderer-type>
+		</component>
+	</tag>
+	 <tag>
+		<tag-name>menu</tag-name>
+		
+		<component>
+			<component-type>MenuComponent</component-type>
+			<renderer-type>MenuRenderer</renderer-type>
+		</component>
+	</tag>
     <function>
         <function-name>storeDataAndGetKey</function-name>
         <function-class>

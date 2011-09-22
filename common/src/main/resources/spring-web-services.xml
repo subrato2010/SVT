@@ -9,7 +9,6 @@
  
    <bean id="userWSAdaptor" parent="baseAdaptor"
    		class="com.edifixio.soc.ws.UserWSAdaptor">
-   </bean>
-   		
+    </bean>
 </beans>
 

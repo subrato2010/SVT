@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--  Quartz -->
+	<!-- Actual Scheduler Bean that fires individual Job Triggers in the triggers list -->
+   <bean id="schedulerFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+		<list>
+            <ref bean="rtopTrigger"/>
+        </list>
+		</property>
+	</bean>
+	<bean id="rtopTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="rtopJob"/>
+		<property name="cronExpression" value="0 0/4 * * * ?"/>
+	</bean>
+	
+	<bean id="rtopJob" class="org.springframework.scheduling.quartz.JobDetailBean">		
+		<property name="jobClass" value="com.edifixio.soc.biz.JobController" />
+     	<property name="jobDataAsMap">
+        	<map>
+          		<entry key="rtopScheduleMgr" value-ref="rtopScheduleMgr" />
+         	</map>
+      	</property>
+	</bean>
+	
+</beans>

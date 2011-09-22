@@ -15,6 +15,7 @@
       <complexType name="WSUserIn">
         <sequence>
           <element name="city" type="string" nillable="true"/>
+          <element name="company" type="string" nillable="true"/>
           <element name="emailAddress" type="string" nillable="true"/>
           <element name="firstName" type="string" nillable="true"/>
           <element name="lastName" type="string" nillable="true"/>
@@ -24,6 +25,7 @@
           <element name="subscriptionDateFrom" type="dateTime" nillable="true"/>
           <element name="subscriptionDateTo" type="dateTime" nillable="true"/>
           <element name="subscriptionDesc" type="string" nillable="true"/>
+          <element name="subscriptionId" type="string" nillable="true"/>
           <element name="subscriptionName" type="string" nillable="true"/>
           <element name="workAddressLine1" type="string" nillable="true"/>
           <element name="workAddressLine2" type="string" nillable="true"/>
@@ -43,6 +45,7 @@
       <complexType name="WSUser">
         <sequence>
           <element name="city" type="string" nillable="true"/>
+          <element name="company" type="string" nillable="true"/>
           <element name="emailAddress" type="string" nillable="true"/>
           <element name="firstName" type="string" nillable="true"/>
           <element name="lastName" type="string" nillable="true"/>
@@ -52,6 +55,7 @@
           <element name="subscriptionDateFrom" type="dateTime" nillable="true"/>
           <element name="subscriptionDateTo" type="dateTime" nillable="true"/>
           <element name="subscriptionDesc" type="string" nillable="true"/>
+          <element name="subscriptionId" type="string" nillable="true"/>
           <element name="subscriptionName" type="string" nillable="true"/>
           <element name="success" type="string" nillable="true"/>
           <element name="userId" type="string" nillable="true"/>

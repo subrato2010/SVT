@@ -24,7 +24,7 @@
         <property name="show_sql">false</property>
 
         <!--Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">update</property>
+             <!-- <property name="hbm2ddl.auto">update</property> -->
              <mapping resource="com/edifixio/soc/hbm/TwitterAccount.hbm.xml"/>
 			 <mapping resource="com/edifixio/soc/hbm/StagingScore.hbm.xml"/>
 			 <mapping resource="com/edifixio/soc/hbm/StagingRawScore.hbm.xml"/>
@@ -46,6 +46,9 @@
 			 <mapping resource="com/edifixio/soc/hbm/GradeMaster.hbm.xml"/>
 			 <mapping resource="com/edifixio/soc/hbm/Parameter.hbm.xml"/>
 			 <mapping resource="com/edifixio/soc/hbm/OverallCategory.hbm.xml"/>
+			 <mapping resource="com/edifixio/soc/hbm/TimeZone.hbm.xml"/>
+			 <mapping resource="com/edifixio/soc/hbm/Menu.hbm.xml"/>
+			 <mapping resource="com/edifixio/soc/hbm/Role.hbm.xml"/>
 			 
 			 <mapping resource="com/edifixio/soc/hbm/InboundMetricsDummy.hbm.xml"/>	
 			 <mapping resource="com/edifixio/soc/hbm/OutboundMetricsDummy.hbm.xml"/>	
@@ -56,6 +59,10 @@
 			 <mapping resource="com/edifixio/soc/hbm/StateProvince.hbm.xml"/>			 
 			 <mapping resource="com/edifixio/soc/hbm/ProfileListMaster.hbm.xml"/>
 			 <mapping resource="com/edifixio/soc/hbm/ProfileInfluence.hbm.xml"/>
-			 <mapping resource="com/edifixio/soc/hbm/ProfileInfluenceList.hbm.xml"/>	 
+			 <mapping resource="com/edifixio/soc/hbm/ProfileInfluenceList.hbm.xml"/>	
+			 <mapping resource="com/edifixio/soc/hbm/RTOPSchedule.hbm.xml"/>
+			 <mapping resource="com/edifixio/soc/hbm/TrendingGrade.hbm.xml"/> 
+			 <mapping resource="com/edifixio/soc/hbm/MsgDataCreationLog.hbm.xml"/>
+			 <mapping resource="com/edifixio/soc/hbm/MetricCreationTracker.hbm.xml"/>
      </session-factory>
 </hibernate-configuration>

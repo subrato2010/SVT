@@ -1,4 +1,4 @@
-// $Author: subratog $
+// $Author: neelamadhabm $
 package com.edifixio.soc.persist;
 
 import java.io.Serializable;
@@ -22,6 +22,8 @@ public class TwitterAccount  extends TrackedEntity implements Serializable {
     private Product product;
     private Date benchmarkDate;
     private String brndProdInds;
+    private String accessToken;
+    private String accessTokenSecret;
    
     /**
      * @return Returns the Company.
@@ -129,5 +131,21 @@ public class TwitterAccount  extends TrackedEntity implements Serializable {
     }
     public void setProduct(Product product) {
         this.product = product;
+    }
+    /**
+     * @hibernate.property 
+     * 
+     */
+    public String getAccessToken() {
+        return accessToken;
+    }
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+    public String getAccessTokenSecret() {
+        return accessTokenSecret;
+    }
+    public void setAccessTokenSecret(String accessTokenSecret) {
+        this.accessTokenSecret = accessTokenSecret;
     }
 }

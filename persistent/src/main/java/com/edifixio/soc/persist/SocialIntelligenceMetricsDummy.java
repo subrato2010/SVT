@@ -2,6 +2,7 @@
 package com.edifixio.soc.persist;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 
 /**
  * @hibernate.class table="SocialIntelligenceMetricsDummy"
@@ -15,7 +16,9 @@ public class SocialIntelligenceMetricsDummy  extends TrackedEntity implements Se
     private String metricsName;
     private String metricsDesc;
     private String custVolume;
+    private int custVolumeTrend; // 0=nochange, -1=down, 1=up
     private String cmptVolume;
+    private int cmptVolumeTrend; // 0=nochange, -1=down, 1=up
     private String custTarget;
     private String percentIncrease;
     private String type;
@@ -30,7 +33,17 @@ public class SocialIntelligenceMetricsDummy  extends TrackedEntity implements Se
     private String pctPotnModerate;
     private String pctPotnAggressive;
     private String pctPotnVAggressive; 
-
+    private boolean dataProcessed; // flag to check if backendprocess is complete
+    private boolean dataProcessedCmpt; // nonstandard request from wendy
+    private String custTargetRaw;
+    private double custTargetActual;  
+    private double baselineTargetRaw;
+    private double currentTargetRaw;
+    private String currentTargetRawString;
+    private String percentIncreaseRaw;
+    private String percentIncreaseRawScale100;
+    private String calculatedYourVolume;
+    
     /**
      * @hibernate.property
      * 
@@ -272,5 +285,129 @@ public class SocialIntelligenceMetricsDummy  extends TrackedEntity implements Se
         }
         return null;
     }
+
+    public int getCustVolumeTrend() {
+        return custVolumeTrend;
+    }
+
+    public void setCustVolumeTrend(int custVolumeTrend) {
+        this.custVolumeTrend = custVolumeTrend;
+    }
+
+    public int getCmptVolumeTrend() {
+        return cmptVolumeTrend;
+    }
+
+    public void setCmptVolumeTrend(int cmptVolumeTrend) {
+        this.cmptVolumeTrend = cmptVolumeTrend;
+    }
+
+    public boolean isDataProcessed() {
+        return dataProcessed;
+    }
+
+    public void setDataProcessed(boolean dataProcessed) {
+        this.dataProcessed = dataProcessed;
+    }
+
+    public String getCustTargetRaw() {
+        return custTargetRaw;
+    }
+
+    public void setCustTargetRaw(String custTargetRaw) {
+        this.custTargetRaw = custTargetRaw;
+    }
+
+    public String getPercentIncreaseRaw() {
+        return percentIncreaseRaw;
+    }
+
+    public void setPercentIncreaseRaw(String percentIncreaseRaw) {
+        this.percentIncreaseRaw = percentIncreaseRaw;
+    }
+
+    public boolean isDataProcessedCmpt() {
+        return dataProcessedCmpt;
+    }
+
+    public void setDataProcessedCmpt(boolean dataProcessedCmpt) {
+        this.dataProcessedCmpt = dataProcessedCmpt;
+    }
+    public String getCustVolumeRoundUp() {        
+        if(getCustVolume() != null){
+            Double value = Double.parseDouble(getCustVolume());
+            DecimalFormat zeroDForm = new DecimalFormat("#");
+            return "" + Double.valueOf(zeroDForm.format(value)).intValue();
+        }
+        return getCustVolume();
+   }
+
+
+    public String getCmptVolumeRoundUp() {
+        if(getCmptVolume() != null){
+            Double value = Double.parseDouble(getCmptVolume());
+            DecimalFormat zeroDForm = new DecimalFormat("#");
+            return "" + Double.valueOf(zeroDForm.format(value)).intValue();
+        }
+        return getCmptVolume();
+    }
+
+    public String getCalculatedYourVolumeRoundUp() {
+        if(getCalculatedYourVolume() != null){
+            Double value = Double.parseDouble(getCalculatedYourVolume());
+            DecimalFormat zeroDForm = new DecimalFormat("#");
+            return "" + Double.valueOf(zeroDForm.format(value)).intValue();
+        }
+        return getCalculatedYourVolume();
+    }
+    
+    public double getCustTargetActual() {
+        return custTargetActual;
+    }
+
+    public void setCustTargetActual(double custTargetActual) {
+        this.custTargetActual = custTargetActual;
+    }
+
+    public String getPercentIncreaseRawScale100() {
+        return percentIncreaseRawScale100;
+    }
+
+    public void setPercentIncreaseRawScale100(String percentIncreaseRawScale100) {
+        this.percentIncreaseRawScale100 = percentIncreaseRawScale100;
+    }
+
+    public String getCalculatedYourVolume() {
+        return calculatedYourVolume;
+    }
+
+    public void setCalculatedYourVolume(String calculatedYourVolume) {
+        this.calculatedYourVolume = calculatedYourVolume;
+    }
+
+    public double getBaselineTargetRaw() {
+        return baselineTargetRaw;
+    }
+
+    public void setBaselineTargetRaw(double baselineTargetRaw) {
+        this.baselineTargetRaw = baselineTargetRaw;
+    }
+
+    public double getCurrentTargetRaw() {
+        return currentTargetRaw;
+    }
+
+    public void setCurrentTargetRaw(double currentTargetRaw) {
+        this.currentTargetRaw = currentTargetRaw;
+    }
+
+    public String getCurrentTargetRawString() {
+        return currentTargetRawString;
+    }
+
+    public void setCurrentTargetRawString(String currentTargetRawString) {
+        this.currentTargetRawString = currentTargetRawString;
+    }
+
 
  }

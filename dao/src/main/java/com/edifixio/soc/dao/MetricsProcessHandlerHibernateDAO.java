@@ -2,12 +2,12 @@
 package com.edifixio.soc.dao;
 
 import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
 import com.edifixio.soc.common.SVTException;
 import com.edifixio.soc.dao.util.BaseHibernateDAO;
-import com.edifixio.soc.persist.Category;
-import com.edifixio.soc.persist.Company;
 import com.edifixio.soc.persist.MetricsProcessHandler;
 
 

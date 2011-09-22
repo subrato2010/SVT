@@ -26,6 +26,10 @@
       <xml-element-name>city</xml-element-name>
     </variable-mapping>
     <variable-mapping>
+      <java-variable-name>company</java-variable-name>
+      <xml-element-name>company</xml-element-name>
+    </variable-mapping>
+    <variable-mapping>
       <java-variable-name>emailAddress</java-variable-name>
       <xml-element-name>emailAddress</xml-element-name>
     </variable-mapping>
@@ -60,6 +64,10 @@
     <variable-mapping>
       <java-variable-name>subscriptionDesc</java-variable-name>
       <xml-element-name>subscriptionDesc</xml-element-name>
+    </variable-mapping>
+    <variable-mapping>
+      <java-variable-name>subscriptionId</java-variable-name>
+      <xml-element-name>subscriptionId</xml-element-name>
     </variable-mapping>
     <variable-mapping>
       <java-variable-name>subscriptionName</java-variable-name>
@@ -150,6 +158,10 @@
       <xml-element-name>city</xml-element-name>
     </variable-mapping>
     <variable-mapping>
+      <java-variable-name>company</java-variable-name>
+      <xml-element-name>company</xml-element-name>
+    </variable-mapping>
+    <variable-mapping>
       <java-variable-name>emailAddress</java-variable-name>
       <xml-element-name>emailAddress</xml-element-name>
     </variable-mapping>
@@ -184,6 +196,10 @@
     <variable-mapping>
       <java-variable-name>subscriptionDesc</java-variable-name>
       <xml-element-name>subscriptionDesc</xml-element-name>
+    </variable-mapping>
+    <variable-mapping>
+      <java-variable-name>subscriptionId</java-variable-name>
+      <xml-element-name>subscriptionId</xml-element-name>
     </variable-mapping>
     <variable-mapping>
       <java-variable-name>subscriptionName</java-variable-name>

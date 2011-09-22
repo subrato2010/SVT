@@ -50,6 +50,14 @@
 		<property name="twitLogDAO"><ref bean="twitLogDAO"/></property>
 		<property name="gradeMasterDAO"><ref bean="gradeMasterDAO"/></property>
 		<property name="parameterDAO"><ref bean="parameterDAO"/></property>
+		<property name="timeZoneDAO"><ref bean="timeZoneDAO"/></property>
+		<property name="googleAnalyticsAccountDAO"><ref bean="googleAnalyticsAccountDAO"/></property>
+		<property name="menuDAO"><ref bean="menuDAO"/></property>
+		<property name="roleDAO"><ref bean="roleDAO"/></property>
+		<property name="rtopScheduleDAO"><ref bean="rtopScheduleDAO"/></property>
+		<property name="trendingGradeDAO"><ref bean="trendingGradeDAO"/></property>
+		<property name="msgDataCreationLogDAO"><ref bean="msgDataCreationLogDAO"/></property>
+		<property name="metricCreationTrackerDAO"><ref bean="metricCreationTrackerDAO"/></property>
 		
 		<!--  All dummy needs to be removed after 9-Dec-2010 presentation -->
 		<property name="inboundMetricsDummyDAO"><ref bean="inboundMetricsDummyDAO"/></property>
@@ -154,5 +162,29 @@
    </bean>
    <bean id="parameterDAO" class="com.edifixio.soc.dao.ParameterHibernateDAO">
  	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
-   </bean>   
+   </bean>  
+   <bean id="timeZoneDAO" class="com.edifixio.soc.dao.TimeZoneHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean> 
+   <bean id="googleAnalyticsAccountDAO" class="com.edifixio.soc.dao.GoogleAnalyticsAccountHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean> 
+   <bean id="menuDAO" class="com.edifixio.soc.dao.MenuHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="roleDAO" class="com.edifixio.soc.dao.RoleHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="rtopScheduleDAO" class="com.edifixio.soc.dao.RTOPScheduleHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="trendingGradeDAO" class="com.edifixio.soc.dao.TrendingGradeHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="msgDataCreationLogDAO" class="com.edifixio.soc.dao.MsgDataCreationLogHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
+   <bean id="metricCreationTrackerDAO" class="com.edifixio.soc.dao.MetricCreationTrackerHibernateDAO">
+ 	<property name="sessionFactory"><ref bean="sessionFactory"/></property>
+   </bean>
  </beans>
