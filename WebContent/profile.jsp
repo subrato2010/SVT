@@ -3,9 +3,12 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:sdh="http://richfaces.org/session-data-helper"
     xmlns:rich="http://richfaces.org/rich">
+    
  <!--*********************************************** Total Page Start *************************************************-->
    <head> 
+   <title>Account Profile | Optimizer</title>
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/profile.css" rel="stylesheet" type="text/css" />
     <link href="../css/popup.css" rel="stylesheet" type="text/css" />
@@ -22,7 +25,7 @@
    	<body>
    		<f:view>
    			<h:form>
-    <div class="page">
+    <div class="page" id="pageT">
 		<table width="100%" border="0" cellpadding="0" cellspacing="0">
            <tr>
 	        	<td align="left" valign="top">
@@ -49,10 +52,20 @@
                                                </div>
                                            </td>
                                            <td width="60" height="40" valign="bottom" align="left">
-                                              <img src="../images/demoPerson.png" width="40" height="40"/>
-                                              <br/>
-                                              <font  class="topFirstTableMatterGreen">
+                                           
+                                           <div id="header_left_logo"><a4j:mediaOutput element="img"
+												cacheable="false" session="false"
+												createContent="#{userProfileController.paintPhotoOrDefault}"
+												value="#{sdh:storeDataAndGetKey(userProfileController.userProfile.photo)}"
+												mimeType="image/jpg" />
+											</div>
+                                              
+                                              <font  class="topFirstTableMatterGreen"><!--
                                               <a href="#" onclick="openPopup('upload Image',400, 90, 500, 300, 7, false, true, false, 'uploadImage.jsp')" style="color:#77C442; text-decoration:none;">
+                                              CHANGE
+                                              </a>
+                                              -->
+                                              <a href="#" onclick="change1(); openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 766, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
                                               CHANGE
                                               </a>
                                               </font>
@@ -61,12 +74,21 @@
                                        </table>
                                      </td>
                                      <td align="right" valign="top">
-                                        <font  class="topFirstTableMatterGreen">
-                                           <a href="mainScreen.jsp" class="topFirstTableMatterGreen" style="color: #77C442; padding-right: 10px; text-decoration:none;">
-                                            <font style="font-size:16px;">CLOSE</font>
-                                           </a>
-                                        </font>
-                                      </td>
+                                     	<table width="120" height="20" style="margin-top: 10px; margin-right: 10px;" class="topFirstTableMatterGreen">
+                                        	<tr>
+                                        		<td align="left" valign="middle" width="60">
+                                        			<a href="#" onclick="change1(); openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 766, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
+	                                  		 			<font style="font-size: 16px;">EDIT</font>
+	                                   				</a>
+	                                   			</td>
+                                        		<td align="left" valign="middle" width="60">
+                                        			<a href="mainScreen.jsp" style="color: #77C442; text-decoration:none;">
+                                            			<font style="font-size:16px;">CLOSE</font>
+                                          			 </a>
+                                          		</td>
+                                        	</tr>
+                                        </table>
+                                    </td>
                                    </tr>
                                </table>
                          </div>
@@ -77,11 +99,15 @@
 	                                   <table width="360" border="0" cellpadding="0" cellspacing="0" style="padding-left:30px;">
 	                                 <tr>
 	                                   <td align="left" valign="top">
+	                                   <!--
 	                                   <div class="EPGreen">
-	                                 	<a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
+	                                 	
+	                                 	<a href="#" onclick="openPopup('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
 	                                  		 <font style="font-size: 14px;">EDIT PROFILE</font>
 	                                   	</a>
-	                                   </div>
+	                                   	</div>
+	                                   -->
+	                                   
 	                                   </td>
 	                                 </tr>
 	                                 <tr>
@@ -127,16 +153,20 @@
 	                                   <td class="profileTextBold" align="left" valign="top">#{userProfileController.userProfile.website}</td>
 	                                 </tr>
 	                                 <tr>
-	                                   <td class="profileTextBold" align="left" valign="top">
-	                                   <img src="../images/Profile/terametricLogo.gif" border="0"/></td>
+	                                   <td class="profileTextBold" align="left" valign="middle" height="60">
+	                                   	<a4j:mediaOutput element="img"
+											cacheable="false" session="false"
+											createContent="#{userProfileController.paintPhotoOrDefault}"
+											value="#{sdh:storeDataAndGetKey(userProfileController.userProfile.logo)}"
+											mimeType="image/jpg" />
+	                                   </td>
 	                                 </tr>
 	                                 <tr>
 	                                   <td class="profileTextBoldSI" align="left" valign="top">Subscription Information:</td>
 	                                 </tr>
 	                                 <tr>
-	                                   <td class="profileTextBoldSI1" align="left" valign="top">Free 30 day Trial - completed<br/>
-	                                   	Monthly Subscription @ $499/mo.<br/>
-	                                       (12 Month Subscription) - X days remaining
+	                                   <td class="profileTextBoldSI1" align="left" valign="top">#{userProfileController.userProfile.subscriptionName}<br/>
+	                                   	#{userProfileController.userProfile.subscriptionDesc}
 	                                       </td>
 	                                 </tr>
 	                                 <tr>
@@ -151,12 +181,12 @@
                                                               <tr>
                                                                 <td class="profileText" align="left" valign="top">
                                                                 Twitter Authenticated Accounts  
-                                                                <a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" 
+                                                                <!--<a href="#" onclick="openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" 
                                                                     style="color:#77C442; text-decoration:none;">
                                                                 		<font style="font-weight: normal; color: rgb(126, 190, 76);">ADD ANOTHER</font>
                                                                 </a>
                                                                 <font style="padding-left: 3px; padding-right: 3px; color: #787E89;">or</font>
-                                                                <a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
+                                                                --><a href="#" onclick="openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
                                                                 		
                                                                 		<font style="font-weight: normal; color: rgb(126, 190, 76);">CHANGE</font>
                                                                 </a>
@@ -172,12 +202,12 @@
                                                               <tr>
                                                                 <td class="profileText" align="left" valign="top">
                                                                 <br/>Competitor Twitter Non-Authenticated Accounts
-                                                                <a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" 
+                                                                <!--<a href="#" onclick="openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" 
                                                                     style="color:#77C442; text-decoration:none;">
                                                                 		<font style="font-weight: normal; color: rgb(126, 190, 76);">ADD ANOTHER</font>
                                                                 </a>
                                                                 <font style="padding-left: 3px; padding-right: 3px; color: #787E89;">or</font>
-                                                                <a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
+                                                                --><a href="#" onclick="openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
                                                                 		
                                                                 		<font style="font-weight: normal; color: rgb(126, 190, 76);">CHANGE</font>
                                                                 </a>
@@ -195,24 +225,39 @@
                                                                 <td class="profileText" align="left" valign="top">
                                                                 <br/>Google Analytics Account</td>
                                                               </tr>
+                                                              
+                                                              <a4j:outputPanel rendered="#{!(userProfileController.userProfile.googleAnalyticsUsername eq '')}">
                                                               <tr>
                                                                 <td valign="middle" align="left" width="200" class="profileTextBold">
-                                                                twinbcreative.com
-                                                                <a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
+                                                                #{userProfileController.userProfile.googleAnalyticsUsername}
+                                                                <a href="#" onclick="openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
                                                                 		
                                                                 		<font style="font-weight: normal; color: rgb(126, 190, 76);">CHANGE</font><br/><br/>
                                                                 </a>			
 																</td>
                                                               </tr>
+                                                              </a4j:outputPanel>
+                                                              
+                                                              <a4j:outputPanel rendered="#{(userProfileController.userProfile.googleAnalyticsUsername eq '')}">
+                                                              <tr>
+                                                                <td valign="middle" align="left" width="200" class="profileTextBold">
+                                                                twinbcreative.com
+                                                                <a href="#" onclick="openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
+                                                                		
+                                                                		<font style="font-weight: normal; color: rgb(126, 190, 76);">CHANGE</font><br/><br/>
+                                                                </a>			
+																</td>
+                                                              </tr>
+                                                              </a4j:outputPanel>
                                                               
                                                               <tr>
-                                                               <td bgcolor="#EBECEA" class="profileText" 
-                                                               	   style="padding-top: 5px; padding-bottom: 5px; padding-left: 5px;">Select the most optimal improvement level based on your competitors' average scores
-															   </td>
+                                                               		<td class="profileTextBold1" bgcolor="#EBECEA" style="padding-top: 5px; padding-bottom: 5px; padding-left: 5px; font-weight: normal; font-size: 11px">
+                                                               			Select the most optimal improvement level based on your competitors' average scores
+															   		</td>
                                                               </tr>
                                                               <tr>
                                                               		<td valign="middle" align="left">
-                                                                        <table width="600" border="0" cellpadding="0" cellspacing="0">
+                                                                        <table width="600" border="0" cellpadding="0" cellspacing="0" style="margin-top:6px">
                                                                          <tr>
                                                                             <td class="edit_left_textEPP" align="right" valign="top" width="100">
                                                                             Improvement<br/> Level
@@ -222,13 +267,13 @@
                                                                                 <table width="500" border="0" cellspacing="0" cellpadding="0" class="edit_left_textEPP1" style="margin-left:10px;">
                                                                                               <tr>
                                                                                                 <td valign="top" align="center" width="30">
-                                                                                                    <input type="radio" id="chkOne" name="chk" value="aaaa" checked="checked" onClick="SingleSelect('chk',this);" class="styled" />
+                                                                                                    <input type="radio" id="chkOne" name="chk" value="aaaa" checked="checked" onclick="SingleSelect('chk',this);" class="styled" />
                                                                                                 </td>
-                                                                                                <td valign="top" align="left" width="470">Moderate
-                                                                                                 <a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
+                                                                                                <td valign="top" align="left" width="470">#{userProfileController.userProfile.improvementLevelName}
+                                                                                                 <a href="#" onclick="openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
 		                                                                							<font style="font-weight: normal; color: rgb(126, 190, 76);">CHANGE</font></a>	
                                                                                                 	<br />
-                                                                                                    <font class="edit_left_textEPP3">(You'd like to close some of the gap between you and your competitor.)</font>
+                                                                                                    <font class="edit_left_textEPP3">(You'd like to close some of the gap between you and your competitor(s).)</font>
                                                                                                 </td>
                                                                                               </tr>
                                                                                               <tr>
@@ -268,7 +313,7 @@
                                                               <tr>
                                                                 <td align="left" valign="top">
                                                                         <table width="50%" border="0" cellspacing="0" cellpadding="0" 
-                                                                        		style="margin-left: 145px; margin-top: 10px; margin-bottom: 10px;">
+                                                                        		style="margin-left: 105px; margin-top: 10px; margin-bottom: 10px;">
                                                                               <tr>
                                                                                 
                                                                                 <td valign="top" align="left" class="edit_left_textBlue">
@@ -277,14 +322,20 @@
 																						<tr>
 																							<td class="edit_left_textBlue" valign="top" align="left">
 																								<input type="checkbox" id="chkReptEmail" name="chkrpt" value="a"
-																										checked="checked" onClick="SingleSelect('chkrpt',this);"
+																										checked="checked" onclick="SingleSelect('chkrpt',this);"
 																									class="styled"/></td>
 																									<td class="edit_left_textBlue" valign="top" align="left">
 																								<div class="emailDetails">
 																								#{userProfileController.userProfile.reportingEmail1}
 																								</div>
 																								</td>
-																							<td valign="top" align="right" class="edit_left_textGreen">REMOVE</td>
+																							<td valign="top" align="right" class="edit_left_textGreen">
+																								 <h:commandLink value="REMOVE" 
+																											actionListener="#{backingBean.removeReportingEmailAddress}" 
+																											style="text-decoration: none; color: #7EBE4C;">
+																											<f:attribute name="reportingEmail" value="1" /> 
+																			                     </h:commandLink>
+																		                    </td>
 																						</tr>
 																						<tr>
 																							<td colspan="3" height="10" width="289px;">
@@ -303,7 +354,7 @@
 																						<tr>
 																							<td class="edit_left_textBlue" valign="top" align="left">
 																									<input type="checkbox" id="chkReptEmail" name="chkrpt" value="a"
-																											checked="checked" onClick="SingleSelect('chkrpt',this);"
+																											checked="checked" onclick="SingleSelect('chkrpt',this);"
 																											class="styled" />
 																								</td>
 																								<td class="edit_left_textBlue" valign="top" align="left">
@@ -311,7 +362,13 @@
 																										#{userProfileController.userProfile.reportingEmail2}
 																										</div>
 																								</td>												
-																									<td valign="top" align="right" class="edit_left_textGreen">REMOVE</td>
+																								<td valign="top" align="right" class="edit_left_textGreen">
+																									<h:commandLink value="REMOVE" 
+																												actionListener="#{backingBean.removeReportingEmailAddress}" 
+																												style="text-decoration: none; color: #7EBE4C;">
+																												<f:attribute name="reportingEmail" value="2" /> 
+																				                     </h:commandLink>							                    
+																			                     </td>
 																						</tr>
 																						<tr>
 																							<td colspan="3" height="10" width="289px;">
@@ -334,16 +391,21 @@
 																						<tr>
 																							<td class="edit_left_textBlue" valign="top" align="left">
 																									<input type="checkbox" id="chkReptEmail" name="chkrpt" value="a"
-																											checked="checked" onClick="SingleSelect('chkrpt',this);"
+																											checked="checked" onclick="SingleSelect('chkrpt',this);"
 																											class="styled" />
 																								</td>
 																								<td class="edit_left_textBlue" valign="top" align="left">
 																										<div class="emailDetails">
 																											#{userProfileController.userProfile.reportingEmail3}
 																										</div>
-																										
 																								</td>												
-																									<td valign="top" align="right" class="edit_left_textGreen">REMOVE</td>
+																								<td valign="top" align="right" class="edit_left_textGreen">
+																									<h:commandLink value="REMOVE" 
+																												actionListener="#{backingBean.removeReportingEmailAddress}" 
+																												style="text-decoration: none; color: #7EBE4C;">
+																												<f:attribute name="reportingEmail" value="3" /> 
+																				                     </h:commandLink>							                    
+																		                     	</td>
 																						</tr>
 																						<tr>
 																							<td colspan="3" height="10" width="289px;">
@@ -365,7 +427,7 @@
 																							<td class="edit_left_textBlue" valign="top" align="left">
 																									
 																									<input type="checkbox" id="chkReptEmail" name="chkrpt" value="a"
-																											checked="" onClick="SingleSelect('chkrpt',this);"
+																											checked="" onclick="SingleSelect('chkrpt',this);"
 																											class="styled" />
 																								
 																								<img src="../images/selectCheckGrey.gif"/>
@@ -394,13 +456,26 @@
                                                                         </table>
                                                                 </td>
                                                               </tr>
+                                                              
+<!--                                                              
+                                                             <a4j:outputPanel rendered="#{userProfileController.userProfile.vanityUrl eq ''}"> 
                                                              <tr>
                                                                 <td class="profileTextBold1" style="padding-left: 5px;padding-top: 3px;">Vanity URL<br />
-                                                                <font style="font-weight:normal; font-size:11px;">You have not added a vanity URL yet.</font>
-                                                                <a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
+                                   					               <font style="font-weight:normal; font-size:11px;">You have not added a vanity URL yet.</font>
+                                                                <a href="#" onclick="openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
 		                                                              <font style="font-weight: normal; color: rgb(126, 190, 76);">ADD</font></a>	
                                                                 </td>
                                                               </tr>
+                                                              </a4j:outputPanel>
+                                                              
+                                                            <a4j:outputPanel rendered="#{!(userProfileController.userProfile.vanityUrl eq '')}"> 
+	                                                             <tr>
+    	                                                            <td class="profileTextBold1" style="padding-left: 5px;padding-top: 3px;">Vanity URL
+																	<h:outputText value="#{userProfileController.userProfile.vanityUrl}" styleClass="edit_left_textBlue"  style="padding-left: 45px;padding-top: 3px;"/>
+            	                                                    </td>
+        	                                                      </tr>
+        	                                                </a4j:outputPanel>
+-->                                                              
                                                               <!-- 
 	                                                             <tr height="60">
                                                                   <td valign="top" align="left">
@@ -425,8 +500,8 @@
                                                                                Time Zone
                                                                             </td>
                                                                             <td class="profileTextBold1" align="left" valign="top">
-                                                                            (GMT - 5:00) Eastern Time (Us &amp; Canada) 
-                                                                            <a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
+                                                                            		#{userProfileController.userProfile.timezoneSelected}
+                                                                            <a href="#" onclick="openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
                                                                 				<font style="font-weight: normal; color: rgb(126, 190, 76);">CHANGE</font>
                                                                 			</a>
                                                                             </td>
@@ -442,14 +517,13 @@
                                                                             <td  class="profileTextBold1" style="padding-left: 5px;">
                                                                               Benchmark Date
                                                                             </td>
-                                                                            <td class="profileTextBold1" align="left" valign="top">
-                                                                            11/21/10 to 12/9/10 
-                                                                            <a href="#" onclick="openPopup('Edit Profile Preference',254, 3, 770, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
+                                                                            <td class="profileTextBold1" align="left" valign="top" style="padding-left: 5px;">
+                                                                            #{userProfileController.benchmarkStDate} to #{userProfileController.benchmarkEdDate}
+                                                                            <a href="#" onclick="openPopupR('Edit Profile Preferences', '', '#E7E7E7', '#787E89', '*Required', 254, 3, 785, 800, 10, false, true, false, 'editProfile.jsp')" style="color:#77C442; text-decoration:none;">
                                                                 				<font style="font-weight: normal; color: rgb(126, 190, 76);">CHANGE</font>
                                                                 			</a>
                                                                             </td>
                                                                           </tr>
-                                                                          
                                                                         </table>
                                                                 </td>
                                                               </tr>
@@ -463,7 +537,7 @@
                                                                 <table border="0" height="100%">
                                                                 	<tr>
                                                                 		<td width="25" align="center" valign="top"><img src="../images/profileLowerLogo.gif"/></td>
-                                                                		<td align="left" valign="middle" class="AP">ACCOUNT PROCESSING: <font class="AP1">3 Hours Ago</font></td>
+                                                                		<td align="left" valign="middle" class="AP">ACCOUNT PROCESSING: <font class="AP1">#{userProfileController.userProfile.accountProcessing}</font></td>
                                                                 	</tr>
                                                                 
                                                                 </table>
@@ -480,7 +554,7 @@
                                                                 <table border="0" height="100%">
                                                                 	<tr>
                                                                 		<td width="25" align="center" valign="top"><img src="../images/profileLowerLogo.gif"/></td>
-                                                                		<td align="left" valign="middle" class="AP">DAYS OPTIMIZED: <font class="AP1">125 Days</font></td>
+                                                                		<td align="left" valign="middle" class="AP">DAYS OPTIMIZED: <font class="AP1">#{userProfileController.userProfile.daysOptimized}</font></td>
                                                                 	</tr>
                                                                 
                                                                 </table>
@@ -508,7 +582,7 @@
                                                 						</td>
                                                 						<td class="profileTextBold1" align="left" valign="middle" style="font-size: 15px; padding-left: 5px;">
                                                 						twitter<br/>
-                                                						twitter.com/wtblacklock
+                                                						#{userProfileController.userProfile.twitter}
                                                 						</td>
                                                 					</tr>
                                                 				
@@ -524,7 +598,7 @@
                                                 						</td>
                                                 						<td class="profileTextBold1" align="left" valign="middle" style="font-size: 15px; padding-left: 5px;">
                                                 						facebook<br/>
-                                                						facebook.com/wtblacklock
+                                                						#{userProfileController.userProfile.facebook}
                                                 						</td>
                                                 					</tr>
                                                 				

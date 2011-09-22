@@ -14,37 +14,46 @@
 	<link href="../css/profile.css" rel="stylesheet" type="text/css" />
 	<link href="../css/style.css" rel="stylesheet" type="text/css" />
 	
-	<script language="JavaScript" src="../js/popup.js" />
-	<script language="JavaScript" src="../js/svt.js"/>	
+	<script language="JavaScript" src="../js/popup.js"></script>
+	<script language="JavaScript" src="../js/all.js"></script>
+	<script language="JavaScript" src="../js/svt.js"></script>
 
 	<script language="JavaScript">
 		function setMentionsId(mentionsId,MentionsName){
 		document.getElementById('dummyholdermentions').value=mentionsId;
 		document.getElementById('captionDivM').innerHTML=MentionsName;
 		}
+
+		function setInfluenceId(influenceId,name){
+			document.getElementById('dummyholderinfluence').value=influenceId;
+			document.getElementById('captionDivI').innerHTML=name;
+			}
+		
 	</script>
 	
 	<body marginheight="0" marginwidth="0" style="margin:0px;">
 	<f:view>
-		<h:form>
+		<h:form style="margin: 0px;">
 		<input type="hidden" id="dummyholdermentions" value="0"/>
-		
+		<input type="hidden" id="dummyholderinfluence" value="0"/>
 		<div class="total">
-		
-		<table width="100%" border="0" cellpadding="0" cellspacing="0" height="97%">
-			<tr>
+		<table width="760" border="0" cellpadding="0" cellspacing="0"  height="635">
+		<tr>
+			<td valign="top" align="center">
+			<table width="750" border="0" cellpadding="0" cellspacing="0" height="520">
+			<tr height="95">
 				<td valign="top" align="left">
 				<div class="heading_total">
-				<div class="heading">
-				<table>
-						<tr><td><font class="heading_text">Mentions about </font></td>
-						<td>
+				<div class="headingSent">
+				<table width="550" border="0" cellpadding="0" cellspacing="0"  style="margin-left:10px; margin-top:8px;">
+						<tr><td valign="top" align="left"><font class="heading_text">Mentions about </font></td>
+						<td valign="top" align="left">
 							<div class="mainDiv" id="main_xa">
 							<div id="captionDivM" class="captionDiv">Product</div>
 							<div class="textDiv"><h:inputText type="text"
 								class="fakeText" onblur="closeList('xa');"
 								onclick="toggleList('xa')" readonly="readonly"
-								style="cursor:auto; text-align:right; " value="" /></div>
+								style="cursor:pointer; text-align:right; " value="" /></div>
 							</div>
 							<div class="listDiv" id="list_xa" onmouseover="setInList(true);"
 								onmouseout="setInList(false);">
@@ -59,6 +68,28 @@
 								class="optiontext">Brand</a></div>
 							<div class="listBottomDiv"></div>
 							</div>
+				</td>
+				<td valign="top" align="left">
+				
+							
+							
+							
+							
+							<div class="mainDivSentNew" id="main_xc">
+								<div id="captionDivI" class="captionDiv">All</div> 
+								<div class="textDiv" >
+									<h:inputText  styleClass="fakeTextSentNew" onblur="closeList('xc');" onclick="toggleList('xc')" 
+										readonly="readonly" style="cursor:pointer; text-align:right; " 
+										value=""/>
+								</div>						    
+							</div>
+							<div class="listDivSentNew" id="list_xc" onmouseover="setInList(true);" onmouseout="setInList(false);">
+								<div class="itemDivSentNew"><a  onclick="setInfluenceId('0','Score1');toggleList('xc');" href="#" class="optiontext">Score1</a></div>
+								<div class="itemDivSentNew"><a  onclick="setInfluenceId('1','Score2');toggleList('xc');" href="#" class="optiontext">Score2</a></div>
+								<div class="itemDivSentNew"><a  onclick="setInfluenceId('2','Score3');toggleList('xc');" href="#" class="optiontext">Score3</a></div>
+								<div class="listBottomDiv"></div>
+							</div>
+				
 				</td>
 
 						</tr>
@@ -77,106 +108,282 @@
 				</td>
 			</tr>
 			<tr>
-				<td valign="top" align="left">
-				<div class="lowerpart">
-				<div class="lowerPartTotal">
-					<div class="lowerPart1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor....
-					</div>
-					<div class="lowerPart2">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					<br/>
-					<font class="lowerPart1" style="font-weight: normal;"> www.prnewswire.com/.../john-long-joins-integrascreen-group-as-global-ceo-58173417.html<br/>
-					<font style="color: #8B8B8B;">3 HOURS AGO</font> - on yahoo</font>
-					</div>
-					<div class="lowerPart3">
-
-					<table>
-						<tr>
-							<td width="26" align="left" valign="middle">
-								<img alt="Heart" src="../images/heart.gif" border="0"/>
-							</td>
-							<td align="left" valign="middle" class="lowerPart3">
+			<td valign="top" align="left">
+			
+			<div id="SentBody">
+				<a href="#" style="text-decoration: none;" onmouseover="document.getElementById('SentBodyEach').style.backgroundColor='#E9FFD8';" onmouseout="document.getElementById('SentBodyEach').style.backgroundColor='#F9F9F9';">
+				<div id="SentBodyEach">
+						<div id="SentiBodyEachTop">
+							<div id="SentiBodyLeft">
+								<img alt="logo" src="../images/SentLogoBird.gif" style="border:1px solid #D7D7D7"/>
+							</div>
+							<div id="SentiBodyRight">
+								<div id="SentiBodyRight1">
+								twiteconomy <font style="font-weight: normal;">Tweeter Economy</font>
+								</div>
+								
+								<div id="SentiBodyRight2">
+								Wash Post How to decipher text rumors the nerd equivalent of celbrity gossip
+								</div>
+								<div id="SentiBodyRight3">
+								htt://wapo.st/fW0zxc #business
+								</div>
+								
+								<div id="SentiBodyRight4">
+								2 MINUTES AGO - on <font style="color: #77C442;">yahoo</font>
+								</div>
+								<div id="SentiBodyRight5">
+								<table width="200" border="0" cellpadding="0" cellspacing="0" style="margin-top: 4px;">
+								<tr>
+									<td valign="top" align="left">
+										<img alt="Favorite" src="../images/favorite.gif" border="0"/>
+									</td>
+									<td valign="top" align="left">
+										<img alt="Retweet" src="../images/retweet.gif" border="0"/>
+									</td>
+									<td valign="top" align="left">
+										<img alt="Reply" src="../images/reply.gif" border="0"/>
+									</td>
+								</tr>
+								
+								</table>
+								</div>
+							</div>
+						</div>
+						<div id="SentiBodyEachBottom">
+						
+							<div id="SentiBodyEachBottomLeft">
+							<img src="../images/sentiHearts.gif" border="0"/>
+							</div>
+							<div id="SentiBodyEachBottomRight">
 							3.93
-							</td>
-						</tr>
-					</table>
-					</div>
-					
+							</div>
+						</div>
 				</div>
+				</a>
 				
-				<div class="lowerPartTotalGray">
-					<div class="lowerPart1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor....
-					</div>
-					<div class="lowerPart2">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					<br/>
-					<font class="lowerPart1" style="font-weight: normal;"> www.prnewswire.com/.../john-long-joins-integrascreen-group-as-global-ceo-58173417.html<br/>
-					<font style="color: #8B8B8B;">3 HOURS AGO</font> - on yahoo</font>
-					</div>
-					<div class="lowerPart3">
-
-					<table>
-						<tr>
-							<td width="26" align="left" valign="middle">
-								<img alt="Heart" src="../images/heart.gif" border="0"/>
-							</td>
-							<td align="left" valign="middle" class="lowerPart3">
+				
+				
+				
+				
+				<a href="#" style="text-decoration: none;" onmouseover="document.getElementById('SentBodyEach1').style.backgroundColor='#E9FFD8';" onmouseout="document.getElementById('SentBodyEach1').style.backgroundColor='#F9F9F9';">
+				<div id="SentBodyEach1" style="margin-top: 10px;">
+						<div id="SentiBodyEachTop">
+							<div id="SentiBodyLeft">
+								<img alt="logo" src="../images/SentLogoBird.gif" style="border:1px solid #D7D7D7"/>
+							</div>
+							<div id="SentiBodyRight">
+								<div id="SentiBodyRight1">
+								twiteconomy <font style="font-weight: normal;">Tweeter Economy</font>
+								</div>
+								
+								<div id="SentiBodyRight2">
+								Wash Post How to decipher text rumors the nerd equivalent of celbrity gossip
+								</div>
+								<div id="SentiBodyRight3">
+								htt://wapo.st/fW0zxc #business
+								</div>
+								
+								<div id="SentiBodyRight4">
+								2 MINUTES AGO - on <font style="color: #77C442;">yahoo</font>
+								</div>
+								<div id="SentiBodyRight5">
+								<table width="200" border="0" cellpadding="0" cellspacing="0" style="margin-top: 4px;">
+								<tr>
+									<td valign="top" align="left">
+										<img alt="Favorite" src="../images/favorite.gif" border="0"/>
+									</td>
+									<td valign="top" align="left">
+										<img alt="Retweet" src="../images/retweet.gif" border="0"/>
+									</td>
+									<td valign="top" align="left">
+										<img alt="Reply" src="../images/reply.gif" border="0"/>
+									</td>
+								</tr>
+								
+								</table>
+								</div>
+							</div>
+						</div>
+						<div id="SentiBodyEachBottom">
+						
+							<div id="SentiBodyEachBottomLeft">
+							<img src="../images/sentiHearts.gif" border="0"/>
+							</div>
+							<div id="SentiBodyEachBottomRight">
 							3.93
-							</td>
-						</tr>
-					</table>
-					</div>
-					
+							</div>
+						</div>
 				</div>
-				
-		
-				
+				</a>
 				
 				
-				<div class="lowerPartTotal">
-					<div class="lowerPart1">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor....
-					</div>
-					<div class="lowerPart2">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					<br/>
-					<font class="lowerPart1" style="font-weight: normal;"> www.prnewswire.com/.../john-long-joins-integrascreen-group-as-global-ceo-58173417.html<br/>
-					<font style="color: #8B8B8B;">3 HOURS AGO</font> - on yahoo</font>
-					</div>
-					<div class="lowerPart3">
-
-					<table>
-						<tr>
-							<td width="26" align="left" valign="middle">
-								<img alt="Heart" src="../images/heart.gif" border="0"/>
-							</td>
-							<td align="left" valign="middle" class="lowerPart3">
+				
+				
+				<a href="#" style="text-decoration: none;" onmouseover="document.getElementById('SentBodyEach2').style.backgroundColor='#E9FFD8';" onmouseout="document.getElementById('SentBodyEach2').style.backgroundColor='#F9F9F9';">
+				<div id="SentBodyEach2" style="margin-top: 10px;">
+						<div id="SentiBodyEachTop">
+							<div id="SentiBodyLeft">
+								<img alt="logo" src="../images/SentLogoBird.gif" style="border:1px solid #D7D7D7"/>
+							</div>
+							<div id="SentiBodyRight">
+								<div id="SentiBodyRight1">
+								twiteconomy <font style="font-weight: normal;">Tweeter Economy</font>
+								</div>
+								
+								<div id="SentiBodyRight2">
+								Wash Post How to decipher text rumors the nerd equivalent of celbrity gossip
+								</div>
+								<div id="SentiBodyRight3">
+								htt://wapo.st/fW0zxc #business
+								</div>
+								
+								<div id="SentiBodyRight4">
+								2 MINUTES AGO - on <font style="color: #77C442;">yahoo</font>
+								</div>
+								<div id="SentiBodyRight5">
+								<table width="200" border="0" cellpadding="0" cellspacing="0" style="margin-top: 4px;">
+								<tr>
+									<td valign="top" align="left">
+										<img alt="Favorite" src="../images/favorite.gif" border="0"/>
+									</td>
+									<td valign="top" align="left">
+										<img alt="Retweet" src="../images/retweet.gif" border="0"/>
+									</td>
+									<td valign="top" align="left">
+										<img alt="Reply" src="../images/reply.gif" border="0"/>
+									</td>
+								</tr>
+								
+								</table>
+								</div>
+							</div>
+						</div>
+						<div id="SentiBodyEachBottom">
+						
+							<div id="SentiBodyEachBottomLeft">
+							<img src="../images/sentiHearts.gif" border="0"/>
+							</div>
+							<div id="SentiBodyEachBottomRight">
 							3.93
-							</td>
-						</tr>
-					</table>
-					</div>
-					
+							</div>
+						</div>
 				</div>
-				
+				</a>
 			
 			</div>
-				</td>
+			
+			
+			
+			
+			
+			
+			</td>
 			</tr>
-			<tr>
-				<td valign="bottom" align="left">
-				<div class="footerInflu">
-				<img src="../images/pagination.gif" border="0"/>
-				
-				</div>
-				</td>
-			</tr>
+			
+			
 		
 		
 		
 		</table>
+			
+			</td>
+		</tr>
+		<tr>
+			<td valign="bottom" align="left">
+			<div id="sentNewFooter">
+						<div id="sentNewFooterLeft">
+							<div id="influPrevButton">
+							<table width="75" height="45" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td valign="middle" align="center" class="influPrev">
+									<a href="#" class="influPrev" style="color:#787E89; cursor: hand; text-decoration: none;" onclick="ButtonPrev();">
+									PREV
+									</a>
+									</td>
+								</tr>
+							</table>
+							
+							</div>
+							<div id="influGeneralButton1">
+							<table width="38" height="45" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td valign="middle" align="center">
+									<a href="#" class="influPrev" style="color:#787E89; cursor: hand; text-decoration: none;" onclick="Button1();">1</a>
+									</td>
+								</tr>
+							</table>
+							</div>
+							<div id="influGeneralButton2">
+							<table width="38" height="45" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td valign="middle" align="center" class="influPrev">
+									
+									<a href="#" class="influPrev" style="color:#787E89; cursor: hand; text-decoration: none;" onclick="Button2();">
+									2
+									</a>
+									
+									</td>
+								</tr>
+							</table>
+							</div>
+							<div id="influGeneralButton3">
+							<table width="38" height="45" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td valign="middle" align="center" class="influPrev">
+									<a href="#" class="influPrev" style="color:#787E89; cursor: hand; text-decoration: none;" onclick="Button3();">
+									3
+									</a>
+									</td>
+								</tr>
+							</table>
+							</div>
+							<div id="influGeneralButton4">
+							<table width="38" height="45" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td valign="middle" align="center" class="influPrev">
+									<a href="#" class="influPrev" style="color:#787E89; cursor: hand; text-decoration: none;" onclick="Button4();">
+									4
+									</a>
+									</td>
+								</tr>
+							</table>
+							</div>
+							<div id="influGeneralButton5">
+							<table width="38" height="45" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td valign="middle" align="center" class="influPrev">
+									<a href="#" class="influPrev" style="color:#787E89; cursor: hand; text-decoration: none;" onclick="Button5();">
+									5
+									</a>
+									</td>
+								</tr>
+							</table>
+							</div>
+							<div id="influNextButton">
+							<table width="75" height="45" border="0" cellpadding="0" cellspacing="0">
+								<tr>
+									<td valign="middle" align="center" class="influPrev">
+									<a href="#" class="influPrev" style="color:#787E89; cursor: hand; text-decoration: none;" onclick="ButtonNext();">
+									NEXT
+									</a>
+									</td>
+								</tr>
+							</table>
+							
+							</div>
+						</div>
+						<div id="sentNewFooterRight">
+						</div>
+					</div>
+			</td>
+		</tr>
+		
+		
+		</table>
+		
+		
+		
 		
 			 
 	

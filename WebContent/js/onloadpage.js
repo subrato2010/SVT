@@ -21,7 +21,7 @@
 		    toggleTextListBox('toggleTextD','displayTextDemographics');
 		    document.getElementById(col + "6").style.color="#2874ae";
 	   }else if(selectedcategory == "7"){
-		    toggleTextListBox('toggleTextRet','displayTextRetention');
+		    toggleTextListBox('toggleTextRet','displayTextConversion');
 		    document.getElementById(col + "7").style.color="#2874ae";
 	   }else if(selectedcategory == "8"){
 		    document.getElementById(col + "8").style.color="#2874ae";

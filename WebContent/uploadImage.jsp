@@ -57,9 +57,9 @@
 							<tr>
 							<td valign="middle" align="left" width="200">
 							
-                          		<img src="../images/save_changes_btn.gif" border="0"  
-                          			 onmouseover="this.src='../images/save_changes_btnRollover.gif'"
-                              		 onmouseout="this.src='../images/save_changes_btn.gif'"/>
+                          		<img src="../images/Buttons/General/saveChangesGeneral.gif" border="0"  
+                          			 onmouseover="this.src='../images/Buttons/rollover/saveChangesRollover.gif'"
+                              		 onmouseout="this.src='../images/Buttons/General/saveChangesGeneral.gif'"/>
                         
 							
 							</td>

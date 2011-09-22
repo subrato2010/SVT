@@ -124,10 +124,12 @@ function toggleTextListBox(divToExpand, clickedtext) {
 	if(ele.style.display == "block") {
     		ele.style.display = "none";
     		text.style.color="#8B8B8B";
+    		setClickedText(text.text,"0");
   	}
 	else {
 		ele.style.display = "block";
 		text.style.color="#2874ae";
+		setClickedText(text.text,"1");
 	}
 }
 
@@ -137,12 +139,35 @@ function toggleText(divToExpand, clickedtext) {
 	if(ele.style.display == "block") {
     		ele.style.display = "none";
     		//text.style.color="#8B8B8B";
+    		setClickedText(text.text,"0");
   	}
 	else {
 		ele.style.display = "block";
 		text.style.color="#2874ae";
+		setClickedText(text.text,"1");
 	}
 }
+
+function setClickedText(text, onoff){
+	var str = document.getElementById('templatedatetwitterForm:clickedSentiment').value;
+	if(onoff == "0"){
+		str = str.replace(trim(text) + "," , "");
+	}else{
+		str +=  trim(text) + ",";
+	}
+	document.getElementById('templatedatetwitterForm:clickedSentiment').value=str; 
+}
+
+function trim(stringToTrim) {
+	return stringToTrim.replace(/^\s+|\s+$/g,"");
+}
+function ltrim(stringToTrim) {
+	return stringToTrim.replace(/^\s+/,"");
+}
+function rtrim(stringToTrim) {
+	return stringToTrim.replace(/\s+$/,"");
+}
+
 
 function toggleTextGradeClick(divToExpand, clickedtext) {
 	var ele = document.getElementById(divToExpand);
@@ -150,10 +175,12 @@ function toggleTextGradeClick(divToExpand, clickedtext) {
 	if(ele.style.display == "block") {
     		ele.style.display = "none";
     		text.style.color="#8B8B8B";
+    		setClickedText(text.text,"0");
   	}
 	else {
 		ele.style.display = "block";
 		text.style.color="#2874ae";
+		setClickedText(text.text,"1");
 	}
 }
 
@@ -181,4 +208,23 @@ function rgbConvert(str) {
    str[1] = (str[1].length == 1) ? '0' + str[1] : str[1];
    str[2] = (str[2].length == 1) ? '0' + str[2] : str[2];
    return ('#' + str.join(""));
+}
+
+function clickLink(linkId)
+{
+  var fireOnThis = document.getElementById(linkId)
+  if (document.createEvent)
+  {
+    var evObj = document.createEvent('MouseEvents')
+    evObj.initEvent( 'click', true, false )
+    if(fireOnThis != null){    	
+    fireOnThis.dispatchEvent(evObj)
+    }
+  }
+  else if (document.createEventObject)
+  {
+	  if(fireOnThis != null){		  
+	  fireOnThis.fireEvent('onclick')
+	  }
+  }
 }

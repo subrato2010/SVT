@@ -16,7 +16,7 @@
 			response.sendRedirect("../twt.jsp?status=login");
 		}
 	} catch (Exception e) {
-		System.out.println("Error :" + e.getMessage());
+		System.out.println("Error from JSP :" + e.getMessage());
 		e.printStackTrace();
 	}
 %>

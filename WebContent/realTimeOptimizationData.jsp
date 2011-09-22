@@ -23,13 +23,16 @@
 				  </div>
 				</h:graphicImage>              
 			</td>
+			
 			<a4j:outputPanel rendered="#{!(msgtype eq 'NEGATIVE')}"> 
             <td width="380" bgcolor="#F2F2F2">
             	<div class="RTOBody"> 
-                		<font style="color:#3482BD">@#{twtName}</font> <font style="color:#6E7177">#{twtMessage}</font>
+                		<font style="color:#3482BD">@#{twtName}</font> 
+                		<font style="color:#6E7177">#{twtMessage}</font>
                	</div>
            	</td>
            	</a4j:outputPanel>
+           	
            	<a4j:outputPanel rendered="#{(msgtype eq 'NEGATIVE')}"> 
            	<td width="380" bgcolor="#E14C16">
             	<div class="RTOBody"> 
@@ -37,6 +40,7 @@
                	</div>
            	</td>
            	</a4j:outputPanel>
+           	
             <td valign="top" align="center" width="60">
             	<a4j:outputPanel rendered="#{!(msgtype eq 'NEGATIVE')}">  
 	            	<a4j:commandButton image="../images/retweet.gif" style="cursor: pointer; padding-bottom:2px;" id="retweet"

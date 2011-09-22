@@ -1,17 +1,16 @@
 function showSWF(id, swf, divName, width, height, flashvars){
 
-	var swfVersionStr = "10.0.0";
+	var swfVersionStr = "10.2.0";
 	var xiSwfUrlStr = "playerProductInstall.swf";
-	
 	
 	var params = {};
 	params.quality = "high";
-	params.wmode = "transparent";
+	params.wmode = "opaque";
 	params.allowscriptaccess = "sameDomain";
 	params.allowfullscreen = "true";
 	var attributes = {};
 	attributes.id = id;
-	
+	attributes.name = id;
 	attributes.align = "middle";
 	swfobject.embedSWF(
 		swf, divName, 
@@ -196,25 +195,9 @@ function dcMouseOver(td){
 function dcMouseOut(td){
 	td.style.backgroundColor = oldColor;
 }
-
-
-var insideList = false;
-function setInList(b){
-	//alert("hi2") ;
-	insideList = b;
-
-}
-
-function closeList(x){
-	if(!insideList)
-	{
-		var list = document.getElementById("list_"+x);
-		if(list != null)
-			list.style.display = "none";
-	}
-}
 function toggleList(x){
 	//alert("hi") ;
+	
 	var list = document.getElementById("list_"+x);
 	var main = document.getElementById("main_"+x);
 	if(list.style.display == "block"){
@@ -227,6 +210,7 @@ function toggleList(x){
 		list.style.top = y+ 31;
 		list.style.display = "block";
 	}
+	
 	
 }
 function toggleList1(x){
@@ -260,6 +244,22 @@ function toggleList2(x){
 		list.style.top = y-58;
 		list.style.display = "block";
 		
+	}
+	
+}
+function toggleList3(x){
+	//alert("hi") ;
+	var list = document.getElementById("list_"+x);
+	var main = document.getElementById("main_"+x);
+	if(list.style.display == "block"){
+		list.style.display = "none";
+	}else{
+		var x = findPosX(main);
+		var y = findPosY(main);
+		//alert("x= " + x + "  y=" + y) ;
+		list.style.left = x;
+		list.style.top = y+ 3;
+		list.style.display = "block";
 	}
 	
 }
@@ -324,3 +324,40 @@ function toggleList2(x){
 
 	
 	
+	
+	function toggleList4(x){
+		//alert("hi1") ;
+		var list = document.getElementById("list_"+x);
+		var main = document.getElementById("main_"+x);
+		if(list.style.display == "block"){
+			list.style.display = "none";
+		}else{
+			var x = findPosX(main);
+			var y = findPosY(main);
+			//alert("x= " + x + "  y=" + y) ;
+			list.style.left = x-275;
+			list.style.top = y-58;
+			list.style.display = "block";
+			
+		}
+		
+	}
+	
+	
+	function toggleList5(x){
+		//alert("hi1") ;
+		var list = document.getElementById("list_"+x);
+		var main = document.getElementById("main_"+x);
+		if(list.style.display == "block"){
+			list.style.display = "none";
+		}else{
+			var x = findPosX(main);
+			var y = findPosY(main);
+			//alert("x= " + x + "  y=" + y) ;
+			list.style.left = x-175;
+			list.style.top = y-58;
+			list.style.display = "block";
+			
+		}
+		
+	}

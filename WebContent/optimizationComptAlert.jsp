@@ -22,7 +22,7 @@
   </tr>
   <tr>
   	<td align="center" valign="middle">
-  	<a onclick="parent.location.reload(); parent.document.getElementById('floatingDiv2').style.display='none'; parent.document.getElementById('backDrop').style.display='none';" href="#" class="optiAlert3" style="color: #55A618; text-decoration: none; padding-left:350px">
+  	<a onclick="parent.document.getElementById('floatingDiv').style.display='none'; parent.document.getElementById('backDrop').style.display='none'; parent.document.getElementById('transParentDiv').style.display='none';" href="#" class="optiAlert3" style="color: #55A618; text-decoration: none; padding-left:350px">
   	CLOSE
   	</a>
   	</td>
